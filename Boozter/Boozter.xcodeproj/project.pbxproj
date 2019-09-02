@@ -1,0 +1,675 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F46AD7CF231D4F00008DEC0B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AD7CE231D4F00008DEC0B /* main.m */; };
+		F46AD7D9231D4F00008DEC0B /* BoozterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AD7D8231D4F00008DEC0B /* BoozterTests.m */; };
+		F46AD7E4231D4F00008DEC0B /* BoozterUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AD7E3231D4F00008DEC0B /* BoozterUITests.m */; };
+		F46AD804231D4F7C008DEC0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F46AD7F3231D4F7C008DEC0B /* Assets.xcassets */; };
+		F46AD805231D4F7C008DEC0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F46AD7F4231D4F7C008DEC0B /* LaunchScreen.storyboard */; };
+		F46AD806231D4F7C008DEC0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F46AD7F6231D4F7C008DEC0B /* Main.storyboard */; };
+		F46AD807231D4F7C008DEC0B /* Boozter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F46AD7F8231D4F7C008DEC0B /* Boozter.xcdatamodeld */; };
+		F46AD808231D4F7C008DEC0B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AD802231D4F7C008DEC0B /* AppDelegate.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F46AD7D5231D4F00008DEC0B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F46AD7B1231D4EFF008DEC0B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F46AD7B8231D4EFF008DEC0B;
+			remoteInfo = Boozter;
+		};
+		F46AD7E0231D4F00008DEC0B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F46AD7B1231D4EFF008DEC0B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F46AD7B8231D4EFF008DEC0B;
+			remoteInfo = Boozter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F46AD7B9231D4EFF008DEC0B /* Boozter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boozter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F46AD7CD231D4F00008DEC0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F46AD7CE231D4F00008DEC0B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F46AD7D4231D4F00008DEC0B /* BoozterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoozterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F46AD7D8231D4F00008DEC0B /* BoozterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BoozterTests.m; sourceTree = "<group>"; };
+		F46AD7DA231D4F00008DEC0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F46AD7DF231D4F00008DEC0B /* BoozterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoozterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F46AD7E3231D4F00008DEC0B /* BoozterUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BoozterUITests.m; sourceTree = "<group>"; };
+		F46AD7E5231D4F00008DEC0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F46AD7F3231D4F7C008DEC0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F46AD7F5231D4F7C008DEC0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F46AD7F7231D4F7C008DEC0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F46AD7F9231D4F7C008DEC0B /* Boozter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Boozter.xcdatamodel; sourceTree = "<group>"; };
+		F46AD801231D4F7C008DEC0B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F46AD802231D4F7C008DEC0B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F46AD7B6231D4EFF008DEC0B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F46AD7D1231D4F00008DEC0B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F46AD7DC231D4F00008DEC0B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F46AD7B0231D4EFF008DEC0B = {
+			isa = PBXGroup;
+			children = (
+				F46AD7BB231D4EFF008DEC0B /* Boozter */,
+				F46AD7D7231D4F00008DEC0B /* BoozterTests */,
+				F46AD7E2231D4F00008DEC0B /* BoozterUITests */,
+				F46AD7BA231D4EFF008DEC0B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F46AD7BA231D4EFF008DEC0B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F46AD7B9231D4EFF008DEC0B /* Boozter.app */,
+				F46AD7D4231D4F00008DEC0B /* BoozterTests.xctest */,
+				F46AD7DF231D4F00008DEC0B /* BoozterUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F46AD7BB231D4EFF008DEC0B /* Boozter */ = {
+			isa = PBXGroup;
+			children = (
+				F46AD7FA231D4F7C008DEC0B /* Sources */,
+				F46AD7F2231D4F7C008DEC0B /* Resources */,
+				F46AD7F1231D4F68008DEC0B /* Supporting Files */,
+			);
+			path = Boozter;
+			sourceTree = "<group>";
+		};
+		F46AD7D7231D4F00008DEC0B /* BoozterTests */ = {
+			isa = PBXGroup;
+			children = (
+				F46AD7D8231D4F00008DEC0B /* BoozterTests.m */,
+				F46AD7DA231D4F00008DEC0B /* Info.plist */,
+			);
+			path = BoozterTests;
+			sourceTree = "<group>";
+		};
+		F46AD7E2231D4F00008DEC0B /* BoozterUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F46AD7E3231D4F00008DEC0B /* BoozterUITests.m */,
+				F46AD7E5231D4F00008DEC0B /* Info.plist */,
+			);
+			path = BoozterUITests;
+			sourceTree = "<group>";
+		};
+		F46AD7F1231D4F68008DEC0B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F46AD7CD231D4F00008DEC0B /* Info.plist */,
+				F46AD7CE231D4F00008DEC0B /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F46AD7F2231D4F7C008DEC0B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F46AD7F3231D4F7C008DEC0B /* Assets.xcassets */,
+				F46AD7F4231D4F7C008DEC0B /* LaunchScreen.storyboard */,
+				F46AD7F6231D4F7C008DEC0B /* Main.storyboard */,
+				F46AD7F8231D4F7C008DEC0B /* Boozter.xcdatamodeld */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F46AD7FA231D4F7C008DEC0B /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				F46AD800231D4F7C008DEC0B /* Application */,
+				F46AD809231D4F8B008DEC0B /* Model */,
+				F46AD803231D4F7C008DEC0B /* Modules */,
+				F46AD7FC231D4F7C008DEC0B /* Core */,
+				F46AD7FF231D4F7C008DEC0B /* Utilities */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		F46AD7FC231D4F7C008DEC0B /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				F46AD7FD231D4F7C008DEC0B /* Network */,
+				F46AD7FE231D4F7C008DEC0B /* Storage */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		F46AD7FD231D4F7C008DEC0B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		F46AD7FE231D4F7C008DEC0B /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		F46AD7FF231D4F7C008DEC0B /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		F46AD800231D4F7C008DEC0B /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				F46AD801231D4F7C008DEC0B /* AppDelegate.h */,
+				F46AD802231D4F7C008DEC0B /* AppDelegate.m */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		F46AD803231D4F7C008DEC0B /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		F46AD809231D4F8B008DEC0B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F46AD7B8231D4EFF008DEC0B /* Boozter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F46AD7E8231D4F00008DEC0B /* Build configuration list for PBXNativeTarget "Boozter" */;
+			buildPhases = (
+				F46AD7B5231D4EFF008DEC0B /* Sources */,
+				F46AD7B6231D4EFF008DEC0B /* Frameworks */,
+				F46AD7B7231D4EFF008DEC0B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Boozter;
+			productName = Boozter;
+			productReference = F46AD7B9231D4EFF008DEC0B /* Boozter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F46AD7D3231D4F00008DEC0B /* BoozterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F46AD7EB231D4F00008DEC0B /* Build configuration list for PBXNativeTarget "BoozterTests" */;
+			buildPhases = (
+				F46AD7D0231D4F00008DEC0B /* Sources */,
+				F46AD7D1231D4F00008DEC0B /* Frameworks */,
+				F46AD7D2231D4F00008DEC0B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F46AD7D6231D4F00008DEC0B /* PBXTargetDependency */,
+			);
+			name = BoozterTests;
+			productName = BoozterTests;
+			productReference = F46AD7D4231D4F00008DEC0B /* BoozterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F46AD7DE231D4F00008DEC0B /* BoozterUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F46AD7EE231D4F00008DEC0B /* Build configuration list for PBXNativeTarget "BoozterUITests" */;
+			buildPhases = (
+				F46AD7DB231D4F00008DEC0B /* Sources */,
+				F46AD7DC231D4F00008DEC0B /* Frameworks */,
+				F46AD7DD231D4F00008DEC0B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F46AD7E1231D4F00008DEC0B /* PBXTargetDependency */,
+			);
+			name = BoozterUITests;
+			productName = BoozterUITests;
+			productReference = F46AD7DF231D4F00008DEC0B /* BoozterUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F46AD7B1231D4EFF008DEC0B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Team Absurdum";
+				TargetAttributes = {
+					F46AD7B8231D4EFF008DEC0B = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					F46AD7D3231D4F00008DEC0B = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = F46AD7B8231D4EFF008DEC0B;
+					};
+					F46AD7DE231D4F00008DEC0B = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = F46AD7B8231D4EFF008DEC0B;
+					};
+				};
+			};
+			buildConfigurationList = F46AD7B4231D4EFF008DEC0B /* Build configuration list for PBXProject "Boozter" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F46AD7B0231D4EFF008DEC0B;
+			productRefGroup = F46AD7BA231D4EFF008DEC0B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F46AD7B8231D4EFF008DEC0B /* Boozter */,
+				F46AD7D3231D4F00008DEC0B /* BoozterTests */,
+				F46AD7DE231D4F00008DEC0B /* BoozterUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F46AD7B7231D4EFF008DEC0B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F46AD806231D4F7C008DEC0B /* Main.storyboard in Resources */,
+				F46AD804231D4F7C008DEC0B /* Assets.xcassets in Resources */,
+				F46AD805231D4F7C008DEC0B /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F46AD7D2231D4F00008DEC0B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F46AD7DD231D4F00008DEC0B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F46AD7B5231D4EFF008DEC0B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F46AD7CF231D4F00008DEC0B /* main.m in Sources */,
+				F46AD807231D4F7C008DEC0B /* Boozter.xcdatamodeld in Sources */,
+				F46AD808231D4F7C008DEC0B /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F46AD7D0231D4F00008DEC0B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F46AD7D9231D4F00008DEC0B /* BoozterTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F46AD7DB231D4F00008DEC0B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F46AD7E4231D4F00008DEC0B /* BoozterUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F46AD7D6231D4F00008DEC0B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F46AD7B8231D4EFF008DEC0B /* Boozter */;
+			targetProxy = F46AD7D5231D4F00008DEC0B /* PBXContainerItemProxy */;
+		};
+		F46AD7E1231D4F00008DEC0B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F46AD7B8231D4EFF008DEC0B /* Boozter */;
+			targetProxy = F46AD7E0231D4F00008DEC0B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F46AD7F4231D4F7C008DEC0B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F46AD7F5231D4F7C008DEC0B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F46AD7F6231D4F7C008DEC0B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F46AD7F7231D4F7C008DEC0B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F46AD7E6231D4F00008DEC0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F46AD7E7231D4F00008DEC0B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F46AD7E9231D4F00008DEC0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L2MEXR3KD6;
+				INFOPLIST_FILE = Boozter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ru.nsk.team.absurdum.bukshev.pet.Boozter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		F46AD7EA231D4F00008DEC0B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L2MEXR3KD6;
+				INFOPLIST_FILE = Boozter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ru.nsk.team.absurdum.bukshev.pet.Boozter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		F46AD7EC231D4F00008DEC0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L2MEXR3KD6;
+				INFOPLIST_FILE = BoozterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ru.nsk.team.absurdum.bukshev.pet.BoozterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Boozter.app/Boozter";
+			};
+			name = Debug;
+		};
+		F46AD7ED231D4F00008DEC0B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L2MEXR3KD6;
+				INFOPLIST_FILE = BoozterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ru.nsk.team.absurdum.bukshev.pet.BoozterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Boozter.app/Boozter";
+			};
+			name = Release;
+		};
+		F46AD7EF231D4F00008DEC0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L2MEXR3KD6;
+				INFOPLIST_FILE = BoozterUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ru.nsk.team.absurdum.bukshev.pet.BoozterUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Boozter;
+			};
+			name = Debug;
+		};
+		F46AD7F0231D4F00008DEC0B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L2MEXR3KD6;
+				INFOPLIST_FILE = BoozterUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ru.nsk.team.absurdum.bukshev.pet.BoozterUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Boozter;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F46AD7B4231D4EFF008DEC0B /* Build configuration list for PBXProject "Boozter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F46AD7E6231D4F00008DEC0B /* Debug */,
+				F46AD7E7231D4F00008DEC0B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F46AD7E8231D4F00008DEC0B /* Build configuration list for PBXNativeTarget "Boozter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F46AD7E9231D4F00008DEC0B /* Debug */,
+				F46AD7EA231D4F00008DEC0B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F46AD7EB231D4F00008DEC0B /* Build configuration list for PBXNativeTarget "BoozterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F46AD7EC231D4F00008DEC0B /* Debug */,
+				F46AD7ED231D4F00008DEC0B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F46AD7EE231D4F00008DEC0B /* Build configuration list for PBXNativeTarget "BoozterUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F46AD7EF231D4F00008DEC0B /* Debug */,
+				F46AD7F0231D4F00008DEC0B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F46AD7F8231D4F7C008DEC0B /* Boozter.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F46AD7F9231D4F7C008DEC0B /* Boozter.xcdatamodel */,
+			);
+			currentVersion = F46AD7F9231D4F7C008DEC0B /* Boozter.xcdatamodel */;
+			path = Boozter.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F46AD7B1231D4EFF008DEC0B /* Project object */;
+}
