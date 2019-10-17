@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66D3D5B5500CEED73F953CBA /* Pods_Boozter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42186FC7703558E9F3075366 /* Pods_Boozter.framework */; };
+		F432239323224AF800D5745F /* CoctailsService.m in Sources */ = {isa = PBXBuildFile; fileRef = F432239223224AF800D5745F /* CoctailsService.m */; };
+		F432239723224B3C00D5745F /* CoreDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F432239623224B3C00D5745F /* CoreDataCache.m */; };
 		F46AD7CF231D4F00008DEC0B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AD7CE231D4F00008DEC0B /* main.m */; };
 		F46AD7D9231D4F00008DEC0B /* BoozterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AD7D8231D4F00008DEC0B /* BoozterTests.m */; };
 		F46AD7E4231D4F00008DEC0B /* BoozterUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AD7E3231D4F00008DEC0B /* BoozterUITests.m */; };
@@ -15,6 +18,24 @@
 		F46AD806231D4F7C008DEC0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F46AD7F6231D4F7C008DEC0B /* Main.storyboard */; };
 		F46AD807231D4F7C008DEC0B /* Boozter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F46AD7F8231D4F7C008DEC0B /* Boozter.xcdatamodeld */; };
 		F46AD808231D4F7C008DEC0B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AD802231D4F7C008DEC0B /* AppDelegate.m */; };
+		F46AD812231D5103008DEC0B /* HomeDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AD811231D5103008DEC0B /* HomeDashboardViewController.m */; };
+		F46AD814231D510D008DEC0B /* HomeDashboardViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F46AD813231D510D008DEC0B /* HomeDashboardViewController.storyboard */; };
+		F46AD81C231D520B008DEC0B /* HomeDashboardPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AD81B231D520B008DEC0B /* HomeDashboardPresenter.m */; };
+		F46AD81F231D521A008DEC0B /* HomeDashboardRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AD81E231D521A008DEC0B /* HomeDashboardRouter.m */; };
+		F46AD824231D554D008DEC0B /* Coctail.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AD823231D554D008DEC0B /* Coctail.m */; };
+		F46AD828231D58D2008DEC0B /* HomeDashboardDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AD827231D58D2008DEC0B /* HomeDashboardDataSource.m */; };
+		F46AD82B231D5BAB008DEC0B /* HomeDashboardItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AD82A231D5BAB008DEC0B /* HomeDashboardItem.m */; };
+		F46AD82F231D5CF7008DEC0B /* HomeDashboardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AD82D231D5CF7008DEC0B /* HomeDashboardCell.m */; };
+		F46AD834231D60C9008DEC0B /* HomeDashboardInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AD833231D60C9008DEC0B /* HomeDashboardInteractor.m */; };
+		F46AD83E231E4C01008DEC0B /* HomeDashboardModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AD83D231E4C01008DEC0B /* HomeDashboardModuleAssembly.m */; };
+		F46AD849231E5B12008DEC0B /* CoctailModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AD848231E5B12008DEC0B /* CoctailModuleAssembly.m */; };
+		F46AD851231E68EA008DEC0B /* ImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AD850231E68EA008DEC0B /* ImageLoader.m */; };
+		F46AD85523210A6E008DEC0B /* CoctailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AD85423210A6E008DEC0B /* CoctailViewController.m */; };
+		F46AD85723210A79008DEC0B /* CoctailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F46AD85623210A79008DEC0B /* CoctailViewController.storyboard */; };
+		F46AD85A23210F79008DEC0B /* HomeDashboardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F46AD85923210F79008DEC0B /* HomeDashboardCell.xib */; };
+		F4F222662356E0BC00AB457B /* ManagedCoctail.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F222652356E0BC00AB457B /* ManagedCoctail.m */; };
+		F4F2227723581E0F00AB457B /* NSManagedObject+EntityName.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F2227623581E0F00AB457B /* NSManagedObject+EntityName.m */; };
+		F4F222AF2358524B00AB457B /* CoctailCacheModelFiller.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F222AE2358524B00AB457B /* CoctailCacheModelFiller.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +56,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0239254124791899E4663572 /* Pods-Boozter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boozter.debug.xcconfig"; path = "Target Support Files/Pods-Boozter/Pods-Boozter.debug.xcconfig"; sourceTree = "<group>"; };
+		42186FC7703558E9F3075366 /* Pods_Boozter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Boozter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC07C6F8277929D150FB61BA /* Pods-Boozter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boozter.release.xcconfig"; path = "Target Support Files/Pods-Boozter/Pods-Boozter.release.xcconfig"; sourceTree = "<group>"; };
+		F432239023224AE700D5745F /* ICoctailsService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICoctailsService.h; sourceTree = "<group>"; };
+		F432239123224AF800D5745F /* CoctailsService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoctailsService.h; sourceTree = "<group>"; };
+		F432239223224AF800D5745F /* CoctailsService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoctailsService.m; sourceTree = "<group>"; };
+		F432239523224B3C00D5745F /* CoreDataCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataCache.h; sourceTree = "<group>"; };
+		F432239623224B3C00D5745F /* CoreDataCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataCache.m; sourceTree = "<group>"; };
+		F432239823224B4600D5745F /* ICoreCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICoreCache.h; sourceTree = "<group>"; };
 		F46AD7B9231D4EFF008DEC0B /* Boozter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boozter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F46AD7CD231D4F00008DEC0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F46AD7CE231D4F00008DEC0B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -50,6 +80,52 @@
 		F46AD7F9231D4F7C008DEC0B /* Boozter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Boozter.xcdatamodel; sourceTree = "<group>"; };
 		F46AD801231D4F7C008DEC0B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F46AD802231D4F7C008DEC0B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F46AD810231D5103008DEC0B /* HomeDashboardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeDashboardViewController.h; sourceTree = "<group>"; };
+		F46AD811231D5103008DEC0B /* HomeDashboardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeDashboardViewController.m; sourceTree = "<group>"; };
+		F46AD813231D510D008DEC0B /* HomeDashboardViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeDashboardViewController.storyboard; sourceTree = "<group>"; };
+		F46AD816231D51C5008DEC0B /* IHomeDashboardViewInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IHomeDashboardViewInput.h; sourceTree = "<group>"; };
+		F46AD817231D51CE008DEC0B /* IHomeDashboardViewOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IHomeDashboardViewOutput.h; sourceTree = "<group>"; };
+		F46AD818231D51DB008DEC0B /* IHomeDashboardRouterInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IHomeDashboardRouterInput.h; sourceTree = "<group>"; };
+		F46AD81A231D520B008DEC0B /* HomeDashboardPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeDashboardPresenter.h; sourceTree = "<group>"; };
+		F46AD81B231D520B008DEC0B /* HomeDashboardPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeDashboardPresenter.m; sourceTree = "<group>"; };
+		F46AD81D231D521A008DEC0B /* HomeDashboardRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeDashboardRouter.h; sourceTree = "<group>"; };
+		F46AD81E231D521A008DEC0B /* HomeDashboardRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeDashboardRouter.m; sourceTree = "<group>"; };
+		F46AD822231D554D008DEC0B /* Coctail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Coctail.h; sourceTree = "<group>"; };
+		F46AD823231D554D008DEC0B /* Coctail.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Coctail.m; sourceTree = "<group>"; };
+		F46AD826231D58D2008DEC0B /* HomeDashboardDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeDashboardDataSource.h; sourceTree = "<group>"; };
+		F46AD827231D58D2008DEC0B /* HomeDashboardDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeDashboardDataSource.m; sourceTree = "<group>"; };
+		F46AD829231D5BAB008DEC0B /* HomeDashboardItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeDashboardItem.h; sourceTree = "<group>"; };
+		F46AD82A231D5BAB008DEC0B /* HomeDashboardItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeDashboardItem.m; sourceTree = "<group>"; };
+		F46AD82C231D5CF7008DEC0B /* HomeDashboardCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeDashboardCell.h; sourceTree = "<group>"; };
+		F46AD82D231D5CF7008DEC0B /* HomeDashboardCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeDashboardCell.m; sourceTree = "<group>"; };
+		F46AD832231D60C9008DEC0B /* HomeDashboardInteractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeDashboardInteractor.h; sourceTree = "<group>"; };
+		F46AD833231D60C9008DEC0B /* HomeDashboardInteractor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeDashboardInteractor.m; sourceTree = "<group>"; };
+		F46AD835231D60D2008DEC0B /* IHomeDashboardInteractorInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IHomeDashboardInteractorInput.h; sourceTree = "<group>"; };
+		F46AD836231D60DC008DEC0B /* IHomeDashboardInteractorOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IHomeDashboardInteractorOutput.h; sourceTree = "<group>"; };
+		F46AD83C231E4C01008DEC0B /* HomeDashboardModuleAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeDashboardModuleAssembly.h; sourceTree = "<group>"; };
+		F46AD83D231E4C01008DEC0B /* HomeDashboardModuleAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeDashboardModuleAssembly.m; sourceTree = "<group>"; };
+		F46AD845231E57A2008DEC0B /* CoctailModuleInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoctailModuleInput.h; sourceTree = "<group>"; };
+		F46AD847231E5B12008DEC0B /* CoctailModuleAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoctailModuleAssembly.h; sourceTree = "<group>"; };
+		F46AD848231E5B12008DEC0B /* CoctailModuleAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoctailModuleAssembly.m; sourceTree = "<group>"; };
+		F46AD84B231E5FC1008DEC0B /* IModuleTransitionHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IModuleTransitionHandler.h; sourceTree = "<group>"; };
+		F46AD84C231E6003008DEC0B /* IModuleFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IModuleFactory.h; sourceTree = "<group>"; };
+		F46AD84E231E68DC008DEC0B /* IImageLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IImageLoader.h; sourceTree = "<group>"; };
+		F46AD84F231E68EA008DEC0B /* ImageLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageLoader.h; sourceTree = "<group>"; };
+		F46AD850231E68EA008DEC0B /* ImageLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageLoader.m; sourceTree = "<group>"; };
+		F46AD85323210A6E008DEC0B /* CoctailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoctailViewController.h; sourceTree = "<group>"; };
+		F46AD85423210A6E008DEC0B /* CoctailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoctailViewController.m; sourceTree = "<group>"; };
+		F46AD85623210A79008DEC0B /* CoctailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CoctailViewController.storyboard; sourceTree = "<group>"; };
+		F46AD85923210F79008DEC0B /* HomeDashboardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeDashboardCell.xib; sourceTree = "<group>"; };
+		F4F222642356E0BC00AB457B /* ManagedCoctail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManagedCoctail.h; sourceTree = "<group>"; };
+		F4F222652356E0BC00AB457B /* ManagedCoctail.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ManagedCoctail.m; sourceTree = "<group>"; };
+		F4F2226F2357085600AB457B /* CoctailsFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoctailsFilter.h; sourceTree = "<group>"; };
+		F4F2227523581E0F00AB457B /* NSManagedObject+EntityName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+EntityName.h"; sourceTree = "<group>"; };
+		F4F2227623581E0F00AB457B /* NSManagedObject+EntityName.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+EntityName.m"; sourceTree = "<group>"; };
+		F4F222832358296900AB457B /* IPlainObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IPlainObject.h; sourceTree = "<group>"; };
+		F4F2228523583F4A00AB457B /* DataSourcePoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataSourcePoint.h; sourceTree = "<group>"; };
+		F4F222AB23584E2C00AB457B /* ICoreCacheModelFiller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICoreCacheModelFiller.h; sourceTree = "<group>"; };
+		F4F222AD2358524B00AB457B /* CoctailCacheModelFiller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoctailCacheModelFiller.h; sourceTree = "<group>"; };
+		F4F222AE2358524B00AB457B /* CoctailCacheModelFiller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoctailCacheModelFiller.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66D3D5B5500CEED73F953CBA /* Pods_Boozter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +154,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D221AB13FD87281E5C01621 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0239254124791899E4663572 /* Pods-Boozter.debug.xcconfig */,
+				CC07C6F8277929D150FB61BA /* Pods-Boozter.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9DAC30D28D8E6C28D25D62AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				42186FC7703558E9F3075366 /* Pods_Boozter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F432238F23224ACB00D5745F /* CoctailsService */ = {
+			isa = PBXGroup;
+			children = (
+				F432239023224AE700D5745F /* ICoctailsService.h */,
+				F432239123224AF800D5745F /* CoctailsService.h */,
+				F432239223224AF800D5745F /* CoctailsService.m */,
+			);
+			path = CoctailsService;
+			sourceTree = "<group>";
+		};
+		F432239423224B3100D5745F /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				F432239823224B4600D5745F /* ICoreCache.h */,
+				F432239523224B3C00D5745F /* CoreDataCache.h */,
+				F432239623224B3C00D5745F /* CoreDataCache.m */,
+				F4F222AB23584E2C00AB457B /* ICoreCacheModelFiller.h */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
 		F46AD7B0231D4EFF008DEC0B = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +199,8 @@
 				F46AD7D7231D4F00008DEC0B /* BoozterTests */,
 				F46AD7E2231D4F00008DEC0B /* BoozterUITests */,
 				F46AD7BA231D4EFF008DEC0B /* Products */,
+				0D221AB13FD87281E5C01621 /* Pods */,
+				9DAC30D28D8E6C28D25D62AF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,6 +254,7 @@
 		F46AD7F2231D4F7C008DEC0B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F46AD85823210F6A008DEC0B /* Xibs */,
 				F46AD7F3231D4F7C008DEC0B /* Assets.xcassets */,
 				F46AD7F4231D4F7C008DEC0B /* LaunchScreen.storyboard */,
 				F46AD7F6231D4F7C008DEC0B /* Main.storyboard */,
@@ -149,8 +267,10 @@
 			isa = PBXGroup;
 			children = (
 				F46AD800231D4F7C008DEC0B /* Application */,
+				F4F2227323581DEA00AB457B /* Extensions */,
 				F46AD809231D4F8B008DEC0B /* Model */,
 				F46AD803231D4F7C008DEC0B /* Modules */,
+				F46AD80F231D50CE008DEC0B /* Services */,
 				F46AD7FC231D4F7C008DEC0B /* Core */,
 				F46AD7FF231D4F7C008DEC0B /* Utilities */,
 			);
@@ -176,6 +296,7 @@
 		F46AD7FE231D4F7C008DEC0B /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				F432239423224B3100D5745F /* Cache */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -183,6 +304,7 @@
 		F46AD7FF231D4F7C008DEC0B /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				F46AD84D231E68C8008DEC0B /* ImageLoader */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -199,6 +321,9 @@
 		F46AD803231D4F7C008DEC0B /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				F46AD84A231E5FB4008DEC0B /* Common */,
+				F46AD80B231D505E008DEC0B /* HomeDashboard */,
+				F46AD844231E5786008DEC0B /* Coctail */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -206,8 +331,223 @@
 		F46AD809231D4F8B008DEC0B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F4F222822358295600AB457B /* Common */,
+				F46AD821231D553D008DEC0B /* Coctail */,
+				F4F2226E2357083200AB457B /* CoctailFilter */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		F46AD80B231D505E008DEC0B /* HomeDashboard */ = {
+			isa = PBXGroup;
+			children = (
+				F46AD83B231E4BEC008DEC0B /* Assembly */,
+				F46AD831231D60AE008DEC0B /* Interactor */,
+				F46AD825231D58BA008DEC0B /* DataSource */,
+				F46AD80D231D507D008DEC0B /* Presenter */,
+				F46AD80E231D50BF008DEC0B /* Router */,
+				F46AD80C231D5073008DEC0B /* View */,
+			);
+			path = HomeDashboard;
+			sourceTree = "<group>";
+		};
+		F46AD80C231D5073008DEC0B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F46AD82C231D5CF7008DEC0B /* HomeDashboardCell.h */,
+				F46AD82D231D5CF7008DEC0B /* HomeDashboardCell.m */,
+				F46AD816231D51C5008DEC0B /* IHomeDashboardViewInput.h */,
+				F46AD817231D51CE008DEC0B /* IHomeDashboardViewOutput.h */,
+				F46AD810231D5103008DEC0B /* HomeDashboardViewController.h */,
+				F46AD811231D5103008DEC0B /* HomeDashboardViewController.m */,
+				F46AD813231D510D008DEC0B /* HomeDashboardViewController.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F46AD80D231D507D008DEC0B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F46AD81A231D520B008DEC0B /* HomeDashboardPresenter.h */,
+				F46AD81B231D520B008DEC0B /* HomeDashboardPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		F46AD80E231D50BF008DEC0B /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F46AD818231D51DB008DEC0B /* IHomeDashboardRouterInput.h */,
+				F46AD81D231D521A008DEC0B /* HomeDashboardRouter.h */,
+				F46AD81E231D521A008DEC0B /* HomeDashboardRouter.m */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		F46AD80F231D50CE008DEC0B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F432238F23224ACB00D5745F /* CoctailsService */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F46AD821231D553D008DEC0B /* Coctail */ = {
+			isa = PBXGroup;
+			children = (
+				F4F222622356E09B00AB457B /* Plain */,
+				F4F222632356E0A300AB457B /* Managed */,
+				F4F222AC2358523A00AB457B /* CacheModelFiller */,
+			);
+			path = Coctail;
+			sourceTree = "<group>";
+		};
+		F46AD825231D58BA008DEC0B /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				F46AD829231D5BAB008DEC0B /* HomeDashboardItem.h */,
+				F46AD82A231D5BAB008DEC0B /* HomeDashboardItem.m */,
+				F46AD826231D58D2008DEC0B /* HomeDashboardDataSource.h */,
+				F46AD827231D58D2008DEC0B /* HomeDashboardDataSource.m */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		F46AD831231D60AE008DEC0B /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				F46AD835231D60D2008DEC0B /* IHomeDashboardInteractorInput.h */,
+				F46AD836231D60DC008DEC0B /* IHomeDashboardInteractorOutput.h */,
+				F46AD832231D60C9008DEC0B /* HomeDashboardInteractor.h */,
+				F46AD833231D60C9008DEC0B /* HomeDashboardInteractor.m */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		F46AD83B231E4BEC008DEC0B /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				F46AD83C231E4C01008DEC0B /* HomeDashboardModuleAssembly.h */,
+				F46AD83D231E4C01008DEC0B /* HomeDashboardModuleAssembly.m */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		F46AD844231E5786008DEC0B /* Coctail */ = {
+			isa = PBXGroup;
+			children = (
+				F46AD85223210A5E008DEC0B /* View */,
+				F46AD846231E5AF2008DEC0B /* Assembly */,
+				F46AD845231E57A2008DEC0B /* CoctailModuleInput.h */,
+			);
+			path = Coctail;
+			sourceTree = "<group>";
+		};
+		F46AD846231E5AF2008DEC0B /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				F46AD847231E5B12008DEC0B /* CoctailModuleAssembly.h */,
+				F46AD848231E5B12008DEC0B /* CoctailModuleAssembly.m */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		F46AD84A231E5FB4008DEC0B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F46AD84C231E6003008DEC0B /* IModuleFactory.h */,
+				F46AD84B231E5FC1008DEC0B /* IModuleTransitionHandler.h */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F46AD84D231E68C8008DEC0B /* ImageLoader */ = {
+			isa = PBXGroup;
+			children = (
+				F46AD84E231E68DC008DEC0B /* IImageLoader.h */,
+				F46AD84F231E68EA008DEC0B /* ImageLoader.h */,
+				F46AD850231E68EA008DEC0B /* ImageLoader.m */,
+			);
+			path = ImageLoader;
+			sourceTree = "<group>";
+		};
+		F46AD85223210A5E008DEC0B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F46AD85323210A6E008DEC0B /* CoctailViewController.h */,
+				F46AD85423210A6E008DEC0B /* CoctailViewController.m */,
+				F46AD85623210A79008DEC0B /* CoctailViewController.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F46AD85823210F6A008DEC0B /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				F46AD85923210F79008DEC0B /* HomeDashboardCell.xib */,
+			);
+			path = Xibs;
+			sourceTree = "<group>";
+		};
+		F4F222622356E09B00AB457B /* Plain */ = {
+			isa = PBXGroup;
+			children = (
+				F46AD822231D554D008DEC0B /* Coctail.h */,
+				F46AD823231D554D008DEC0B /* Coctail.m */,
+			);
+			path = Plain;
+			sourceTree = "<group>";
+		};
+		F4F222632356E0A300AB457B /* Managed */ = {
+			isa = PBXGroup;
+			children = (
+				F4F222642356E0BC00AB457B /* ManagedCoctail.h */,
+				F4F222652356E0BC00AB457B /* ManagedCoctail.m */,
+			);
+			path = Managed;
+			sourceTree = "<group>";
+		};
+		F4F2226E2357083200AB457B /* CoctailFilter */ = {
+			isa = PBXGroup;
+			children = (
+				F4F2226F2357085600AB457B /* CoctailsFilter.h */,
+			);
+			path = CoctailFilter;
+			sourceTree = "<group>";
+		};
+		F4F2227323581DEA00AB457B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F4F2227423581DF300AB457B /* NSManagedObject */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F4F2227423581DF300AB457B /* NSManagedObject */ = {
+			isa = PBXGroup;
+			children = (
+				F4F2227523581E0F00AB457B /* NSManagedObject+EntityName.h */,
+				F4F2227623581E0F00AB457B /* NSManagedObject+EntityName.m */,
+			);
+			path = NSManagedObject;
+			sourceTree = "<group>";
+		};
+		F4F222822358295600AB457B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F4F222832358296900AB457B /* IPlainObject.h */,
+				F4F2228523583F4A00AB457B /* DataSourcePoint.h */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F4F222AC2358523A00AB457B /* CacheModelFiller */ = {
+			isa = PBXGroup;
+			children = (
+				F4F222AD2358524B00AB457B /* CoctailCacheModelFiller.h */,
+				F4F222AE2358524B00AB457B /* CoctailCacheModelFiller.m */,
+			);
+			path = CacheModelFiller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,9 +557,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F46AD7E8231D4F00008DEC0B /* Build configuration list for PBXNativeTarget "Boozter" */;
 			buildPhases = (
+				4770ED665FA60DADDEB3F53A /* [CP] Check Pods Manifest.lock */,
 				F46AD7B5231D4EFF008DEC0B /* Sources */,
 				F46AD7B6231D4EFF008DEC0B /* Frameworks */,
 				F46AD7B7231D4EFF008DEC0B /* Resources */,
+				00F9E495C04D9B13C5B0514F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -314,7 +656,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F46AD806231D4F7C008DEC0B /* Main.storyboard in Resources */,
+				F46AD85A23210F79008DEC0B /* HomeDashboardCell.xib in Resources */,
+				F46AD814231D510D008DEC0B /* HomeDashboardViewController.storyboard in Resources */,
 				F46AD804231D4F7C008DEC0B /* Assets.xcassets in Resources */,
+				F46AD85723210A79008DEC0B /* CoctailViewController.storyboard in Resources */,
 				F46AD805231D4F7C008DEC0B /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,14 +680,73 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		00F9E495C04D9B13C5B0514F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Boozter/Pods-Boozter-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Boozter/Pods-Boozter-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Boozter/Pods-Boozter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4770ED665FA60DADDEB3F53A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Boozter-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F46AD7B5231D4EFF008DEC0B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F46AD851231E68EA008DEC0B /* ImageLoader.m in Sources */,
+				F46AD828231D58D2008DEC0B /* HomeDashboardDataSource.m in Sources */,
+				F46AD812231D5103008DEC0B /* HomeDashboardViewController.m in Sources */,
+				F4F222AF2358524B00AB457B /* CoctailCacheModelFiller.m in Sources */,
+				F46AD834231D60C9008DEC0B /* HomeDashboardInteractor.m in Sources */,
+				F46AD83E231E4C01008DEC0B /* HomeDashboardModuleAssembly.m in Sources */,
+				F4F222662356E0BC00AB457B /* ManagedCoctail.m in Sources */,
+				F46AD82B231D5BAB008DEC0B /* HomeDashboardItem.m in Sources */,
 				F46AD7CF231D4F00008DEC0B /* main.m in Sources */,
+				F46AD81F231D521A008DEC0B /* HomeDashboardRouter.m in Sources */,
+				F46AD82F231D5CF7008DEC0B /* HomeDashboardCell.m in Sources */,
+				F46AD81C231D520B008DEC0B /* HomeDashboardPresenter.m in Sources */,
+				F46AD85523210A6E008DEC0B /* CoctailViewController.m in Sources */,
+				F46AD849231E5B12008DEC0B /* CoctailModuleAssembly.m in Sources */,
 				F46AD807231D4F7C008DEC0B /* Boozter.xcdatamodeld in Sources */,
 				F46AD808231D4F7C008DEC0B /* AppDelegate.m in Sources */,
+				F4F2227723581E0F00AB457B /* NSManagedObject+EntityName.m in Sources */,
+				F46AD824231D554D008DEC0B /* Coctail.m in Sources */,
+				F432239323224AF800D5745F /* CoctailsService.m in Sources */,
+				F432239723224B3C00D5745F /* CoreDataCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,6 +915,7 @@
 		};
 		F46AD7E9231D4F00008DEC0B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0239254124791899E4663572 /* Pods-Boozter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -528,6 +933,7 @@
 		};
 		F46AD7EA231D4F00008DEC0B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC07C6F8277929D150FB61BA /* Pods-Boozter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
