@@ -1,8 +1,8 @@
 //
-//  IImageLoader.h
+//  IProgressIndication.h
 //  Boozter
 //
-//  Created by Ivan Bukshev on 03/09/2019.
+//  Created by Ivan Bukshev on 23/10/2019.
 //  Copyright © 2019 Team Absurdum. All rights reserved.
 //
 
@@ -10,7 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol IImageLoader <NSObject>
+@protocol IProgressIndication <NSObject>
+
+- (void)showProgressHUD;
+- (void)hideProgressHUD;
 
 @end
 

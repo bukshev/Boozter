@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ManagedCoctail : NSManagedObject
 
-@property (nonatomic, retain) NSUUID *uuid;
+@property (nonatomic, assign) NSInteger identifier;
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *imageURLString;
 

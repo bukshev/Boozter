@@ -10,6 +10,15 @@
 		66D3D5B5500CEED73F953CBA /* Pods_Boozter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42186FC7703558E9F3075366 /* Pods_Boozter.framework */; };
 		F432239323224AF800D5745F /* CoctailsService.m in Sources */ = {isa = PBXBuildFile; fileRef = F432239223224AF800D5745F /* CoctailsService.m */; };
 		F432239723224B3C00D5745F /* CoreDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F432239623224B3C00D5745F /* CoreDataCache.m */; };
+		F460CF8D2358703200240946 /* CoreNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = F460CF8C2358703200240946 /* CoreNetwork.m */; };
+		F460CF94235884A200240946 /* NetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F460CF93235884A200240946 /* NetworkOperation.m */; };
+		F460CF9C235886A300240946 /* GetCoctailsNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F460CF9B235886A300240946 /* GetCoctailsNetworkOperation.m */; };
+		F460CFA023588A7E00240946 /* GetCoctailsParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F460CF9F23588A7E00240946 /* GetCoctailsParser.m */; };
+		F460CFA42358921100240946 /* NetworkOperationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F460CFA32358921100240946 /* NetworkOperationQueue.m */; };
+		F460CFA8235998E400240946 /* ErrorProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = F460CFA7235998E400240946 /* ErrorProcessor.m */; };
+		F460CFF723601F5C00240946 /* UIViewController+ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F460CFF623601F5C00240946 /* UIViewController+ProgressHUD.m */; };
+		F460CFFD23602BD700240946 /* ImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = F460CFFC23602BD700240946 /* ImageDownloader.m */; };
+		F460D0002360311A00240946 /* ImageDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F460CFFF2360311A00240946 /* ImageDownloadOperation.m */; };
 		F46AD7CF231D4F00008DEC0B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AD7CE231D4F00008DEC0B /* main.m */; };
 		F46AD7D9231D4F00008DEC0B /* BoozterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AD7D8231D4F00008DEC0B /* BoozterTests.m */; };
 		F46AD7E4231D4F00008DEC0B /* BoozterUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AD7E3231D4F00008DEC0B /* BoozterUITests.m */; };
@@ -29,7 +38,6 @@
 		F46AD834231D60C9008DEC0B /* HomeDashboardInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AD833231D60C9008DEC0B /* HomeDashboardInteractor.m */; };
 		F46AD83E231E4C01008DEC0B /* HomeDashboardModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AD83D231E4C01008DEC0B /* HomeDashboardModuleAssembly.m */; };
 		F46AD849231E5B12008DEC0B /* CoctailModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AD848231E5B12008DEC0B /* CoctailModuleAssembly.m */; };
-		F46AD851231E68EA008DEC0B /* ImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AD850231E68EA008DEC0B /* ImageLoader.m */; };
 		F46AD85523210A6E008DEC0B /* CoctailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AD85423210A6E008DEC0B /* CoctailViewController.m */; };
 		F46AD85723210A79008DEC0B /* CoctailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F46AD85623210A79008DEC0B /* CoctailViewController.storyboard */; };
 		F46AD85A23210F79008DEC0B /* HomeDashboardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F46AD85923210F79008DEC0B /* HomeDashboardCell.xib */; };
@@ -65,6 +73,29 @@
 		F432239523224B3C00D5745F /* CoreDataCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataCache.h; sourceTree = "<group>"; };
 		F432239623224B3C00D5745F /* CoreDataCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataCache.m; sourceTree = "<group>"; };
 		F432239823224B4600D5745F /* ICoreCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICoreCache.h; sourceTree = "<group>"; };
+		F460CF8B2358703200240946 /* CoreNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreNetwork.h; sourceTree = "<group>"; };
+		F460CF8C2358703200240946 /* CoreNetwork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreNetwork.m; sourceTree = "<group>"; };
+		F460CF8E2358704900240946 /* ICoreNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICoreNetwork.h; sourceTree = "<group>"; };
+		F460CF92235884A200240946 /* NetworkOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkOperation.h; sourceTree = "<group>"; };
+		F460CF93235884A200240946 /* NetworkOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkOperation.m; sourceTree = "<group>"; };
+		F460CF9A235886A300240946 /* GetCoctailsNetworkOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetCoctailsNetworkOperation.h; sourceTree = "<group>"; };
+		F460CF9B235886A300240946 /* GetCoctailsNetworkOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetCoctailsNetworkOperation.m; sourceTree = "<group>"; };
+		F460CF9E23588A7E00240946 /* GetCoctailsParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetCoctailsParser.h; sourceTree = "<group>"; };
+		F460CF9F23588A7E00240946 /* GetCoctailsParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetCoctailsParser.m; sourceTree = "<group>"; };
+		F460CFA22358921100240946 /* NetworkOperationQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkOperationQueue.h; sourceTree = "<group>"; };
+		F460CFA32358921100240946 /* NetworkOperationQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkOperationQueue.m; sourceTree = "<group>"; };
+		F460CFA6235998E400240946 /* ErrorProcessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ErrorProcessor.h; sourceTree = "<group>"; };
+		F460CFA7235998E400240946 /* ErrorProcessor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ErrorProcessor.m; sourceTree = "<group>"; };
+		F460CFA9235998F500240946 /* IErrorProcessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IErrorProcessor.h; sourceTree = "<group>"; };
+		F460CFF523601F5C00240946 /* UIViewController+ProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ProgressHUD.h"; sourceTree = "<group>"; };
+		F460CFF623601F5C00240946 /* UIViewController+ProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ProgressHUD.m"; sourceTree = "<group>"; };
+		F460CFF823601F9400240946 /* IProgressIndication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IProgressIndication.h; sourceTree = "<group>"; };
+		F460CFFA23602BA400240946 /* IImageDownloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IImageDownloader.h; sourceTree = "<group>"; };
+		F460CFFB23602BD700240946 /* ImageDownloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageDownloader.h; sourceTree = "<group>"; };
+		F460CFFC23602BD700240946 /* ImageDownloader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageDownloader.m; sourceTree = "<group>"; };
+		F460CFFE2360311A00240946 /* ImageDownloadOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageDownloadOperation.h; sourceTree = "<group>"; };
+		F460CFFF2360311A00240946 /* ImageDownloadOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageDownloadOperation.m; sourceTree = "<group>"; };
+		F460D001236032BD00240946 /* ImageDownloadCompletion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageDownloadCompletion.h; sourceTree = "<group>"; };
 		F46AD7B9231D4EFF008DEC0B /* Boozter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boozter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F46AD7CD231D4F00008DEC0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F46AD7CE231D4F00008DEC0B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -109,13 +140,11 @@
 		F46AD848231E5B12008DEC0B /* CoctailModuleAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoctailModuleAssembly.m; sourceTree = "<group>"; };
 		F46AD84B231E5FC1008DEC0B /* IModuleTransitionHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IModuleTransitionHandler.h; sourceTree = "<group>"; };
 		F46AD84C231E6003008DEC0B /* IModuleFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IModuleFactory.h; sourceTree = "<group>"; };
-		F46AD84E231E68DC008DEC0B /* IImageLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IImageLoader.h; sourceTree = "<group>"; };
-		F46AD84F231E68EA008DEC0B /* ImageLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageLoader.h; sourceTree = "<group>"; };
-		F46AD850231E68EA008DEC0B /* ImageLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageLoader.m; sourceTree = "<group>"; };
 		F46AD85323210A6E008DEC0B /* CoctailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoctailViewController.h; sourceTree = "<group>"; };
 		F46AD85423210A6E008DEC0B /* CoctailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoctailViewController.m; sourceTree = "<group>"; };
 		F46AD85623210A79008DEC0B /* CoctailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CoctailViewController.storyboard; sourceTree = "<group>"; };
 		F46AD85923210F79008DEC0B /* HomeDashboardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeDashboardCell.xib; sourceTree = "<group>"; };
+		F493A022236AE77B00BA0643 /* IHomeDashboardCellImageDownloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IHomeDashboardCellImageDownloader.h; sourceTree = "<group>"; };
 		F4F222642356E0BC00AB457B /* ManagedCoctail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManagedCoctail.h; sourceTree = "<group>"; };
 		F4F222652356E0BC00AB457B /* ManagedCoctail.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ManagedCoctail.m; sourceTree = "<group>"; };
 		F4F2226F2357085600AB457B /* CoctailsFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoctailsFilter.h; sourceTree = "<group>"; };
@@ -192,6 +221,101 @@
 			path = Cache;
 			sourceTree = "<group>";
 		};
+		F460CF8A2358702200240946 /* CoreNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				F460CF8E2358704900240946 /* ICoreNetwork.h */,
+				F460CF8B2358703200240946 /* CoreNetwork.h */,
+				F460CF8C2358703200240946 /* CoreNetwork.m */,
+			);
+			path = CoreNetwork;
+			sourceTree = "<group>";
+		};
+		F460CF962358861800240946 /* NetworkOperation */ = {
+			isa = PBXGroup;
+			children = (
+				F460CF92235884A200240946 /* NetworkOperation.h */,
+				F460CF93235884A200240946 /* NetworkOperation.m */,
+			);
+			path = NetworkOperation;
+			sourceTree = "<group>";
+		};
+		F460CF972358867500240946 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				F460CF992358868A00240946 /* GetCoctails */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		F460CF982358867E00240946 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				F460CF9A235886A300240946 /* GetCoctailsNetworkOperation.h */,
+				F460CF9B235886A300240946 /* GetCoctailsNetworkOperation.m */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		F460CF992358868A00240946 /* GetCoctails */ = {
+			isa = PBXGroup;
+			children = (
+				F460CF9D23588A6400240946 /* Parsers */,
+				F460CF982358867E00240946 /* Operations */,
+			);
+			path = GetCoctails;
+			sourceTree = "<group>";
+		};
+		F460CF9D23588A6400240946 /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				F460CF9E23588A7E00240946 /* GetCoctailsParser.h */,
+				F460CF9F23588A7E00240946 /* GetCoctailsParser.m */,
+			);
+			path = Parsers;
+			sourceTree = "<group>";
+		};
+		F460CFA12358915C00240946 /* NetworkOperationQueue */ = {
+			isa = PBXGroup;
+			children = (
+				F460CFA22358921100240946 /* NetworkOperationQueue.h */,
+				F460CFA32358921100240946 /* NetworkOperationQueue.m */,
+			);
+			path = NetworkOperationQueue;
+			sourceTree = "<group>";
+		};
+		F460CFA52359988D00240946 /* ErrorProcessor */ = {
+			isa = PBXGroup;
+			children = (
+				F460CFA9235998F500240946 /* IErrorProcessor.h */,
+				F460CFA6235998E400240946 /* ErrorProcessor.h */,
+				F460CFA7235998E400240946 /* ErrorProcessor.m */,
+			);
+			path = ErrorProcessor;
+			sourceTree = "<group>";
+		};
+		F460CFF423601F4000240946 /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F460CFF523601F5C00240946 /* UIViewController+ProgressHUD.h */,
+				F460CFF623601F5C00240946 /* UIViewController+ProgressHUD.m */,
+			);
+			path = UIViewController;
+			sourceTree = "<group>";
+		};
+		F460CFF923602B9100240946 /* ImageDownloader */ = {
+			isa = PBXGroup;
+			children = (
+				F460CFFA23602BA400240946 /* IImageDownloader.h */,
+				F460CFFB23602BD700240946 /* ImageDownloader.h */,
+				F460CFFC23602BD700240946 /* ImageDownloader.m */,
+				F460CFFE2360311A00240946 /* ImageDownloadOperation.h */,
+				F460CFFF2360311A00240946 /* ImageDownloadOperation.m */,
+				F460D001236032BD00240946 /* ImageDownloadCompletion.h */,
+			);
+			path = ImageDownloader;
+			sourceTree = "<group>";
+		};
 		F46AD7B0231D4EFF008DEC0B = {
 			isa = PBXGroup;
 			children = (
@@ -266,6 +390,7 @@
 		F46AD7FA231D4F7C008DEC0B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				F460CF972358867500240946 /* API */,
 				F46AD800231D4F7C008DEC0B /* Application */,
 				F4F2227323581DEA00AB457B /* Extensions */,
 				F46AD809231D4F8B008DEC0B /* Model */,
@@ -289,6 +414,9 @@
 		F46AD7FD231D4F7C008DEC0B /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				F460CF8A2358702200240946 /* CoreNetwork */,
+				F460CF962358861800240946 /* NetworkOperation */,
+				F460CFA12358915C00240946 /* NetworkOperationQueue */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -304,7 +432,8 @@
 		F46AD7FF231D4F7C008DEC0B /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				F46AD84D231E68C8008DEC0B /* ImageLoader */,
+				F460CFF923602B9100240946 /* ImageDownloader */,
+				F460CFA52359988D00240946 /* ErrorProcessor */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -368,6 +497,7 @@
 		F46AD80D231D507D008DEC0B /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				F493A022236AE77B00BA0643 /* IHomeDashboardCellImageDownloader.h */,
 				F46AD81A231D520B008DEC0B /* HomeDashboardPresenter.h */,
 				F46AD81B231D520B008DEC0B /* HomeDashboardPresenter.m */,
 			);
@@ -457,18 +587,9 @@
 			children = (
 				F46AD84C231E6003008DEC0B /* IModuleFactory.h */,
 				F46AD84B231E5FC1008DEC0B /* IModuleTransitionHandler.h */,
+				F460CFF823601F9400240946 /* IProgressIndication.h */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		F46AD84D231E68C8008DEC0B /* ImageLoader */ = {
-			isa = PBXGroup;
-			children = (
-				F46AD84E231E68DC008DEC0B /* IImageLoader.h */,
-				F46AD84F231E68EA008DEC0B /* ImageLoader.h */,
-				F46AD850231E68EA008DEC0B /* ImageLoader.m */,
-			);
-			path = ImageLoader;
 			sourceTree = "<group>";
 		};
 		F46AD85223210A5E008DEC0B /* View */ = {
@@ -518,6 +639,7 @@
 		F4F2227323581DEA00AB457B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F460CFF423601F4000240946 /* UIViewController */,
 				F4F2227423581DF300AB457B /* NSManagedObject */,
 			);
 			path = Extensions;
@@ -727,26 +849,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F46AD851231E68EA008DEC0B /* ImageLoader.m in Sources */,
+				F460CF94235884A200240946 /* NetworkOperation.m in Sources */,
 				F46AD828231D58D2008DEC0B /* HomeDashboardDataSource.m in Sources */,
+				F460CF8D2358703200240946 /* CoreNetwork.m in Sources */,
+				F460CFFD23602BD700240946 /* ImageDownloader.m in Sources */,
 				F46AD812231D5103008DEC0B /* HomeDashboardViewController.m in Sources */,
 				F4F222AF2358524B00AB457B /* CoctailCacheModelFiller.m in Sources */,
 				F46AD834231D60C9008DEC0B /* HomeDashboardInteractor.m in Sources */,
+				F460CFA8235998E400240946 /* ErrorProcessor.m in Sources */,
 				F46AD83E231E4C01008DEC0B /* HomeDashboardModuleAssembly.m in Sources */,
+				F460CFF723601F5C00240946 /* UIViewController+ProgressHUD.m in Sources */,
 				F4F222662356E0BC00AB457B /* ManagedCoctail.m in Sources */,
 				F46AD82B231D5BAB008DEC0B /* HomeDashboardItem.m in Sources */,
 				F46AD7CF231D4F00008DEC0B /* main.m in Sources */,
 				F46AD81F231D521A008DEC0B /* HomeDashboardRouter.m in Sources */,
 				F46AD82F231D5CF7008DEC0B /* HomeDashboardCell.m in Sources */,
+				F460D0002360311A00240946 /* ImageDownloadOperation.m in Sources */,
 				F46AD81C231D520B008DEC0B /* HomeDashboardPresenter.m in Sources */,
 				F46AD85523210A6E008DEC0B /* CoctailViewController.m in Sources */,
 				F46AD849231E5B12008DEC0B /* CoctailModuleAssembly.m in Sources */,
 				F46AD807231D4F7C008DEC0B /* Boozter.xcdatamodeld in Sources */,
 				F46AD808231D4F7C008DEC0B /* AppDelegate.m in Sources */,
 				F4F2227723581E0F00AB457B /* NSManagedObject+EntityName.m in Sources */,
+				F460CFA42358921100240946 /* NetworkOperationQueue.m in Sources */,
 				F46AD824231D554D008DEC0B /* Coctail.m in Sources */,
 				F432239323224AF800D5745F /* CoctailsService.m in Sources */,
+				F460CFA023588A7E00240946 /* GetCoctailsParser.m in Sources */,
 				F432239723224B3C00D5745F /* CoreDataCache.m in Sources */,
+				F460CF9C235886A300240946 /* GetCoctailsNetworkOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

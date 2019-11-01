@@ -22,19 +22,26 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iu1-oW-iv2">
                         <rect key="frame" x="0.0" y="0.0" width="329" height="229"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Exb-8n-aAZ">
-                                <rect key="frame" x="20" y="188" width="289" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Exb-8n-aAZ">
+                                <rect key="frame" x="8" y="212" width="313" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3x9-BY-mKa">
+                                <rect key="frame" x="0.0" y="0.0" width="329" height="204"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" priority="999" constant="200" id="B8M-rZ-w0S"/>
-                            <constraint firstItem="Exb-8n-aAZ" firstAttribute="leading" secondItem="iu1-oW-iv2" secondAttribute="leading" constant="20" id="WhO-BB-oY1"/>
-                            <constraint firstAttribute="trailing" secondItem="Exb-8n-aAZ" secondAttribute="trailing" constant="20" id="ct8-6Y-aC3"/>
-                            <constraint firstAttribute="bottom" secondItem="Exb-8n-aAZ" secondAttribute="bottom" constant="20" id="gC8-ek-QIu"/>
+                            <constraint firstItem="Exb-8n-aAZ" firstAttribute="top" secondItem="3x9-BY-mKa" secondAttribute="bottom" constant="8" id="GOK-K5-nks"/>
+                            <constraint firstItem="Exb-8n-aAZ" firstAttribute="leading" secondItem="iu1-oW-iv2" secondAttribute="leading" constant="8" id="WhO-BB-oY1"/>
+                            <constraint firstItem="3x9-BY-mKa" firstAttribute="top" secondItem="iu1-oW-iv2" secondAttribute="top" id="cFC-Ok-KNn"/>
+                            <constraint firstItem="3x9-BY-mKa" firstAttribute="leading" secondItem="iu1-oW-iv2" secondAttribute="leading" id="cdD-qr-IIU"/>
+                            <constraint firstAttribute="trailing" secondItem="Exb-8n-aAZ" secondAttribute="trailing" constant="8" id="ct8-6Y-aC3"/>
+                            <constraint firstAttribute="bottom" secondItem="Exb-8n-aAZ" secondAttribute="bottom" id="gC8-ek-QIu"/>
+                            <constraint firstAttribute="trailing" secondItem="3x9-BY-mKa" secondAttribute="trailing" id="zn0-Je-ydh"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -48,7 +55,8 @@
             <viewLayoutGuide key="safeArea" id="r9K-gW-ulk"/>
             <size key="customSize" width="329" height="229"/>
             <connections>
-                <outlet property="namelabel" destination="Exb-8n-aAZ" id="9We-el-GBU"/>
+                <outlet property="imageView" destination="3x9-BY-mKa" id="94k-yN-LPv"/>
+                <outlet property="nameLabel" destination="Exb-8n-aAZ" id="gaB-Xx-W9R"/>
             </connections>
             <point key="canvasLocation" x="-51.449275362318843" y="83.370535714285708"/>
         </collectionViewCell>

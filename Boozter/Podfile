@@ -3,5 +3,5 @@ target 'Boozter' do
 
   # Pods for Boozter
   pod 'Typhoon'
-  pod "ViperMcFlurry"
+  pod 'ViperMcFlurry'
 end

@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DataSourcePoint.h"
+#import "ImageDownloadCompletion.h"
 
 @class Coctail;
 
-typedef void (^CoctailsServiceObtainingCallback)(NSArray<Coctail *> * _Nullable, NSError * _Nullable);
+typedef void (^CoctailsServiceObtainingCompletion)(NSArray<Coctail *> *, NSError * _Nullable);
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,8 +20,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @required
 - (void)cacheCoctails:(NSArray<Coctail *> *)coctails;
-- (void)obtainCachedCoctailsWithPredicate:(nullable NSPredicate *)predicate
-                                 callback:(CoctailsServiceObtainingCallback)callback;
+
+- (void)obtainCoctailsFromSourcePoint:(DataSourcePoint)sourcePoint
+                        withPredicate:(nullable NSPredicate *)predicate
+                    completionHandler:(CoctailsServiceObtainingCompletion)completionHandler;
+
+- (void)downloadImageFromURL:(NSURL *)url
+                   indexPath:(NSIndexPath *)indexPath
+           completionHandler:(ImageDownloadCompletion)completionHandler;
 
 @end
 

@@ -10,7 +10,7 @@
 
 @implementation ManagedCoctail
 
-@dynamic uuid;
+@dynamic identifier;
 @dynamic name;
 @dynamic imageURLString;
 

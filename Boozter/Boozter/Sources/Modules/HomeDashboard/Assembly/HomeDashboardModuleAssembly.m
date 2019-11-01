@@ -16,8 +16,12 @@
 #import "HomeDashboardRouter.h"
 
 #import "CoreDataCache.h"
+#import "CoreNetwork.h"
 #import "CoctailsService.h"
 #import "HomeDashboardDataSource.h"
+#import "NetworkOperationQueue.h"
+#import "ImageDownloader.h"
+#import "ErrorProcessor.h"
 
 @interface HomeDashboardModuleAssembly ()
 @property (nonatomic, strong, readonly) CoctailModuleAssembly *coctailModuleAssembly;
@@ -82,8 +86,11 @@
 
 - (id<ICoctailsService>)coctailsService {
     return [TyphoonDefinition withClass:[CoctailsService class] configuration:^(TyphoonDefinition *definition) {
-        [definition useInitializer:@selector(initWithCoreCache:) parameters:^(TyphoonMethod *initializer) {
+        [definition useInitializer:@selector(initWithCoreCache:coreNetwork:imageDownloader:errorProcessor:) parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:[self coreCache]];
+            [initializer injectParameterWith:[self coreNetwork]];
+            [initializer injectParameterWith:[self imageDownloader]];
+            [initializer injectParameterWith:[self errorProcessor]];
         }];
     }];
 }
@@ -94,6 +101,26 @@
             [initializer injectParameterWith:@"Boozter.xcdatamodeld"];
         }];
     }];
+}
+
+- (id<ICoreNetwork>)coreNetwork {
+    return [TyphoonDefinition withClass:[CoreNetwork class] configuration:^(TyphoonDefinition *definition) {
+        [definition useInitializer:@selector(initWithQueue:) parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:[self networkOperationQueue]];
+        }];
+    }];
+}
+
+- (id<IImageDownloader>)imageDownloader {
+    return [ImageDownloader sharedInstance];
+}
+
+- (id<IErrorProcessor>)errorProcessor {
+    return [TyphoonDefinition withClass:[ErrorProcessor class]];
+}
+
+- (NetworkOperationQueue *)networkOperationQueue {
+    return [TyphoonDefinition withClass:[NetworkOperationQueue class]];
 }
 
 - (HomeDashboardDataSource *)homeDashboardDataSource {

@@ -1,8 +1,8 @@
 //
-//  ImageLoader.h
+//  IErrorProcessor.h
 //  Boozter
 //
-//  Created by Ivan Bukshev on 03/09/2019.
+//  Created by Ivan Bukshev on 18/10/2019.
 //  Copyright © 2019 Team Absurdum. All rights reserved.
 //
 
@@ -10,7 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ImageLoader : NSObject
+@protocol IErrorProcessor <NSObject>
+
+- (void)processError:(NSError *)error;
 
 @end
 

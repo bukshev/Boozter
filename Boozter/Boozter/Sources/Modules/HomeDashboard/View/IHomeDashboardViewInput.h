@@ -8,12 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+@class NSIndexPath;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol IHomeDashboardViewInput <NSObject>
 
 - (void)setupInitialState;
+
 - (void)reloadData;
+- (void)reloadItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths;
 
 @end
 

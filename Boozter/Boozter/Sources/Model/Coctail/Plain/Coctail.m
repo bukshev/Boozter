@@ -13,14 +13,13 @@
 
 #pragma mark - Initialization
 
-- (instancetype)initWithUUID:(NSUUID *)uuid name:(NSString *)name imageURL:(NSURL *)imageURL {
-    assert(nil != uuid);
+- (instancetype)initWithIdentifier:(NSInteger)identifier name:(NSString *)name imageURL:(NSURL *)imageURL {
     assert(nil != name);
 
     self = [super init];
 
     if (nil != self) {
-        _uuid = [uuid copy];
+        _identifier = identifier;
         _name = [name copy];
         _imageURL = [imageURL copy];
     }
@@ -34,7 +33,7 @@
     assert(nil != managedObject);
 
     NSURL *url = [NSURL URLWithString:managedObject.imageURLString];
-    return [self initWithUUID:managedObject.uuid name:managedObject.name imageURL:url];
+    return [self initWithIdentifier:managedObject.identifier name:managedObject.name imageURL:url];
 }
 
 @end

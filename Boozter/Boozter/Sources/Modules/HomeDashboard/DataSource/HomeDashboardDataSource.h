@@ -9,6 +9,7 @@
 #import <UIKit/UICollectionView.h>
 
 @class Coctail;
+@protocol IHomeDashboardCellImageDownloader;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,8 +18,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak, nullable, readonly) UICollectionView *collectionView;
 
 - (void)injectCollectionView:(UICollectionView *)collectionView;
+- (void)injectHomeDashboardCellImageDownloader:(id<IHomeDashboardCellImageDownloader>)imageDownloader;
 
 - (void)updateDataSourceWithCoctails:(NSArray<Coctail *> *)coctails;
+- (void)updateImageData:(nullable NSData *)imageData itemIndexPath:(NSIndexPath *)indexPath;
+
 - (nullable Coctail *)coctailForIndexPath:(NSIndexPath *)indexPath;
 
 @end

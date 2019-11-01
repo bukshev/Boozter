@@ -16,9 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @required
 - (void)obtainCoctailsFromSourcePoint:(DataSourcePoint)sourcePoint withFilter:(CoctailsFilter)filter;
-
-#warning Remove this stub-method
-- (void)addStubCoctails;
+- (void)downloadImageFromURL:(NSURL *)url indexPath:(NSIndexPath *)indexPath;
 
 @end
 

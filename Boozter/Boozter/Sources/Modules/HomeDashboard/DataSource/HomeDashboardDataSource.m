@@ -7,14 +7,18 @@
 //
 
 #import "HomeDashboardDataSource.h"
+#import <UIKit/NSIndexPath+UIKitAdditions.h>
 #import "HomeDashboardItem.h"
 #import "HomeDashboardCell.h"
+#import "Coctail.h"
+#import "IHomeDashboardCellImageDownloader.h"
 
 static NSUInteger const kNumberOfSections = 1;
 
 @interface HomeDashboardDataSource ()
 @property (nonatomic, copy) NSMutableArray<Coctail *> *coctails;
 @property (nonatomic, copy) NSMutableArray<HomeDashboardItem *> *items;
+@property (nonatomic, weak, nullable) id<IHomeDashboardCellImageDownloader> imageDownloader;
 @end
 
 @implementation HomeDashboardDataSource
@@ -31,17 +35,27 @@ static NSUInteger const kNumberOfSections = 1;
     [_collectionView registerNib:nib forCellWithReuseIdentifier:[HomeDashboardCell reuseIdentifier]];
 }
 
+- (void)injectHomeDashboardCellImageDownloader:(id<IHomeDashboardCellImageDownloader>)imageDownloader {
+    _imageDownloader = imageDownloader;
+}
+
 #pragma mark - Public Interface
 
 - (void)updateDataSourceWithCoctails:(NSArray<Coctail *> *)coctails {
     assert(nil != coctails);
 
-    _coctails = [coctails copy];
+    _coctails = [coctails mutableCopy];
     _items = [NSMutableArray arrayWithCapacity:coctails.count];
     [coctails enumerateObjectsUsingBlock:^(Coctail *obj, NSUInteger idx, BOOL *stop) {
         HomeDashboardItem *item = [[HomeDashboardItem alloc] initWithCoctail:coctails[idx]];
         [self.items addObject:item];
     }];
+}
+
+- (void)updateImageData:(NSData *)imageData itemIndexPath:(NSIndexPath *)indexPath {
+    HomeDashboardItem *item = self.items[indexPath.row];
+    item.coctailImageData = imageData;
+
 }
 
 - (Coctail *)coctailForIndexPath:(NSIndexPath *)indexPath {
@@ -61,19 +75,22 @@ static NSUInteger const kNumberOfSections = 1;
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     NSString *const reuseIdentifier = [HomeDashboardCell reuseIdentifier];
-
-    UICollectionViewCell *dequeuedCell = nil;
-    dequeuedCell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier
-                                                             forIndexPath:indexPath];
+    UICollectionViewCell *dequeuedCell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier
+                                                                                   forIndexPath:indexPath];
 
     if (![dequeuedCell isKindOfClass:[HomeDashboardCell class]]) {
         return [[UICollectionViewCell alloc] init];
     }
 
-    HomeDashboardCell *cell = (HomeDashboardCell *)dequeuedCell;
+    __block HomeDashboardCell *cell = (HomeDashboardCell *)dequeuedCell;
     HomeDashboardItem *item = self.items[indexPath.row];
 
     [cell configureWithItem:item];
+
+    Coctail *coctail = self.coctails[indexPath.row];
+    if (nil == item.coctailImageData) {
+        [self.imageDownloader downloadImageFromURL:coctail.imageURL indexPath:indexPath];
+    }
 
     return cell;
 }

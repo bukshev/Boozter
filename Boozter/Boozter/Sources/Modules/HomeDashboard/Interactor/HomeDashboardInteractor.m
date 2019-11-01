@@ -40,36 +40,36 @@
 #pragma mark - IHomeDashboardInteractorInput
 
 - (void)obtainCoctailsFromSourcePoint:(DataSourcePoint)sourcePoint withFilter:(CoctailsFilter)filter {
-    switch (sourcePoint) {
-        case DataSourcePointCache: {
-            [self obtainCachedCoctailsWithFilter:filter];
-            break;
-        }
-        case DataSourcePointRemote: {
-            [self obtainRemoteCoctailsWithFilter:filter];
-            break;
-        }
-    }
+    NSPredicate *predicate = [self predicateFromFilter:filter];
+    CoctailsServiceObtainingCompletion completionHandler = [self obtainingCompletionHandler];
+
+    [self.coctailsService obtainCoctailsFromSourcePoint:sourcePoint
+                                          withPredicate:predicate
+                                      completionHandler:completionHandler];
 }
 
-- (void)addStubCoctails {
-    Coctail *c = [[Coctail alloc] initWithUUID:[NSUUID UUID]
-                                          name:@"12345"
-                                      imageURL:nil];
-    [self.coctailsService cacheCoctails:@[c]];
+- (void)downloadImageFromURL:(NSURL *)url indexPath:(NSIndexPath *)indexPath {
+    assert(nil != url);
+
+    __weak typeof(self) weakSelf = self;
+    [self.coctailsService downloadImageFromURL:url indexPath:indexPath completionHandler:^(NSData *imageData, NSURL *url, NSIndexPath *indexPath, NSError *error) {
+        typeof(self) strongSelf = weakSelf;
+
+        if (nil == strongSelf) {
+            NSAssert(YES, @"Interactor is nil in %s", __PRETTY_FUNCTION__);
+            return;
+        }
+
+        if (nil != error) {
+            [strongSelf.output didFailDownloadImageDataWithError:error];
+            return;
+        }
+        
+        [strongSelf.output didDownloadImageData:imageData indexPath:indexPath];
+    }];
 }
 
 #pragma mark - Private helpers
-
-- (void)obtainCachedCoctailsWithFilter:(CoctailsFilter)filter {
-    NSPredicate *predicate = [self predicateFromFilter:filter];
-    CoctailsServiceObtainingCallback callback = [self obtainingCallback];
-    [self.coctailsService obtainCachedCoctailsWithPredicate:predicate callback:callback];
-}
-
-- (void)obtainRemoteCoctailsWithFilter:(CoctailsFilter)filter {
-    assert(YES);
-}
 
 - (nullable NSPredicate *)predicateFromFilter:(CoctailsFilter)filter {
     NSPredicate *predicate = nil;
@@ -92,10 +92,10 @@
     return predicate;
 }
 
-- (CoctailsServiceObtainingCallback)obtainingCallback {
+- (CoctailsServiceObtainingCompletion)obtainingCompletionHandler {
     __weak typeof(self) weakSelf = self;
 
-    CoctailsServiceObtainingCallback callback = ^(NSArray<Coctail *> *coctails, NSError *error) {
+    CoctailsServiceObtainingCompletion completionHandler = ^(NSArray<Coctail *> *coctails, NSError *error) {
         typeof(self) strongSelf = weakSelf;
 
         if (nil == strongSelf) {
@@ -104,15 +104,15 @@
         }
 
         if (nil == error && nil != coctails) {
-            [self.output didObtainCoctails:coctails];
+            [strongSelf.output didObtainCoctails:coctails];
         } else if (nil != error) {
-            [self.output didFailObtainCoctailsWithError:error];
+            [strongSelf.output didFailObtainCoctailsWithError:error];
         } else {
             NSAssert(false, @"Unexpected behaviour in %s.", __PRETTY_FUNCTION__);
         }
     };
 
-    return [callback copy];
+    return [completionHandler copy];
 }
 
 @end

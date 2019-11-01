@@ -12,13 +12,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Coctail : NSObject<IPlainObject>
 
-@property (nonatomic, copy, readonly) NSUUID *uuid;
+@property (nonatomic, assign, readonly) NSInteger identifier;
 @property (nonatomic, copy, readonly) NSString *name;
-@property (nonatomic, copy, nullable, readonly) NSURL *imageURL;
+@property (nonatomic, strong, nullable, readonly) NSURL *imageURL;
+@property (nonatomic, strong, nullable, readwrite) NSData *imageData;
 
-- (instancetype)initWithUUID:(NSUUID *)uuid
-                        name:(NSString *)name
-                    imageURL:(nullable NSURL *)imageURL NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithIdentifier:(NSInteger)identifier
+                              name:(NSString *)name
+                          imageURL:(nullable NSURL *)imageURL NS_DESIGNATED_INITIALIZER;
 
 - (instancetype)init NS_UNAVAILABLE;
 

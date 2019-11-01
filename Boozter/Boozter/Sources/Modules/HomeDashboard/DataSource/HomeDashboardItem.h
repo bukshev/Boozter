@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HomeDashboardItem : NSObject
 
 @property (nonatomic, strong, readonly) NSString *coctailName;
-@property (nonatomic, strong, readonly) NSURL *coctailImageURL;
+@property (nonatomic, strong, nullable, readwrite) NSData *coctailImageData;
 
 - (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initWithCoctail:(Coctail *)coctail NS_DESIGNATED_INITIALIZER;

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class HomeDashboardItem;
+@protocol IHomeDashboardCellActionsDelegate;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)reuseIdentifier;
 
 - (void)configureWithItem:(HomeDashboardItem *)item;
+- (void)configureImageWithData:(nullable NSData *)imageData;
 
 @end
 

@@ -11,45 +11,26 @@
 
 @interface HomeDashboardCell ()
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
-@property (nonatomic, weak) IBOutlet UILabel *namelabel;
+@property (nonatomic, weak) IBOutlet UILabel *nameLabel;
 @end
 
 @implementation HomeDashboardCell
 
 #pragma mark - Public Interface
 
-- (void)configureWithItem:(HomeDashboardItem *)item {
-    assert(nil != item);
-    self.namelabel.text = item.coctailName;
-//    [self loadImageWithURL:item.coctailImageURL];
-}
-
 + (NSString *)reuseIdentifier {
     return NSStringFromClass([self class]);
 }
 
-#pragma mark - Private helpers
+- (void)configureWithItem:(HomeDashboardItem *)item {
+    assert(nil != item);
+    
+    self.nameLabel.text = item.coctailName;
+    self.imageView.image = [UIImage imageWithData:item.coctailImageData];
+}
 
-- (void)loadImageWithURL:(NSURL *)url {
-    // TODO: Show activity indicator on image.
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
-    dispatch_async(queue, ^{
-        NSData *imageData = [NSData dataWithContentsOfURL:url];
-        UIImage *image = [UIImage imageWithData:imageData];
-
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            if (nil != image) {
-                self.imageView.image = image;
-            } else {
-                self.imageView.image = [UIImage imageNamed:@"PlaceholderImage"];
-            }
-
-            // TODO: Hide activity indicator on image.
-            // TODO: Stop activity indicator on image.
-
-            [self setNeedsLayout];
-        });
-    });
+- (void)configureImageWithData:(NSData *)imageData {
+    self.imageView.image = [UIImage imageWithData:imageData];
 }
 
 @end

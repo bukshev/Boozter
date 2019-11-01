@@ -20,7 +20,6 @@
 
     if (nil != self) {
         _coctailName = coctail.name;
-        _coctailImageURL = coctail.imageURL;
     }
 
     return self;

@@ -42,12 +42,15 @@
 
 - (void)setupInitialState {
     self.title = @"Коктейли";
-
     [self.dataSource injectCollectionView:self.collectionView];
 }
 
 - (void)reloadData {
     [self.collectionView reloadData];
+}
+
+- (void)reloadItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths {
+    [self.collectionView reloadItemsAtIndexPaths:indexPaths];
 }
 
 #pragma mark - UICollectionViewDelegate

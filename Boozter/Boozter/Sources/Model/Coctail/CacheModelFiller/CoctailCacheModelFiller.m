@@ -27,7 +27,7 @@
 
     ManagedCoctail *managedCoctail = (ManagedCoctail *)managedObject;
 
-    managedCoctail.uuid = object.uuid;
+    managedCoctail.identifier = object.identifier;
     managedCoctail.name = object.name;
     managedCoctail.imageURLString = object.imageURL.absoluteString;
 }
