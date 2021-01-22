@@ -15,8 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GetCoctailsNetworkOperation : NetworkOperation
 
-- (instancetype)initWithCompletion:(void (^)(NSArray<Coctail *> *coctails))completion
-                     errorProcessor:(id<IErrorProcessor>)errorProcessor NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithURL:(NSURL *)url
+                 completion:(void (^)(NSArray<Coctail *> *))completion
+             errorProcessor:(id<IErrorProcessor>)errorProcessor NS_DESIGNATED_INITIALIZER;
 
 - (instancetype)init NS_UNAVAILABLE;
 

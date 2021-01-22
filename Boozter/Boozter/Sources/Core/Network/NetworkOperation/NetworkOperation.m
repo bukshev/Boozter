@@ -16,13 +16,15 @@
 
 #pragma mark - Initialization
 
-- (instancetype)initWithErrorProcessor:(id<IErrorProcessor>)errorProcessor {
+- (instancetype)initWithURL:(NSURL *)url errorProcessor:(id<IErrorProcessor>)errorProcessor {
+    assert(nil != url);
     assert(nil != errorProcessor);
 
     self = [super init];
 
     if (nil != self) {
         _ready = YES;
+        _url = [url copy];
         _errorProcessor = errorProcessor;
     }
 
@@ -36,15 +38,11 @@
         self.ready = NO;
         self.executing = YES;
         self.finished = NO;
-        
-        NSLog(@"\"%@\" Operation Started.", self.name);
     }
 }
 
 - (void)finish {
     if (self.executing) {
-        NSLog(@"\"%@\" Operation Finished.", self.name);
-
         self.executing = NO;
         self.finished = YES;
     }

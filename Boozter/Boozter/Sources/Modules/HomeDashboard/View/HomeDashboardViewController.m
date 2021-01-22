@@ -11,9 +11,7 @@
 #import "HomeDashboardDataSource.h"
 
 @interface HomeDashboardViewController () <UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
-// UI Outlets.
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
-// UI data management.
 @property (nonatomic, strong) HomeDashboardDataSource *dataSource;
 @end
 
@@ -35,21 +33,36 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.output onViewReadyEvent];
+
+    CGSize const screenSize = [UIScreen mainScreen].bounds.size;
+    [self.output onViewReadyEvent:screenSize];
 }
 
 #pragma mark - IHomeDashboardViewInput
 
 - (void)setupInitialState {
     self.title = @"Коктейли";
+
+    self.view.opaque = NO;
+    self.view.backgroundColor = [UIColor systemGroupedBackgroundColor];
+
+    self.collectionView.opaque = NO;
+    self.collectionView.showsHorizontalScrollIndicator = NO;
+    self.collectionView.backgroundColor = [UIColor systemGroupedBackgroundColor];
+
     [self.dataSource injectCollectionView:self.collectionView];
 }
 
 - (void)reloadData {
+    assert(NSThread.isMainThread);
+
     [self.collectionView reloadData];
 }
 
 - (void)reloadItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths {
+    assert(nil != indexPaths);
+    assert(NSThread.isMainThread);
+
     [self.collectionView reloadItemsAtIndexPaths:indexPaths];
 }
 
@@ -59,14 +72,27 @@
     [self.output didSelectItemAtIndexPath:indexPath];
 }
 
+- (void)collectionView:(UICollectionView *)collectionView
+       willDisplayCell:(UICollectionViewCell *)cell
+    forItemAtIndexPath:(NSIndexPath *)indexPath {
+
+    [self.dataSource collectionView:collectionView willDisplayCell:cell forItemAtIndexPath:indexPath];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView
+  didEndDisplayingCell:(UICollectionViewCell *)cell
+    forItemAtIndexPath:(NSIndexPath *)indexPath {
+
+    [self.dataSource collectionView:collectionView didEndDisplayingCell:cell forItemAtIndexPath:indexPath];
+}
+
 #pragma mark - UICollectionViewDelegateFlowLayout
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
 
-    CGSize const screenSize = [UIScreen mainScreen].bounds.size;
-    return [self.output sizeForItemAtIndexPath:indexPath screenSize:screenSize];
+    return [self.output sizeForItemAtIndexPath:indexPath];
 }
 
 @end

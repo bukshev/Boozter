@@ -12,7 +12,7 @@
 
 @class Coctail;
 
-typedef void (^CoctailsServiceObtainingCompletion)(NSArray<Coctail *> *, NSError * _Nullable);
+typedef void (^CoctailsServiceObtainingCompletion)(NSArray<Coctail *> * _Nullable, NSError * _Nullable);
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -25,9 +25,11 @@ NS_ASSUME_NONNULL_BEGIN
                         withPredicate:(nullable NSPredicate *)predicate
                     completionHandler:(CoctailsServiceObtainingCompletion)completionHandler;
 
-- (void)downloadImageFromURL:(NSURL *)url
+- (void)downloadImageFromURL:(nullable NSURL *)url
                    indexPath:(NSIndexPath *)indexPath
            completionHandler:(ImageDownloadCompletion)completionHandler;
+
+- (void)slowDownImageDownloadingFromURL:(nullable NSURL *)url;
 
 @end
 

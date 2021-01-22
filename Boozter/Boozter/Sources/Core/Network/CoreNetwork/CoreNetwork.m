@@ -16,6 +16,8 @@
 @implementation CoreNetwork
 
 - (instancetype)initWithQueue:(NetworkOperationQueue *)queue {
+    assert(nil != queue);
+
     self = [super init];
 
     if (nil != self) {
@@ -26,6 +28,8 @@
 }
 
 - (void)executeOperation:(NetworkOperation *)operation {
+    assert(nil != operation);
+
     [self.queue addOperation:operation];
 }
 

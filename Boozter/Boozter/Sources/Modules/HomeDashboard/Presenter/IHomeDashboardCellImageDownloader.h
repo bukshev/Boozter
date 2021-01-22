@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol IHomeDashboardCellImageDownloader <NSObject>
 
 - (void)downloadImageFromURL:(NSURL *)url indexPath:(NSIndexPath *)indexPath;
+- (void)slowDownImageDownloadingFromURL:(NSURL *)url;
 
 @end
 

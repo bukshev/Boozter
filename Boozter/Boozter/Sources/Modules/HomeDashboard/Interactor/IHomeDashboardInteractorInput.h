@@ -16,7 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @required
 - (void)obtainCoctailsFromSourcePoint:(DataSourcePoint)sourcePoint withFilter:(CoctailsFilter)filter;
-- (void)downloadImageFromURL:(NSURL *)url indexPath:(NSIndexPath *)indexPath;
+- (void)downloadImageFromURL:(nullable NSURL *)url indexPath:(NSIndexPath *)indexPath;
+- (void)slowDownImageDownloadingFromURL:(nullable NSURL *)url;
 
 @end
 

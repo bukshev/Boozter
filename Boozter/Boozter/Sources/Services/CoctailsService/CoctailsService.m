@@ -55,6 +55,8 @@
 
 - (void)cacheCoctails:(NSArray<Coctail *> *)coctails {
     assert(nil != coctails);
+
+    // TODO: Move this object to Assembly layer
     id<ICoreCacheModelFiller> modelFiller = [[CoctailCacheModelFiller alloc] init];
     [self.coreCache cacheObjects:(NSArray<IPlainObject> *)coctails withModelFiller:modelFiller];
 }
@@ -76,16 +78,20 @@
     }
 }
 
-- (void)downloadImageFromURL:(NSURL *)url
+- (void)downloadImageFromURL:(nullable NSURL *)url
                    indexPath:(NSIndexPath *)indexPath
            completionHandler:(ImageDownloadCompletion)completionHandler {
-    assert(nil != url);
+    assert(nil != indexPath);
     assert(NULL != completionHandler);
 
     [self.imageDownloader downloadImageFromURL:url
                                      indexPath:indexPath
                              completionHandler:completionHandler
                                 errorProcessor:self.errorProcessor];
+}
+
+- (void)slowDownImageDownloadingFromURL:(nullable NSURL *)url {
+    [self.imageDownloader slowDownImageDownloadingFromURL:url];
 }
 
 #pragma mark - Private helpers
@@ -104,17 +110,22 @@
 
 - (void)obtainRemoteCoctailsWithPredicate:(nullable NSPredicate *)predicate
                         completionHandler:(CoctailsServiceObtainingCompletion)completionHandler {
+    assert(NULL != completionHandler);
 
     void (^handler)(NSArray<Coctail *> *) = ^(NSArray<Coctail *> *coctails) {
         completionHandler(coctails, nil);
     };
 
-    GetCoctailsNetworkOperation *operation = [[GetCoctailsNetworkOperation alloc] initWithCompletion:handler
-                                                                                      errorProcessor:self.errorProcessor];
+    NSURL *url = [self urlForIngredient:@"Vodka"];
+    GetCoctailsNetworkOperation *operation = [[GetCoctailsNetworkOperation alloc] initWithURL:url
+                                                                                   completion:handler
+                                                                               errorProcessor:self.errorProcessor];
     [self.coreNetwork executeOperation:operation];
 }
 
 - (NSArray<Coctail *> *)plainObjectsFromManagedObjects:(NSArray<NSManagedObject *> *)managedObjects {
+    assert(NULL != managedObjects);
+
     NSMutableArray<Coctail *> *plainObjects = [NSMutableArray arrayWithCapacity:managedObjects.count];
 
     [managedObjects enumerateObjectsUsingBlock:^(NSManagedObject *obj, NSUInteger idx, BOOL *stop) {
@@ -124,6 +135,15 @@
     }];
 
     return [plainObjects copy];
+}
+
+- (NSURL *)urlForIngredient:(NSString *)ingredientName {
+    NSString *urlString = [NSString stringWithFormat:@"https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=%@", ingredientName];
+    NSURL *url = [NSURL URLWithString:urlString];
+//    if ([url checkResourceIsReachableAndReturnError:]) {
+//
+//    }
+    return url;
 }
 
 @end

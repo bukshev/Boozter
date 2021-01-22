@@ -10,11 +10,23 @@
 #import "HomeDashboardItem.h"
 
 @interface HomeDashboardCell ()
+@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *progressHUD;
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
 @property (nonatomic, weak) IBOutlet UILabel *nameLabel;
 @end
 
 @implementation HomeDashboardCell
+
+#pragma mark - Initialization
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+
+    [self setupInProgressState];
+
+    self.opaque = NO;
+    self.progressHUD.hidesWhenStopped = YES;
+}
 
 #pragma mark - Public Interface
 
@@ -24,13 +36,37 @@
 
 - (void)configureWithItem:(HomeDashboardItem *)item {
     assert(nil != item);
-    
-    self.nameLabel.text = item.coctailName;
+
+    [self setupCompletedState];
+
     self.imageView.image = [UIImage imageWithData:item.coctailImageData];
+    self.nameLabel.text = item.coctailName;
 }
 
-- (void)configureImageWithData:(NSData *)imageData {
-    self.imageView.image = [UIImage imageWithData:imageData];
+
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    [self setupInProgressState];
+}
+
+#pragma mark - Private helpers
+
+- (void)setupInProgressState {
+    self.progressHUD.hidden = NO;
+    [self.progressHUD startAnimating];
+
+
+    self.imageView.image = nil;
+
+    self.imageView.hidden = YES;
+    self.nameLabel.hidden = YES;
+}
+
+- (void)setupCompletedState {
+    [self.progressHUD stopAnimating];
+
+    self.imageView.hidden = NO;
+    self.nameLabel.hidden = NO;
 }
 
 @end

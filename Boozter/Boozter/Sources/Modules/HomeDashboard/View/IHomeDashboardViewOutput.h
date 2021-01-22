@@ -13,10 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol IHomeDashboardViewOutput <NSObject>
 
-- (void)onViewReadyEvent;
+- (void)onViewReadyEvent:(CGSize)screenSize;
 
 - (void)didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
-- (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath screenSize:(CGSize)screenSize;
+- (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 

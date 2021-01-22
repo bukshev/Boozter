@@ -13,7 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ImageDownloadOperation : NetworkOperation
 
-@property (nonatomic, strong, readonly) NSURL *url;
 @property (nonatomic, strong, readonly) NSIndexPath *indexPath;
 @property (nonatomic, copy, readonly) ImageDownloadCompletion completionHandler;
 

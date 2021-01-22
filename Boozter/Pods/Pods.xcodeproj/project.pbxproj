@@ -335,7 +335,7 @@
 		23BD6845B09F5C2F0327C64520922CED /* TyphoonPrimitiveTypeConverter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonPrimitiveTypeConverter.m; path = Source/TypeConversion/Converters/TyphoonPrimitiveTypeConverter.m; sourceTree = "<group>"; };
 		24E19665800F0E503BC7B7EF383E8C36 /* TyphoonAssemblyDefinitionBuilder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonAssemblyDefinitionBuilder.m; path = Source/Factory/Internal/TyphoonAssemblyDefinitionBuilder.m; sourceTree = "<group>"; };
 		24FDBE1C9B6DB787ADB281A7D7C20D0B /* TyphoonInjectionByObjectFromString.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonInjectionByObjectFromString.m; path = Source/Definition/Injections/TyphoonInjectionByObjectFromString.m; sourceTree = "<group>"; };
-		2553234EC85B7C6D611172D755042965 /* ViperMcFlurry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ViperMcFlurry.framework; path = ViperMcFlurry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2553234EC85B7C6D611172D755042965 /* ViperMcFlurry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ViperMcFlurry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		271911B7E536A41083254EC3B33B7D27 /* TyphoonViewHelpers.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonViewHelpers.m; path = Source/ios/Storyboard/TyphoonViewHelpers.m; sourceTree = "<group>"; };
 		29FDF7EBD3B7A11E19BCE4B0B8B7F758 /* TyphoonInjectionByComponentFactory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonInjectionByComponentFactory.m; path = Source/Definition/Injections/TyphoonInjectionByComponentFactory.m; sourceTree = "<group>"; };
 		2A6C3F105503EBD069E18BD92887E0EF /* TyphoonLoadedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonLoadedView.m; path = Source/ios/Storyboard/TyphoonLoadedView.m; sourceTree = "<group>"; };
@@ -407,7 +407,7 @@
 		678935D30EB67AE818917F0CFBD07BD0 /* TyphoonLoadedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonLoadedView.h; path = Source/ios/Storyboard/TyphoonLoadedView.h; sourceTree = "<group>"; };
 		6850D3F4E4C938835DEA95CC89A53167 /* TyphoonStoryboardProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonStoryboardProvider.m; path = Source/ios/Storyboard/TyphoonStoryboardProvider.m; sourceTree = "<group>"; };
 		698510D4CB93541B8A2DA798FE4C0F5F /* RamblerViperModuleFactory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RamblerViperModuleFactory.m; path = Source/RamblerViperModuleFactory.m; sourceTree = "<group>"; };
-		6C08E1C10481BD7FAC0F4A2019635945 /* Typhoon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Typhoon.framework; path = Typhoon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C08E1C10481BD7FAC0F4A2019635945 /* Typhoon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Typhoon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D15543903A82D66A0C0B19D352F597B /* Typhoon.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Typhoon.modulemap; sourceTree = "<group>"; };
 		71507BE6E954D46A6C9E15159DC5BFDF /* TyphoonSelector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonSelector.h; path = Source/Utils/TyphoonSelector.h; sourceTree = "<group>"; };
 		72814CDBFF57E42D176198B4EE4A5A5C /* ViperMcFlurry.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ViperMcFlurry.modulemap; sourceTree = "<group>"; };
@@ -439,7 +439,7 @@
 		8920FEAA8A51D3289AAD4E2F3C4399F8 /* TyphoonJsonStyleConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonJsonStyleConfiguration.m; path = Source/Configuration/ConfigPostProcessor/TyphoonConfiguration/TyphoonJsonStyleConfiguration.m; sourceTree = "<group>"; };
 		89318B7D8FAD77D36344AF006BEA5123 /* NSValue+TCFUnwrapValues.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSValue+TCFUnwrapValues.h"; path = "Source/Factory/Internal/NSValue+TCFUnwrapValues.h"; sourceTree = "<group>"; };
 		89BF29DA8CD61703BDD9484ECC4106EA /* Pods-Boozter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Boozter.release.xcconfig"; sourceTree = "<group>"; };
-		8BF14A5F352E0509F259DB38FE74F88D /* Pods_Boozter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Boozter.framework; path = "Pods-Boozter.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BF14A5F352E0509F259DB38FE74F88D /* Pods_Boozter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Boozter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C5B8D041E89A2A8D9F7AC832EE35CDB /* TyphoonStoryboardResolver.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonStoryboardResolver.h; path = Source/ios/Storyboard/TyphoonStoryboardResolver.h; sourceTree = "<group>"; };
 		8CBAD20B017C2A5DD48841804E74290A /* TyphoonInjectionByObjectInstance.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonInjectionByObjectInstance.h; path = Source/Definition/Injections/TyphoonInjectionByObjectInstance.h; sourceTree = "<group>"; };
 		8D04D2666098DD3AE5B1986423C6618C /* TyphoonStoryboardProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonStoryboardProvider.h; path = Source/ios/Storyboard/TyphoonStoryboardProvider.h; sourceTree = "<group>"; };
@@ -460,7 +460,7 @@
 		9BA34EA86517CA1CE26734282E332C42 /* TyphoonDefinition+Option.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "TyphoonDefinition+Option.h"; path = "Source/Configuration/DefinitionOptionConfiguration/TyphoonDefinition+Option.h"; sourceTree = "<group>"; };
 		9C1BD7B093BC2ACA5E635025290D5822 /* RamblerViperModuleTransitionHandlerProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RamblerViperModuleTransitionHandlerProtocol.h; path = Source/RamblerViperModuleTransitionHandlerProtocol.h; sourceTree = "<group>"; };
 		9CDEE3D99B66B17B774ACC84B2EA7E88 /* ViperMcFlurry-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ViperMcFlurry-Info.plist"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DC26E2465EBFEB0924222587AA4F30A /* TyphoonOrdered.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonOrdered.h; path = Source/Configuration/TyphoonOrdered.h; sourceTree = "<group>"; };
 		9E6A64C86B5995B0A4A6E9F21AB0AC4C /* TyphoonPropertyStyleConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonPropertyStyleConfiguration.m; path = Source/Configuration/ConfigPostProcessor/TyphoonConfiguration/TyphoonPropertyStyleConfiguration.m; sourceTree = "<group>"; };
 		9EE87EA931C841107DE444593C8C08E1 /* Typhoon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Typhoon.h; path = Source/Typhoon.h; sourceTree = "<group>"; };
@@ -943,7 +943,6 @@
 				C2EFC9B1F54CBF6B194B00396E47848D /* no-arc */,
 				ECF1ED3F49EF9AC4F2000182FE6D4A26 /* Support Files */,
 			);
-			name = Typhoon;
 			path = Typhoon;
 			sourceTree = "<group>";
 		};
@@ -1006,7 +1005,6 @@
 				DA0B5935D08369EA938A2F192BEA3E47 /* ViperMcFlurry.h */,
 				E8DFBED9774D076E74B7833FF9F0D934 /* Support Files */,
 			);
-			name = ViperMcFlurry;
 			path = ViperMcFlurry;
 			sourceTree = "<group>";
 		};
@@ -1249,7 +1247,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1230;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 10.0";
@@ -1257,6 +1255,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			productRefGroup = 312D5ABB1650C860CEF9F134650C9BB9 /* Products */;
@@ -1466,7 +1465,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/ViperMcFlurry/ViperMcFlurry-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/ViperMcFlurry/ViperMcFlurry-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1510,6 +1509,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1574,6 +1574,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1662,7 +1663,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Typhoon/Typhoon-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Typhoon/Typhoon-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1735,7 +1736,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/ViperMcFlurry/ViperMcFlurry-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/ViperMcFlurry/ViperMcFlurry-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1770,7 +1771,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Typhoon/Typhoon-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Typhoon/Typhoon-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

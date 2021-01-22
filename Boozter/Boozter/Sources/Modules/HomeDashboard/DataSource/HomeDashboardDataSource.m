@@ -30,6 +30,7 @@ static NSUInteger const kNumberOfSections = 1;
 
     _collectionView = collectionView;
     _collectionView.dataSource = self;
+    _collectionView.prefetchDataSource = self;
 
     UINib *nib = [UINib nibWithNibName:[HomeDashboardCell reuseIdentifier] bundle:nil];
     [_collectionView registerNib:nib forCellWithReuseIdentifier:[HomeDashboardCell reuseIdentifier]];
@@ -55,12 +56,39 @@ static NSUInteger const kNumberOfSections = 1;
 - (void)updateImageData:(NSData *)imageData itemIndexPath:(NSIndexPath *)indexPath {
     HomeDashboardItem *item = self.items[indexPath.row];
     item.coctailImageData = imageData;
-
 }
 
 - (Coctail *)coctailForIndexPath:(NSIndexPath *)indexPath {
     assert(nil != indexPath);
     return self.coctails[indexPath.row];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView
+       willDisplayCell:(UICollectionViewCell *)dequeuedCell
+    forItemAtIndexPath:(NSIndexPath *)indexPath {
+
+    BOOL const isHomeDashboardCell = [dequeuedCell isKindOfClass:[HomeDashboardCell class]];
+    if (!isHomeDashboardCell) {
+        return;
+    }
+
+    HomeDashboardCell *cell = (HomeDashboardCell *)dequeuedCell;
+    HomeDashboardItem *item = self.items[indexPath.row];
+
+    [cell configureWithItem:item];
+
+    Coctail *coctail = self.coctails[indexPath.row];
+    if (nil == item.coctailImageData) {
+        [self.imageDownloader downloadImageFromURL:coctail.imageURL indexPath:indexPath];
+    }
+}
+
+- (void)collectionView:(UICollectionView *)collectionView
+  didEndDisplayingCell:(UICollectionViewCell *)cell
+    forItemAtIndexPath:(NSIndexPath *)indexPath {
+
+    Coctail *coctail = self.coctails[indexPath.row];
+    [self.imageDownloader slowDownImageDownloadingFromURL:coctail.imageURL];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -75,24 +103,23 @@ static NSUInteger const kNumberOfSections = 1;
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     NSString *const reuseIdentifier = [HomeDashboardCell reuseIdentifier];
-    UICollectionViewCell *dequeuedCell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier
-                                                                                   forIndexPath:indexPath];
+    return [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];;
+}
 
-    if (![dequeuedCell isKindOfClass:[HomeDashboardCell class]]) {
-        return [[UICollectionViewCell alloc] init];
-    }
+#pragma mark - UICollectionViewDataSourcePrefetching
 
-    __block HomeDashboardCell *cell = (HomeDashboardCell *)dequeuedCell;
-    HomeDashboardItem *item = self.items[indexPath.row];
-
-    [cell configureWithItem:item];
-
-    Coctail *coctail = self.coctails[indexPath.row];
-    if (nil == item.coctailImageData) {
+- (void)collectionView:(UICollectionView *)collectionView prefetchItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths {
+    [indexPaths enumerateObjectsUsingBlock:^(NSIndexPath * indexPath, NSUInteger idx, BOOL *stop) {
+        Coctail *coctail = self.coctails[indexPath.row];
         [self.imageDownloader downloadImageFromURL:coctail.imageURL indexPath:indexPath];
-    }
+    }];
+}
 
-    return cell;
+- (void)collectionView:(UICollectionView *)collectionView cancelPrefetchingForItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths {
+    [indexPaths enumerateObjectsUsingBlock:^(NSIndexPath *indexPath, NSUInteger idx, BOOL *stop) {
+        Coctail *coctail = self.coctails[indexPath.row];
+        [self.imageDownloader slowDownImageDownloadingFromURL:coctail.imageURL];
+    }];
 }
 
 @end

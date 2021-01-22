@@ -13,7 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HomeDashboardDataSource : NSObject <UICollectionViewDataSource>
+@interface HomeDashboardDataSource : NSObject <UICollectionViewDataSource, UICollectionViewDataSourcePrefetching>
 
 @property (nonatomic, weak, nullable, readonly) UICollectionView *collectionView;
 
@@ -24,6 +24,14 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)updateImageData:(nullable NSData *)imageData itemIndexPath:(NSIndexPath *)indexPath;
 
 - (nullable Coctail *)coctailForIndexPath:(NSIndexPath *)indexPath;
+
+- (void)collectionView:(UICollectionView *)collectionView
+       willDisplayCell:(UICollectionViewCell *)cell
+    forItemAtIndexPath:(NSIndexPath *)indexPath;
+
+- (void)collectionView:(UICollectionView *)collectionView
+  didEndDisplayingCell:(UICollectionViewCell *)cell
+    forItemAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 

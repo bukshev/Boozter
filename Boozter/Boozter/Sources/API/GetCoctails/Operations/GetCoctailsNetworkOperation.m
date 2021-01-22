@@ -21,10 +21,14 @@
 
 #pragma mark - Initialization
 
-- (instancetype)initWithCompletion:(void (^)(NSArray<Coctail *> *))completion errorProcessor:(id<IErrorProcessor>)errorProcessor {
+- (instancetype)initWithURL:(NSURL *)url
+                 completion:(void (^)(NSArray<Coctail *> *))completion
+             errorProcessor:(id<IErrorProcessor>)errorProcessor {
+
+    assert(nil != url);
     assert(NULL != completion);
 
-    self = [super initWithErrorProcessor:errorProcessor];
+    self = [super initWithURL:url errorProcessor:errorProcessor];
 
     if (nil != self) {
         _name = @"GetCoctailsNetworkOperation";
@@ -42,8 +46,6 @@
 
     NSURLSession *session = [NSURLSession sharedSession];
 
-    NSURL *url = [NSURL URLWithString:@"https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin"];
-
     void (^completionHandler)(NSData *, NSURLResponse *, NSError *) = ^(NSData *data, NSURLResponse *response, NSError *error) {
         if (nil != error) {
             [self.errorProcessor processError:error];
@@ -59,7 +61,7 @@
         [self finish];
     };
 
-    NSURLSessionDataTask *task = [session dataTaskWithURL:url completionHandler:completionHandler];
+    NSURLSessionDataTask *task = [session dataTaskWithURL:self.url completionHandler:completionHandler];
     [task resume];
 }
 

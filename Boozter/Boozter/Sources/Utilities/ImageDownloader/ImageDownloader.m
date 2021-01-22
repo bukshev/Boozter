@@ -21,10 +21,12 @@
 
 + (instancetype)sharedInstance {
     static ImageDownloader *shared = nil;
+
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         shared = [[self alloc] init];
     });
+
     return shared;
 }
 
@@ -59,7 +61,6 @@
     [operations enumerateObjectsUsingBlock:^(ImageDownloadOperation *operation, NSUInteger index, BOOL *stop) {
         if ([operation.url.absoluteString isEqualToString:url.absoluteString] && (NO == operation.isFinished) && operation.isExecuting) {
             isDownloadingOperationExists = YES;
-            NSLog(@"Increase the priority of operation for: %@", url.absoluteString);
             operation.queuePriority = NSURLSessionTaskPriorityHigh;
             *stop = YES;
         }
@@ -94,8 +95,7 @@
 
     [self.downloadQueue.operations enumerateObjectsUsingBlock:^(ImageDownloadOperation *operation, NSUInteger idx, BOOL *stop) {
         if ([operation.url.absoluteString isEqualToString:url.absoluteString] && (NO == operation.isFinished) && operation.isExecuting) {
-            NSLog(@"Reduce the priority for: %@", url.absoluteString);
-            operation.queuePriority = NSURLSessionTaskPriorityLow;
+            operation.queuePriority = NSOperationQueuePriorityVeryLow;
             *stop = YES;
         }
     }];

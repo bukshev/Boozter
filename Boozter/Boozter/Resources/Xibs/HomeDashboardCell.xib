@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,19 +22,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="329" height="229"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Exb-8n-aAZ">
-                                <rect key="frame" x="8" y="212" width="313" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="8" y="209.5" width="313" height="19.5"/>
+                                <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="1" height="0.0"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3x9-BY-mKa">
-                                <rect key="frame" x="0.0" y="0.0" width="329" height="204"/>
+                                <rect key="frame" x="0.0" y="0.0" width="329" height="201.5"/>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="wVC-29-2Qs">
+                                <rect key="frame" x="146" y="96" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="height" priority="999" constant="200" id="B8M-rZ-w0S"/>
                             <constraint firstItem="Exb-8n-aAZ" firstAttribute="top" secondItem="3x9-BY-mKa" secondAttribute="bottom" constant="8" id="GOK-K5-nks"/>
+                            <constraint firstItem="wVC-29-2Qs" firstAttribute="centerX" secondItem="iu1-oW-iv2" secondAttribute="centerX" id="Nd5-2f-08n"/>
+                            <constraint firstItem="wVC-29-2Qs" firstAttribute="centerY" secondItem="iu1-oW-iv2" secondAttribute="centerY" id="UNU-UH-UIA"/>
                             <constraint firstItem="Exb-8n-aAZ" firstAttribute="leading" secondItem="iu1-oW-iv2" secondAttribute="leading" constant="8" id="WhO-BB-oY1"/>
                             <constraint firstItem="3x9-BY-mKa" firstAttribute="top" secondItem="iu1-oW-iv2" secondAttribute="top" id="cFC-Ok-KNn"/>
                             <constraint firstItem="3x9-BY-mKa" firstAttribute="leading" secondItem="iu1-oW-iv2" secondAttribute="leading" id="cdD-qr-IIU"/>
@@ -46,19 +53,25 @@
                     </view>
                 </subviews>
             </view>
+            <viewLayoutGuide key="safeArea" id="r9K-gW-ulk"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="iu1-oW-iv2" secondAttribute="bottom" id="1sa-Xc-L0A"/>
                 <constraint firstItem="iu1-oW-iv2" firstAttribute="leading" secondItem="Hf7-3J-kIX" secondAttribute="leading" id="DVg-bi-kd2"/>
                 <constraint firstItem="iu1-oW-iv2" firstAttribute="top" secondItem="Hf7-3J-kIX" secondAttribute="top" id="J3X-aS-Mh0"/>
                 <constraint firstAttribute="trailing" secondItem="iu1-oW-iv2" secondAttribute="trailing" id="K7M-lB-upY"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="r9K-gW-ulk"/>
             <size key="customSize" width="329" height="229"/>
             <connections>
                 <outlet property="imageView" destination="3x9-BY-mKa" id="94k-yN-LPv"/>
                 <outlet property="nameLabel" destination="Exb-8n-aAZ" id="gaB-Xx-W9R"/>
+                <outlet property="progressHUD" destination="wVC-29-2Qs" id="ZTv-mx-KzZ"/>
             </connections>
-            <point key="canvasLocation" x="-51.449275362318843" y="83.370535714285708"/>
+            <point key="canvasLocation" x="467" y="55"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

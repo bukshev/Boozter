@@ -10,7 +10,6 @@
 #import "IErrorProcessor.h"
 
 @interface ImageDownloadOperation ()
-@property (nonatomic, strong, readwrite) NSURL *url;
 @property (nonatomic, strong, readwrite) NSIndexPath *indexPath;
 @property (nonatomic, copy, readwrite) ImageDownloadCompletion completionHandler;
 @end
@@ -27,10 +26,9 @@
     assert(NULL != completionHandler);
     assert(nil != errorProcessor);
 
-    self = [super initWithErrorProcessor:errorProcessor];
+    self = [super initWithURL:url errorProcessor:errorProcessor];
 
     if (nil != self) {
-        _url = url;
         _indexPath = indexPath;
         _completionHandler = completionHandler;
     }

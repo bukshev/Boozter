@@ -37,7 +37,7 @@
             }
 
             _persistentContainer = [[NSPersistentContainer alloc] initWithName:@"Boozter"];
-            [_persistentContainer loadPersistentStoresWithCompletionHandler:^(NSPersistentStoreDescription *storeDescription, NSError *error) {
+            [_persistentContainer loadPersistentStoresWithCompletionHandler:^(NSPersistentStoreDescription *description, NSError *error) {
                 if (error != nil) {
                     NSLog(@"Unresolved error %@, %@", error, error.userInfo);
                     abort();

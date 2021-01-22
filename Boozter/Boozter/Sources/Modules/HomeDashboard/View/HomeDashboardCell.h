@@ -18,7 +18,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)reuseIdentifier;
 
 - (void)configureWithItem:(HomeDashboardItem *)item;
-- (void)configureImageWithData:(nullable NSData *)imageData;
 
 @end
 

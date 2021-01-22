@@ -41,14 +41,14 @@
 - (void)openDetailScreenWithCoctail:(Coctail *)coctail {
     assert(nil != coctail);
     
-    [[self.transitionHandler openModuleUsingFactory:self.coctailModuleFactory withTransitionBlock:^(id<IModuleTransitionHandler> sourceModuleTransitionHandler, id<IModuleTransitionHandler> destinationModuleTransitionHandler) {
-        UIViewController *sourceViewController = (UIViewController *)sourceModuleTransitionHandler;
-        UIViewController *destinationViewController = (UIViewController *)destinationModuleTransitionHandler;
-        [sourceViewController.navigationController pushViewController:destinationViewController animated:YES];
-    }] thenChainUsingBlock:^id<RamblerViperModuleOutput>(id<RamblerViperModuleInput> moduleInput) {
-        printf("afsgsdsdfs");
-        return nil;
-    }];
+//    [[self.transitionHandler openModuleUsingFactory:self.coctailModuleFactory withTransitionBlock:^(id<IModuleTransitionHandler> sourceModuleTransitionHandler, id<IModuleTransitionHandler> destinationModuleTransitionHandler) {
+//        UIViewController *sourceViewController = (UIViewController *)sourceModuleTransitionHandler;
+//        UIViewController *destinationViewController = (UIViewController *)destinationModuleTransitionHandler;
+//        [sourceViewController.navigationController pushViewController:destinationViewController animated:YES];
+//    }] thenChainUsingBlock:^id<RamblerViperModuleOutput>(id<RamblerViperModuleInput> moduleInput) {
+//        printf("afsgsdsdfs");
+//        return nil;
+//    }];
 }
 
 @end
