@@ -44,11 +44,10 @@
 
 - (void)downloadImageFromURL:(NSURL *)url
                    indexPath:(NSIndexPath *)indexPath
-           completionHandler:(ImageDownloadCompletion)completionHandler
-              errorProcessor:(id<IErrorProcessor>)errorProcessor {
+           completionHandler:(ImageDownloadCompletion)completionHandler {
+
     assert(nil != url);
     assert(NULL != completionHandler);
-    assert(nil != errorProcessor);
 
     NSData *cachedImageData = [self.cache objectForKey:url.absoluteString];
     if (nil != cachedImageData) {
@@ -80,8 +79,7 @@
 
     ImageDownloadOperation *newOperation = [[ImageDownloadOperation alloc] initWithURL:url
                                                                              indexPath:indexPath
-                                                                     completionHandler:downloadHandler
-                                                                        errorProcessor:errorProcessor];
+                                                                     completionHandler:downloadHandler];
 
     if (nil == indexPath) {
         newOperation.queuePriority = NSOperationQueuePriorityVeryHigh;

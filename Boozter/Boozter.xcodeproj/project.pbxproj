@@ -15,7 +15,6 @@
 		F460CF9C235886A300240946 /* GetCoctailsNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F460CF9B235886A300240946 /* GetCoctailsNetworkOperation.m */; };
 		F460CFA023588A7E00240946 /* GetCoctailsParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F460CF9F23588A7E00240946 /* GetCoctailsParser.m */; };
 		F460CFA42358921100240946 /* NetworkOperationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F460CFA32358921100240946 /* NetworkOperationQueue.m */; };
-		F460CFA8235998E400240946 /* ErrorProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = F460CFA7235998E400240946 /* ErrorProcessor.m */; };
 		F460CFF723601F5C00240946 /* UIViewController+ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F460CFF623601F5C00240946 /* UIViewController+ProgressHUD.m */; };
 		F460CFFD23602BD700240946 /* ImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = F460CFFC23602BD700240946 /* ImageDownloader.m */; };
 		F460D0002360311A00240946 /* ImageDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F460CFFF2360311A00240946 /* ImageDownloadOperation.m */; };
@@ -44,7 +43,6 @@
 		F4F222662356E0BC00AB457B /* ManagedCoctail.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F222652356E0BC00AB457B /* ManagedCoctail.m */; };
 		F4F2227723581E0F00AB457B /* NSManagedObject+EntityName.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F2227623581E0F00AB457B /* NSManagedObject+EntityName.m */; };
 		F4F222AF2358524B00AB457B /* CoctailCacheModelFiller.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F222AE2358524B00AB457B /* CoctailCacheModelFiller.m */; };
-		FBE3747D25BADBF3003F9987 /* ErrorProducer.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE3747C25BADBF3003F9987 /* ErrorProducer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,9 +83,6 @@
 		F460CF9F23588A7E00240946 /* GetCoctailsParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetCoctailsParser.m; sourceTree = "<group>"; };
 		F460CFA22358921100240946 /* NetworkOperationQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkOperationQueue.h; sourceTree = "<group>"; };
 		F460CFA32358921100240946 /* NetworkOperationQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkOperationQueue.m; sourceTree = "<group>"; };
-		F460CFA6235998E400240946 /* ErrorProcessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ErrorProcessor.h; sourceTree = "<group>"; };
-		F460CFA7235998E400240946 /* ErrorProcessor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ErrorProcessor.m; sourceTree = "<group>"; };
-		F460CFA9235998F500240946 /* IErrorProcessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IErrorProcessor.h; sourceTree = "<group>"; };
 		F460CFF523601F5C00240946 /* UIViewController+ProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ProgressHUD.h"; sourceTree = "<group>"; };
 		F460CFF623601F5C00240946 /* UIViewController+ProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ProgressHUD.m"; sourceTree = "<group>"; };
 		F460CFF823601F9400240946 /* IProgressIndication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IProgressIndication.h; sourceTree = "<group>"; };
@@ -156,9 +151,6 @@
 		F4F222AB23584E2C00AB457B /* ICoreCacheModelFiller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICoreCacheModelFiller.h; sourceTree = "<group>"; };
 		F4F222AD2358524B00AB457B /* CoctailCacheModelFiller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoctailCacheModelFiller.h; sourceTree = "<group>"; };
 		F4F222AE2358524B00AB457B /* CoctailCacheModelFiller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoctailCacheModelFiller.m; sourceTree = "<group>"; };
-		FBE3747A25BADBE6003F9987 /* IErrorProducer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IErrorProducer.h; sourceTree = "<group>"; };
-		FBE3747B25BADBF3003F9987 /* ErrorProducer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ErrorProducer.h; sourceTree = "<group>"; };
-		FBE3747C25BADBF3003F9987 /* ErrorProducer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ErrorProducer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,16 +278,6 @@
 				F460CFA32358921100240946 /* NetworkOperationQueue.m */,
 			);
 			path = NetworkOperationQueue;
-			sourceTree = "<group>";
-		};
-		F460CFA52359988D00240946 /* ErrorProcessor */ = {
-			isa = PBXGroup;
-			children = (
-				F460CFA9235998F500240946 /* IErrorProcessor.h */,
-				F460CFA6235998E400240946 /* ErrorProcessor.h */,
-				F460CFA7235998E400240946 /* ErrorProcessor.m */,
-			);
-			path = ErrorProcessor;
 			sourceTree = "<group>";
 		};
 		F460CFF423601F4000240946 /* UIViewController */ = {
@@ -436,9 +418,7 @@
 		F46AD7FF231D4F7C008DEC0B /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				FBE3747925BADBCC003F9987 /* ErrorProducer */,
 				F460CFF923602B9100240946 /* ImageDownloader */,
-				F460CFA52359988D00240946 /* ErrorProcessor */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -677,16 +657,6 @@
 			path = CacheModelFiller;
 			sourceTree = "<group>";
 		};
-		FBE3747925BADBCC003F9987 /* ErrorProducer */ = {
-			isa = PBXGroup;
-			children = (
-				FBE3747A25BADBE6003F9987 /* IErrorProducer.h */,
-				FBE3747B25BADBF3003F9987 /* ErrorProducer.h */,
-				FBE3747C25BADBF3003F9987 /* ErrorProducer.m */,
-			);
-			path = ErrorProducer;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -871,9 +841,7 @@
 				F46AD812231D5103008DEC0B /* HomeDashboardViewController.m in Sources */,
 				F4F222AF2358524B00AB457B /* CoctailCacheModelFiller.m in Sources */,
 				F46AD834231D60C9008DEC0B /* HomeDashboardInteractor.m in Sources */,
-				F460CFA8235998E400240946 /* ErrorProcessor.m in Sources */,
 				F46AD83E231E4C01008DEC0B /* HomeDashboardModuleAssembly.m in Sources */,
-				FBE3747D25BADBF3003F9987 /* ErrorProducer.m in Sources */,
 				F460CFF723601F5C00240946 /* UIViewController+ProgressHUD.m in Sources */,
 				F4F222662356E0BC00AB457B /* ManagedCoctail.m in Sources */,
 				F46AD82B231D5BAB008DEC0B /* HomeDashboardItem.m in Sources */,

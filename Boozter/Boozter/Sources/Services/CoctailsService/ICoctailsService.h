@@ -25,12 +25,6 @@ NS_ASSUME_NONNULL_BEGIN
                         withPredicate:(nullable NSPredicate *)predicate
                     completionHandler:(CoctailsServiceObtainingCompletion)completionHandler;
 
-- (void)downloadImageFromURL:(nullable NSURL *)url
-                   indexPath:(NSIndexPath *)indexPath
-           completionHandler:(ImageDownloadCompletion)completionHandler;
-
-- (void)slowDownImageDownloadingFromURL:(nullable NSURL *)url;
-
 @end
 
 NS_ASSUME_NONNULL_END

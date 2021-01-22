@@ -10,17 +10,13 @@
 
 @protocol ICoreCache;
 @protocol ICoreNetwork;
-@protocol IImageDownloader;
-@protocol IErrorProcessor;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CoctailsService : NSObject <ICoctailsService>
 
 - (instancetype)initWithCoreCache:(id<ICoreCache>)coreCache
-                      coreNetwork:(id<ICoreNetwork>)coreNetwork
-                  imageDownloader:(id<IImageDownloader>)imageDownloader
-                   errorProcessor:(id<IErrorProcessor>)errorProcessor NS_DESIGNATED_INITIALIZER;
+                      coreNetwork:(id<ICoreNetwork>)coreNetwork NS_DESIGNATED_INITIALIZER;
 
 - (instancetype)init NS_UNAVAILABLE;
 

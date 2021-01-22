@@ -13,6 +13,7 @@
 @protocol IProgressIndication;
 @protocol IHomeDashboardInteractorInput;
 @protocol IHomeDashboardRouterInput;
+@protocol IImageDownloader;
 
 @class HomeDashboardDataSource;
 
@@ -26,7 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initWithInteractor:(id<IHomeDashboardInteractorInput>)interactor
-                            router:(id<IHomeDashboardRouterInput>)router NS_DESIGNATED_INITIALIZER;
+                            router:(id<IHomeDashboardRouterInput>)router
+                   imageDownloader:(id<IImageDownloader>)imageDownloader NS_DESIGNATED_INITIALIZER;
 
 - (void)injectView:(id<IHomeDashboardViewInput, IProgressIndication>)view;
 - (void)injectDataSource:(HomeDashboardDataSource *)dataSource;

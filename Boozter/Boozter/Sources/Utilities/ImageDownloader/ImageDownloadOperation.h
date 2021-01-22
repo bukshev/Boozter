@@ -18,8 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithURL:(NSURL *)url
                   indexPath:(NSIndexPath *)indexPath
-          completionHandler:(ImageDownloadCompletion)completionHandler
-             errorProcessor:(id<IErrorProcessor>)errorProcessor NS_DESIGNATED_INITIALIZER;
+          completionHandler:(ImageDownloadCompletion)completionHandler NS_DESIGNATED_INITIALIZER;
 
 - (instancetype)init NS_UNAVAILABLE;
 

@@ -18,9 +18,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)didObtainCoctails:(NSArray<Coctail *> *)coctails;
 - (void)didFailObtainCoctailsWithError:(NSError *)error;
 
-- (void)didDownloadImageData:(NSData *)imageData indexPath:(NSIndexPath *)indexPath;
-- (void)didFailDownloadImageDataWithError:(NSError *)error;
-
 @end
 
 NS_ASSUME_NONNULL_END

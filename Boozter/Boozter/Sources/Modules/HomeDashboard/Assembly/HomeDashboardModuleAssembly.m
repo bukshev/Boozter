@@ -21,7 +21,6 @@
 #import "HomeDashboardDataSource.h"
 #import "NetworkOperationQueue.h"
 #import "ImageDownloader.h"
-#import "ErrorProcessor.h"
 
 @interface HomeDashboardModuleAssembly ()
 @property (nonatomic, strong, readonly) CoctailModuleAssembly *coctailModuleAssembly;
@@ -57,10 +56,11 @@
 - (HomeDashboardPresenter *)presenterHomeDashboardModule {
     Class presenterClass = [HomeDashboardPresenter class];
     return [TyphoonDefinition withClass:presenterClass configuration:^(TyphoonDefinition *definition) {
-        SEL selector = @selector(initWithInteractor:router:);
+        SEL selector = @selector(initWithInteractor:router:imageDownloader:);
         [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:[self interactorHomeDashboardModule]];
             [initializer injectParameterWith:[self routerHomeDashboardModule]];
+            [initializer injectParameterWith:[self imageDownloader]];
         }];
         [definition injectMethod:@selector(injectView:) parameters:^(TyphoonMethod *method) {
             [method injectParameterWith:[self viewHomeDashboardModule]];
@@ -86,11 +86,9 @@
 
 - (id<ICoctailsService>)coctailsService {
     return [TyphoonDefinition withClass:[CoctailsService class] configuration:^(TyphoonDefinition *definition) {
-        [definition useInitializer:@selector(initWithCoreCache:coreNetwork:imageDownloader:errorProcessor:) parameters:^(TyphoonMethod *initializer) {
+        [definition useInitializer:@selector(initWithCoreCache:coreNetwork:) parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:[self coreCache]];
             [initializer injectParameterWith:[self coreNetwork]];
-            [initializer injectParameterWith:[self imageDownloader]];
-            [initializer injectParameterWith:[self errorProcessor]];
         }];
     }];
 }
@@ -113,10 +111,6 @@
 
 - (id<IImageDownloader>)imageDownloader {
     return [ImageDownloader sharedInstance];
-}
-
-- (id<IErrorProcessor>)errorProcessor {
-    return [TyphoonDefinition withClass:[ErrorProcessor class]];
 }
 
 - (NetworkOperationQueue *)networkOperationQueue {

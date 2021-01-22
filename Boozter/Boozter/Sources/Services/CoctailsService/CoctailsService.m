@@ -10,20 +10,16 @@
 #import "ICoreCache.h"
 #import "ICoreNetwork.h"
 #import "CoctailCacheModelFiller.h"
-#import "IImageDownloader.h"
 //
 #import "Coctail.h"
 #import "ManagedCoctail.h"
 #import "NSManagedObject+EntityName.h"
 //
 #import "GetCoctailsNetworkOperation.h"
-#import "ErrorProcessor.h"
 
 @interface CoctailsService ()
 @property (nonatomic, strong) id<ICoreCache> coreCache;
 @property (nonatomic, strong) id<ICoreNetwork> coreNetwork;
-@property (nonatomic, strong) id<IImageDownloader> imageDownloader;
-@property (nonatomic, strong) id<IErrorProcessor> errorProcessor;
 @end
 
 @implementation CoctailsService
@@ -31,21 +27,15 @@
 #pragma mark - Initialization
 
 - (instancetype)initWithCoreCache:(id<ICoreCache>)coreCache
-                      coreNetwork:(id<ICoreNetwork>)coreNetwork
-                  imageDownloader:(id<IImageDownloader>)imageDownloader
-                   errorProcessor:(id<IErrorProcessor>)errorProcessor {
+                      coreNetwork:(id<ICoreNetwork>)coreNetwork {
     assert(nil != coreCache);
     assert(nil != coreNetwork);
-    assert(nil != imageDownloader);
-    assert(nil != errorProcessor);
 
     self = [super init];
 
     if (nil != self) {
         _coreCache = coreCache;
         _coreNetwork = coreNetwork;
-        _imageDownloader = imageDownloader;
-        _errorProcessor = errorProcessor;
     }
 
     return self;
@@ -78,22 +68,6 @@
     }
 }
 
-- (void)downloadImageFromURL:(nullable NSURL *)url
-                   indexPath:(NSIndexPath *)indexPath
-           completionHandler:(ImageDownloadCompletion)completionHandler {
-    assert(nil != indexPath);
-    assert(NULL != completionHandler);
-
-    [self.imageDownloader downloadImageFromURL:url
-                                     indexPath:indexPath
-                             completionHandler:completionHandler
-                                errorProcessor:self.errorProcessor];
-}
-
-- (void)slowDownImageDownloadingFromURL:(nullable NSURL *)url {
-    [self.imageDownloader slowDownImageDownloadingFromURL:url];
-}
-
 #pragma mark - Private helpers
 
 - (void)obtainCachedCoctailsWithPredicate:(nullable NSPredicate *)predicate
@@ -117,9 +91,7 @@
     };
 
     NSURL *url = [self urlForIngredient:@"Vodka"];
-    GetCoctailsNetworkOperation *operation = [[GetCoctailsNetworkOperation alloc] initWithURL:url
-                                                                                   completion:handler
-                                                                               errorProcessor:self.errorProcessor];
+    GetCoctailsNetworkOperation *operation = [[GetCoctailsNetworkOperation alloc] initWithURL:url completion:handler];
     [self.coreNetwork executeOperation:operation];
 }
 

@@ -7,7 +7,6 @@
 //
 
 #import "ImageDownloadOperation.h"
-#import "IErrorProcessor.h"
 
 @interface ImageDownloadOperation ()
 @property (nonatomic, strong, readwrite) NSIndexPath *indexPath;
@@ -20,13 +19,11 @@
 
 - (instancetype)initWithURL:(NSURL *)url
                   indexPath:(NSIndexPath *)indexPath
-          completionHandler:(ImageDownloadCompletion)completionHandler
-             errorProcessor:(id<IErrorProcessor>)errorProcessor {
+          completionHandler:(ImageDownloadCompletion)completionHandler {
     assert(nil != url);
     assert(NULL != completionHandler);
-    assert(nil != errorProcessor);
 
-    self = [super initWithURL:url errorProcessor:errorProcessor];
+    self = [super initWithURL:url];
 
     if (nil != self) {
         _indexPath = indexPath;
@@ -45,14 +42,11 @@
 
     void (^completionHandler)(NSURL *, NSURLResponse *, NSError *) = ^(NSURL *location, NSURLResponse *response, NSError *error) {
         if (nil != error || nil == location) {
-            [self.errorProcessor processError:error];
             return;
         }
 
         NSData *imageData = [NSData dataWithContentsOfURL:location];
         if (nil == imageData) {
-            NSError *error = nil;
-            [self.errorProcessor processError:error];
             return;
         }
 

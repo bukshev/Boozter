@@ -46,18 +46,6 @@
                                       completionHandler:[self coctailsServiceObtainingCompletion]];
 }
 
-- (void)downloadImageFromURL:(NSURL *)url indexPath:(NSIndexPath *)indexPath {
-    assert(nil != indexPath);
-
-    [self.coctailsService downloadImageFromURL:url
-                                     indexPath:indexPath
-                             completionHandler:[self imageDownloadCompletion]];
-}
-
-- (void)slowDownImageDownloadingFromURL:(NSURL *)url {
-    [self.coctailsService slowDownImageDownloadingFromURL:url];
-}
-
 #pragma mark - Private helpers
 
 - (nullable NSPredicate *)predicateFromFilter:(CoctailsFilter)filter {
@@ -96,25 +84,6 @@
             [strongSelf.output didObtainCoctails:coctails];
         } else {
             NSAssert(false, @"Unexpected behaviour in %s. 'coctails' and 'error' are nil.", __PRETTY_FUNCTION__);
-        }
-    };
-
-    return [handler copy];
-}
-
-- (ImageDownloadCompletion)imageDownloadCompletion {
-    __weak typeof(self) weakSelf = self;
-
-    ImageDownloadCompletion handler = ^(NSData *data, NSURL *url, NSIndexPath *indexPath, NSError *error) {
-        typeof(self) strongSelf = weakSelf;
-        if (nil == strongSelf) {
-            return;
-        }
-
-        if (nil != error) {
-            [strongSelf.output didFailDownloadImageDataWithError:error];
-        } else {
-            [strongSelf.output didDownloadImageData:data indexPath:indexPath];
         }
     };
 

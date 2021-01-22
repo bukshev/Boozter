@@ -16,16 +16,14 @@
 
 #pragma mark - Initialization
 
-- (instancetype)initWithURL:(NSURL *)url errorProcessor:(id<IErrorProcessor>)errorProcessor {
+- (instancetype)initWithURL:(NSURL *)url {
     assert(nil != url);
-    assert(nil != errorProcessor);
 
     self = [super init];
 
     if (nil != self) {
         _ready = YES;
         _url = [url copy];
-        _errorProcessor = errorProcessor;
     }
 
     return self;

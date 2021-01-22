@@ -9,16 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "ImageDownloadCompletion.h"
 
-@protocol IErrorProcessor;
-
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol IImageDownloader <NSObject>
 
 - (void)downloadImageFromURL:(NSURL *)url
                    indexPath:(nullable NSIndexPath *)indexPath
-           completionHandler:(ImageDownloadCompletion)completionHandler
-              errorProcessor:(id<IErrorProcessor>)errorProcessor;
+           completionHandler:(ImageDownloadCompletion)completionHandler;
 
 - (void)slowDownImageDownloadingFromURL:(NSURL *)url;
 

@@ -9,15 +9,13 @@
 #import "NetworkOperation.h"
 
 @class Coctail;
-@protocol IErrorProcessor;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GetCoctailsNetworkOperation : NetworkOperation
 
 - (instancetype)initWithURL:(NSURL *)url
-                 completion:(void (^)(NSArray<Coctail *> *))completion
-             errorProcessor:(id<IErrorProcessor>)errorProcessor NS_DESIGNATED_INITIALIZER;
+                 completion:(void (^)(NSArray<Coctail *> *))completion NS_DESIGNATED_INITIALIZER;
 
 - (instancetype)init NS_UNAVAILABLE;
 

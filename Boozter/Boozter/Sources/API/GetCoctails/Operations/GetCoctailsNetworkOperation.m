@@ -8,7 +8,6 @@
 
 #import "GetCoctailsNetworkOperation.h"
 #import "GetCoctailsParser.h"
-#import "IErrorProcessor.h"
 
 @interface GetCoctailsNetworkOperation ()
 @property (nonatomic, strong) GetCoctailsParser *parser;
@@ -22,13 +21,12 @@
 #pragma mark - Initialization
 
 - (instancetype)initWithURL:(NSURL *)url
-                 completion:(void (^)(NSArray<Coctail *> *))completion
-             errorProcessor:(id<IErrorProcessor>)errorProcessor {
+                 completion:(void (^)(NSArray<Coctail *> *))completion {
 
     assert(nil != url);
     assert(NULL != completion);
 
-    self = [super initWithURL:url errorProcessor:errorProcessor];
+    self = [super initWithURL:url];
 
     if (nil != self) {
         _name = @"GetCoctailsNetworkOperation";
@@ -48,7 +46,6 @@
 
     void (^completionHandler)(NSData *, NSURLResponse *, NSError *) = ^(NSData *data, NSURLResponse *response, NSError *error) {
         if (nil != error) {
-            [self.errorProcessor processError:error];
             return;
         }
 
