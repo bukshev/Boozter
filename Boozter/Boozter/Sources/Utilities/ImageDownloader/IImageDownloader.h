@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)downloadImageFromURL:(NSURL *)url
                    indexPath:(nullable NSIndexPath *)indexPath
+           completionHandler:(ImageForIndexPathDownloadCompletion)completionHandler;
+
+- (void)downloadImageFromURL:(NSURL *)url
            completionHandler:(ImageDownloadCompletion)completionHandler;
 
 - (void)slowDownImageDownloadingFromURL:(NSURL *)url;

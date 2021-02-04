@@ -12,7 +12,8 @@
 
 @class Coctail;
 
-typedef void (^CoctailsServiceObtainingCompletion)(NSArray<Coctail *> * _Nullable, NSError * _Nullable);
+typedef void (^ObtainCoctailsCompletion)(NSArray<Coctail *> * _Nullable, NSError * _Nullable);
+typedef void (^ObtainCoctailWithDetailsCompletion)(Coctail * _Nullable, NSError * _Nullable);
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -23,7 +24,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)obtainCoctailsFromSourcePoint:(DataSourcePoint)sourcePoint
                         withPredicate:(nullable NSPredicate *)predicate
-                    completionHandler:(CoctailsServiceObtainingCompletion)completionHandler;
+                    completionHandler:(ObtainCoctailsCompletion)completionHandler;
+
+- (void)obtainDetailsForCoctail:(NSInteger)coctailIdentifier
+              completionHandler:(ObtainCoctailWithDetailsCompletion)completionHandler;
 
 @end
 

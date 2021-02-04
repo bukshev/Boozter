@@ -13,5 +13,10 @@
 @dynamic identifier;
 @dynamic name;
 @dynamic imageURLString;
+@dynamic alcoholic;
+@dynamic category;
+@dynamic glassName;
+@dynamic instructions;
+@dynamic measuredIngredients;
 
 @end

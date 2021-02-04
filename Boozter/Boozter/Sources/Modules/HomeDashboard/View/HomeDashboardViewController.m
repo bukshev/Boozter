@@ -32,6 +32,8 @@
 #pragma mark - View Lifecycle
 
 - (void)viewDidLoad {
+    assert(nil != self.output);
+
     [super viewDidLoad];
 
     CGSize const screenSize = [UIScreen mainScreen].bounds.size;
@@ -41,6 +43,9 @@
 #pragma mark - IHomeDashboardViewInput
 
 - (void)setupInitialState {
+    assert(nil != self.collectionView);
+    assert(nil != self.dataSource);
+
     self.title = @"Коктейли";
 
     self.view.opaque = NO;

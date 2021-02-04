@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GetCoctailsParser : NSObject
 
-- (NSArray<Coctail *> *)coctailsFromDictionaries:(NSArray *)dictionaries;
+- (NSArray<Coctail *> *)coctailsFromNetworkResponseData:(NSData *)data;
 
 @end
 

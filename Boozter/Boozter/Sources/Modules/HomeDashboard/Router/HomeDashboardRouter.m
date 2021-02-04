@@ -10,6 +10,7 @@
 #import <ViperMcFlurry/ViperMcFlurry.h>
 #import "IModuleFactory.h"
 #import "IModuleTransitionHandler.h"
+#import "ICoctailModuleInput.h"
 
 @interface HomeDashboardRouter ()
 @property (nonatomic, strong) id<IModuleFactory> coctailModuleFactory;
@@ -41,14 +42,16 @@
 - (void)openDetailScreenWithCoctail:(Coctail *)coctail {
     assert(nil != coctail);
     
-//    [[self.transitionHandler openModuleUsingFactory:self.coctailModuleFactory withTransitionBlock:^(id<IModuleTransitionHandler> sourceModuleTransitionHandler, id<IModuleTransitionHandler> destinationModuleTransitionHandler) {
-//        UIViewController *sourceViewController = (UIViewController *)sourceModuleTransitionHandler;
-//        UIViewController *destinationViewController = (UIViewController *)destinationModuleTransitionHandler;
-//        [sourceViewController.navigationController pushViewController:destinationViewController animated:YES];
-//    }] thenChainUsingBlock:^id<RamblerViperModuleOutput>(id<RamblerViperModuleInput> moduleInput) {
-//        printf("afsgsdsdfs");
-//        return nil;
-//    }];
+    [[self.transitionHandler openModuleUsingFactory:self.coctailModuleFactory
+                                withTransitionBlock:^(id<RamblerViperModuleTransitionHandlerProtocol> source, id<RamblerViperModuleTransitionHandlerProtocol> destination) {
+
+        UIViewController *sourceViewController = (UIViewController *)source;
+        UIViewController *destinationViewController = (UIViewController *)destination;
+        [sourceViewController.navigationController pushViewController:destinationViewController animated:YES];
+    }] thenChainUsingBlock:^id<RamblerViperModuleOutput>(__kindof id<ICoctailModuleInput> moduleInput) {
+        [moduleInput setCoctail:coctail];
+        return nil;
+    }];
 }
 
 @end

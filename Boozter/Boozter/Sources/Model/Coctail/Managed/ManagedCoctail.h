@@ -16,6 +16,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger identifier;
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *imageURLString;
+@property (nonatomic, retain) NSString *alcoholic;
+@property (nonatomic, retain) NSString *category;
+@property (nonatomic, retain) NSString *glassName;
+@property (nonatomic, retain) NSString *instructions;
+@property (nonatomic, retain) NSArray<NSString *> *measuredIngredients;
 
 - (instancetype)init NS_UNAVAILABLE;
 

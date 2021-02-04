@@ -23,7 +23,6 @@
 		F46AD7E4231D4F00008DEC0B /* BoozterUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AD7E3231D4F00008DEC0B /* BoozterUITests.m */; };
 		F46AD804231D4F7C008DEC0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F46AD7F3231D4F7C008DEC0B /* Assets.xcassets */; };
 		F46AD805231D4F7C008DEC0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F46AD7F4231D4F7C008DEC0B /* LaunchScreen.storyboard */; };
-		F46AD806231D4F7C008DEC0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F46AD7F6231D4F7C008DEC0B /* Main.storyboard */; };
 		F46AD807231D4F7C008DEC0B /* Boozter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F46AD7F8231D4F7C008DEC0B /* Boozter.xcdatamodeld */; };
 		F46AD808231D4F7C008DEC0B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AD802231D4F7C008DEC0B /* AppDelegate.m */; };
 		F46AD812231D5103008DEC0B /* HomeDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AD811231D5103008DEC0B /* HomeDashboardViewController.m */; };
@@ -43,6 +42,14 @@
 		F4F222662356E0BC00AB457B /* ManagedCoctail.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F222652356E0BC00AB457B /* ManagedCoctail.m */; };
 		F4F2227723581E0F00AB457B /* NSManagedObject+EntityName.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F2227623581E0F00AB457B /* NSManagedObject+EntityName.m */; };
 		F4F222AF2358524B00AB457B /* CoctailCacheModelFiller.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F222AE2358524B00AB457B /* CoctailCacheModelFiller.m */; };
+		FB2F34B925CA8777006AE798 /* CoctailPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2F34B825CA8777006AE798 /* CoctailPresenter.m */; };
+		FB2F34C125CA8A6B006AE798 /* CoctailDetailsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2F34C025CA8A6B006AE798 /* CoctailDetailsItem.m */; };
+		FB2F34DA25CAE3C0006AE798 /* CoctailInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2F34D925CAE3C0006AE798 /* CoctailInteractor.m */; };
+		FB2F34E825CBE5BF006AE798 /* CoreAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2F34E725CBE5BF006AE798 /* CoreAssembly.m */; };
+		FB2F34EE25CBE67D006AE798 /* ServicesAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2F34ED25CBE67D006AE798 /* ServicesAssembly.m */; };
+		FB2F34FA25CBEA77006AE798 /* UtilitiesAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2F34F925CBEA77006AE798 /* UtilitiesAssembly.m */; };
+		FB2F350625CBF15D006AE798 /* GetCoctailDetailsParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2F350525CBF15D006AE798 /* GetCoctailDetailsParser.m */; };
+		FB2F350C25CBF1F3006AE798 /* GetCoctailDetailsNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2F350B25CBF1F3006AE798 /* GetCoctailDetailsNetworkOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,7 +110,6 @@
 		F46AD7E5231D4F00008DEC0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F46AD7F3231D4F7C008DEC0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F46AD7F5231D4F7C008DEC0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		F46AD7F7231D4F7C008DEC0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F46AD7F9231D4F7C008DEC0B /* Boozter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Boozter.xcdatamodel; sourceTree = "<group>"; };
 		F46AD801231D4F7C008DEC0B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F46AD802231D4F7C008DEC0B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -131,7 +137,7 @@
 		F46AD836231D60DC008DEC0B /* IHomeDashboardInteractorOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IHomeDashboardInteractorOutput.h; sourceTree = "<group>"; };
 		F46AD83C231E4C01008DEC0B /* HomeDashboardModuleAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeDashboardModuleAssembly.h; sourceTree = "<group>"; };
 		F46AD83D231E4C01008DEC0B /* HomeDashboardModuleAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeDashboardModuleAssembly.m; sourceTree = "<group>"; };
-		F46AD845231E57A2008DEC0B /* CoctailModuleInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoctailModuleInput.h; sourceTree = "<group>"; };
+		F46AD845231E57A2008DEC0B /* ICoctailModuleInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICoctailModuleInput.h; sourceTree = "<group>"; };
 		F46AD847231E5B12008DEC0B /* CoctailModuleAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoctailModuleAssembly.h; sourceTree = "<group>"; };
 		F46AD848231E5B12008DEC0B /* CoctailModuleAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoctailModuleAssembly.m; sourceTree = "<group>"; };
 		F46AD84B231E5FC1008DEC0B /* IModuleTransitionHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IModuleTransitionHandler.h; sourceTree = "<group>"; };
@@ -151,6 +157,28 @@
 		F4F222AB23584E2C00AB457B /* ICoreCacheModelFiller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICoreCacheModelFiller.h; sourceTree = "<group>"; };
 		F4F222AD2358524B00AB457B /* CoctailCacheModelFiller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoctailCacheModelFiller.h; sourceTree = "<group>"; };
 		F4F222AE2358524B00AB457B /* CoctailCacheModelFiller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoctailCacheModelFiller.m; sourceTree = "<group>"; };
+		FB2F34B725CA8777006AE798 /* CoctailPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoctailPresenter.h; sourceTree = "<group>"; };
+		FB2F34B825CA8777006AE798 /* CoctailPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoctailPresenter.m; sourceTree = "<group>"; };
+		FB2F34BD25CA87B2006AE798 /* ICoctailViewInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICoctailViewInput.h; sourceTree = "<group>"; };
+		FB2F34BE25CA87BB006AE798 /* ICoctailViewOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICoctailViewOutput.h; sourceTree = "<group>"; };
+		FB2F34BF25CA8A6B006AE798 /* CoctailDetailsItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoctailDetailsItem.h; sourceTree = "<group>"; };
+		FB2F34C025CA8A6B006AE798 /* CoctailDetailsItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoctailDetailsItem.m; sourceTree = "<group>"; };
+		FB2F34D825CAE3C0006AE798 /* CoctailInteractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoctailInteractor.h; sourceTree = "<group>"; };
+		FB2F34D925CAE3C0006AE798 /* CoctailInteractor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoctailInteractor.m; sourceTree = "<group>"; };
+		FB2F34E125CAE3CF006AE798 /* ICoctailInteractorInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICoctailInteractorInput.h; sourceTree = "<group>"; };
+		FB2F34E225CAE3D8006AE798 /* ICoctailInteractorOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICoctailInteractorOutput.h; sourceTree = "<group>"; };
+		FB2F34E625CBE5BF006AE798 /* CoreAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreAssembly.h; sourceTree = "<group>"; };
+		FB2F34E725CBE5BF006AE798 /* CoreAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreAssembly.m; sourceTree = "<group>"; };
+		FB2F34EC25CBE67D006AE798 /* ServicesAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServicesAssembly.h; sourceTree = "<group>"; };
+		FB2F34ED25CBE67D006AE798 /* ServicesAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServicesAssembly.m; sourceTree = "<group>"; };
+		FB2F34F825CBEA77006AE798 /* UtilitiesAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UtilitiesAssembly.h; sourceTree = "<group>"; };
+		FB2F34F925CBEA77006AE798 /* UtilitiesAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UtilitiesAssembly.m; sourceTree = "<group>"; };
+		FB2F350425CBF15D006AE798 /* GetCoctailDetailsParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetCoctailDetailsParser.h; sourceTree = "<group>"; };
+		FB2F350525CBF15D006AE798 /* GetCoctailDetailsParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetCoctailDetailsParser.m; sourceTree = "<group>"; };
+		FB2F350A25CBF1F3006AE798 /* GetCoctailDetailsNetworkOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetCoctailDetailsNetworkOperation.h; sourceTree = "<group>"; };
+		FB2F350B25CBF1F3006AE798 /* GetCoctailDetailsNetworkOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetCoctailDetailsNetworkOperation.m; sourceTree = "<group>"; };
+		FB760F4E25BE7E77007ADD30 /* Typhoon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Typhoon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB760F5225BE7E79007ADD30 /* ViperMcFlurry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ViperMcFlurry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +220,8 @@
 			isa = PBXGroup;
 			children = (
 				42186FC7703558E9F3075366 /* Pods_Boozter.framework */,
+				FB760F4E25BE7E77007ADD30 /* Typhoon.framework */,
+				FB760F5225BE7E79007ADD30 /* ViperMcFlurry.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -249,6 +279,8 @@
 			children = (
 				F460CF9A235886A300240946 /* GetCoctailsNetworkOperation.h */,
 				F460CF9B235886A300240946 /* GetCoctailsNetworkOperation.m */,
+				FB2F350A25CBF1F3006AE798 /* GetCoctailDetailsNetworkOperation.h */,
+				FB2F350B25CBF1F3006AE798 /* GetCoctailDetailsNetworkOperation.m */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -267,6 +299,8 @@
 			children = (
 				F460CF9E23588A7E00240946 /* GetCoctailsParser.h */,
 				F460CF9F23588A7E00240946 /* GetCoctailsParser.m */,
+				FB2F350425CBF15D006AE798 /* GetCoctailDetailsParser.h */,
+				FB2F350525CBF15D006AE798 /* GetCoctailDetailsParser.m */,
 			);
 			path = Parsers;
 			sourceTree = "<group>";
@@ -283,6 +317,7 @@
 		F460CFF423601F4000240946 /* UIViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F460CFF823601F9400240946 /* IProgressIndication.h */,
 				F460CFF523601F5C00240946 /* UIViewController+ProgressHUD.h */,
 				F460CFF623601F5C00240946 /* UIViewController+ProgressHUD.m */,
 			);
@@ -367,7 +402,6 @@
 				F46AD85823210F6A008DEC0B /* Xibs */,
 				F46AD7F3231D4F7C008DEC0B /* Assets.xcassets */,
 				F46AD7F4231D4F7C008DEC0B /* LaunchScreen.storyboard */,
-				F46AD7F6231D4F7C008DEC0B /* Main.storyboard */,
 				F46AD7F8231D4F7C008DEC0B /* Boozter.xcdatamodeld */,
 			);
 			path = Resources;
@@ -551,9 +585,11 @@
 		F46AD844231E5786008DEC0B /* Coctail */ = {
 			isa = PBXGroup;
 			children = (
-				F46AD85223210A5E008DEC0B /* View */,
+				FB2F351025CC34BA006AE798 /* Common */,
 				F46AD846231E5AF2008DEC0B /* Assembly */,
-				F46AD845231E57A2008DEC0B /* CoctailModuleInput.h */,
+				FB2F34D725CAE3AE006AE798 /* Interactor */,
+				FB2F34B525CA8726006AE798 /* Presenter */,
+				F46AD85223210A5E008DEC0B /* View */,
 			);
 			path = Coctail;
 			sourceTree = "<group>";
@@ -570,9 +606,8 @@
 		F46AD84A231E5FB4008DEC0B /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				F46AD84C231E6003008DEC0B /* IModuleFactory.h */,
-				F46AD84B231E5FC1008DEC0B /* IModuleTransitionHandler.h */,
-				F460CFF823601F9400240946 /* IProgressIndication.h */,
+				FB2F34F325CBE77C006AE798 /* Assembly */,
+				FB2F34F225CBE765006AE798 /* Module */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -580,6 +615,8 @@
 		F46AD85223210A5E008DEC0B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FB2F34BD25CA87B2006AE798 /* ICoctailViewInput.h */,
+				FB2F34BE25CA87BB006AE798 /* ICoctailViewOutput.h */,
 				F46AD85323210A6E008DEC0B /* CoctailViewController.h */,
 				F46AD85423210A6E008DEC0B /* CoctailViewController.m */,
 				F46AD85623210A79008DEC0B /* CoctailViewController.storyboard */,
@@ -655,6 +692,58 @@
 				F4F222AE2358524B00AB457B /* CoctailCacheModelFiller.m */,
 			);
 			path = CacheModelFiller;
+			sourceTree = "<group>";
+		};
+		FB2F34B525CA8726006AE798 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F46AD845231E57A2008DEC0B /* ICoctailModuleInput.h */,
+				FB2F34B725CA8777006AE798 /* CoctailPresenter.h */,
+				FB2F34B825CA8777006AE798 /* CoctailPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		FB2F34D725CAE3AE006AE798 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				FB2F34E125CAE3CF006AE798 /* ICoctailInteractorInput.h */,
+				FB2F34E225CAE3D8006AE798 /* ICoctailInteractorOutput.h */,
+				FB2F34D825CAE3C0006AE798 /* CoctailInteractor.h */,
+				FB2F34D925CAE3C0006AE798 /* CoctailInteractor.m */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		FB2F34F225CBE765006AE798 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				F46AD84C231E6003008DEC0B /* IModuleFactory.h */,
+				F46AD84B231E5FC1008DEC0B /* IModuleTransitionHandler.h */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		FB2F34F325CBE77C006AE798 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				FB2F34E625CBE5BF006AE798 /* CoreAssembly.h */,
+				FB2F34E725CBE5BF006AE798 /* CoreAssembly.m */,
+				FB2F34EC25CBE67D006AE798 /* ServicesAssembly.h */,
+				FB2F34ED25CBE67D006AE798 /* ServicesAssembly.m */,
+				FB2F34F825CBEA77006AE798 /* UtilitiesAssembly.h */,
+				FB2F34F925CBEA77006AE798 /* UtilitiesAssembly.m */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		FB2F351025CC34BA006AE798 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FB2F34BF25CA8A6B006AE798 /* CoctailDetailsItem.h */,
+				FB2F34C025CA8A6B006AE798 /* CoctailDetailsItem.m */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -762,7 +851,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F46AD806231D4F7C008DEC0B /* Main.storyboard in Resources */,
 				F46AD85A23210F79008DEC0B /* HomeDashboardCell.xib in Resources */,
 				F46AD814231D510D008DEC0B /* HomeDashboardViewController.storyboard in Resources */,
 				F46AD804231D4F7C008DEC0B /* Assets.xcassets in Resources */,
@@ -835,20 +923,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				F460CF94235884A200240946 /* NetworkOperation.m in Sources */,
+				FB2F350C25CBF1F3006AE798 /* GetCoctailDetailsNetworkOperation.m in Sources */,
 				F46AD828231D58D2008DEC0B /* HomeDashboardDataSource.m in Sources */,
 				F460CF8D2358703200240946 /* CoreNetwork.m in Sources */,
 				F460CFFD23602BD700240946 /* ImageDownloader.m in Sources */,
 				F46AD812231D5103008DEC0B /* HomeDashboardViewController.m in Sources */,
+				FB2F34FA25CBEA77006AE798 /* UtilitiesAssembly.m in Sources */,
+				FB2F350625CBF15D006AE798 /* GetCoctailDetailsParser.m in Sources */,
 				F4F222AF2358524B00AB457B /* CoctailCacheModelFiller.m in Sources */,
 				F46AD834231D60C9008DEC0B /* HomeDashboardInteractor.m in Sources */,
 				F46AD83E231E4C01008DEC0B /* HomeDashboardModuleAssembly.m in Sources */,
+				FB2F34DA25CAE3C0006AE798 /* CoctailInteractor.m in Sources */,
 				F460CFF723601F5C00240946 /* UIViewController+ProgressHUD.m in Sources */,
 				F4F222662356E0BC00AB457B /* ManagedCoctail.m in Sources */,
 				F46AD82B231D5BAB008DEC0B /* HomeDashboardItem.m in Sources */,
 				F46AD7CF231D4F00008DEC0B /* main.m in Sources */,
+				FB2F34B925CA8777006AE798 /* CoctailPresenter.m in Sources */,
 				F46AD81F231D521A008DEC0B /* HomeDashboardRouter.m in Sources */,
 				F46AD82F231D5CF7008DEC0B /* HomeDashboardCell.m in Sources */,
 				F460D0002360311A00240946 /* ImageDownloadOperation.m in Sources */,
+				FB2F34EE25CBE67D006AE798 /* ServicesAssembly.m in Sources */,
+				FB2F34C125CA8A6B006AE798 /* CoctailDetailsItem.m in Sources */,
 				F46AD81C231D520B008DEC0B /* HomeDashboardPresenter.m in Sources */,
 				F46AD85523210A6E008DEC0B /* CoctailViewController.m in Sources */,
 				F46AD849231E5B12008DEC0B /* CoctailModuleAssembly.m in Sources */,
@@ -858,6 +953,7 @@
 				F460CFA42358921100240946 /* NetworkOperationQueue.m in Sources */,
 				F46AD824231D554D008DEC0B /* Coctail.m in Sources */,
 				F432239323224AF800D5745F /* CoctailsService.m in Sources */,
+				FB2F34E825CBE5BF006AE798 /* CoreAssembly.m in Sources */,
 				F460CFA023588A7E00240946 /* GetCoctailsParser.m in Sources */,
 				F432239723224B3C00D5745F /* CoreDataCache.m in Sources */,
 				F460CF9C235886A300240946 /* GetCoctailsNetworkOperation.m in Sources */,
@@ -902,14 +998,6 @@
 				F46AD7F5231D4F7C008DEC0B /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		F46AD7F6231D4F7C008DEC0B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F46AD7F7231D4F7C008DEC0B /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

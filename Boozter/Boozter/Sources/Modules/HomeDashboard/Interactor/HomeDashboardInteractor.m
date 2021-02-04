@@ -69,10 +69,10 @@
     return predicate;
 }
 
-- (CoctailsServiceObtainingCompletion)coctailsServiceObtainingCompletion {
+- (ObtainCoctailsCompletion)coctailsServiceObtainingCompletion {
     __weak typeof(self) weakSelf = self;
 
-    CoctailsServiceObtainingCompletion handler = ^(NSArray<Coctail *> *coctails, NSError *error) {
+    ObtainCoctailsCompletion handler = ^(NSArray<Coctail *> *coctails, NSError *error) {
         typeof(self) strongSelf = weakSelf;
         if (nil == strongSelf) {
             return;

@@ -9,21 +9,20 @@
 #import "HomeDashboardModuleAssembly.h"
 
 #import "CoctailModuleAssembly.h"
+#import "ServicesAssembly.h"
+#import "UtilitiesAssembly.h"
 
 #import "HomeDashboardViewController.h"
 #import "HomeDashboardInteractor.h"
 #import "HomeDashboardPresenter.h"
 #import "HomeDashboardRouter.h"
 
-#import "CoreDataCache.h"
-#import "CoreNetwork.h"
-#import "CoctailsService.h"
 #import "HomeDashboardDataSource.h"
-#import "NetworkOperationQueue.h"
-#import "ImageDownloader.h"
 
 @interface HomeDashboardModuleAssembly ()
 @property (nonatomic, strong, readonly) CoctailModuleAssembly *coctailModuleAssembly;
+@property (nonatomic, strong, readonly) ServicesAssembly *servicesAssembly;
+@property (nonatomic, strong, readonly) UtilitiesAssembly *utilitiesAssembly;
 @end
 
 @implementation HomeDashboardModuleAssembly
@@ -44,7 +43,7 @@
     Class interactorClass = [HomeDashboardInteractor class];
     return [TyphoonDefinition withClass:interactorClass configuration:^(TyphoonDefinition *definition) {
         [definition useInitializer:@selector(initWithCoctailsService:) parameters:^(TyphoonMethod *initializer) {
-            [initializer injectParameterWith:[self coctailsService]];
+            [initializer injectParameterWith:[self.servicesAssembly coctailsService]];
         }];
 
         [definition injectMethod:@selector(injectOutput:) parameters:^(TyphoonMethod *method) {
@@ -60,7 +59,7 @@
         [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:[self interactorHomeDashboardModule]];
             [initializer injectParameterWith:[self routerHomeDashboardModule]];
-            [initializer injectParameterWith:[self imageDownloader]];
+            [initializer injectParameterWith:[self.utilitiesAssembly imageDownloader]];
         }];
         [definition injectMethod:@selector(injectView:) parameters:^(TyphoonMethod *method) {
             [method injectParameterWith:[self viewHomeDashboardModule]];
@@ -82,39 +81,6 @@
             [method injectParameterWith:[self viewHomeDashboardModule]];
         }];
     }];
-}
-
-- (id<ICoctailsService>)coctailsService {
-    return [TyphoonDefinition withClass:[CoctailsService class] configuration:^(TyphoonDefinition *definition) {
-        [definition useInitializer:@selector(initWithCoreCache:coreNetwork:) parameters:^(TyphoonMethod *initializer) {
-            [initializer injectParameterWith:[self coreCache]];
-            [initializer injectParameterWith:[self coreNetwork]];
-        }];
-    }];
-}
-
-- (id<ICoreCache>)coreCache {
-    return [TyphoonDefinition withClass:[CoreDataCache class] configuration:^(TyphoonDefinition *definition) {
-        [definition useInitializer:@selector(initWithIdentifier:) parameters:^(TyphoonMethod *initializer) {
-            [initializer injectParameterWith:@"Boozter.xcdatamodeld"];
-        }];
-    }];
-}
-
-- (id<ICoreNetwork>)coreNetwork {
-    return [TyphoonDefinition withClass:[CoreNetwork class] configuration:^(TyphoonDefinition *definition) {
-        [definition useInitializer:@selector(initWithQueue:) parameters:^(TyphoonMethod *initializer) {
-            [initializer injectParameterWith:[self networkOperationQueue]];
-        }];
-    }];
-}
-
-- (id<IImageDownloader>)imageDownloader {
-    return [ImageDownloader sharedInstance];
-}
-
-- (NetworkOperationQueue *)networkOperationQueue {
-    return [TyphoonDefinition withClass:[NetworkOperationQueue class]];
 }
 
 - (HomeDashboardDataSource *)homeDashboardDataSource {

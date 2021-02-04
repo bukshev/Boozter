@@ -20,6 +20,10 @@
 #pragma mark - Initialization
 
 - (void)awakeFromNib {
+    assert(nil != self.progressHUD);
+    assert(nil != self.imageView);
+    assert(nil != self.nameLabel);
+
     [super awakeFromNib];
 
     [self setupInProgressState];

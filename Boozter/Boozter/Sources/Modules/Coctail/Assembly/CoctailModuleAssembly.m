@@ -9,6 +9,20 @@
 #import "CoctailModuleAssembly.h"
 #import <ViperMcFlurry/ViperMcFlurry.h>
 
+#import "UtilitiesAssembly.h"
+#import "ServicesAssembly.h"
+
+#import "CoctailViewController.h"
+#import "CoctailPresenter.h"
+#import "CoctailInteractor.h"
+
+#import "ImageDownloader.h"
+
+@interface CoctailModuleAssembly ()
+@property (nonatomic, strong, readonly) UtilitiesAssembly *utilitiesAssembly;
+@property (nonatomic, strong, readonly) ServicesAssembly *servicesAssembly;
+@end
+
 @implementation CoctailModuleAssembly
 
 - (id<IModuleFactory>)factoryCoctailModule {
@@ -30,6 +44,41 @@
             [initializer injectParameterWith:@"CoctailViewController"];
             [initializer injectParameterWith:self];
             [initializer injectParameterWith:nil];
+        }];
+    }];
+}
+
+- (CoctailViewController *)viewCoctailModule {
+    Class viewClass = [CoctailViewController class];
+    return [TyphoonDefinition withClass:viewClass configuration:^(TyphoonDefinition *definition) {
+        [definition injectMethod:@selector(injectOutput:) parameters:^(TyphoonMethod *method) {
+            [method injectParameterWith:[self presenterCoctailModule]];
+        }];
+    }];
+}
+
+- (CoctailPresenter *)presenterCoctailModule {
+    Class presenterClass = [CoctailPresenter class];
+    return [TyphoonDefinition withClass:presenterClass configuration:^(TyphoonDefinition *definition) {
+        SEL selector = @selector(initWithInteractor:imageDownloader:);
+        [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:[self interactorCoctailModule]];
+            [initializer injectParameterWith:[self.utilitiesAssembly imageDownloader]];
+        }];
+        [definition injectMethod:@selector(injectView:) parameters:^(TyphoonMethod *method) {
+            [method injectParameterWith:[self viewCoctailModule]];
+        }];
+    }];
+}
+
+- (CoctailInteractor *)interactorCoctailModule {
+    Class interactorClass = [CoctailInteractor class];
+    return [TyphoonDefinition withClass:interactorClass configuration:^(TyphoonDefinition *definition) {
+        [definition useInitializer:@selector(initWithCoctailsService:) parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:[self.servicesAssembly coctailsService]];
+        }];
+        [definition injectMethod:@selector(injectOutput:) parameters:^(TyphoonMethod *method) {
+            [method injectParameterWith:[self presenterCoctailModule]];
         }];
     }];
 }

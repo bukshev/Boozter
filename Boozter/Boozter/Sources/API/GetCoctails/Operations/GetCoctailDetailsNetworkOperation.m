@@ -1,27 +1,27 @@
 //
-//  GetCoctailsNetworkOperation.m
+//  GetCoctailDetailsNetworkOperation.m
 //  Boozter
 //
-//  Created by Ivan Bukshev on 17/10/2019.
-//  Copyright © 2019 Team Absurdum. All rights reserved.
+//  Created by Букшев Иван Евгеньевич on 04.02.2021.
+//  Copyright © 2021 Team Absurdum. All rights reserved.
 //
 
-#import "GetCoctailsNetworkOperation.h"
-#import "GetCoctailsParser.h"
+#import "GetCoctailDetailsNetworkOperation.h"
+#import "GetCoctailDetailsParser.h"
 
-@interface GetCoctailsNetworkOperation ()
-@property (nonatomic, strong) GetCoctailsParser *parser;
-@property (nonatomic, copy) void (^completion)(NSArray<Coctail *> *coctails);
+@interface GetCoctailDetailsNetworkOperation ()
+@property (nonatomic, strong) GetCoctailDetailsParser *parser;
+@property (nonatomic, copy) void (^completion)(Coctail *coctails);
 @end
 
-@implementation GetCoctailsNetworkOperation
+@implementation GetCoctailDetailsNetworkOperation
 
 @synthesize name = _name;
 
 #pragma mark - Initialization
 
 - (instancetype)initWithURL:(NSURL *)url
-                 completion:(void (^)(NSArray<Coctail *> *))completion {
+                 completion:(void (^)(Coctail *))completion {
 
     assert(nil != url);
     assert(NULL != completion);
@@ -29,8 +29,8 @@
     self = [super initWithURL:url];
 
     if (nil != self) {
-        _name = @"GetCoctailsNetworkOperation";
-        _parser = [[GetCoctailsParser alloc] init];
+        _name = @"GetCoctailDetailsNetworkOperation";
+        _parser = [[GetCoctailDetailsParser alloc] init];
         _completion = completion;
     }
 
@@ -50,9 +50,9 @@
             return;
         }
 
-        NSArray<Coctail *> *coctails = [self.parser coctailsFromNetworkResponseData:data];
+        Coctail *coctail = [self.parser coctailFromNetworkResponseData:data];
         if (self.completion) {
-            self.completion(coctails);
+            self.completion(coctail);
         }
 
         [self finish];

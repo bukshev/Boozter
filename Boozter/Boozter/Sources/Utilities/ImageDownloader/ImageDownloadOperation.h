@@ -14,11 +14,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ImageDownloadOperation : NetworkOperation
 
 @property (nonatomic, strong, readonly) NSIndexPath *indexPath;
-@property (nonatomic, copy, readonly) ImageDownloadCompletion completionHandler;
+@property (nonatomic, copy, readonly) ImageForIndexPathDownloadCompletion completionHandler;
 
 - (instancetype)initWithURL:(NSURL *)url
                   indexPath:(NSIndexPath *)indexPath
-          completionHandler:(ImageDownloadCompletion)completionHandler NS_DESIGNATED_INITIALIZER;
+          completionHandler:(ImageForIndexPathDownloadCompletion)completionHandler NS_DESIGNATED_INITIALIZER;
 
 - (instancetype)init NS_UNAVAILABLE;
 

@@ -10,12 +10,13 @@
 #import "ICoreCache.h"
 #import "ICoreNetwork.h"
 #import "CoctailCacheModelFiller.h"
-//
+
 #import "Coctail.h"
 #import "ManagedCoctail.h"
 #import "NSManagedObject+EntityName.h"
-//
+
 #import "GetCoctailsNetworkOperation.h"
+#import "GetCoctailDetailsNetworkOperation.h"
 
 @interface CoctailsService ()
 @property (nonatomic, strong) id<ICoreCache> coreCache;
@@ -53,7 +54,8 @@
 
 - (void)obtainCoctailsFromSourcePoint:(DataSourcePoint)sourcePoint
                         withPredicate:(nullable NSPredicate *)predicate
-                    completionHandler:(CoctailsServiceObtainingCompletion)completionHandler {
+                    completionHandler:(ObtainCoctailsCompletion)completionHandler {
+
     assert(NULL != completionHandler);
 
     switch (sourcePoint) {
@@ -68,10 +70,25 @@
     }
 }
 
+- (void)obtainDetailsForCoctail:(NSInteger)coctailIdentifier
+              completionHandler:(ObtainCoctailWithDetailsCompletion)completionHandler {
+
+    assert(0 < coctailIdentifier);
+    assert(NULL != completionHandler);
+
+    void (^handler)(Coctail *) = ^(Coctail *coctail) {
+        completionHandler(coctail, nil);
+    };
+
+    NSURL *url = [self urlForCoctailDetails:coctailIdentifier];
+    GetCoctailDetailsNetworkOperation *operation = [[GetCoctailDetailsNetworkOperation alloc] initWithURL:url completion:handler];
+    [self.coreNetwork executeOperation:operation];
+}
+
 #pragma mark - Private helpers
 
 - (void)obtainCachedCoctailsWithPredicate:(nullable NSPredicate *)predicate
-                        completionHandler:(CoctailsServiceObtainingCompletion)completionHandler {
+                        completionHandler:(ObtainCoctailsCompletion)completionHandler {
     assert(NULL != completionHandler);
 
     NSString *entityName = [ManagedCoctail entityName];
@@ -83,7 +100,8 @@
 }
 
 - (void)obtainRemoteCoctailsWithPredicate:(nullable NSPredicate *)predicate
-                        completionHandler:(CoctailsServiceObtainingCompletion)completionHandler {
+                        completionHandler:(ObtainCoctailsCompletion)completionHandler {
+
     assert(NULL != completionHandler);
 
     void (^handler)(NSArray<Coctail *> *) = ^(NSArray<Coctail *> *coctails) {
@@ -109,12 +127,23 @@
     return [plainObjects copy];
 }
 
+// TODO: Make it more flexible...
 - (NSURL *)urlForIngredient:(NSString *)ingredientName {
     NSString *urlString = [NSString stringWithFormat:@"https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=%@", ingredientName];
     NSURL *url = [NSURL URLWithString:urlString];
 //    if ([url checkResourceIsReachableAndReturnError:]) {
 //
 //    }
+    return url;
+}
+
+// TODO: Make it more flexible...
+- (NSURL *)urlForCoctailDetails:(NSInteger)coctailIdentifier {
+    NSString *urlString = [NSString stringWithFormat:@"https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=%ld", coctailIdentifier];
+    NSURL *url = [NSURL URLWithString:urlString];
+    //    if ([url checkResourceIsReachableAndReturnError:]) {
+    //
+    //    }
     return url;
 }
 

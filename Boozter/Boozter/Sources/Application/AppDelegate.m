@@ -9,6 +9,10 @@
 #import "AppDelegate.h"
 #import <Typhoon/Typhoon.h>
 
+#import "UtilitiesAssembly.h"
+#import "CoreAssembly.h"
+#import "ServicesAssembly.h"
+
 #import "HomeDashboardModuleAssembly.h"
 #import "CoctailModuleAssembly.h"
 
@@ -24,6 +28,9 @@
 
 - (NSArray *)initialAssemblies {
     return @[
+        [UtilitiesAssembly class],
+        [CoreAssembly class],
+        [ServicesAssembly class],
         [HomeDashboardModuleAssembly class],
         [CoctailModuleAssembly class]
     ];

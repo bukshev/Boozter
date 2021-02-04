@@ -11,20 +11,31 @@
 
 @implementation GetCoctailsParser
 
-#pragma mark - Parsing
+#pragma mark - Public interface
 
-- (NSArray<Coctail *> *)coctailsFromDictionaries:(NSArray *)dictionaries {
-    NSMutableArray<Coctail *> *coctails = [NSMutableArray arrayWithCapacity:dictionaries.count];
+- (NSArray<Coctail *> *)coctailsFromNetworkResponseData:(NSData *)data {
+    if (nil == data) {
+        return [[NSArray array] copy];
+    }
 
-    for (NSDictionary *dictionary in dictionaries) {
+    NSDictionary *json = [self jsonFromData:data];
+    NSDictionary *coctailsList = json[@"drinks"];
+
+    NSMutableArray<Coctail *> *coctails = [NSMutableArray arrayWithCapacity:coctailsList.count];
+    for (NSDictionary *dictionary in coctailsList) {
         Coctail *coctail = [self coctailFromDictionary:dictionary];
         [coctails addObject:coctail];
     }
 
     return [coctails copy];
+    
 }
 
 #pragma mark - Private helpers
+
+- (NSDictionary *)jsonFromData:(NSData *)data {
+    return [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];;
+}
 
 - (Coctail *)coctailFromDictionary:(NSDictionary *)dictionary {
     NSInteger identifier = [dictionary[@"idDrink"] integerValue] ?: -1;

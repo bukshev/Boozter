@@ -12,7 +12,7 @@
 @interface ImageDownloader ()
 @property (nonatomic, strong) NSOperationQueue *downloadQueue;
 @property (nonatomic, strong) NSCache<NSString *, NSData *> *cache;
-@property (nonatomic, copy) ImageDownloadCompletion completionHandler;
+@property (nonatomic, copy) ImageForIndexPathDownloadCompletion completionHandler;
 @end
 
 @implementation ImageDownloader
@@ -43,8 +43,20 @@
 #pragma mark - IImageDownloader
 
 - (void)downloadImageFromURL:(NSURL *)url
-                   indexPath:(NSIndexPath *)indexPath
            completionHandler:(ImageDownloadCompletion)completionHandler {
+
+    assert(nil != url);
+    assert(NULL != completionHandler);
+
+    // Just ignoring indexPath in full-format completionHadler.
+    [self downloadImageFromURL:url indexPath:nil completionHandler:^(NSData *data, NSURL *url, NSIndexPath *indexPath, NSError *error) {
+        completionHandler(data, url, error);
+    }];
+}
+
+- (void)downloadImageFromURL:(NSURL *)url
+                   indexPath:(nullable NSIndexPath *)indexPath
+           completionHandler:(ImageForIndexPathDownloadCompletion)completionHandler {
 
     assert(nil != url);
     assert(NULL != completionHandler);
@@ -70,7 +82,7 @@
         return;
     }
 
-    ImageDownloadCompletion downloadHandler = ^(NSData *imageData, NSURL *url, NSIndexPath *indexPath, NSError *error) {
+    ImageForIndexPathDownloadCompletion downloadHandler = ^(NSData *imageData, NSURL *url, NSIndexPath *indexPath, NSError *error) {
         if (nil != imageData) {
             [self.cache setObject:imageData forKey:url.absoluteString];
         }

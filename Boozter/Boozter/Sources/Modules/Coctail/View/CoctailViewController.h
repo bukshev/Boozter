@@ -7,10 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ICoctailViewInput.h"
+
+@protocol ICoctailViewOutput;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CoctailViewController : UIViewController
+@interface CoctailViewController : UIViewController<ICoctailViewInput>
+
+@property (nonatomic, strong, readonly) id<ICoctailViewOutput> output;
+
+- (void)injectOutput:(id<ICoctailViewOutput>)output;
 
 @end
 

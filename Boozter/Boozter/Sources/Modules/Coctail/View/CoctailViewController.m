@@ -7,26 +7,67 @@
 //
 
 #import "CoctailViewController.h"
+#import "ICoctailViewOutput.h"
+#import "CoctailDetailsItem.h"
 
 @interface CoctailViewController ()
-
+@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
+@property (nonatomic, weak) IBOutlet UIImageView *imageView;
+@property (nonatomic, weak) IBOutlet UILabel *nameLabel;
+@property (nonatomic, weak) IBOutlet UILabel *categoryLabel;
+@property (nonatomic, weak) IBOutlet UILabel *alcoholicLabel;
+@property (nonatomic, weak) IBOutlet UILabel *glassNameLabel;
+@property (nonatomic, weak) IBOutlet UILabel *measuredIngredientsLabel;
+@property (nonatomic, weak) IBOutlet UILabel *instructionsLabel;
 @end
 
 @implementation CoctailViewController
 
+#pragma mark - Initialization
+
+- (void)injectOutput:(id<ICoctailViewOutput>)output {
+    assert(nil != output);
+    _output = output;
+}
+
+#pragma mark - View Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self.output onViewReadyEvent];
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - ICoctailViewinput
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)setupInitialState {
+    assert(nil != self.output);
 }
-*/
+
+- (void)configureWithItem:(CoctailDetailsItem *)item {
+    assert(nil != item);
+    assert(NSThread.isMainThread);
+
+    self.navigationItem.title = item.name;
+
+    self.nameLabel.text = item.name;
+    self.categoryLabel.text = item.category;
+    self.alcoholicLabel.text = item.alcoholic;
+    self.glassNameLabel.text = [NSString stringWithFormat:@"Glass: %@", item.glassName];
+    self.measuredIngredientsLabel.text = item.measuredIngredientsText;
+    self.instructionsLabel.text = item.instructions;
+
+    if (nil != item.imageData) {
+        [self updateImageWithData:item.imageData];
+    }
+}
+
+- (void)updateImageWithData:(NSData *)imageData {
+    assert(nil != imageData);
+    assert(NSThread.isMainThread);
+
+    if (nil == self.imageView.image) {
+        self.imageView.image = [UIImage imageWithData:imageData];
+    }
+}
 
 @end

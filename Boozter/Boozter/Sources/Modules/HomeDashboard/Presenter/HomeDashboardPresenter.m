@@ -120,6 +120,38 @@
     [self.imageDownloader slowDownImageDownloadingFromURL:url];
 }
 
+#pragma mark - Private helpers
+
+- (CGSize)coctailCellSizeForScreenSize:(CGSize)screenSize {
+    assert(CGSizeZero.height != screenSize.height);
+    assert(CGSizeZero.width != screenSize.width);
+
+    CGFloat const indent = 16.0f;
+    CGFloat const width = (screenSize.width / 2.0f) - (indent * 2.0f);
+    CGFloat const height = width * 1.6f;
+
+    return CGSizeMake(width, height);
+}
+
+- (ImageForIndexPathDownloadCompletion)imageDownloadCompletion {
+    __weak typeof(self) weakSelf = self;
+
+    ImageForIndexPathDownloadCompletion handler = ^(NSData *data, NSURL *url, NSIndexPath *indexPath, NSError *error) {
+        typeof(self) strongSelf = weakSelf;
+        if (nil == strongSelf) {
+            return;
+        }
+
+        if (nil != error) {
+            [strongSelf didFailDownloadImageDataWithError:error];
+        } else {
+            [strongSelf didDownloadImageData:data indexPath:indexPath];
+        }
+    };
+
+    return [handler copy];
+}
+
 - (void)didDownloadImageData:(NSData *)imageData indexPath:(NSIndexPath *)indexPath {
     assert(nil != imageData);
     assert(nil != indexPath);
@@ -135,38 +167,6 @@
     assert(nil != error);
 
     // TODO: Set placeholder image.
-}
-
-#pragma mark - Private helpers
-
-- (CGSize)coctailCellSizeForScreenSize:(CGSize)screenSize {
-    assert(CGSizeZero.height != screenSize.height);
-    assert(CGSizeZero.width != screenSize.width);
-
-    CGFloat const indent = 16.0f;
-    CGFloat const width = (screenSize.width / 2.0f) - (indent * 2.0f);
-    CGFloat const height = width * 1.6f;
-
-    return CGSizeMake(width, height);
-}
-
-- (ImageDownloadCompletion)imageDownloadCompletion {
-    __weak typeof(self) weakSelf = self;
-
-    ImageDownloadCompletion handler = ^(NSData *data, NSURL *url, NSIndexPath *indexPath, NSError *error) {
-        typeof(self) strongSelf = weakSelf;
-        if (nil == strongSelf) {
-            return;
-        }
-
-        if (nil != error) {
-            [strongSelf didFailDownloadImageDataWithError:error];
-        } else {
-            [strongSelf didDownloadImageData:data indexPath:indexPath];
-        }
-    };
-
-    return [handler copy];
 }
 
 @end

@@ -10,7 +10,7 @@
 
 @interface ImageDownloadOperation ()
 @property (nonatomic, strong, readwrite) NSIndexPath *indexPath;
-@property (nonatomic, copy, readwrite) ImageDownloadCompletion completionHandler;
+@property (nonatomic, copy, readwrite) ImageForIndexPathDownloadCompletion completionHandler;
 @end
 
 @implementation ImageDownloadOperation
@@ -19,7 +19,7 @@
 
 - (instancetype)initWithURL:(NSURL *)url
                   indexPath:(NSIndexPath *)indexPath
-          completionHandler:(ImageDownloadCompletion)completionHandler {
+          completionHandler:(ImageForIndexPathDownloadCompletion)completionHandler {
     assert(nil != url);
     assert(NULL != completionHandler);
 
