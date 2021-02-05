@@ -48,14 +48,6 @@
 
     self.title = @"Коктейли";
 
-    self.view.opaque = NO;
-    self.view.backgroundColor = [UIColor systemGroupedBackgroundColor];
-    
-    self.collectionView.backgroundColor = [UIColor systemGroupedBackgroundColor];
-    self.collectionView.opaque = NO;
-    self.collectionView.showsHorizontalScrollIndicator = NO;
-    self.collectionView.backgroundColor = [UIColor systemGroupedBackgroundColor];
-
     [self.dataSource injectCollectionView:self.collectionView];
 }
 

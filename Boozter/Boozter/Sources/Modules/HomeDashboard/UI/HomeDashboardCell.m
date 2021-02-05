@@ -27,13 +27,8 @@
 
     [self setupInProgressState];
 
-    self.opaque = NO;
-    self.backgroundColor = [UIColor systemGroupedBackgroundColor];
-
     self.imageView.layer.cornerRadius = 16.0f;
     self.imageView.layer.masksToBounds = true;
-
-    self.stackView.backgroundColor = [UIColor systemGroupedBackgroundColor];
 }
 
 #pragma mark - Public Interface
