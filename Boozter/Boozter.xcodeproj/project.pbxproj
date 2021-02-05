@@ -399,7 +399,6 @@
 		F46AD7F2231D4F7C008DEC0B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F46AD85823210F6A008DEC0B /* Xibs */,
 				F46AD7F3231D4F7C008DEC0B /* Assets.xcassets */,
 				F46AD7F4231D4F7C008DEC0B /* LaunchScreen.storyboard */,
 				F46AD7F8231D4F7C008DEC0B /* Boozter.xcdatamodeld */,
@@ -495,6 +494,7 @@
 				F46AD80D231D507D008DEC0B /* Presenter */,
 				F46AD80E231D50BF008DEC0B /* Router */,
 				F46AD80C231D5073008DEC0B /* View */,
+				FB630B1525CD190200EB5793 /* UI */,
 			);
 			path = HomeDashboard;
 			sourceTree = "<group>";
@@ -502,13 +502,10 @@
 		F46AD80C231D5073008DEC0B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F46AD82C231D5CF7008DEC0B /* HomeDashboardCell.h */,
-				F46AD82D231D5CF7008DEC0B /* HomeDashboardCell.m */,
 				F46AD816231D51C5008DEC0B /* IHomeDashboardViewInput.h */,
 				F46AD817231D51CE008DEC0B /* IHomeDashboardViewOutput.h */,
 				F46AD810231D5103008DEC0B /* HomeDashboardViewController.h */,
 				F46AD811231D5103008DEC0B /* HomeDashboardViewController.m */,
-				F46AD813231D510D008DEC0B /* HomeDashboardViewController.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -590,6 +587,7 @@
 				FB2F34D725CAE3AE006AE798 /* Interactor */,
 				FB2F34B525CA8726006AE798 /* Presenter */,
 				F46AD85223210A5E008DEC0B /* View */,
+				FB630B1425CD18E800EB5793 /* UI */,
 			);
 			path = Coctail;
 			sourceTree = "<group>";
@@ -619,17 +617,8 @@
 				FB2F34BE25CA87BB006AE798 /* ICoctailViewOutput.h */,
 				F46AD85323210A6E008DEC0B /* CoctailViewController.h */,
 				F46AD85423210A6E008DEC0B /* CoctailViewController.m */,
-				F46AD85623210A79008DEC0B /* CoctailViewController.storyboard */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		F46AD85823210F6A008DEC0B /* Xibs */ = {
-			isa = PBXGroup;
-			children = (
-				F46AD85923210F79008DEC0B /* HomeDashboardCell.xib */,
-			);
-			path = Xibs;
 			sourceTree = "<group>";
 		};
 		F4F222622356E09B00AB457B /* Plain */ = {
@@ -744,6 +733,25 @@
 				FB2F34C025CA8A6B006AE798 /* CoctailDetailsItem.m */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		FB630B1425CD18E800EB5793 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				F46AD85623210A79008DEC0B /* CoctailViewController.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		FB630B1525CD190200EB5793 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				F46AD82C231D5CF7008DEC0B /* HomeDashboardCell.h */,
+				F46AD82D231D5CF7008DEC0B /* HomeDashboardCell.m */,
+				F46AD85923210F79008DEC0B /* HomeDashboardCell.xib */,
+				F46AD813231D510D008DEC0B /* HomeDashboardViewController.storyboard */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1126,7 +1134,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2MEXR3KD6;
 				INFOPLIST_FILE = Boozter/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1145,7 +1153,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2MEXR3KD6;
 				INFOPLIST_FILE = Boozter/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

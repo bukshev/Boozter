@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="center" reuseIdentifier="HomeDashboardCell" id="Hf7-3J-kIX" customClass="HomeDashboardCell">
+            <rect key="frame" x="0.0" y="0.0" width="813" height="561"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="813" height="561"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iu1-oW-iv2">
+                        <rect key="frame" x="0.0" y="0.0" width="813" height="561"/>
+                        <subviews>
+                            <stackView clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="LNV-pL-cy9">
+                                <rect key="frame" x="0.0" y="0.0" width="813" height="561"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CoctailPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="j6M-ih-8cC">
+                                        <rect key="frame" x="0.0" y="0.0" width="813" height="539"/>
+                                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="260" verticalHuggingPriority="260" horizontalCompressionResistancePriority="755" verticalCompressionResistancePriority="755" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G86-aD-obe">
+                                        <rect key="frame" x="0.0" y="543" width="813" height="18"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="LNV-pL-cy9" secondAttribute="bottom" id="Asy-hM-YIG"/>
+                            <constraint firstAttribute="height" priority="999" constant="200" id="B8M-rZ-w0S"/>
+                            <constraint firstItem="LNV-pL-cy9" firstAttribute="top" secondItem="iu1-oW-iv2" secondAttribute="top" id="alT-R6-fI2"/>
+                            <constraint firstItem="LNV-pL-cy9" firstAttribute="leading" secondItem="iu1-oW-iv2" secondAttribute="leading" id="nOH-Pb-4uX"/>
+                            <constraint firstAttribute="trailing" secondItem="LNV-pL-cy9" secondAttribute="trailing" id="t5P-1B-Jxi"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="r9K-gW-ulk"/>
+            <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="iu1-oW-iv2" secondAttribute="bottom" id="1sa-Xc-L0A"/>
+                <constraint firstItem="iu1-oW-iv2" firstAttribute="leading" secondItem="Hf7-3J-kIX" secondAttribute="leading" id="DVg-bi-kd2"/>
+                <constraint firstItem="iu1-oW-iv2" firstAttribute="top" secondItem="Hf7-3J-kIX" secondAttribute="top" id="J3X-aS-Mh0"/>
+                <constraint firstAttribute="trailing" secondItem="iu1-oW-iv2" secondAttribute="trailing" id="K7M-lB-upY"/>
+            </constraints>
+            <size key="customSize" width="813" height="561"/>
+            <connections>
+                <outlet property="imageView" destination="j6M-ih-8cC" id="Agf-iI-baJ"/>
+                <outlet property="nameLabel" destination="G86-aD-obe" id="NZ1-tM-6rS"/>
+                <outlet property="stackView" destination="LNV-pL-cy9" id="WQt-F8-Jyd"/>
+            </connections>
+            <point key="canvasLocation" x="338.40579710144931" y="165.73660714285714"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="CoctailPlaceholder" width="168" height="180"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

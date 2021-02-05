@@ -55,10 +55,6 @@
     self.glassNameLabel.text = [NSString stringWithFormat:@"Glass: %@", item.glassName];
     self.measuredIngredientsLabel.text = item.measuredIngredientsText;
     self.instructionsLabel.text = item.instructions;
-
-    if (nil != item.imageData) {
-        [self updateImageWithData:item.imageData];
-    }
 }
 
 - (void)updateImageWithData:(NSData *)imageData {

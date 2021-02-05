@@ -72,6 +72,8 @@ static NSUInteger const kNumberOfSections = 1;
         return;
     }
 
+    [self animateCell:dequeuedCell];
+
     HomeDashboardCell *cell = (HomeDashboardCell *)dequeuedCell;
     HomeDashboardItem *item = self.items[indexPath.row];
 
@@ -119,6 +121,18 @@ static NSUInteger const kNumberOfSections = 1;
     [indexPaths enumerateObjectsUsingBlock:^(NSIndexPath *indexPath, NSUInteger idx, BOOL *stop) {
         Coctail *coctail = self.coctails[indexPath.row];
         [self.imageDownloader slowDownImageDownloadingFromURL:coctail.imageURL];
+    }];
+}
+
+#pragma mark - Animations
+
+- (void)animateCell:(UICollectionViewCell *)cell {
+    cell.alpha = 0.0f;
+    cell.transform = CGAffineTransformMakeScale(0.8f, 0.8f);
+
+    [UIView animateWithDuration:0.35 animations:^{
+        cell.alpha = 1.0f;
+        cell.transform = CGAffineTransformMakeScale(1.0f, 1.0f);
     }];
 }
 

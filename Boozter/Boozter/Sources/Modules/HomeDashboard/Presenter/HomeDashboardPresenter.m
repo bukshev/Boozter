@@ -126,9 +126,9 @@
     assert(CGSizeZero.height != screenSize.height);
     assert(CGSizeZero.width != screenSize.width);
 
-    CGFloat const indent = 16.0f;
+    CGFloat const indent = 16;
     CGFloat const width = (screenSize.width / 2.0f) - (indent * 2.0f);
-    CGFloat const height = width * 1.6f;
+    CGFloat const height = width * 1.2f;
 
     return CGSizeMake(width, height);
 }

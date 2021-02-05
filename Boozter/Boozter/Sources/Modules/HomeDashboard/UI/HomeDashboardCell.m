@@ -10,7 +10,7 @@
 #import "HomeDashboardItem.h"
 
 @interface HomeDashboardCell ()
-@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *progressHUD;
+@property (nonatomic, weak) IBOutlet UIStackView *stackView;
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
 @property (nonatomic, weak) IBOutlet UILabel *nameLabel;
 @end
@@ -20,7 +20,6 @@
 #pragma mark - Initialization
 
 - (void)awakeFromNib {
-    assert(nil != self.progressHUD);
     assert(nil != self.imageView);
     assert(nil != self.nameLabel);
 
@@ -29,7 +28,12 @@
     [self setupInProgressState];
 
     self.opaque = NO;
-    self.progressHUD.hidesWhenStopped = YES;
+    self.backgroundColor = [UIColor systemGroupedBackgroundColor];
+
+    self.imageView.layer.cornerRadius = 16.0f;
+    self.imageView.layer.masksToBounds = true;
+
+    self.stackView.backgroundColor = [UIColor systemGroupedBackgroundColor];
 }
 
 #pragma mark - Public Interface
@@ -41,12 +45,16 @@
 - (void)configureWithItem:(HomeDashboardItem *)item {
     assert(nil != item);
 
-    [self setupCompletedState];
-
-    self.imageView.image = [UIImage imageWithData:item.coctailImageData];
     self.nameLabel.text = item.coctailName;
-}
 
+    if (nil == item.coctailImageData) {
+        self.imageView.image = [UIImage imageNamed:@"CoctailPlaceholder"];
+    } else {
+        self.imageView.image = [UIImage imageWithData:item.coctailImageData];
+    }
+
+    [self setupCompletedState];
+}
 
 - (void)prepareForReuse {
     [super prepareForReuse];
@@ -56,21 +64,11 @@
 #pragma mark - Private helpers
 
 - (void)setupInProgressState {
-    self.progressHUD.hidden = NO;
-    [self.progressHUD startAnimating];
-
-
-    self.imageView.image = nil;
-
-    self.imageView.hidden = YES;
-    self.nameLabel.hidden = YES;
+    self.stackView.hidden = YES;
 }
 
 - (void)setupCompletedState {
-    [self.progressHUD stopAnimating];
-
-    self.imageView.hidden = NO;
-    self.nameLabel.hidden = NO;
+    self.stackView.hidden = NO;
 }
 
 @end
