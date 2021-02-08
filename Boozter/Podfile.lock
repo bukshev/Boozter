@@ -1,0 +1,27 @@
+PODS:
+  - Typhoon (4.0.8):
+    - Typhoon/DeallocNotifier (= 4.0.8)
+    - Typhoon/IntrospectionUtils (= 4.0.8)
+    - Typhoon/no-arc (= 4.0.8)
+  - Typhoon/DeallocNotifier (4.0.8)
+  - Typhoon/IntrospectionUtils (4.0.8)
+  - Typhoon/no-arc (4.0.8):
+    - Typhoon/IntrospectionUtils
+  - ViperMcFlurry (1.5.2)
+
+DEPENDENCIES:
+  - Typhoon
+  - ViperMcFlurry
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Typhoon
+    - ViperMcFlurry
+
+SPEC CHECKSUMS:
+  Typhoon: f8901ef1ad0e2fa520cda0f668492dd33353f7dc
+  ViperMcFlurry: 701bc3ad8d188b1f1e157ec0ddf4e77184de88b5
+
+PODFILE CHECKSUM: e9c315edc8a3d4edbb8736faf9a799950f6a2c65
+
+COCOAPODS: 1.7.1

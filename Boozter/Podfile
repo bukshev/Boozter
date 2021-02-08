@@ -1,0 +1,7 @@
+target 'Boozter' do
+  use_frameworks!
+
+  # Pods for Boozter
+  pod 'Typhoon'
+  pod 'ViperMcFlurry'
+end
