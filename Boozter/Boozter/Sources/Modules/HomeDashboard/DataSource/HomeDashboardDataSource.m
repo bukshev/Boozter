@@ -72,7 +72,9 @@ static NSUInteger const kNumberOfSections = 1;
         return;
     }
 
-    [self animateCell:dequeuedCell];
+    if (!collectionView.isDragging) {
+        [self animateCell:dequeuedCell];
+    }
 
     HomeDashboardCell *cell = (HomeDashboardCell *)dequeuedCell;
     HomeDashboardItem *item = self.items[indexPath.row];
