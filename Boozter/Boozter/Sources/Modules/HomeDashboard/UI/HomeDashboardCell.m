@@ -41,12 +41,7 @@
     assert(nil != item);
 
     self.nameLabel.text = item.coctailName;
-
-    if (nil == item.coctailImageData) {
-        self.imageView.image = [UIImage imageNamed:@"CoctailPlaceholder"];
-    } else {
-        self.imageView.image = [UIImage imageWithData:item.coctailImageData];
-    }
+    self.imageView.image = [UIImage imageWithData:item.coctailImageData];
 
     [self setupCompletedState];
 }
@@ -60,6 +55,8 @@
 
 - (void)setupInProgressState {
     self.stackView.hidden = YES;
+    self.nameLabel.text = nil;
+    self.imageView.image = nil;
 }
 
 - (void)setupCompletedState {

@@ -10,6 +10,9 @@
 #import "ICoctailViewOutput.h"
 #import "CoctailDetailsItem.h"
 
+#import "UIColor+Application.h"
+#import "UINavigationController+StatusBarColor.h"
+
 @interface CoctailViewController ()
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
@@ -41,6 +44,7 @@
 
 - (void)setupInitialState {
     assert(nil != self.output);
+    [self.navigationController setStatusBarColor:[UIColor navigationControllerBackgroundColor]];
 }
 
 - (void)configureWithItem:(CoctailDetailsItem *)item {

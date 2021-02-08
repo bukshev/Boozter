@@ -10,6 +10,9 @@
 #import "IHomeDashboardViewOutput.h"
 #import "HomeDashboardDataSource.h"
 
+#import "UIColor+Application.h"
+#import "UINavigationController+StatusBarColor.h"
+
 @interface HomeDashboardViewController () <UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) HomeDashboardDataSource *dataSource;
@@ -46,21 +49,18 @@
     assert(nil != self.collectionView);
     assert(nil != self.dataSource);
 
-    self.title = @"Коктейли";
-
+    [self.navigationController setStatusBarColor:[UIColor navigationControllerBackgroundColor]];
     [self.dataSource injectCollectionView:self.collectionView];
 }
 
 - (void)reloadData {
     assert(NSThread.isMainThread);
-
     [self.collectionView reloadData];
 }
 
 - (void)reloadItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths {
     assert(nil != indexPaths);
     assert(NSThread.isMainThread);
-
     [self.collectionView reloadItemsAtIndexPaths:indexPaths];
 }
 

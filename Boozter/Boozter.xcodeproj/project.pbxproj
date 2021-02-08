@@ -50,6 +50,8 @@
 		FB2F34FA25CBEA77006AE798 /* UtilitiesAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2F34F925CBEA77006AE798 /* UtilitiesAssembly.m */; };
 		FB2F350625CBF15D006AE798 /* GetCoctailDetailsParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2F350525CBF15D006AE798 /* GetCoctailDetailsParser.m */; };
 		FB2F350C25CBF1F3006AE798 /* GetCoctailDetailsNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2F350B25CBF1F3006AE798 /* GetCoctailDetailsNetworkOperation.m */; };
+		FB630B2725CD3A0000EB5793 /* UINavigationController+StatusBarColor.m in Sources */ = {isa = PBXBuildFile; fileRef = FB630B2625CD3A0000EB5793 /* UINavigationController+StatusBarColor.m */; };
+		FB630B4025CD3D4600EB5793 /* UIColor+Application.m in Sources */ = {isa = PBXBuildFile; fileRef = FB630B3F25CD3D4600EB5793 /* UIColor+Application.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +179,10 @@
 		FB2F350525CBF15D006AE798 /* GetCoctailDetailsParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetCoctailDetailsParser.m; sourceTree = "<group>"; };
 		FB2F350A25CBF1F3006AE798 /* GetCoctailDetailsNetworkOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetCoctailDetailsNetworkOperation.h; sourceTree = "<group>"; };
 		FB2F350B25CBF1F3006AE798 /* GetCoctailDetailsNetworkOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetCoctailDetailsNetworkOperation.m; sourceTree = "<group>"; };
+		FB630B2525CD3A0000EB5793 /* UINavigationController+StatusBarColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+StatusBarColor.h"; sourceTree = "<group>"; };
+		FB630B2625CD3A0000EB5793 /* UINavigationController+StatusBarColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+StatusBarColor.m"; sourceTree = "<group>"; };
+		FB630B3E25CD3D4600EB5793 /* UIColor+Application.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Application.h"; sourceTree = "<group>"; };
+		FB630B3F25CD3D4600EB5793 /* UIColor+Application.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Application.m"; sourceTree = "<group>"; };
 		FB760F4E25BE7E77007ADD30 /* Typhoon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Typhoon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB760F5225BE7E79007ADD30 /* ViperMcFlurry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ViperMcFlurry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -650,6 +656,8 @@
 		F4F2227323581DEA00AB457B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				FB630B3D25CD3D2F00EB5793 /* UIColor */,
+				FB630B2425CD39DC00EB5793 /* UINavigationController */,
 				F460CFF423601F4000240946 /* UIViewController */,
 				F4F2227423581DF300AB457B /* NSManagedObject */,
 			);
@@ -752,6 +760,24 @@
 				F46AD813231D510D008DEC0B /* HomeDashboardViewController.storyboard */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		FB630B2425CD39DC00EB5793 /* UINavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				FB630B2525CD3A0000EB5793 /* UINavigationController+StatusBarColor.h */,
+				FB630B2625CD3A0000EB5793 /* UINavigationController+StatusBarColor.m */,
+			);
+			path = UINavigationController;
+			sourceTree = "<group>";
+		};
+		FB630B3D25CD3D2F00EB5793 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				FB630B3E25CD3D4600EB5793 /* UIColor+Application.h */,
+				FB630B3F25CD3D4600EB5793 /* UIColor+Application.m */,
+			);
+			path = UIColor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -944,6 +970,7 @@
 				FB2F34DA25CAE3C0006AE798 /* CoctailInteractor.m in Sources */,
 				F460CFF723601F5C00240946 /* UIViewController+ProgressHUD.m in Sources */,
 				F4F222662356E0BC00AB457B /* ManagedCoctail.m in Sources */,
+				FB630B4025CD3D4600EB5793 /* UIColor+Application.m in Sources */,
 				F46AD82B231D5BAB008DEC0B /* HomeDashboardItem.m in Sources */,
 				F46AD7CF231D4F00008DEC0B /* main.m in Sources */,
 				FB2F34B925CA8777006AE798 /* CoctailPresenter.m in Sources */,
@@ -953,6 +980,7 @@
 				FB2F34EE25CBE67D006AE798 /* ServicesAssembly.m in Sources */,
 				FB2F34C125CA8A6B006AE798 /* CoctailDetailsItem.m in Sources */,
 				F46AD81C231D520B008DEC0B /* HomeDashboardPresenter.m in Sources */,
+				FB630B2725CD3A0000EB5793 /* UINavigationController+StatusBarColor.m in Sources */,
 				F46AD85523210A6E008DEC0B /* CoctailViewController.m in Sources */,
 				F46AD849231E5B12008DEC0B /* CoctailModuleAssembly.m in Sources */,
 				F46AD807231D4F7C008DEC0B /* Boozter.xcdatamodeld in Sources */,
@@ -1063,7 +1091,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1117,7 +1145,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = NO;
@@ -1134,7 +1162,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2MEXR3KD6;
 				INFOPLIST_FILE = Boozter/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1153,7 +1181,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2MEXR3KD6;
 				INFOPLIST_FILE = Boozter/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
