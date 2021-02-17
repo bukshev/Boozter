@@ -19,6 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)reloadData;
 - (void)reloadItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths;
 
+- (void)showBlurEffect;
+- (void)hideBlurEffect;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -16,6 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeDashboardCell : UICollectionViewCell
 
+@property (nonatomic, weak) IBOutlet UIStackView *stackView;
+@property (nonatomic, weak) IBOutlet UIImageView *imageView;
+@property (nonatomic, weak) IBOutlet UILabel *nameLabel;
+
 + (NSString *)reuseIdentifier;
 
 - (void)configureWithItem:(HomeDashboardItem *)item;

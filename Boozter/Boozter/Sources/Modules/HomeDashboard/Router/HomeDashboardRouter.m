@@ -48,6 +48,7 @@
         UIViewController *sourceViewController = (UIViewController *)source;
         UIViewController *destinationViewController = (UIViewController *)destination;
         [sourceViewController.navigationController pushViewController:destinationViewController animated:YES];
+
     }] thenChainUsingBlock:^id<RamblerViperModuleOutput>(__kindof id<ICoctailModuleInput> moduleInput) {
         [moduleInput setCoctail:coctail];
         return nil;

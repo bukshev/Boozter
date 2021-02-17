@@ -40,10 +40,9 @@
 
 #pragma mark - IHomeDashboardInteractorInput
 
-- (void)obtainCoctailsFromSourcePoint:(DataSourcePoint)sourcePoint withFilter:(CoctailsFilter)filter {
-    [self.coctailsService obtainCoctailsFromSourcePoint:sourcePoint
-                                          withPredicate:[self predicateFromFilter:filter]
-                                      completionHandler:[self coctailsServiceObtainingCompletion]];
+- (void)obtainRemoteCoctailsWithFilter:(CoctailsFilter)filter {
+    [self.coctailsService obtainRemoteCoctailsWithPredicate:[self predicateFromFilter:filter]
+                                          completionHandler:[self coctailsServiceObtainingCompletion]];
 }
 
 #pragma mark - Private helpers

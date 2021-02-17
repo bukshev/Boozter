@@ -13,6 +13,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// TODO: Add methods for converting from plain to managed and from managed to plain
+
 @protocol ICoreCacheModelFiller <NSObject>
 
 - (void)fillWithPlainObject:(NSObject<IPlainObject> *)object

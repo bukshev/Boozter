@@ -10,9 +10,7 @@
 #import "HomeDashboardItem.h"
 
 @interface HomeDashboardCell ()
-@property (nonatomic, weak) IBOutlet UIStackView *stackView;
-@property (nonatomic, weak) IBOutlet UIImageView *imageView;
-@property (nonatomic, weak) IBOutlet UILabel *nameLabel;
+
 @end
 
 @implementation HomeDashboardCell
@@ -27,7 +25,7 @@
 
     [self setupInProgressState];
 
-    self.imageView.layer.cornerRadius = 16.0f;
+    self.imageView.layer.cornerRadius = 10.0f;
     self.imageView.layer.masksToBounds = true;
 }
 

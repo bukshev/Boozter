@@ -11,9 +11,6 @@
 #import "IPlainObject.h"
 #import "ICoreCacheModelFiller.h"
 
-#import "ManagedCoctail.h"
-#import "Coctail.h"
-
 @interface CoreDataCache ()
 @property (nonatomic, copy) NSString *identifier;
 @property (atomic, strong) NSPersistentContainer *persistentContainer;
@@ -51,20 +48,59 @@
 
 #pragma mark - ICoreCache
 
+- (void)saveViewContext {
+    [self saveContext:self.persistentContainer.viewContext];
+}
+
 - (void)cacheObjects:(NSArray<IPlainObject> *)objects withModelFiller:(id<ICoreCacheModelFiller>)filler {
     assert(nil != objects);
     assert(nil != filler);
 
-    NSManagedObjectContext *context = self.persistentContainer.viewContext;
+    __weak typeof(self) weakSelf = self;
 
-    [objects enumerateObjectsUsingBlock:^(NSObject<IPlainObject> *object, NSUInteger idx, BOOL *stop) {
-        [filler fillWithPlainObject:object inContext:context];
+    [weakSelf.persistentContainer performBackgroundTask:^(NSManagedObjectContext *context) {
+        [objects enumerateObjectsUsingBlock:^(NSObject<IPlainObject> *object, NSUInteger idx, BOOL *stop) {
+            [filler fillWithPlainObject:object inContext:context];
+        }];
+
+        [weakSelf saveContext:context];
     }];
+}
+
+- (void)obtainObjectsWithEntityName:(NSString *)entityName
+                          predicate:(nullable NSPredicate *)predicate
+                  completionHandler:(ObtainCachedObjectsCompletion)completionHandler {
+
+    assert(nil != entityName);
+    assert(NULL != completionHandler);
+
+    NSManagedObjectContext *backgroundContext = [self.persistentContainer newBackgroundContext];
+
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:entityName];
+    fetchRequest.predicate = predicate;
+
+    void (^handler)(NSAsynchronousFetchResult *) = ^(NSAsynchronousFetchResult *result) {
+        if (nil != result.operationError) {
+            completionHandler(nil, result.operationError);
+            return;
+        }
+
+        NSArray<NSManagedObject *> *managedObjects = result.finalResult;
+        if (nil == managedObjects) {
+            // TODO: Generate new error for completion
+            return;
+        }
+
+        completionHandler(managedObjects, nil);
+    };
+
+    NSAsynchronousFetchRequest *asyncFetchRequest = [[NSAsynchronousFetchRequest alloc] initWithFetchRequest:fetchRequest completionBlock:handler];
 
     __autoreleasing NSError *error = nil;
-    if (![context save:&error]) {
-        NSAssert(NO, @"Unresolved error: %@, %@", error, [error userInfo]);
-        return;
+    [backgroundContext executeRequest:asyncFetchRequest error:&error];
+
+    if (nil != error) {
+        NSLog(@"Unresolved error %@, %@", error, error.userInfo);
     }
 }
 
@@ -82,9 +118,9 @@
 
 #pragma mark - Core Data Saving support
 
-- (void)saveContext {
-    NSManagedObjectContext *context = self.persistentContainer.viewContext;
-    NSError *error = nil;
+- (void)saveContext:(NSManagedObjectContext *)context {
+    __autoreleasing NSError *error = nil;
+
     if ([context hasChanges] && ![context save:&error]) {
         NSLog(@"Unresolved error %@, %@", error, error.userInfo);
         abort();

@@ -128,11 +128,11 @@ static NSUInteger const kNumberOfSections = 1;
 
 #pragma mark - Animations
 
-- (void)animateCell:(UICollectionViewCell *)cell {
+- (void)animateCell:(HomeDashboardCell *)cell {
     cell.alpha = 0.0f;
     cell.transform = CGAffineTransformMakeScale(0.8f, 0.8f);
 
-    [UIView animateWithDuration:0.35 animations:^{
+    [UIView animateWithDuration:0.4f animations:^{
         cell.alpha = 1.0f;
         cell.transform = CGAffineTransformMakeScale(1.0f, 1.0f);
     }];

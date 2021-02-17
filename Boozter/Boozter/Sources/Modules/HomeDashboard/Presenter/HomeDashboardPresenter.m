@@ -18,6 +18,8 @@
 #import "HomeDashboardDataSource.h"
 #import "IImageDownloader.h"
 
+static CGFloat const kSecondsDelayBeforeShowingView = 1.5f;
+
 @interface HomeDashboardPresenter () <IHomeDashboardCellImageDownloader>
 @property (nonatomic, strong) id<IImageDownloader> imageDownloader;
 @property (nonatomic, weak) HomeDashboardDataSource *dataSource;
@@ -67,10 +69,10 @@
     _coctailCellSize = [self coctailCellSizeForScreenSize:screenSize];
 
     [self.view setupInitialState];
+    [self.view showBlurEffect];
     [self.view showProgressHUD];
 
-    [self.interactor obtainCoctailsFromSourcePoint:DataSourcePointRemote
-                                        withFilter:CoctailsFilterNone];
+    [self.interactor obtainRemoteCoctailsWithFilter:CoctailsFilterNone];
 }
 
 - (void)didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -95,15 +97,16 @@
     [self.dataSource updateDataSourceWithCoctails:coctails];
 
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.view hideProgressHUD];
         [self.view reloadData];
+        [self hideBlurViewAfterLoading];
     });
 }
 
 - (void)didFailObtainCoctailsWithError:(NSError *)error {
     assert(nil != error);
-    
+
     // TODO: Hide progress HUD in main thread and show alert with failure reason.
+    [self hideBlurViewAfterLoading];
 }
 
 #pragma mark - IHomeDashboardCellImageDownloader
@@ -121,6 +124,14 @@
 }
 
 #pragma mark - Private helpers
+
+- (void)hideBlurViewAfterLoading {
+    dispatch_time_t deadline = dispatch_time(DISPATCH_TIME_NOW, kSecondsDelayBeforeShowingView * NSEC_PER_SEC);
+    dispatch_after(deadline, dispatch_get_main_queue(), ^{
+        [self.view hideProgressHUD];
+        [self.view hideBlurEffect];
+    });
+}
 
 - (CGSize)coctailCellSizeForScreenSize:(CGSize)screenSize {
     assert(CGSizeZero.height != screenSize.height);

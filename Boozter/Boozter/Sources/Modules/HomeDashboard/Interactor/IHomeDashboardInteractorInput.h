@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DataSourcePoint.h"
 #import "CoctailsFilter.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -15,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol IHomeDashboardInteractorInput <NSObject>
 
 @required
-- (void)obtainCoctailsFromSourcePoint:(DataSourcePoint)sourcePoint withFilter:(CoctailsFilter)filter;
+- (void)obtainRemoteCoctailsWithFilter:(CoctailsFilter)filter;
 
 @end
 

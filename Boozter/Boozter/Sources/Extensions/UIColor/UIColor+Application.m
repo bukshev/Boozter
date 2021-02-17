@@ -11,7 +11,7 @@
 @implementation UIColor (Application)
 
 + (UIColor *)navigationControllerBackgroundColor {
-    return [UIColor colorWithRed:246.0f/255.0f green:192/255.0f blue:67/255.0f alpha:1.0f];
+    return [UIColor colorWithRed:255.0f/255.0f green:190/255.0f blue:8/255.0f alpha:1.0f];
 }
 
 + (UIColor *)viewBackgroundColor {

@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DataSourcePoint.h"
 #import "ImageDownloadCompletion.h"
 
 @class Coctail;
@@ -22,9 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @required
 - (void)cacheCoctails:(NSArray<Coctail *> *)coctails;
 
-- (void)obtainCoctailsFromSourcePoint:(DataSourcePoint)sourcePoint
-                        withPredicate:(nullable NSPredicate *)predicate
-                    completionHandler:(ObtainCoctailsCompletion)completionHandler;
+- (void)obtainRemoteCoctailsWithPredicate:(nullable NSPredicate *)predicate
+                        completionHandler:(ObtainCoctailsCompletion)completionHandler;
 
 - (void)obtainDetailsForCoctail:(NSInteger)coctailIdentifier
               completionHandler:(ObtainCoctailWithDetailsCompletion)completionHandler;

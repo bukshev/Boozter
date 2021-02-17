@@ -12,15 +12,20 @@
 @protocol IPlainObject;
 @protocol ICoreCacheModelFiller;
 
+typedef void (^ObtainCachedObjectsCompletion)(NSArray<NSManagedObject *> * _Nullable, NSError * _Nullable);
+
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol ICoreCache <NSObject>
 
+- (void)saveViewContext;
+
 - (void)cacheObjects:(NSArray<IPlainObject> *)objects
      withModelFiller:(id<ICoreCacheModelFiller>)filler;
 
-- (NSArray<NSManagedObject *> *)objectsForEntityName:(NSString *)entityName
-                                           predicate:(nullable NSPredicate *)predicate;
+- (void)obtainObjectsWithEntityName:(NSString *)entityName
+                          predicate:(nullable NSPredicate *)predicate
+                  completionHandler:(ObtainCachedObjectsCompletion)completionHandler;
 
 @end
 

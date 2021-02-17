@@ -155,7 +155,6 @@
 		F4F2227523581E0F00AB457B /* NSManagedObject+EntityName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+EntityName.h"; sourceTree = "<group>"; };
 		F4F2227623581E0F00AB457B /* NSManagedObject+EntityName.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+EntityName.m"; sourceTree = "<group>"; };
 		F4F222832358296900AB457B /* IPlainObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IPlainObject.h; sourceTree = "<group>"; };
-		F4F2228523583F4A00AB457B /* DataSourcePoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataSourcePoint.h; sourceTree = "<group>"; };
 		F4F222AB23584E2C00AB457B /* ICoreCacheModelFiller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICoreCacheModelFiller.h; sourceTree = "<group>"; };
 		F4F222AD2358524B00AB457B /* CoctailCacheModelFiller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoctailCacheModelFiller.h; sourceTree = "<group>"; };
 		F4F222AE2358524B00AB457B /* CoctailCacheModelFiller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoctailCacheModelFiller.m; sourceTree = "<group>"; };
@@ -677,7 +676,6 @@
 			isa = PBXGroup;
 			children = (
 				F4F222832358296900AB457B /* IPlainObject.h */,
-				F4F2228523583F4A00AB457B /* DataSourcePoint.h */,
 			);
 			path = Common;
 			sourceTree = "<group>";
