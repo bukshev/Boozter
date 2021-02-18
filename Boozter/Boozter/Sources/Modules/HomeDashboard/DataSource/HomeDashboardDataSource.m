@@ -67,13 +67,13 @@ static NSUInteger const kNumberOfSections = 1;
        willDisplayCell:(UICollectionViewCell *)dequeuedCell
     forItemAtIndexPath:(NSIndexPath *)indexPath {
 
+    if (!collectionView.isDragging) {
+        [self animateCell:dequeuedCell];
+    }
+
     BOOL const isHomeDashboardCell = [dequeuedCell isKindOfClass:[HomeDashboardCell class]];
     if (!isHomeDashboardCell) {
         return;
-    }
-
-    if (!collectionView.isDragging) {
-        [self animateCell:dequeuedCell];
     }
 
     HomeDashboardCell *cell = (HomeDashboardCell *)dequeuedCell;
@@ -128,11 +128,11 @@ static NSUInteger const kNumberOfSections = 1;
 
 #pragma mark - Animations
 
-- (void)animateCell:(HomeDashboardCell *)cell {
+- (void)animateCell:(UICollectionViewCell *)cell {
     cell.alpha = 0.0f;
-    cell.transform = CGAffineTransformMakeScale(0.8f, 0.8f);
+    cell.transform = CGAffineTransformMakeScale(0.55f, 0.55f);
 
-    [UIView animateWithDuration:0.4f animations:^{
+    [UIView animateWithDuration:0.35f animations:^{
         cell.alpha = 1.0f;
         cell.transform = CGAffineTransformMakeScale(1.0f, 1.0f);
     }];

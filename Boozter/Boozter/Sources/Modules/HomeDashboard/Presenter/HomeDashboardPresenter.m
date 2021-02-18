@@ -18,7 +18,7 @@
 #import "HomeDashboardDataSource.h"
 #import "IImageDownloader.h"
 
-static CGFloat const kSecondsDelayBeforeShowingView = 1.5f;
+static CGFloat const kSecondsDelayBeforeShowingView = 1.6f;
 
 @interface HomeDashboardPresenter () <IHomeDashboardCellImageDownloader>
 @property (nonatomic, strong) id<IImageDownloader> imageDownloader;
@@ -70,7 +70,7 @@ static CGFloat const kSecondsDelayBeforeShowingView = 1.5f;
 
     [self.view setupInitialState];
     [self.view showBlurEffect];
-    [self.view showProgressHUD];
+    [self.view showProgressHUD:@"Подгружаем данные"];
 
     [self.interactor obtainRemoteCoctailsWithFilter:CoctailsFilterNone];
 }
@@ -99,6 +99,7 @@ static CGFloat const kSecondsDelayBeforeShowingView = 1.5f;
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.view reloadData];
         [self hideBlurViewAfterLoading];
+        [self.view setupSearchBar];
     });
 }
 

@@ -44,7 +44,18 @@
 
 - (void)setupInitialState {
     assert(nil != self.output);
-    [self.navigationController setStatusBarColor:[UIColor navigationControllerBackgroundColor]];
+
+    if (@available(iOS 13, *)) {
+        UINavigationBarAppearance *appearance = [[UINavigationBarAppearance alloc] init];
+        [appearance configureWithOpaqueBackground];
+        appearance.backgroundColor = [UIColor navigationControllerBackgroundColor];
+        self.navigationController.navigationBar.standardAppearance = appearance;
+        self.navigationController.navigationBar.scrollEdgeAppearance = appearance;
+        //        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        //        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+    } else {
+        [self.navigationController setStatusBarColor:[UIColor navigationControllerBackgroundColor]];
+    }
 }
 
 - (void)configureWithItem:(CoctailDetailsItem *)item {

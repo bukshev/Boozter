@@ -7,15 +7,24 @@
 //
 
 #import "UIViewController+ProgressHUD.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @implementation UIViewController (ProgressHUD)
 
-- (void)showProgressHUD {
-    NSLog(@"%s without implementation.", __PRETTY_FUNCTION__);
+- (void)showProgressHUD:(nullable NSString *)statusMessage {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (nil != statusMessage) {
+            [SVProgressHUD showWithStatus:statusMessage];
+        } else {
+            [SVProgressHUD show];
+        }
+    });
 }
 
 - (void)hideProgressHUD {
-    NSLog(@"%s without implementation.", __PRETTY_FUNCTION__);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [SVProgressHUD dismiss];
+    });
 }
 
 @end

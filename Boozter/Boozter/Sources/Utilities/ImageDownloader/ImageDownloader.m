@@ -124,7 +124,7 @@
 
     _downloadQueue = [[NSOperationQueue alloc] init];
     _downloadQueue.name = [[NSBundle mainBundle].bundlePath stringByAppendingString:@".ImageDownloadQueue"];
-    _downloadQueue.qualityOfService = NSQualityOfServiceUserInteractive;
+    _downloadQueue.qualityOfService = NSQualityOfServiceUserInitiated;
 
     return _downloadQueue;
 }

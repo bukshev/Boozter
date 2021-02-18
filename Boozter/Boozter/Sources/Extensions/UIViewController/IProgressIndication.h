@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol IProgressIndication <NSObject>
 
-- (void)showProgressHUD;
+- (void)showProgressHUD:(nullable NSString *)statusMessage;
 - (void)hideProgressHUD;
 
 @end

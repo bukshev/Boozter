@@ -50,10 +50,43 @@
     assert(nil != self.collectionView);
     assert(nil != self.dataSource);
 
-    [self.navigationController setStatusBarColor:[UIColor navigationControllerBackgroundColor]];
-
     [self.dataSource injectCollectionView:self.collectionView];
-    [self setupSearchBar];
+
+    if (@available(iOS 13, *)) {
+        UINavigationBarAppearance *appearance = [[UINavigationBarAppearance alloc] init];
+        [appearance configureWithOpaqueBackground];
+        appearance.backgroundColor = [UIColor navigationControllerBackgroundColor];
+        self.navigationController.navigationBar.standardAppearance = appearance;
+        self.navigationController.navigationBar.scrollEdgeAppearance = appearance;
+//        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+//        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+    } else {
+        [self.navigationController setStatusBarColor:[UIColor navigationControllerBackgroundColor]];
+    }
+}
+
+- (void)setupSearchBar {
+    UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    searchController.delegate = self;
+
+    UISearchBar *searchBar = searchController.searchBar;
+    searchBar.tintColor = [UIColor blackColor];
+    searchBar.barTintColor = [UIColor blackColor];
+
+    UITextField *searchBarTextField = [searchBar valueForKey:@"searchField"];
+    if (nil != searchBarTextField) {
+        searchBarTextField.textColor = [UIColor blackColor];
+
+        UIView *backgroundView = [searchBarTextField.subviews firstObject];
+        if (nil != backgroundView) {
+            backgroundView.backgroundColor = [UIColor whiteColor];
+            backgroundView.layer.cornerRadius = 10.0f;
+            backgroundView.clipsToBounds = YES;
+        }
+    }
+
+    self.navigationItem.searchController = searchController;
+    self.navigationItem.hidesSearchBarWhenScrolling = YES;
 }
 
 - (void)reloadData {
@@ -136,36 +169,6 @@
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
 
     return [self.output sizeForItemAtIndexPath:indexPath];
-}
-
-#pragma mark - Private helpers
-
-- (void)setupSearchBar {
-
-    UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
-    searchController.delegate = self;
-
-    UISearchBar *searchBar = searchController.searchBar;
-    searchBar.tintColor = [UIColor blackColor];
-    searchBar.barTintColor = [UIColor blackColor];
-
-
-    UITextField *searchBarTextField = [searchBar valueForKey:@"searchField"];
-    if (nil != searchBarTextField) {
-        searchBarTextField.textColor = [UIColor blackColor];
-
-        UIView *backgroundView = [searchBarTextField.subviews firstObject];
-        if (nil != backgroundView) {
-            backgroundView.backgroundColor = [UIColor whiteColor];
-            backgroundView.layer.cornerRadius = 10.0f;
-            backgroundView.clipsToBounds = YES;
-        }
-    }
-
-//    self.navigationController.navigationBar.barTintColor = blue
-
-    self.navigationItem.searchController = searchController;
-//    self.navigationItem.hidesSearchBarWhenScrolling = NO;
 }
 
 @end
