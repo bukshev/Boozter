@@ -21,6 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 @required
 - (void)cacheCoctails:(NSArray<Coctail *> *)coctails;
 
+- (void)obtainRemoteCoctailsWithIngredientName:(NSString *)ingredientName
+                             completionHandler:(ObtainCoctailsCompletion)completionHandler;
+
 - (void)obtainRemoteCoctailsWithPredicate:(nullable NSPredicate *)predicate
                         completionHandler:(ObtainCoctailsCompletion)completionHandler;
 

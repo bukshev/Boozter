@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @required
 - (void)obtainRemoteCoctailsWithFilter:(CoctailsFilter)filter;
+- (void)obtainRemoteCoctailsWithIngredientName:(NSString *)ingredientName;
 
 @end
 

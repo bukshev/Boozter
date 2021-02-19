@@ -37,6 +37,7 @@
 
 - (void)configureWithItem:(HomeDashboardItem *)item {
     assert(nil != item);
+    assert(NSThread.isMainThread);
 
     self.nameLabel.text = item.coctailName;
     self.imageView.image = [UIImage imageWithData:item.coctailImageData];
@@ -53,8 +54,6 @@
 
 - (void)setupInProgressState {
     self.stackView.hidden = YES;
-    self.nameLabel.text = nil;
-    self.imageView.image = nil;
 }
 
 - (void)setupCompletedState {

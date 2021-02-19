@@ -91,8 +91,15 @@ static NSUInteger const kNumberOfSections = 1;
   didEndDisplayingCell:(UICollectionViewCell *)cell
     forItemAtIndexPath:(NSIndexPath *)indexPath {
 
-    Coctail *coctail = self.coctails[indexPath.row];
-    [self.imageDownloader slowDownImageDownloadingFromURL:coctail.imageURL];
+    if (indexPath.row >= self.items.count) {
+        return;
+    }
+
+    HomeDashboardItem *item = self.items[indexPath.row];
+    if (nil == item.coctailImageData) {
+        Coctail *coctail = self.coctails[indexPath.row];
+        [self.imageDownloader slowDownImageDownloadingFromURL:coctail.imageURL];
+    }
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -113,16 +120,26 @@ static NSUInteger const kNumberOfSections = 1;
 #pragma mark - UICollectionViewDataSourcePrefetching
 
 - (void)collectionView:(UICollectionView *)collectionView prefetchItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths {
-    [indexPaths enumerateObjectsUsingBlock:^(NSIndexPath * indexPath, NSUInteger idx, BOOL *stop) {
-        Coctail *coctail = self.coctails[indexPath.row];
-        [self.imageDownloader downloadImageFromURL:coctail.imageURL indexPath:indexPath];
+    [self executeAsynchronously:^{
+        [indexPaths enumerateObjectsUsingBlock:^(NSIndexPath * indexPath, NSUInteger idx, BOOL *stop) {
+            HomeDashboardItem *item = self.items[indexPath.row];
+            if (nil == item.coctailImageData) {
+                Coctail *coctail = self.coctails[indexPath.row];
+                [self.imageDownloader downloadImageFromURL:coctail.imageURL indexPath:indexPath];
+            }
+        }];
     }];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView cancelPrefetchingForItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths {
-    [indexPaths enumerateObjectsUsingBlock:^(NSIndexPath *indexPath, NSUInteger idx, BOOL *stop) {
-        Coctail *coctail = self.coctails[indexPath.row];
-        [self.imageDownloader slowDownImageDownloadingFromURL:coctail.imageURL];
+    [self executeAsynchronously:^{
+        [indexPaths enumerateObjectsUsingBlock:^(NSIndexPath *indexPath, NSUInteger idx, BOOL *stop) {
+            HomeDashboardItem *item = self.items[indexPath.row];
+            if (nil == item.coctailImageData) {
+                Coctail *coctail = self.coctails[indexPath.row];
+                [self.imageDownloader slowDownImageDownloadingFromURL:coctail.imageURL];
+            }
+        }];
     }];
 }
 
@@ -130,12 +147,16 @@ static NSUInteger const kNumberOfSections = 1;
 
 - (void)animateCell:(UICollectionViewCell *)cell {
     cell.alpha = 0.0f;
-    cell.transform = CGAffineTransformMakeScale(0.55f, 0.55f);
 
     [UIView animateWithDuration:0.35f animations:^{
         cell.alpha = 1.0f;
-        cell.transform = CGAffineTransformMakeScale(1.0f, 1.0f);
     }];
+}
+
+#pragma mark - Optimizations
+
+- (void)executeAsynchronously:(void (^)(void))block {
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE, 0), [block copy]);
 }
 
 @end

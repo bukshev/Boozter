@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol IHomeDashboardViewOutput <NSObject>
 
 - (void)onViewReadyEvent:(CGSize)screenSize;
+- (void)onSearchIngredientInputEvent:(NSString *)ingredientName;
 
 - (void)didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
 - (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath;

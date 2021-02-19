@@ -18,6 +18,7 @@
 #import "HomeDashboardDataSource.h"
 #import "IImageDownloader.h"
 
+static NSInteger const kMinIngredientNameLength = 2;
 static CGFloat const kSecondsDelayBeforeShowingView = 1.6f;
 
 @interface HomeDashboardPresenter () <IHomeDashboardCellImageDownloader>
@@ -69,10 +70,22 @@ static CGFloat const kSecondsDelayBeforeShowingView = 1.6f;
     _coctailCellSize = [self coctailCellSizeForScreenSize:screenSize];
 
     [self.view setupInitialState];
+
     [self.view showBlurEffect];
     [self.view showProgressHUD:@"Подгружаем данные"];
 
     [self.interactor obtainRemoteCoctailsWithFilter:CoctailsFilterNone];
+}
+
+- (void)onSearchIngredientInputEvent:(NSString *)ingredientName {
+    if (ingredientName.length < kMinIngredientNameLength) {
+        return;
+    }
+
+    [self.view showBlurEffect];
+    [self.view showProgressHUD:@"Подгружаем данные"];
+
+    [self.interactor obtainRemoteCoctailsWithIngredientName:ingredientName];
 }
 
 - (void)didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -94,6 +107,7 @@ static CGFloat const kSecondsDelayBeforeShowingView = 1.6f;
 - (void)didObtainCoctails:(NSArray<Coctail *> *)coctails {
     assert(nil != coctails);
 
+    [self.imageDownloader invalidateCache];
     [self.dataSource updateDataSourceWithCoctails:coctails];
 
     dispatch_async(dispatch_get_main_queue(), ^{

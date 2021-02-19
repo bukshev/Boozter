@@ -13,7 +13,7 @@
 #import "UIColor+Application.h"
 #import "UINavigationController+StatusBarColor.h"
 
-@interface HomeDashboardViewController () <UISearchControllerDelegate, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface HomeDashboardViewController () <UISearchBarDelegate, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) HomeDashboardDataSource *dataSource;
 @property (nonatomic, strong) UIVisualEffectView *blurEffectView;
@@ -67,11 +67,12 @@
 
 - (void)setupSearchBar {
     UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
-    searchController.delegate = self;
+    searchController.searchBar.placeholder = @"Ingredient name (e.g. Vodka)";
 
     UISearchBar *searchBar = searchController.searchBar;
     searchBar.tintColor = [UIColor blackColor];
     searchBar.barTintColor = [UIColor blackColor];
+    searchBar.delegate = self;
 
     UITextField *searchBarTextField = [searchBar valueForKey:@"searchField"];
     if (nil != searchBarTextField) {
@@ -86,7 +87,7 @@
     }
 
     self.navigationItem.searchController = searchController;
-    self.navigationItem.hidesSearchBarWhenScrolling = YES;
+    self.navigationItem.hidesSearchBarWhenScrolling = NO;
 }
 
 - (void)reloadData {
@@ -141,6 +142,10 @@
 }
 
 #pragma mark - UISearchControllerDelegate
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [self.output onSearchIngredientInputEvent:searchBar.text];
+}
 
 #pragma mark - UICollectionViewDelegate
 

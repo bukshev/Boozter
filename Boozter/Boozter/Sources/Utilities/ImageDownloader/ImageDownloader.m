@@ -115,6 +115,10 @@
     [self.downloadQueue cancelAllOperations];
 }
 
+- (void)invalidateCache {
+    [self.cache removeAllObjects];
+}
+
 #pragma mark - Getters & Setters
 
 - (NSOperationQueue *)downloadQueue {
@@ -124,7 +128,7 @@
 
     _downloadQueue = [[NSOperationQueue alloc] init];
     _downloadQueue.name = [[NSBundle mainBundle].bundlePath stringByAppendingString:@".ImageDownloadQueue"];
-    _downloadQueue.qualityOfService = NSQualityOfServiceUserInitiated;
+    _downloadQueue.qualityOfService = NSQualityOfServiceUserInteractive;
 
     return _downloadQueue;
 }

@@ -45,6 +45,11 @@
                                           completionHandler:[self coctailsServiceObtainingCompletion]];
 }
 
+- (void)obtainRemoteCoctailsWithIngredientName:(NSString *)ingredientName {
+    [self.coctailsService obtainRemoteCoctailsWithIngredientName:ingredientName
+                                               completionHandler:[self coctailsServiceObtainingCompletion]];
+}
+
 #pragma mark - Private helpers
 
 - (nullable NSPredicate *)predicateFromFilter:(CoctailsFilter)filter {

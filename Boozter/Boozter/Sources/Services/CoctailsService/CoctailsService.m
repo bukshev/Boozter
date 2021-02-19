@@ -31,6 +31,7 @@
 
 - (instancetype)initWithCoreCache:(id<ICoreCache>)coreCache
                       coreNetwork:(id<ICoreNetwork>)coreNetwork {
+
     assert(nil != coreCache);
     assert(nil != coreNetwork);
 
@@ -54,10 +55,23 @@
     [self.coreCache cacheObjects:(NSArray<IPlainObject> *)coctails withModelFiller:modelFiller];
 }
 
+- (void)obtainRemoteCoctailsWithIngredientName:(NSString *)ingredientName
+                             completionHandler:(ObtainCoctailsCompletion)completionHandler {
+
+    assert(nil != ingredientName);
+    assert(NULL != completionHandler);
+
+    void (^handler)(NSArray<Coctail *> *) = ^(NSArray<Coctail *> *coctails) {
+        completionHandler(coctails, nil);
+    };
+
+    NSURL *url = [self urlForIngredient:ingredientName];
+    GetCoctailsNetworkOperation *operation = [[GetCoctailsNetworkOperation alloc] initWithURL:url completion:handler];
+    [self.coreNetwork executeOperation:operation];
+}
+
 - (void)obtainRemoteCoctailsWithPredicate:(nullable NSPredicate *)predicate
                         completionHandler:(ObtainCoctailsCompletion)completionHandler {
-
-    assert(NULL != completionHandler);
 
     assert(NULL != completionHandler);
 
