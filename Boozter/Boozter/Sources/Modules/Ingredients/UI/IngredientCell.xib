@@ -54,6 +54,8 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="nameLabel" destination="FqL-Zu-fGo" id="bLR-Q7-ikr"/>
+                <outlet property="selectionImageView" destination="afu-QK-7w8" id="da7-z3-KgL"/>
+                <outlet property="stackView" destination="RkG-OA-Qez" id="see-Oq-sDy"/>
             </connections>
             <point key="canvasLocation" x="-531.8840579710145" y="56.25"/>
         </tableViewCell>

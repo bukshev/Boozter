@@ -15,11 +15,10 @@
 #import "IImageDownloader.h"
 #import "IngredientsDataSource.h"
 
-static CGFloat const kSecondsDelayBeforeShowingView = 0.75f;
+static CGFloat const kSecondsDelayBeforeShowingView = 0.55f;
 
 @interface IngredientsPresenter ()
 @property (nonatomic, strong) id<IImageDownloader> imageDownloader;
-@property (nonatomic, strong, nullable) IngredientsFilter *filter;
 @property (nonatomic, weak) IngredientsDataSource *dataSource;
 @property (nonatomic, weak) id<IIngredientsModuleOutput> moduleOutput;
 @property (nonatomic, assign) CGFloat ingredientCellHeight;
@@ -59,12 +58,6 @@ static CGFloat const kSecondsDelayBeforeShowingView = 0.75f;
 
 #pragma mark - IIngredientsModuleInput
 
-- (void)setIngredientsFilter:(IngredientsFilter *)filter {
-    assert(nil != filter);
-
-    _filter = filter;
-}
-
 - (void)setModuleOutput:(id<IIngredientsModuleOutput>)moduleOutput {
     assert(nil != moduleOutput);
 
@@ -84,8 +77,14 @@ static CGFloat const kSecondsDelayBeforeShowingView = 0.75f;
     [self.interactor obtainAvailableIngredients];
 }
 
-- (void)didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+- (void)onViewDismissEvent {
+    NSSet *ingredientsSet = [NSSet setWithArray:[self.dataSource selectedIngredients]];
+    IngredientsFilter *filter = [[IngredientsFilter alloc] initWithIngredientsSet:ingredientsSet];
+    [self.moduleOutput didSetFilter:filter];
+}
 
+- (void)didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [self.dataSource triggerSelectedStatusForIndexPath:indexPath];
 }
 
 - (CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -120,14 +119,11 @@ static CGFloat const kSecondsDelayBeforeShowingView = 0.75f;
 }
 
 - (CGFloat)ingredientCellHeightForScreenSize:(CGSize)screenSize {
-    assert(CGSizeZero.height != screenSize.height);
     assert(CGSizeZero.width != screenSize.width);
 
-//    CGFloat const indent = 16;
-//    CGFloat const width = (screenSize.width / 2.0f) - (indent * 2.0f);
-//    CGFloat const height = width * 1.2f;
+    CGFloat cellHeight = screenSize.width / 5.0f;
 
-    return 44.0f;
+    return cellHeight;
 }
 
 @end

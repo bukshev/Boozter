@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface IngredientCell : UITableViewCell
 
+@property (nonatomic, weak) IBOutlet UIStackView *stackView;
+@property (nonatomic, weak) IBOutlet UIImageView *selectionImageView;
 @property (nonatomic, weak) IBOutlet UILabel *nameLabel;
 
 + (NSString *)reuseIdentifier;

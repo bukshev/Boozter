@@ -64,8 +64,7 @@
     }];
 }
 
-- (void)openIngredientsScreen:(IngredientsFilter *)filter moduleOutput:(id<IIngredientsModuleOutput>)moduleOutput {
-    assert(nil != filter);
+- (void)openIngredientsScreenWithModuleOutput:(id<IIngredientsModuleOutput>)moduleOutput {
     assert(nil != moduleOutput);
 
     [[self.transitionHandler openModuleUsingFactory:self.ingredientsModuleFactory
@@ -77,7 +76,6 @@
         [sourceViewController.navigationController pushViewController:destinationViewController animated:YES];
 
     }] thenChainUsingBlock:^id<RamblerViperModuleOutput>(__kindof id<IIngredientsModuleInput> moduleInput) {
-        [moduleInput setIngredientsFilter:filter];
         return moduleOutput;
     }];
 }

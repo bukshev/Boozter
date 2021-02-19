@@ -120,7 +120,8 @@
 // TODO: Make it more flexible...
 - (NSURL *)urlForIngredient:(NSString *)ingredientName {
     // TODO: Move it to Operation?
-    NSString *urlString = [NSString stringWithFormat:@"https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=%@", ingredientName];
+    NSString *formattedIngredientName = [ingredientName stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+    NSString *urlString = [NSString stringWithFormat:@"https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=%@", formattedIngredientName];
     NSURL *url = [NSURL URLWithString:urlString];
     return url;
 }

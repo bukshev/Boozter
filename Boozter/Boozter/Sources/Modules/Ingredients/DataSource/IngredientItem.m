@@ -12,16 +12,21 @@
 
 #pragma mark - Initialization
 
-- (instancetype)initWithIngredient:(NSString *)ingredientName {
+- (instancetype)initWithIngredient:(NSString *)ingredientName selected:(BOOL)selected {
     assert(nil != ingredientName);
 
     self = [super init];
 
     if (nil != self) {
+        _selected = selected;
         _ingredientName = [ingredientName copy];
     }
 
     return self;
+}
+
+- (void)setSelected:(BOOL)selected {
+    _selected = selected;
 }
 
 @end

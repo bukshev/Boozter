@@ -29,6 +29,11 @@
     self.imageView.layer.masksToBounds = true;
 }
 
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    [self setupInProgressState];
+}
+
 #pragma mark - Public Interface
 
 + (NSString *)reuseIdentifier {
@@ -43,11 +48,6 @@
     self.imageView.image = [UIImage imageWithData:item.coctailImageData];
 
     [self setupCompletedState];
-}
-
-- (void)prepareForReuse {
-    [super prepareForReuse];
-    [self setupInProgressState];
 }
 
 #pragma mark - Private helpers

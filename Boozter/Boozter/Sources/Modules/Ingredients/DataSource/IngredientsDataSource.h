@@ -16,9 +16,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)injectTableView:(UITableView *)tableView;
 
+- (NSArray<NSString *> *)selectedIngredients;
 - (void)updateWithIngredients:(NSArray<NSString *> *)ingredients;
 
 - (nullable NSString *)ingredientForIndexPath:(NSIndexPath *)indexPath;
+- (void)triggerSelectedStatusForIndexPath:(NSIndexPath *)indexPath;
 
 - (void)tableView:(UITableView *)tableView
   willDisplayCell:(UITableViewCell *)cell

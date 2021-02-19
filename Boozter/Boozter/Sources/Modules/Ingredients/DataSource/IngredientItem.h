@@ -12,11 +12,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface IngredientItem : NSObject
 
+@property (nonatomic, assign, readonly, getter=isSelected) BOOL selected;
 @property (nonatomic, copy, readonly) NSString *ingredientName;
 
-- (instancetype)initWithIngredient:(NSString *)ingredientName NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithIngredient:(NSString *)ingredientName
+                          selected:(BOOL)selected NS_DESIGNATED_INITIALIZER;
 
 - (instancetype)init NS_UNAVAILABLE;
+
+- (void)setSelected:(BOOL)selected;
 
 @end
 

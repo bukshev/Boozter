@@ -40,6 +40,12 @@
     [self.output onViewReadyEvent:UIScreen.mainScreen.bounds.size];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+
+    [self.output onViewDismissEvent];
+}
+
 #pragma mark - IIngredientsViewInput
 
 - (void)setupInitialState {

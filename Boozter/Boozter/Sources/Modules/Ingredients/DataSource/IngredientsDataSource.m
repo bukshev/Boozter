@@ -33,13 +33,25 @@ static NSUInteger const kNumberOfSections = 1;
 
 #pragma mark - Public Interface
 
+- (NSArray<NSString *> *)selectedIngredients {
+    NSMutableArray *selectedIngredients = [NSMutableArray arrayWithCapacity:self.ingredients.count];
+
+    [self.items enumerateObjectsUsingBlock:^(IngredientItem *obj, NSUInteger idx, BOOL * stop) {
+        if (obj.isSelected) {
+            [selectedIngredients addObject:self.ingredients[idx]];
+        }
+    }];
+
+    return [selectedIngredients copy];
+}
+
 - (void)updateWithIngredients:(NSArray<NSString *> *)ingredients {
     assert(nil != ingredients);
 
     _ingredients = [ingredients mutableCopy];
     _items = [NSMutableArray arrayWithCapacity:ingredients.count];
     [ingredients enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL *stop) {
-        IngredientItem *item = [[IngredientItem alloc] initWithIngredient:obj];
+        IngredientItem *item = [[IngredientItem alloc] initWithIngredient:obj selected:NO];
         [self.items addObject:item];
     }];
 }
@@ -48,6 +60,35 @@ static NSUInteger const kNumberOfSections = 1;
     assert(nil != indexPath);
 
     return self.ingredients[indexPath.row];
+}
+
+- (void)updateSelectedStatus:(BOOL)selected forItemAt:(NSIndexPath *)indexPath {
+    assert(nil != indexPath);
+
+    IngredientItem *item = self.items[indexPath.row];
+    [item setSelected:selected];
+}
+
+- (void)triggerSelectedStatusForIndexPath:(NSIndexPath *)indexPath {
+    assert(nil != indexPath);
+
+    NSMutableArray *indexPathsForReload = [NSMutableArray arrayWithCapacity:self.ingredients.count];
+
+    IngredientItem *item = self.items[indexPath.row];
+    [item setSelected:!item.isSelected];
+
+    [indexPathsForReload addObject:indexPath];
+
+    [self.items enumerateObjectsUsingBlock:^(IngredientItem *obj, NSUInteger idx, BOOL *stop) {
+        if (obj.isSelected && indexPath.row != idx) {
+            [obj setSelected:NO];
+            [indexPathsForReload addObject:[NSIndexPath indexPathForRow:idx inSection:0]];
+        }
+    }];
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadRowsAtIndexPaths:indexPathsForReload withRowAnimation:UITableViewRowAnimationFade];
+    });
 }
 
 - (void)tableView:(UITableView *)tableView

@@ -12,14 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface IngredientsFilter : NSObject
 
-- (instancetype)init;
+@property (nonatomic, copy, readonly) NSSet<NSString *> *ingredients;
+
 - (instancetype)initWithIngredientsSet:(NSSet<NSString *> *)ingredients NS_DESIGNATED_INITIALIZER;
 
-- (void)replaceAllIngredientsWithSet:(NSSet<NSString *> *)allIngredients;
-- (void)replaceSelectedIngredientsWithSet:(NSSet<NSString *> *)selectedIngredients;
-
-- (NSSet<NSString *> *)selectedIngredients;
-- (NSSet<NSString *> *)allIngredients;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 

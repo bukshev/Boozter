@@ -25,7 +25,7 @@ static CGFloat const kSecondsDelayBeforeShowingView = 1.6f;
 @property (nonatomic, strong) id<IImageDownloader> imageDownloader;
 @property (nonatomic, weak) HomeDashboardDataSource *dataSource;
 @property (nonatomic, assign) CGSize coctailCellSize;
-@property (nonatomic, strong) IngredientsFilter *ingredientsFilter;
+@property (nonatomic, strong, nullable) IngredientsFilter *ingredientsFilter;
 @end
 
 @implementation HomeDashboardPresenter
@@ -47,7 +47,6 @@ static CGFloat const kSecondsDelayBeforeShowingView = 1.6f;
         _router = router;
         _coctailCellSize = CGSizeZero;
         _imageDownloader = imageDownloader;
-        _ingredientsFilter = [[IngredientsFilter alloc] init];
     }
 
     return self;
@@ -80,7 +79,7 @@ static CGFloat const kSecondsDelayBeforeShowingView = 1.6f;
 }
 
 - (void)onSelectFilter {
-    [self.router openIngredientsScreen:self.ingredientsFilter moduleOutput:self];
+    [self.router openIngredientsScreenWithModuleOutput:self];
 }
 
 - (void)didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -136,6 +135,15 @@ static CGFloat const kSecondsDelayBeforeShowingView = 1.6f;
 
 - (void)didSetFilter:(IngredientsFilter *)filter {
     assert(nil != filter);
+
+    self.ingredientsFilter = filter;
+
+    NSString *ingredientName = [filter.ingredients anyObject];
+    if (nil != ingredientName) {
+        [self.view showBlurEffect];
+        [self.view showProgressHUD:@"Подгружаем данные"];
+        [self.interactor obtainRemoteCoctailsWithIngredientName:ingredientName];
+    }
 }
 
 #pragma mark - Private helpers

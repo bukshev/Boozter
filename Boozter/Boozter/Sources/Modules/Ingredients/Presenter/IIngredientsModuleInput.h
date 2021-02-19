@@ -14,8 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol IIngredientsModuleInput <RamblerViperModuleInput>
 
-- (void)setIngredientsFilter:(IngredientsFilter *)filter;
-
 @end
 
 NS_ASSUME_NONNULL_END
