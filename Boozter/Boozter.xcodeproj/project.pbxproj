@@ -61,6 +61,8 @@
 		FB8EE77625DFA485008E0DED /* IngredientItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8EE77525DFA485008E0DED /* IngredientItem.m */; };
 		FB8EE77F25DFA4B4008E0DED /* IngredientsInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8EE77E25DFA4B4008E0DED /* IngredientsInteractor.m */; };
 		FB8EE78725DFA571008E0DED /* IngredientsModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8EE78625DFA571008E0DED /* IngredientsModuleAssembly.m */; };
+		FB8EE79525DFA9F6008E0DED /* IngredientsService.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8EE79425DFA9F6008E0DED /* IngredientsService.m */; };
+		FBA51C3D25DFB7C10094EAA3 /* IngredientsFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = FBA51C3C25DFB7C10094EAA3 /* IngredientsFilter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -213,6 +215,13 @@
 		FB8EE78425DFA4C8008E0DED /* IIngredientsInteractorOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IIngredientsInteractorOutput.h; sourceTree = "<group>"; };
 		FB8EE78525DFA571008E0DED /* IngredientsModuleAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IngredientsModuleAssembly.h; sourceTree = "<group>"; };
 		FB8EE78625DFA571008E0DED /* IngredientsModuleAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IngredientsModuleAssembly.m; sourceTree = "<group>"; };
+		FB8EE79325DFA9F6008E0DED /* IngredientsService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IngredientsService.h; sourceTree = "<group>"; };
+		FB8EE79425DFA9F6008E0DED /* IngredientsService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IngredientsService.m; sourceTree = "<group>"; };
+		FB8EE79925DFA9FE008E0DED /* IIngredientsService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IIngredientsService.h; sourceTree = "<group>"; };
+		FBA51C3825DFB5B10094EAA3 /* IIngredientsModuleInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IIngredientsModuleInput.h; sourceTree = "<group>"; };
+		FBA51C3925DFB5BC0094EAA3 /* IIngredientsModuleOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IIngredientsModuleOutput.h; sourceTree = "<group>"; };
+		FBA51C3B25DFB7C10094EAA3 /* IngredientsFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IngredientsFilter.h; sourceTree = "<group>"; };
+		FBA51C3C25DFB7C10094EAA3 /* IngredientsFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IngredientsFilter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -569,6 +578,7 @@
 			isa = PBXGroup;
 			children = (
 				F432238F23224ACB00D5745F /* CoctailsService */,
+				FB8EE79225DFA9E0008E0DED /* IngredientsService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -811,6 +821,7 @@
 		FB8EE73D25DFA234008E0DED /* Ingredients */ = {
 			isa = PBXGroup;
 			children = (
+				FBA51C3A25DFB7630094EAA3 /* Common */,
 				FB8EE74125DFA2BE008E0DED /* Assembly */,
 				FB8EE74225DFA348008E0DED /* Interactor */,
 				FB8EE74C25DFA3AB008E0DED /* DataSource */,
@@ -846,6 +857,8 @@
 		FB8EE74025DFA2AE008E0DED /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				FBA51C3825DFB5B10094EAA3 /* IIngredientsModuleInput.h */,
+				FBA51C3925DFB5BC0094EAA3 /* IIngredientsModuleOutput.h */,
 				FB8EE76B25DFA459008E0DED /* IngredientsPresenter.h */,
 				FB8EE76C25DFA459008E0DED /* IngredientsPresenter.m */,
 			);
@@ -881,6 +894,25 @@
 				FB8EE74D25DFA3AB008E0DED /* IngredientsDataSource.m */,
 			);
 			path = DataSource;
+			sourceTree = "<group>";
+		};
+		FB8EE79225DFA9E0008E0DED /* IngredientsService */ = {
+			isa = PBXGroup;
+			children = (
+				FB8EE79925DFA9FE008E0DED /* IIngredientsService.h */,
+				FB8EE79325DFA9F6008E0DED /* IngredientsService.h */,
+				FB8EE79425DFA9F6008E0DED /* IngredientsService.m */,
+			);
+			path = IngredientsService;
+			sourceTree = "<group>";
+		};
+		FBA51C3A25DFB7630094EAA3 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FBA51C3B25DFB7C10094EAA3 /* IngredientsFilter.h */,
+				FBA51C3C25DFB7C10094EAA3 /* IngredientsFilter.m */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1061,6 +1093,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB8EE79525DFA9F6008E0DED /* IngredientsService.m in Sources */,
 				FB8EE76D25DFA459008E0DED /* IngredientsPresenter.m in Sources */,
 				F460CF94235884A200240946 /* NetworkOperation.m in Sources */,
 				FB2F350C25CBF1F3006AE798 /* GetCoctailDetailsNetworkOperation.m in Sources */,
@@ -1090,6 +1123,7 @@
 				FB2F34EE25CBE67D006AE798 /* ServicesAssembly.m in Sources */,
 				FB2F34C125CA8A6B006AE798 /* CoctailDetailsItem.m in Sources */,
 				F46AD81C231D520B008DEC0B /* HomeDashboardPresenter.m in Sources */,
+				FBA51C3D25DFB7C10094EAA3 /* IngredientsFilter.m in Sources */,
 				FB630B2725CD3A0000EB5793 /* UINavigationController+StatusBarColor.m in Sources */,
 				F46AD85523210A6E008DEC0B /* CoctailViewController.m in Sources */,
 				F46AD849231E5B12008DEC0B /* CoctailModuleAssembly.m in Sources */,
@@ -1203,7 +1237,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1257,7 +1291,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = NO;
@@ -1274,7 +1308,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2MEXR3KD6;
 				INFOPLIST_FILE = Boozter/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1293,7 +1327,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2MEXR3KD6;
 				INFOPLIST_FILE = Boozter/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

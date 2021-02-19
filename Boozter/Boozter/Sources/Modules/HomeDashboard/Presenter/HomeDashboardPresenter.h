@@ -8,6 +8,7 @@
 
 #import "IHomeDashboardViewOutput.h"
 #import "IHomeDashboardInteractorOutput.h"
+#import "IIngredientsModuleOutput.h"
 
 @protocol IHomeDashboardViewInput;
 @protocol IProgressIndication;
@@ -19,7 +20,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HomeDashboardPresenter : NSObject <IHomeDashboardViewOutput, IHomeDashboardInteractorOutput>
+@interface HomeDashboardPresenter : NSObject <IHomeDashboardViewOutput, IHomeDashboardInteractorOutput, IIngredientsModuleOutput>
 
 @property (nonatomic, weak, nullable, readonly) id<IHomeDashboardViewInput, IProgressIndication> view;
 @property (nonatomic, strong, readonly) id<IHomeDashboardInteractorInput> interactor;

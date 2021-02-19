@@ -8,6 +8,7 @@
 
 #import "IIngredientsViewOutput.h"
 #import "IIngredientsInteractorOutput.h"
+#import "IIngredientsModuleInput.h"
 
 @protocol IIngredientsViewInput;
 @protocol IIngredientsInteractorInput;
@@ -18,7 +19,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface IngredientsPresenter : NSObject <IIngredientsViewOutput, IIngredientsInteractorOutput>
+@interface IngredientsPresenter : NSObject <IIngredientsModuleInput,IIngredientsViewOutput, IIngredientsInteractorOutput>
 
 @property (nonatomic, weak, nullable, readonly) id<IIngredientsViewInput, IProgressIndication> view;
 @property (nonatomic, strong, readonly) id<IIngredientsInteractorInput> interactor;

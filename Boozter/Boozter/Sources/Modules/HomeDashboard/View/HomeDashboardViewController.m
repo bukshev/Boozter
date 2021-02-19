@@ -13,7 +13,7 @@
 #import "UIColor+Application.h"
 #import "UINavigationController+StatusBarColor.h"
 
-@interface HomeDashboardViewController () <UISearchBarDelegate, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface HomeDashboardViewController () <UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) HomeDashboardDataSource *dataSource;
 @property (nonatomic, strong) UIVisualEffectView *blurEffectView;
@@ -42,6 +42,12 @@
 
     CGSize const screenSize = [UIScreen mainScreen].bounds.size;
     [self.output onViewReadyEvent:screenSize];
+}
+
+#pragma mark - User Actions
+
+- (IBAction)onSelectFilterBarButtonItemTap:(UIBarButtonItem *)sender {
+    [self.output onSelectFilter];
 }
 
 #pragma mark - IHomeDashboardViewInput
@@ -114,12 +120,6 @@
         [self.blurEffectView removeFromSuperview];
         self.collectionView.userInteractionEnabled = YES;
     }];
-}
-
-#pragma mark - UISearchControllerDelegate
-
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    [self.output onSearchIngredientInputEvent:searchBar.text];
 }
 
 #pragma mark - UICollectionViewDelegate

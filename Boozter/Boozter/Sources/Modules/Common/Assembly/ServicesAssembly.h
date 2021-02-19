@@ -9,12 +9,14 @@
 #import <Typhoon/Typhoon.h>
 
 @protocol ICoctailsService;
+@protocol IIngredientsService;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ServicesAssembly : TyphoonAssembly
 
 - (id<ICoctailsService>)coctailsService;
+- (id<IIngredientsService>)ingredientsService;
 
 @end
 

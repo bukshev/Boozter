@@ -1,20 +1,20 @@
 //
-//  IngredientsModuleAssembly.h
+//  IIngredientsModuleOutput.h
 //  Boozter
 //
 //  Created by Букшев Иван Евгеньевич on 19.02.2021.
 //  Copyright © 2021 Team Absurdum. All rights reserved.
 //
 
-#import <Typhoon/TyphoonAssembly.h>
+#import <ViperMcFlurry/ViperMcFlurry.h>
 
-@protocol IModuleFactory;
+@class IngredientsFilter;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface IngredientsModuleAssembly : TyphoonAssembly
+@protocol IIngredientsModuleOutput <RamblerViperModuleOutput>
 
-- (id<IModuleFactory>)factoryIngredientsModule;
+- (void)didSetFilter:(IngredientsFilter *)filter;
 
 @end
 

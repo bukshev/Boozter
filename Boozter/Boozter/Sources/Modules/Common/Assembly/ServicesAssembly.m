@@ -8,6 +8,7 @@
 
 #import "ServicesAssembly.h"
 #import "CoctailsService.h"
+#import "IngredientsService.h"
 #import "CoreAssembly.h"
 
 @interface ServicesAssembly ()
@@ -18,6 +19,15 @@
 
 - (id<ICoctailsService>)coctailsService {
     return [TyphoonDefinition withClass:[CoctailsService class] configuration:^(TyphoonDefinition *definition) {
+        [definition useInitializer:@selector(initWithCoreCache:coreNetwork:) parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:[self.coreAssembly coreCache]];
+            [initializer injectParameterWith:[self.coreAssembly coreNetwork]];
+        }];
+    }];
+}
+
+- (id<IIngredientsService>)ingredientsService {
+    return [TyphoonDefinition withClass:[IngredientsService class] configuration:^(TyphoonDefinition *definition) {
         [definition useInitializer:@selector(initWithCoreCache:coreNetwork:) parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:[self.coreAssembly coreCache]];
             [initializer injectParameterWith:[self.coreAssembly coreNetwork]];

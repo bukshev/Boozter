@@ -8,7 +8,30 @@
 
 #import "IngredientsInteractor.h"
 #import "IIngredientsInteractorOutput.h"
+#import "IIngredientsService.h"
+
+@interface IngredientsInteractor ()
+@property (nonatomic, strong) id<IIngredientsService> ingredientsService;
+@end
 
 @implementation IngredientsInteractor
+
+#pragma mark - Initialization
+
+- (instancetype)initWithIngredientsService:(id<IIngredientsService>)ingredientsService {
+    assert(nil != ingredientsService);
+
+    self = [super init];
+
+    if (nil != self) {
+        _ingredientsService = ingredientsService;
+    }
+
+    return self;
+}
+
+- (void)injectOutput:(id<IIngredientsInteractorOutput>)output {
+    _output = output;
+}
 
 @end

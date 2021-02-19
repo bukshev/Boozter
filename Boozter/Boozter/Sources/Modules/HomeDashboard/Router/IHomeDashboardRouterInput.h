@@ -8,13 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol IIngredientsModuleOutput;
+
 @class Coctail;
+@class IngredientsFilter;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol IHomeDashboardRouterInput <NSObject>
 
 - (void)openDetailScreenWithCoctail:(Coctail *)coctail;
+- (void)openIngredientsScreen:(IngredientsFilter *)filter moduleOutput:(id<IIngredientsModuleOutput>)moduleOutput;
 
 @end
 

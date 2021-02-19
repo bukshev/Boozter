@@ -6,27 +6,47 @@
 //  Copyright © 2021 Team Absurdum. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import "IngredientsViewController.h"
 
-@interface IngredientsViewController ()
-
+@interface IngredientsViewController () <UITableViewDelegate>
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) IngredientsDataSource *dataSource;
+@property (nonatomic, strong) UIVisualEffectView *blurEffectView;
 @end
 
 @implementation IngredientsViewController
 
+#pragma mark - Initialization
+
+- (void)injectOutput:(id<IIngredientsViewOutput>)output {
+    _output = output;
+}
+
+- (void)injectDataSource:(IngredientsDataSource *)dataSource {
+    _dataSource = dataSource;
+}
+
+#pragma mark - Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - IIngredientsViewInput
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
 }
-*/
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 0.0f;
+}
 
 @end

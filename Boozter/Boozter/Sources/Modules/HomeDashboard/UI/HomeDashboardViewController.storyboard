@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2z9-DI-Kfy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2z9-DI-Kfy">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -45,6 +45,9 @@
                     <navigationItem key="navigationItem" title="Coctails" largeTitleDisplayMode="never" id="jBe-sL-g1t">
                         <barButtonItem key="rightBarButtonItem" title="Item" id="wWV-pF-xnY">
                             <imageReference key="image" image="doc.text.magnifyingglass" catalog="system" renderingMode="original"/>
+                            <connections>
+                                <action selector="onSelectFilterBarButtonItemTap:" destination="Ez3-z2-rBU" id="wrK-1V-OcK"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
