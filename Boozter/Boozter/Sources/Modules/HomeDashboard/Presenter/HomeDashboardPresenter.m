@@ -113,7 +113,6 @@ static CGFloat const kSecondsDelayBeforeShowingView = 1.6f;
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.view reloadData];
         [self hideBlurViewAfterLoading];
-        [self.view setupSearchBar];
     });
 }
 

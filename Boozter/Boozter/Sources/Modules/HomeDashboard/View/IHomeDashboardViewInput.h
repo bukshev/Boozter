@@ -15,7 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol IHomeDashboardViewInput <NSObject>
 
 - (void)setupInitialState;
-- (void)setupSearchBar;
 
 - (void)reloadData;
 - (void)reloadItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths;

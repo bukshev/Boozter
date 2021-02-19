@@ -65,31 +65,6 @@
     }
 }
 
-- (void)setupSearchBar {
-    UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
-    searchController.searchBar.placeholder = @"Ingredient name (e.g. Vodka)";
-
-    UISearchBar *searchBar = searchController.searchBar;
-    searchBar.tintColor = [UIColor blackColor];
-    searchBar.barTintColor = [UIColor blackColor];
-    searchBar.delegate = self;
-
-    UITextField *searchBarTextField = [searchBar valueForKey:@"searchField"];
-    if (nil != searchBarTextField) {
-        searchBarTextField.textColor = [UIColor blackColor];
-
-        UIView *backgroundView = [searchBarTextField.subviews firstObject];
-        if (nil != backgroundView) {
-            backgroundView.backgroundColor = [UIColor whiteColor];
-            backgroundView.layer.cornerRadius = 10.0f;
-            backgroundView.clipsToBounds = YES;
-        }
-    }
-
-    self.navigationItem.searchController = searchController;
-    self.navigationItem.hidesSearchBarWhenScrolling = NO;
-}
-
 - (void)reloadData {
     assert(NSThread.isMainThread);
     [self.collectionView reloadData];
