@@ -6,7 +6,7 @@
 //  Copyright © 2019 Team Absurdum. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <UIKit/UIViewController.h>
 #import "IHomeDashboardViewInput.h"
 
 @protocol IHomeDashboardViewOutput;

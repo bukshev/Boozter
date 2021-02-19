@@ -52,6 +52,15 @@
 		FB2F350C25CBF1F3006AE798 /* GetCoctailDetailsNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2F350B25CBF1F3006AE798 /* GetCoctailDetailsNetworkOperation.m */; };
 		FB630B2725CD3A0000EB5793 /* UINavigationController+StatusBarColor.m in Sources */ = {isa = PBXBuildFile; fileRef = FB630B2625CD3A0000EB5793 /* UINavigationController+StatusBarColor.m */; };
 		FB630B4025CD3D4600EB5793 /* UIColor+Application.m in Sources */ = {isa = PBXBuildFile; fileRef = FB630B3F25CD3D4600EB5793 /* UIColor+Application.m */; };
+		FB8EE74F25DFA3AB008E0DED /* IngredientsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8EE74D25DFA3AB008E0DED /* IngredientsDataSource.m */; };
+		FB8EE75525DFA3C8008E0DED /* IngredientsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8EE75425DFA3C8008E0DED /* IngredientsViewController.m */; };
+		FB8EE75A25DFA3D9008E0DED /* IngredientsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB8EE75925DFA3D9008E0DED /* IngredientsViewController.storyboard */; };
+		FB8EE75F25DFA3ED008E0DED /* IngredientCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB8EE75E25DFA3ED008E0DED /* IngredientCell.xib */; };
+		FB8EE76525DFA405008E0DED /* IngredientCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8EE76425DFA405008E0DED /* IngredientCell.m */; };
+		FB8EE76D25DFA459008E0DED /* IngredientsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8EE76C25DFA459008E0DED /* IngredientsPresenter.m */; };
+		FB8EE77625DFA485008E0DED /* IngredientItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8EE77525DFA485008E0DED /* IngredientItem.m */; };
+		FB8EE77F25DFA4B4008E0DED /* IngredientsInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8EE77E25DFA4B4008E0DED /* IngredientsInteractor.m */; };
+		FB8EE78725DFA571008E0DED /* IngredientsModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8EE78625DFA571008E0DED /* IngredientsModuleAssembly.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -184,6 +193,26 @@
 		FB630B3F25CD3D4600EB5793 /* UIColor+Application.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Application.m"; sourceTree = "<group>"; };
 		FB760F4E25BE7E77007ADD30 /* Typhoon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Typhoon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB760F5225BE7E79007ADD30 /* ViperMcFlurry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ViperMcFlurry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB8EE74D25DFA3AB008E0DED /* IngredientsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngredientsDataSource.m; sourceTree = "<group>"; };
+		FB8EE74E25DFA3AB008E0DED /* IngredientsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngredientsDataSource.h; sourceTree = "<group>"; };
+		FB8EE75325DFA3C8008E0DED /* IngredientsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IngredientsViewController.h; sourceTree = "<group>"; };
+		FB8EE75425DFA3C8008E0DED /* IngredientsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IngredientsViewController.m; sourceTree = "<group>"; };
+		FB8EE75925DFA3D9008E0DED /* IngredientsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IngredientsViewController.storyboard; sourceTree = "<group>"; };
+		FB8EE75E25DFA3ED008E0DED /* IngredientCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientCell.xib; sourceTree = "<group>"; };
+		FB8EE76325DFA405008E0DED /* IngredientCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IngredientCell.h; sourceTree = "<group>"; };
+		FB8EE76425DFA405008E0DED /* IngredientCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IngredientCell.m; sourceTree = "<group>"; };
+		FB8EE76925DFA436008E0DED /* IIngredientsViewInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IIngredientsViewInput.h; sourceTree = "<group>"; };
+		FB8EE76A25DFA443008E0DED /* IIngredientsViewOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IIngredientsViewOutput.h; sourceTree = "<group>"; };
+		FB8EE76B25DFA459008E0DED /* IngredientsPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IngredientsPresenter.h; sourceTree = "<group>"; };
+		FB8EE76C25DFA459008E0DED /* IngredientsPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IngredientsPresenter.m; sourceTree = "<group>"; };
+		FB8EE77425DFA485008E0DED /* IngredientItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IngredientItem.h; sourceTree = "<group>"; };
+		FB8EE77525DFA485008E0DED /* IngredientItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IngredientItem.m; sourceTree = "<group>"; };
+		FB8EE77D25DFA4B4008E0DED /* IngredientsInteractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IngredientsInteractor.h; sourceTree = "<group>"; };
+		FB8EE77E25DFA4B4008E0DED /* IngredientsInteractor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IngredientsInteractor.m; sourceTree = "<group>"; };
+		FB8EE78325DFA4BD008E0DED /* IIngredientsInteractorInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IIngredientsInteractorInput.h; sourceTree = "<group>"; };
+		FB8EE78425DFA4C8008E0DED /* IIngredientsInteractorOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IIngredientsInteractorOutput.h; sourceTree = "<group>"; };
+		FB8EE78525DFA571008E0DED /* IngredientsModuleAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IngredientsModuleAssembly.h; sourceTree = "<group>"; };
+		FB8EE78625DFA571008E0DED /* IngredientsModuleAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IngredientsModuleAssembly.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -474,6 +503,7 @@
 			isa = PBXGroup;
 			children = (
 				F46AD84A231E5FB4008DEC0B /* Common */,
+				FB8EE73D25DFA234008E0DED /* Ingredients */,
 				F46AD80B231D505E008DEC0B /* HomeDashboard */,
 				F46AD844231E5786008DEC0B /* Coctail */,
 			);
@@ -778,6 +808,81 @@
 			path = UIColor;
 			sourceTree = "<group>";
 		};
+		FB8EE73D25DFA234008E0DED /* Ingredients */ = {
+			isa = PBXGroup;
+			children = (
+				FB8EE74125DFA2BE008E0DED /* Assembly */,
+				FB8EE74225DFA348008E0DED /* Interactor */,
+				FB8EE74C25DFA3AB008E0DED /* DataSource */,
+				FB8EE74025DFA2AE008E0DED /* Presenter */,
+				FB8EE73F25DFA2AB008E0DED /* View */,
+				FB8EE73E25DFA2A6008E0DED /* UI */,
+			);
+			path = Ingredients;
+			sourceTree = "<group>";
+		};
+		FB8EE73E25DFA2A6008E0DED /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				FB8EE76325DFA405008E0DED /* IngredientCell.h */,
+				FB8EE76425DFA405008E0DED /* IngredientCell.m */,
+				FB8EE75E25DFA3ED008E0DED /* IngredientCell.xib */,
+				FB8EE75925DFA3D9008E0DED /* IngredientsViewController.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		FB8EE73F25DFA2AB008E0DED /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FB8EE76925DFA436008E0DED /* IIngredientsViewInput.h */,
+				FB8EE76A25DFA443008E0DED /* IIngredientsViewOutput.h */,
+				FB8EE75325DFA3C8008E0DED /* IngredientsViewController.h */,
+				FB8EE75425DFA3C8008E0DED /* IngredientsViewController.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FB8EE74025DFA2AE008E0DED /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				FB8EE76B25DFA459008E0DED /* IngredientsPresenter.h */,
+				FB8EE76C25DFA459008E0DED /* IngredientsPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		FB8EE74125DFA2BE008E0DED /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				FB8EE78525DFA571008E0DED /* IngredientsModuleAssembly.h */,
+				FB8EE78625DFA571008E0DED /* IngredientsModuleAssembly.m */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		FB8EE74225DFA348008E0DED /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				FB8EE78325DFA4BD008E0DED /* IIngredientsInteractorInput.h */,
+				FB8EE78425DFA4C8008E0DED /* IIngredientsInteractorOutput.h */,
+				FB8EE77D25DFA4B4008E0DED /* IngredientsInteractor.h */,
+				FB8EE77E25DFA4B4008E0DED /* IngredientsInteractor.m */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		FB8EE74C25DFA3AB008E0DED /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				FB8EE77425DFA485008E0DED /* IngredientItem.h */,
+				FB8EE77525DFA485008E0DED /* IngredientItem.m */,
+				FB8EE74E25DFA3AB008E0DED /* IngredientsDataSource.h */,
+				FB8EE74D25DFA3AB008E0DED /* IngredientsDataSource.m */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -886,7 +991,9 @@
 				F46AD85A23210F79008DEC0B /* HomeDashboardCell.xib in Resources */,
 				F46AD814231D510D008DEC0B /* HomeDashboardViewController.storyboard in Resources */,
 				F46AD804231D4F7C008DEC0B /* Assets.xcassets in Resources */,
+				FB8EE75F25DFA3ED008E0DED /* IngredientCell.xib in Resources */,
 				F46AD85723210A79008DEC0B /* CoctailViewController.storyboard in Resources */,
+				FB8EE75A25DFA3D9008E0DED /* IngredientsViewController.storyboard in Resources */,
 				F46AD805231D4F7C008DEC0B /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -954,6 +1061,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB8EE76D25DFA459008E0DED /* IngredientsPresenter.m in Sources */,
 				F460CF94235884A200240946 /* NetworkOperation.m in Sources */,
 				FB2F350C25CBF1F3006AE798 /* GetCoctailDetailsNetworkOperation.m in Sources */,
 				F46AD828231D58D2008DEC0B /* HomeDashboardDataSource.m in Sources */,
@@ -962,6 +1070,7 @@
 				F46AD812231D5103008DEC0B /* HomeDashboardViewController.m in Sources */,
 				FB2F34FA25CBEA77006AE798 /* UtilitiesAssembly.m in Sources */,
 				FB2F350625CBF15D006AE798 /* GetCoctailDetailsParser.m in Sources */,
+				FB8EE77625DFA485008E0DED /* IngredientItem.m in Sources */,
 				F4F222AF2358524B00AB457B /* CoctailCacheModelFiller.m in Sources */,
 				F46AD834231D60C9008DEC0B /* HomeDashboardInteractor.m in Sources */,
 				F46AD83E231E4C01008DEC0B /* HomeDashboardModuleAssembly.m in Sources */,
@@ -970,17 +1079,21 @@
 				F4F222662356E0BC00AB457B /* ManagedCoctail.m in Sources */,
 				FB630B4025CD3D4600EB5793 /* UIColor+Application.m in Sources */,
 				F46AD82B231D5BAB008DEC0B /* HomeDashboardItem.m in Sources */,
+				FB8EE76525DFA405008E0DED /* IngredientCell.m in Sources */,
 				F46AD7CF231D4F00008DEC0B /* main.m in Sources */,
 				FB2F34B925CA8777006AE798 /* CoctailPresenter.m in Sources */,
 				F46AD81F231D521A008DEC0B /* HomeDashboardRouter.m in Sources */,
+				FB8EE74F25DFA3AB008E0DED /* IngredientsDataSource.m in Sources */,
 				F46AD82F231D5CF7008DEC0B /* HomeDashboardCell.m in Sources */,
 				F460D0002360311A00240946 /* ImageDownloadOperation.m in Sources */,
+				FB8EE77F25DFA4B4008E0DED /* IngredientsInteractor.m in Sources */,
 				FB2F34EE25CBE67D006AE798 /* ServicesAssembly.m in Sources */,
 				FB2F34C125CA8A6B006AE798 /* CoctailDetailsItem.m in Sources */,
 				F46AD81C231D520B008DEC0B /* HomeDashboardPresenter.m in Sources */,
 				FB630B2725CD3A0000EB5793 /* UINavigationController+StatusBarColor.m in Sources */,
 				F46AD85523210A6E008DEC0B /* CoctailViewController.m in Sources */,
 				F46AD849231E5B12008DEC0B /* CoctailModuleAssembly.m in Sources */,
+				FB8EE78725DFA571008E0DED /* IngredientsModuleAssembly.m in Sources */,
 				F46AD807231D4F7C008DEC0B /* Boozter.xcdatamodeld in Sources */,
 				F46AD808231D4F7C008DEC0B /* AppDelegate.m in Sources */,
 				F4F2227723581E0F00AB457B /* NSManagedObject+EntityName.m in Sources */,
@@ -990,6 +1103,7 @@
 				FB2F34E825CBE5BF006AE798 /* CoreAssembly.m in Sources */,
 				F460CFA023588A7E00240946 /* GetCoctailsParser.m in Sources */,
 				F432239723224B3C00D5745F /* CoreDataCache.m in Sources */,
+				FB8EE75525DFA3C8008E0DED /* IngredientsViewController.m in Sources */,
 				F460CF9C235886A300240946 /* GetCoctailsNetworkOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
