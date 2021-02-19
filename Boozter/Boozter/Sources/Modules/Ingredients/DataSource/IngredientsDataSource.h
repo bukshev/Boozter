@@ -6,11 +6,23 @@
 //  Copyright © 2021 Team Absurdum. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UITableView.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface IngredientsDataSource : NSObject
+@interface IngredientsDataSource : NSObject <UITableViewDataSource>
+
+@property (nonatomic, weak, nullable, readonly) UITableView *tableView;
+
+- (void)injectTableView:(UITableView *)tableView;
+
+- (void)updateWithIngredients:(NSArray<NSString *> *)ingredients;
+
+- (nullable NSString *)ingredientForIndexPath:(NSIndexPath *)indexPath;
+
+- (void)tableView:(UITableView *)tableView
+  willDisplayCell:(UITableViewCell *)cell
+forRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 

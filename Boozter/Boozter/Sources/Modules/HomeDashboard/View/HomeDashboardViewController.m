@@ -25,11 +25,13 @@
 
 - (void)injectOutput:(id<IHomeDashboardViewOutput>)output {
     assert(nil != output);
+
     _output = output;
 }
 
 - (void)injectDataSource:(HomeDashboardDataSource *)dataSource {
     assert(nil != dataSource);
+
     _dataSource = dataSource;
 }
 
@@ -73,12 +75,14 @@
 
 - (void)reloadData {
     assert(NSThread.isMainThread);
+
     [self.collectionView reloadData];
 }
 
 - (void)reloadItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths {
     assert(nil != indexPaths);
     assert(NSThread.isMainThread);
+
     [self.collectionView reloadItemsAtIndexPaths:indexPaths];
 }
 

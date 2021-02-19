@@ -15,7 +15,7 @@
 
 @implementation HomeDashboardCell
 
-#pragma mark - Initialization
+#pragma mark - Lifecycle
 
 - (void)awakeFromNib {
     assert(nil != self.imageView);
@@ -39,7 +39,7 @@
     assert(nil != item);
     assert(NSThread.isMainThread);
 
-    self.nameLabel.text = item.coctailName;
+    self.nameLabel.text = [item.coctailName copy];
     self.imageView.image = [UIImage imageWithData:item.coctailImageData];
 
     [self setupCompletedState];

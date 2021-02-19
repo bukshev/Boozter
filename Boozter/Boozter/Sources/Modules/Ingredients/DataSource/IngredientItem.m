@@ -10,4 +10,18 @@
 
 @implementation IngredientItem
 
+#pragma mark - Initialization
+
+- (instancetype)initWithIngredient:(NSString *)ingredientName {
+    assert(nil != ingredientName);
+
+    self = [super init];
+
+    if (nil != self) {
+        _ingredientName = [ingredientName copy];
+    }
+
+    return self;
+}
+
 @end

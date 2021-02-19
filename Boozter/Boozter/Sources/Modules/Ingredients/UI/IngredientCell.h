@@ -8,9 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class IngredientItem;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface IngredientCell : UITableViewCell
+
+@property (nonatomic, weak) IBOutlet UILabel *nameLabel;
+
++ (NSString *)reuseIdentifier;
+
+- (void)configureWithItem:(IngredientItem *)item;
 
 @end
 

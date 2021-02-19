@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol IIngredientsViewInput <NSObject>
 
 - (void)setupInitialState;
+- (void)reloadData;
 
 - (void)showBlurEffect;
 - (void)hideBlurEffect;

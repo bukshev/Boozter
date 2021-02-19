@@ -42,13 +42,13 @@ static NSUInteger const kNumberOfSections = 1;
 
 #pragma mark - Public Interface
 
-- (void)updateDataSourceWithCoctails:(NSArray<Coctail *> *)coctails {
+- (void)updateWithCoctails:(NSArray<Coctail *> *)coctails {
     assert(nil != coctails);
 
     _coctails = [coctails mutableCopy];
     _items = [NSMutableArray arrayWithCapacity:coctails.count];
     [coctails enumerateObjectsUsingBlock:^(Coctail *obj, NSUInteger idx, BOOL *stop) {
-        HomeDashboardItem *item = [[HomeDashboardItem alloc] initWithCoctail:coctails[idx]];
+        HomeDashboardItem *item = [[HomeDashboardItem alloc] initWithCoctail:obj];
         [self.items addObject:item];
     }];
 }

@@ -19,7 +19,7 @@
     self = [super init];
 
     if (nil != self) {
-        _coctailName = coctail.name;
+        _coctailName = [coctail.name copy];
     }
 
     return self;

@@ -7,18 +7,34 @@
 //
 
 #import "IngredientCell.h"
+#import "IngredientItem.h"
 
 @implementation IngredientCell
 
+#pragma mark - Lifecycle
+
 - (void)awakeFromNib {
+    assert(nil != self.nameLabel);
+
     [super awakeFromNib];
-    // Initialization code
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+- (void)prepareForReuse {
+    [super prepareForReuse];
+//    self.nameLabel.text = nil;
+}
 
-    // Configure the view for the selected state
+#pragma mark - Public Interface
+
++ (NSString *)reuseIdentifier {
+    return NSStringFromClass([self class]);
+}
+
+- (void)configureWithItem:(IngredientItem *)item {
+    assert(nil != item);
+    assert(NSThread.isMainThread);
+
+    self.nameLabel.text = [item.ingredientName copy];
 }
 
 @end

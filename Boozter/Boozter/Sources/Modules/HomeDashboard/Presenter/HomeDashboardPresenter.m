@@ -103,7 +103,7 @@ static CGFloat const kSecondsDelayBeforeShowingView = 1.6f;
     assert(nil != coctails);
 
     [self.imageDownloader invalidateCache];
-    [self.dataSource updateDataSourceWithCoctails:coctails];
+    [self.dataSource updateWithCoctails:coctails];
 
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.view reloadData];

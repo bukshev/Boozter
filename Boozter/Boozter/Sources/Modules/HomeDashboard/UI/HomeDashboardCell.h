@@ -10,8 +10,6 @@
 
 @class HomeDashboardItem;
 
-@protocol IHomeDashboardCellActionsDelegate;
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeDashboardCell : UICollectionViewCell

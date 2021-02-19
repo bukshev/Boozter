@@ -13,6 +13,7 @@
 #import "IIngredientsInteractorInput.h"
 #import "IProgressIndication.h"
 #import "IImageDownloader.h"
+#import "IngredientsDataSource.h"
 
 static CGFloat const kSecondsDelayBeforeShowingView = 0.75f;
 
@@ -83,10 +84,25 @@ static CGFloat const kSecondsDelayBeforeShowingView = 0.75f;
     [self.interactor obtainAvailableIngredients];
 }
 
+- (void)didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+
+}
+
+- (CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return self.ingredientCellHeight;
+}
+
 #pragma mark - IIngredientsInteractorOutput
 
 - (void)didObtainIngredients:(NSArray<NSString *> *)ingredients {
     assert(nil != ingredients);
+
+    [self.dataSource updateWithIngredients:ingredients];
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.view reloadData];
+        [self hideBlurViewAfterLoading];
+    });
 }
 
 - (void)didFailObtainIngredientsWithError:(NSError *)error {

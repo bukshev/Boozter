@@ -14,10 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol IIngredientsViewOutput <NSObject>
 
 - (void)onViewReadyEvent:(CGSize)screenSize;
-- (void)onSelectFilter;
 
 - (void)didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
-- (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 

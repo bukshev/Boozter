@@ -12,6 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface IngredientItem : NSObject
 
+@property (nonatomic, copy, readonly) NSString *ingredientName;
+
+- (instancetype)initWithIngredient:(NSString *)ingredientName NS_DESIGNATED_INITIALIZER;
+
+- (instancetype)init NS_UNAVAILABLE;
+
 @end
 
 NS_ASSUME_NONNULL_END
