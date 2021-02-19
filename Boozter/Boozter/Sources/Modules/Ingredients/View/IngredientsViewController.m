@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "IngredientsViewController.h"
+#import "IIngredientsViewOutput.h"
 
 @interface IngredientsViewController () <UITableViewDelegate>
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
@@ -31,9 +32,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.output onViewReadyEvent:UIScreen.mainScreen.bounds.size];
 }
 
 #pragma mark - IIngredientsViewInput
+
+- (void)setupInitialState {
+
+}
+
+- (void)showBlurEffect {
+
+}
+- (void)hideBlurEffect {
+
+}
 
 #pragma mark - UITableViewDelegate
 

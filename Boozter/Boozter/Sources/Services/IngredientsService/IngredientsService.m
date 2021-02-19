@@ -11,6 +11,8 @@
 #import "ICoreCache.h"
 #import "ICoreNetwork.h"
 
+#import "GetIngredientsNetworkOperation.h"
+
 @interface IngredientsService ()
 @property (nonatomic, strong) id<ICoreCache> coreCache;
 @property (nonatomic, strong) id<ICoreNetwork> coreNetwork;
@@ -36,6 +38,17 @@
     return self;
 }
 
-#pragma mark - IngredientsService
+#pragma mark - IIngredientsService
+
+- (void)obtainAvailableIngredients:(ObtainIngredientsCompletion)completionHandler {
+    assert(NULL != completionHandler);
+
+    void (^completion)(NSArray<NSString *> *) = ^(NSArray<NSString *> *ingredients) {
+        completionHandler(ingredients, nil);
+    };
+
+    GetIngredientsNetworkOperation *operation = [[GetIngredientsNetworkOperation alloc] initWithCompletion:completion];
+    [self.coreNetwork executeOperation:operation];
+}
 
 @end

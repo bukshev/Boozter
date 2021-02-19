@@ -70,20 +70,6 @@
     [self.coreNetwork executeOperation:operation];
 }
 
-- (void)obtainRemoteCoctailsWithPredicate:(nullable NSPredicate *)predicate
-                        completionHandler:(ObtainCoctailsCompletion)completionHandler {
-
-    assert(NULL != completionHandler);
-
-    void (^handler)(NSArray<Coctail *> *) = ^(NSArray<Coctail *> *coctails) {
-        completionHandler(coctails, nil);
-    };
-
-    NSURL *url = [self urlForIngredient:@"Vodka"];
-    GetCoctailsNetworkOperation *operation = [[GetCoctailsNetworkOperation alloc] initWithURL:url completion:handler];
-    [self.coreNetwork executeOperation:operation];
-}
-
 - (void)obtainDetailsForCoctail:(NSInteger)coctailIdentifier
               completionHandler:(ObtainCoctailWithDetailsCompletion)completionHandler {
 
@@ -133,6 +119,7 @@
 
 // TODO: Make it more flexible...
 - (NSURL *)urlForIngredient:(NSString *)ingredientName {
+    // TODO: Move it to Operation?
     NSString *urlString = [NSString stringWithFormat:@"https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=%@", ingredientName];
     NSURL *url = [NSURL URLWithString:urlString];
     return url;
@@ -140,6 +127,7 @@
 
 // TODO: Make it more flexible...
 - (NSURL *)urlForCoctailDetails:(NSInteger)coctailIdentifier {
+    // TODO: Move it to Operation?
     NSString *urlString = [NSString stringWithFormat:@"https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=%ld", coctailIdentifier];
     NSURL *url = [NSURL URLWithString:urlString];
     return url;

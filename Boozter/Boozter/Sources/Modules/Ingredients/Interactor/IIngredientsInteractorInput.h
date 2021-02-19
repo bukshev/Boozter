@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol IIngredientsInteractorInput <NSObject>
 
+- (void)obtainAvailableIngredients;
+
 @end
 
 NS_ASSUME_NONNULL_END

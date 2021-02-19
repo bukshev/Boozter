@@ -52,6 +52,8 @@
 		FB2F350C25CBF1F3006AE798 /* GetCoctailDetailsNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2F350B25CBF1F3006AE798 /* GetCoctailDetailsNetworkOperation.m */; };
 		FB630B2725CD3A0000EB5793 /* UINavigationController+StatusBarColor.m in Sources */ = {isa = PBXBuildFile; fileRef = FB630B2625CD3A0000EB5793 /* UINavigationController+StatusBarColor.m */; };
 		FB630B4025CD3D4600EB5793 /* UIColor+Application.m in Sources */ = {isa = PBXBuildFile; fileRef = FB630B3F25CD3D4600EB5793 /* UIColor+Application.m */; };
+		FB68CB9225DFCAA5007840D2 /* GetIngredientsParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FB68CB9125DFCAA5007840D2 /* GetIngredientsParser.m */; };
+		FB68CB9B25DFCAB8007840D2 /* GetIngredientsNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FB68CB9A25DFCAB8007840D2 /* GetIngredientsNetworkOperation.m */; };
 		FB8EE74F25DFA3AB008E0DED /* IngredientsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8EE74D25DFA3AB008E0DED /* IngredientsDataSource.m */; };
 		FB8EE75525DFA3C8008E0DED /* IngredientsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8EE75425DFA3C8008E0DED /* IngredientsViewController.m */; };
 		FB8EE75A25DFA3D9008E0DED /* IngredientsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB8EE75925DFA3D9008E0DED /* IngredientsViewController.storyboard */; };
@@ -193,6 +195,10 @@
 		FB630B2625CD3A0000EB5793 /* UINavigationController+StatusBarColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+StatusBarColor.m"; sourceTree = "<group>"; };
 		FB630B3E25CD3D4600EB5793 /* UIColor+Application.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Application.h"; sourceTree = "<group>"; };
 		FB630B3F25CD3D4600EB5793 /* UIColor+Application.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Application.m"; sourceTree = "<group>"; };
+		FB68CB9025DFCAA5007840D2 /* GetIngredientsParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetIngredientsParser.h; sourceTree = "<group>"; };
+		FB68CB9125DFCAA5007840D2 /* GetIngredientsParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetIngredientsParser.m; sourceTree = "<group>"; };
+		FB68CB9925DFCAB8007840D2 /* GetIngredientsNetworkOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetIngredientsNetworkOperation.h; sourceTree = "<group>"; };
+		FB68CB9A25DFCAB8007840D2 /* GetIngredientsNetworkOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetIngredientsNetworkOperation.m; sourceTree = "<group>"; };
 		FB760F4E25BE7E77007ADD30 /* Typhoon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Typhoon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB760F5225BE7E79007ADD30 /* ViperMcFlurry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ViperMcFlurry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB8EE74D25DFA3AB008E0DED /* IngredientsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngredientsDataSource.m; sourceTree = "<group>"; };
@@ -313,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				F460CF992358868A00240946 /* GetCoctails */,
+				FB68CB8D25DFCA7E007840D2 /* GetIngredients */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -818,6 +825,33 @@
 			path = UIColor;
 			sourceTree = "<group>";
 		};
+		FB68CB8D25DFCA7E007840D2 /* GetIngredients */ = {
+			isa = PBXGroup;
+			children = (
+				FB68CB8E25DFCA89007840D2 /* Parsers */,
+				FB68CB8F25DFCA8F007840D2 /* Operations */,
+			);
+			path = GetIngredients;
+			sourceTree = "<group>";
+		};
+		FB68CB8E25DFCA89007840D2 /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				FB68CB9025DFCAA5007840D2 /* GetIngredientsParser.h */,
+				FB68CB9125DFCAA5007840D2 /* GetIngredientsParser.m */,
+			);
+			path = Parsers;
+			sourceTree = "<group>";
+		};
+		FB68CB8F25DFCA8F007840D2 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				FB68CB9925DFCAB8007840D2 /* GetIngredientsNetworkOperation.h */,
+				FB68CB9A25DFCAB8007840D2 /* GetIngredientsNetworkOperation.m */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
 		FB8EE73D25DFA234008E0DED /* Ingredients */ = {
 			isa = PBXGroup;
 			children = (
@@ -1097,6 +1131,7 @@
 				FB8EE76D25DFA459008E0DED /* IngredientsPresenter.m in Sources */,
 				F460CF94235884A200240946 /* NetworkOperation.m in Sources */,
 				FB2F350C25CBF1F3006AE798 /* GetCoctailDetailsNetworkOperation.m in Sources */,
+				FB68CB9B25DFCAB8007840D2 /* GetIngredientsNetworkOperation.m in Sources */,
 				F46AD828231D58D2008DEC0B /* HomeDashboardDataSource.m in Sources */,
 				F460CF8D2358703200240946 /* CoreNetwork.m in Sources */,
 				F460CFFD23602BD700240946 /* ImageDownloader.m in Sources */,
@@ -1139,6 +1174,7 @@
 				F432239723224B3C00D5745F /* CoreDataCache.m in Sources */,
 				FB8EE75525DFA3C8008E0DED /* IngredientsViewController.m in Sources */,
 				F460CF9C235886A300240946 /* GetCoctailsNetworkOperation.m in Sources */,
+				FB68CB9225DFCAA5007840D2 /* GetIngredientsParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

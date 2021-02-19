@@ -11,10 +11,10 @@
 
 @class Coctail;
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef void (^ObtainCoctailsCompletion)(NSArray<Coctail *> * _Nullable, NSError * _Nullable);
 typedef void (^ObtainCoctailWithDetailsCompletion)(Coctail * _Nullable, NSError * _Nullable);
-
-NS_ASSUME_NONNULL_BEGIN
 
 @protocol ICoctailsService <NSObject>
 
@@ -23,9 +23,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)obtainRemoteCoctailsWithIngredientName:(NSString *)ingredientName
                              completionHandler:(ObtainCoctailsCompletion)completionHandler;
-
-- (void)obtainRemoteCoctailsWithPredicate:(nullable NSPredicate *)predicate
-                        completionHandler:(ObtainCoctailsCompletion)completionHandler;
 
 - (void)obtainDetailsForCoctail:(NSInteger)coctailIdentifier
               completionHandler:(ObtainCoctailWithDetailsCompletion)completionHandler;

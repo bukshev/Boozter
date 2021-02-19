@@ -8,18 +8,17 @@
 
 #import "HomeDashboardPresenter.h"
 #import "IHomeDashboardCellImageDownloader.h"
-//
+
 #import "IHomeDashboardViewInput.h"
 #import "IProgressIndication.h"
 #import "IHomeDashboardInteractorInput.h"
 #import "IHomeDashboardRouterInput.h"
-//
+
 #import "Coctail.h"
 #import "IngredientsFilter.h"
 #import "HomeDashboardDataSource.h"
 #import "IImageDownloader.h"
 
-static NSInteger const kMinIngredientNameLength = 2;
 static CGFloat const kSecondsDelayBeforeShowingView = 1.6f;
 
 @interface HomeDashboardPresenter () <IHomeDashboardCellImageDownloader>
@@ -77,22 +76,11 @@ static CGFloat const kSecondsDelayBeforeShowingView = 1.6f;
     [self.view showBlurEffect];
     [self.view showProgressHUD:@"Подгружаем данные"];
 
-    [self.interactor obtainRemoteCoctailsWithFilter:CoctailsFilterNone];
+    [self.interactor obtainRemoteCoctailsWithIngredientName:@"Vodka"];
 }
 
 - (void)onSelectFilter {
     [self.router openIngredientsScreen:self.ingredientsFilter moduleOutput:self];
-}
-
-- (void)onSearchIngredientInputEvent:(NSString *)ingredientName {
-    if (ingredientName.length < kMinIngredientNameLength) {
-        return;
-    }
-
-    [self.view showBlurEffect];
-    [self.view showProgressHUD:@"Подгружаем данные"];
-
-    [self.interactor obtainRemoteCoctailsWithIngredientName:ingredientName];
 }
 
 - (void)didSelectItemAtIndexPath:(NSIndexPath *)indexPath {

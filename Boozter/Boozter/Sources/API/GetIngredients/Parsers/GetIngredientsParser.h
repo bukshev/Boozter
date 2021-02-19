@@ -1,5 +1,5 @@
 //
-//  IIngredientsInteractorOutput.h
+//  GetIngredientsParser.h
 //  Boozter
 //
 //  Created by Букшев Иван Евгеньевич on 19.02.2021.
@@ -10,10 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol IIngredientsInteractorOutput <NSObject>
+@interface GetIngredientsParser : NSObject
 
-- (void)didObtainIngredients:(NSArray<NSString *> *)ingredients;
-- (void)didFailObtainIngredientsWithError:(NSError *)error;
+- (NSArray<NSString *> *)ingredientsFromNetworkResponseData:(NSData *)data;
 
 @end
 

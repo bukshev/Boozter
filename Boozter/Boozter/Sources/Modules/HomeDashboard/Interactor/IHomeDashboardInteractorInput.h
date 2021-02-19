@@ -14,7 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol IHomeDashboardInteractorInput <NSObject>
 
 @required
-- (void)obtainRemoteCoctailsWithFilter:(CoctailsFilter)filter;
 - (void)obtainRemoteCoctailsWithIngredientName:(NSString *)ingredientName;
 
 @end

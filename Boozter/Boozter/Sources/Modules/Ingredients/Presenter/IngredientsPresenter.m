@@ -9,12 +9,19 @@
 #import "IngredientsPresenter.h"
 #import "IngredientsFilter.h"
 #import "IIngredientsModuleOutput.h"
+#import "IIngredientsViewInput.h"
+#import "IIngredientsInteractorInput.h"
+#import "IProgressIndication.h"
+#import "IImageDownloader.h"
+
+static CGFloat const kSecondsDelayBeforeShowingView = 0.75f;
 
 @interface IngredientsPresenter ()
 @property (nonatomic, strong) id<IImageDownloader> imageDownloader;
 @property (nonatomic, strong, nullable) IngredientsFilter *filter;
 @property (nonatomic, weak) IngredientsDataSource *dataSource;
 @property (nonatomic, weak) id<IIngredientsModuleOutput> moduleOutput;
+@property (nonatomic, assign) CGFloat ingredientCellHeight;
 @end
 
 @implementation IngredientsPresenter
@@ -61,6 +68,50 @@
     assert(nil != moduleOutput);
 
     _moduleOutput = moduleOutput;
+}
+
+#pragma mark - IIngredientsViewOutput
+
+- (void)onViewReadyEvent:(CGSize)screenSize {
+    _ingredientCellHeight = [self ingredientCellHeightForScreenSize:screenSize];
+
+    [self.view setupInitialState];
+
+    [self.view showBlurEffect];
+    [self.view showProgressHUD:@"Подгружаем данные"];
+
+    [self.interactor obtainAvailableIngredients];
+}
+
+#pragma mark - IIngredientsInteractorOutput
+
+- (void)didObtainIngredients:(NSArray<NSString *> *)ingredients {
+    assert(nil != ingredients);
+}
+
+- (void)didFailObtainIngredientsWithError:(NSError *)error {
+    assert(nil != error);
+}
+
+#pragma mark - Private helpers
+
+- (void)hideBlurViewAfterLoading {
+    dispatch_time_t deadline = dispatch_time(DISPATCH_TIME_NOW, kSecondsDelayBeforeShowingView * NSEC_PER_SEC);
+    dispatch_after(deadline, dispatch_get_main_queue(), ^{
+        [self.view hideProgressHUD];
+        [self.view hideBlurEffect];
+    });
+}
+
+- (CGFloat)ingredientCellHeightForScreenSize:(CGSize)screenSize {
+    assert(CGSizeZero.height != screenSize.height);
+    assert(CGSizeZero.width != screenSize.width);
+
+//    CGFloat const indent = 16;
+//    CGFloat const width = (screenSize.width / 2.0f) - (indent * 2.0f);
+//    CGFloat const height = width * 1.2f;
+
+    return 44.0f;
 }
 
 @end
