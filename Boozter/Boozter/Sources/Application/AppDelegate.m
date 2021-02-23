@@ -15,6 +15,7 @@
 
 #import "HomeDashboardModuleAssembly.h"
 #import "CoctailModuleAssembly.h"
+#import "IngredientsModuleAssembly.h"
 
 @interface AppDelegate ()
 
@@ -32,7 +33,8 @@
         [CoreAssembly class],
         [ServicesAssembly class],
         [HomeDashboardModuleAssembly class],
-        [CoctailModuleAssembly class]
+        [CoctailModuleAssembly class],
+        [IngredientsModuleAssembly class]
     ];
 }
 

@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)injectCollectionView:(UICollectionView *)collectionView;
 - (void)injectHomeDashboardCellImageDownloader:(id<IHomeDashboardCellImageDownloader>)imageDownloader;
 
-- (void)updateDataSourceWithCoctails:(NSArray<Coctail *> *)coctails;
+- (void)updateWithCoctails:(NSArray<Coctail *> *)coctails;
 - (void)updateImageData:(nullable NSData *)imageData itemIndexPath:(NSIndexPath *)indexPath;
 
 - (nullable Coctail *)coctailForIndexPath:(NSIndexPath *)indexPath;

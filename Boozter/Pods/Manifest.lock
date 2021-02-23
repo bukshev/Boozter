@@ -1,27 +1,31 @@
 PODS:
-  - Typhoon (4.0.8):
-    - Typhoon/DeallocNotifier (= 4.0.8)
-    - Typhoon/IntrospectionUtils (= 4.0.8)
-    - Typhoon/no-arc (= 4.0.8)
-  - Typhoon/DeallocNotifier (4.0.8)
-  - Typhoon/IntrospectionUtils (4.0.8)
-  - Typhoon/no-arc (4.0.8):
+  - SVProgressHUD (2.2.5)
+  - Typhoon (4.0.9):
+    - Typhoon/DeallocNotifier (= 4.0.9)
+    - Typhoon/IntrospectionUtils (= 4.0.9)
+    - Typhoon/no-arc (= 4.0.9)
+  - Typhoon/DeallocNotifier (4.0.9)
+  - Typhoon/IntrospectionUtils (4.0.9)
+  - Typhoon/no-arc (4.0.9):
     - Typhoon/IntrospectionUtils
   - ViperMcFlurry (1.5.2)
 
 DEPENDENCIES:
+  - SVProgressHUD
   - Typhoon
   - ViperMcFlurry
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
+    - SVProgressHUD
     - Typhoon
     - ViperMcFlurry
 
 SPEC CHECKSUMS:
-  Typhoon: f8901ef1ad0e2fa520cda0f668492dd33353f7dc
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  Typhoon: 1973c93ecfb3edb963d78b10e715bc2911475bd2
   ViperMcFlurry: 701bc3ad8d188b1f1e157ec0ddf4e77184de88b5
 
-PODFILE CHECKSUM: e9c315edc8a3d4edbb8736faf9a799950f6a2c65
+PODFILE CHECKSUM: ff9405028bc0fe34e29faf4bd33fece06b7528bb
 
-COCOAPODS: 1.7.1
+COCOAPODS: 1.10.1

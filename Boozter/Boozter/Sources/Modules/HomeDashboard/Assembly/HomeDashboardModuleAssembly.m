@@ -9,6 +9,7 @@
 #import "HomeDashboardModuleAssembly.h"
 
 #import "CoctailModuleAssembly.h"
+#import "IngredientsModuleAssembly.h"
 #import "ServicesAssembly.h"
 #import "UtilitiesAssembly.h"
 
@@ -21,6 +22,7 @@
 
 @interface HomeDashboardModuleAssembly ()
 @property (nonatomic, strong, readonly) CoctailModuleAssembly *coctailModuleAssembly;
+@property (nonatomic, strong, readonly) IngredientsModuleAssembly *ingredientsModuleAssembly;
 @property (nonatomic, strong, readonly) ServicesAssembly *servicesAssembly;
 @property (nonatomic, strong, readonly) UtilitiesAssembly *utilitiesAssembly;
 @end
@@ -73,9 +75,10 @@
 - (HomeDashboardRouter *)routerHomeDashboardModule {
     Class routerClass = [HomeDashboardRouter class];
     return [TyphoonDefinition withClass:routerClass configuration:^(TyphoonDefinition *definition) {
-        SEL selector = @selector(initWithCoctailModuleFactory:);
+        SEL selector = @selector(initWithCoctailModuleFactory:ingredientsModuleFactory:);
         [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:[self.coctailModuleAssembly factoryCoctailModule]];
+            [initializer injectParameterWith:[self.ingredientsModuleAssembly factoryIngredientsModule]];
         }];
         [definition injectMethod:@selector(injectTransitionHandler:) parameters:^(TyphoonMethod *method) {
             [method injectParameterWith:[self viewHomeDashboardModule]];

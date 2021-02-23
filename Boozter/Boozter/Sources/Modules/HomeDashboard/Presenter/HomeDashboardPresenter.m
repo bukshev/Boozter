@@ -8,20 +8,24 @@
 
 #import "HomeDashboardPresenter.h"
 #import "IHomeDashboardCellImageDownloader.h"
-//
+
 #import "IHomeDashboardViewInput.h"
 #import "IProgressIndication.h"
 #import "IHomeDashboardInteractorInput.h"
 #import "IHomeDashboardRouterInput.h"
-//
+
 #import "Coctail.h"
+#import "IngredientsFilter.h"
 #import "HomeDashboardDataSource.h"
 #import "IImageDownloader.h"
+
+static CGFloat const kSecondsDelayBeforeShowingView = 1.6f;
 
 @interface HomeDashboardPresenter () <IHomeDashboardCellImageDownloader>
 @property (nonatomic, strong) id<IImageDownloader> imageDownloader;
 @property (nonatomic, weak) HomeDashboardDataSource *dataSource;
 @property (nonatomic, assign) CGSize coctailCellSize;
+@property (nonatomic, strong, nullable) IngredientsFilter *ingredientsFilter;
 @end
 
 @implementation HomeDashboardPresenter
@@ -67,10 +71,15 @@
     _coctailCellSize = [self coctailCellSizeForScreenSize:screenSize];
 
     [self.view setupInitialState];
-    [self.view showProgressHUD];
 
-    [self.interactor obtainCoctailsFromSourcePoint:DataSourcePointRemote
-                                        withFilter:CoctailsFilterNone];
+    [self.view showBlurEffect];
+    [self.view showProgressHUD:@"Подгружаем данные"];
+
+    [self.interactor obtainRemoteCoctailsWithIngredientName:@"Vodka"];
+}
+
+- (void)onSelectFilter {
+    [self.router openIngredientsScreenWithModuleOutput:self];
 }
 
 - (void)didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -92,18 +101,20 @@
 - (void)didObtainCoctails:(NSArray<Coctail *> *)coctails {
     assert(nil != coctails);
 
-    [self.dataSource updateDataSourceWithCoctails:coctails];
+    [self.imageDownloader invalidateCache];
+    [self.dataSource updateWithCoctails:coctails];
 
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.view hideProgressHUD];
         [self.view reloadData];
+        [self hideBlurViewAfterLoading];
     });
 }
 
 - (void)didFailObtainCoctailsWithError:(NSError *)error {
     assert(nil != error);
-    
+
     // TODO: Hide progress HUD in main thread and show alert with failure reason.
+    [self hideBlurViewAfterLoading];
 }
 
 #pragma mark - IHomeDashboardCellImageDownloader
@@ -120,7 +131,30 @@
     [self.imageDownloader slowDownImageDownloadingFromURL:url];
 }
 
+#pragma mark - IIngredientsModuleOutput
+
+- (void)didSetFilter:(IngredientsFilter *)filter {
+    assert(nil != filter);
+
+    self.ingredientsFilter = filter;
+
+    NSString *ingredientName = [filter.ingredients anyObject];
+    if (nil != ingredientName) {
+        [self.view showBlurEffect];
+        [self.view showProgressHUD:@"Подгружаем данные"];
+        [self.interactor obtainRemoteCoctailsWithIngredientName:ingredientName];
+    }
+}
+
 #pragma mark - Private helpers
+
+- (void)hideBlurViewAfterLoading {
+    dispatch_time_t deadline = dispatch_time(DISPATCH_TIME_NOW, kSecondsDelayBeforeShowingView * NSEC_PER_SEC);
+    dispatch_after(deadline, dispatch_get_main_queue(), ^{
+        [self.view hideProgressHUD];
+        [self.view hideBlurEffect];
+    });
+}
 
 - (CGSize)coctailCellSizeForScreenSize:(CGSize)screenSize {
     assert(CGSizeZero.height != screenSize.height);

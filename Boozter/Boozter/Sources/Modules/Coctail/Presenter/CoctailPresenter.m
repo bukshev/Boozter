@@ -59,7 +59,7 @@
 
     [self.view setupInitialState];
     [self.view configureWithItem:[self itemForCoctail:self.coctail]];
-    [self.view showProgressHUD];
+    [self.view showProgressHUD:@"Подгружаем данные"];
 
     [self.imageDownloader downloadImageFromURL:self.coctail.imageURL
                              completionHandler:[self imageDownloadCompletion]];

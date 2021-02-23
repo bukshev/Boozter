@@ -40,36 +40,13 @@
 
 #pragma mark - IHomeDashboardInteractorInput
 
-- (void)obtainCoctailsFromSourcePoint:(DataSourcePoint)sourcePoint withFilter:(CoctailsFilter)filter {
-    [self.coctailsService obtainCoctailsFromSourcePoint:sourcePoint
-                                          withPredicate:[self predicateFromFilter:filter]
-                                      completionHandler:[self coctailsServiceObtainingCompletion]];
+- (void)obtainRemoteCoctailsWithIngredientName:(NSString *)name {
+    [self.coctailsService obtainRemoteCoctailsWithIngredientName:name completionHandler:[self obtainCoctailsCompletion]];
 }
 
 #pragma mark - Private helpers
 
-- (nullable NSPredicate *)predicateFromFilter:(CoctailsFilter)filter {
-    NSPredicate *predicate = nil;
-
-    switch (filter) {
-        case CoctailsFilterNone: {
-            predicate = nil;
-            break;
-        }
-        case CoctailsFilterAlcohol: {
-            predicate = nil;
-            break;
-        }
-        case CoctailsFilterNoAlcohol: {
-            predicate = nil;
-            break;
-        }
-    }
-
-    return predicate;
-}
-
-- (ObtainCoctailsCompletion)coctailsServiceObtainingCompletion {
+- (ObtainCoctailsCompletion)obtainCoctailsCompletion {
     __weak typeof(self) weakSelf = self;
 
     ObtainCoctailsCompletion handler = ^(NSArray<Coctail *> *coctails, NSError *error) {

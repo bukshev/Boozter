@@ -10,14 +10,12 @@
 #import "HomeDashboardItem.h"
 
 @interface HomeDashboardCell ()
-@property (nonatomic, weak) IBOutlet UIStackView *stackView;
-@property (nonatomic, weak) IBOutlet UIImageView *imageView;
-@property (nonatomic, weak) IBOutlet UILabel *nameLabel;
+
 @end
 
 @implementation HomeDashboardCell
 
-#pragma mark - Initialization
+#pragma mark - Lifecycle
 
 - (void)awakeFromNib {
     assert(nil != self.imageView);
@@ -27,8 +25,13 @@
 
     [self setupInProgressState];
 
-    self.imageView.layer.cornerRadius = 16.0f;
+    self.imageView.layer.cornerRadius = 10.0f;
     self.imageView.layer.masksToBounds = true;
+}
+
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    [self setupInProgressState];
 }
 
 #pragma mark - Public Interface
@@ -39,24 +42,18 @@
 
 - (void)configureWithItem:(HomeDashboardItem *)item {
     assert(nil != item);
+    assert(NSThread.isMainThread);
 
-    self.nameLabel.text = item.coctailName;
+    self.nameLabel.text = [item.coctailName copy];
     self.imageView.image = [UIImage imageWithData:item.coctailImageData];
 
     [self setupCompletedState];
-}
-
-- (void)prepareForReuse {
-    [super prepareForReuse];
-    [self setupInProgressState];
 }
 
 #pragma mark - Private helpers
 
 - (void)setupInProgressState {
     self.stackView.hidden = YES;
-    self.nameLabel.text = nil;
-    self.imageView.image = nil;
 }
 
 - (void)setupCompletedState {

@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)cancelAllOperations;
 
+- (void)invalidateCache;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -52,6 +52,22 @@
 		FB2F350C25CBF1F3006AE798 /* GetCoctailDetailsNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2F350B25CBF1F3006AE798 /* GetCoctailDetailsNetworkOperation.m */; };
 		FB630B2725CD3A0000EB5793 /* UINavigationController+StatusBarColor.m in Sources */ = {isa = PBXBuildFile; fileRef = FB630B2625CD3A0000EB5793 /* UINavigationController+StatusBarColor.m */; };
 		FB630B4025CD3D4600EB5793 /* UIColor+Application.m in Sources */ = {isa = PBXBuildFile; fileRef = FB630B3F25CD3D4600EB5793 /* UIColor+Application.m */; };
+		FB68CB9225DFCAA5007840D2 /* GetIngredientsParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FB68CB9125DFCAA5007840D2 /* GetIngredientsParser.m */; };
+		FB68CB9B25DFCAB8007840D2 /* GetIngredientsNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FB68CB9A25DFCAB8007840D2 /* GetIngredientsNetworkOperation.m */; };
+		FB8EE74F25DFA3AB008E0DED /* IngredientsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8EE74D25DFA3AB008E0DED /* IngredientsDataSource.m */; };
+		FB8EE75525DFA3C8008E0DED /* IngredientsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8EE75425DFA3C8008E0DED /* IngredientsViewController.m */; };
+		FB8EE75A25DFA3D9008E0DED /* IngredientsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB8EE75925DFA3D9008E0DED /* IngredientsViewController.storyboard */; };
+		FB8EE75F25DFA3ED008E0DED /* IngredientCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB8EE75E25DFA3ED008E0DED /* IngredientCell.xib */; };
+		FB8EE76525DFA405008E0DED /* IngredientCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8EE76425DFA405008E0DED /* IngredientCell.m */; };
+		FB8EE76D25DFA459008E0DED /* IngredientsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8EE76C25DFA459008E0DED /* IngredientsPresenter.m */; };
+		FB8EE77625DFA485008E0DED /* IngredientItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8EE77525DFA485008E0DED /* IngredientItem.m */; };
+		FB8EE77F25DFA4B4008E0DED /* IngredientsInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8EE77E25DFA4B4008E0DED /* IngredientsInteractor.m */; };
+		FB8EE78725DFA571008E0DED /* IngredientsModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8EE78625DFA571008E0DED /* IngredientsModuleAssembly.m */; };
+		FB8EE79525DFA9F6008E0DED /* IngredientsService.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8EE79425DFA9F6008E0DED /* IngredientsService.m */; };
+		FB98E39925E0F7DF00AE723E /* GetIngredientDetailsNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FB98E39825E0F7DF00AE723E /* GetIngredientDetailsNetworkOperation.m */; };
+		FB98E39F25E0F98E00AE723E /* GetIngredientDetailsParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FB98E39E25E0F98E00AE723E /* GetIngredientDetailsParser.m */; };
+		FB98E3C325E10FCA00AE723E /* TextDetialsPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB98E3C225E10FCA00AE723E /* TextDetialsPopupViewController.m */; };
+		FBA51C3D25DFB7C10094EAA3 /* IngredientsFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = FBA51C3C25DFB7C10094EAA3 /* IngredientsFilter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,7 +171,6 @@
 		F4F2227523581E0F00AB457B /* NSManagedObject+EntityName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+EntityName.h"; sourceTree = "<group>"; };
 		F4F2227623581E0F00AB457B /* NSManagedObject+EntityName.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+EntityName.m"; sourceTree = "<group>"; };
 		F4F222832358296900AB457B /* IPlainObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IPlainObject.h; sourceTree = "<group>"; };
-		F4F2228523583F4A00AB457B /* DataSourcePoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataSourcePoint.h; sourceTree = "<group>"; };
 		F4F222AB23584E2C00AB457B /* ICoreCacheModelFiller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICoreCacheModelFiller.h; sourceTree = "<group>"; };
 		F4F222AD2358524B00AB457B /* CoctailCacheModelFiller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoctailCacheModelFiller.h; sourceTree = "<group>"; };
 		F4F222AE2358524B00AB457B /* CoctailCacheModelFiller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoctailCacheModelFiller.m; sourceTree = "<group>"; };
@@ -183,8 +198,45 @@
 		FB630B2625CD3A0000EB5793 /* UINavigationController+StatusBarColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+StatusBarColor.m"; sourceTree = "<group>"; };
 		FB630B3E25CD3D4600EB5793 /* UIColor+Application.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Application.h"; sourceTree = "<group>"; };
 		FB630B3F25CD3D4600EB5793 /* UIColor+Application.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Application.m"; sourceTree = "<group>"; };
+		FB68CB9025DFCAA5007840D2 /* GetIngredientsParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetIngredientsParser.h; sourceTree = "<group>"; };
+		FB68CB9125DFCAA5007840D2 /* GetIngredientsParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetIngredientsParser.m; sourceTree = "<group>"; };
+		FB68CB9925DFCAB8007840D2 /* GetIngredientsNetworkOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetIngredientsNetworkOperation.h; sourceTree = "<group>"; };
+		FB68CB9A25DFCAB8007840D2 /* GetIngredientsNetworkOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetIngredientsNetworkOperation.m; sourceTree = "<group>"; };
 		FB760F4E25BE7E77007ADD30 /* Typhoon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Typhoon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB760F5225BE7E79007ADD30 /* ViperMcFlurry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ViperMcFlurry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB8EE74D25DFA3AB008E0DED /* IngredientsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngredientsDataSource.m; sourceTree = "<group>"; };
+		FB8EE74E25DFA3AB008E0DED /* IngredientsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngredientsDataSource.h; sourceTree = "<group>"; };
+		FB8EE75325DFA3C8008E0DED /* IngredientsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IngredientsViewController.h; sourceTree = "<group>"; };
+		FB8EE75425DFA3C8008E0DED /* IngredientsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IngredientsViewController.m; sourceTree = "<group>"; };
+		FB8EE75925DFA3D9008E0DED /* IngredientsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IngredientsViewController.storyboard; sourceTree = "<group>"; };
+		FB8EE75E25DFA3ED008E0DED /* IngredientCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientCell.xib; sourceTree = "<group>"; };
+		FB8EE76325DFA405008E0DED /* IngredientCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IngredientCell.h; sourceTree = "<group>"; };
+		FB8EE76425DFA405008E0DED /* IngredientCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IngredientCell.m; sourceTree = "<group>"; };
+		FB8EE76925DFA436008E0DED /* IIngredientsViewInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IIngredientsViewInput.h; sourceTree = "<group>"; };
+		FB8EE76A25DFA443008E0DED /* IIngredientsViewOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IIngredientsViewOutput.h; sourceTree = "<group>"; };
+		FB8EE76B25DFA459008E0DED /* IngredientsPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IngredientsPresenter.h; sourceTree = "<group>"; };
+		FB8EE76C25DFA459008E0DED /* IngredientsPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IngredientsPresenter.m; sourceTree = "<group>"; };
+		FB8EE77425DFA485008E0DED /* IngredientItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IngredientItem.h; sourceTree = "<group>"; };
+		FB8EE77525DFA485008E0DED /* IngredientItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IngredientItem.m; sourceTree = "<group>"; };
+		FB8EE77D25DFA4B4008E0DED /* IngredientsInteractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IngredientsInteractor.h; sourceTree = "<group>"; };
+		FB8EE77E25DFA4B4008E0DED /* IngredientsInteractor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IngredientsInteractor.m; sourceTree = "<group>"; };
+		FB8EE78325DFA4BD008E0DED /* IIngredientsInteractorInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IIngredientsInteractorInput.h; sourceTree = "<group>"; };
+		FB8EE78425DFA4C8008E0DED /* IIngredientsInteractorOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IIngredientsInteractorOutput.h; sourceTree = "<group>"; };
+		FB8EE78525DFA571008E0DED /* IngredientsModuleAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IngredientsModuleAssembly.h; sourceTree = "<group>"; };
+		FB8EE78625DFA571008E0DED /* IngredientsModuleAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IngredientsModuleAssembly.m; sourceTree = "<group>"; };
+		FB8EE79325DFA9F6008E0DED /* IngredientsService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IngredientsService.h; sourceTree = "<group>"; };
+		FB8EE79425DFA9F6008E0DED /* IngredientsService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IngredientsService.m; sourceTree = "<group>"; };
+		FB8EE79925DFA9FE008E0DED /* IIngredientsService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IIngredientsService.h; sourceTree = "<group>"; };
+		FB98E39725E0F7DF00AE723E /* GetIngredientDetailsNetworkOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetIngredientDetailsNetworkOperation.h; sourceTree = "<group>"; };
+		FB98E39825E0F7DF00AE723E /* GetIngredientDetailsNetworkOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetIngredientDetailsNetworkOperation.m; sourceTree = "<group>"; };
+		FB98E39D25E0F98E00AE723E /* GetIngredientDetailsParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetIngredientDetailsParser.h; sourceTree = "<group>"; };
+		FB98E39E25E0F98E00AE723E /* GetIngredientDetailsParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetIngredientDetailsParser.m; sourceTree = "<group>"; };
+		FB98E3C125E10FCA00AE723E /* TextDetialsPopupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextDetialsPopupViewController.h; sourceTree = "<group>"; };
+		FB98E3C225E10FCA00AE723E /* TextDetialsPopupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextDetialsPopupViewController.m; sourceTree = "<group>"; };
+		FBA51C3825DFB5B10094EAA3 /* IIngredientsModuleInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IIngredientsModuleInput.h; sourceTree = "<group>"; };
+		FBA51C3925DFB5BC0094EAA3 /* IIngredientsModuleOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IIngredientsModuleOutput.h; sourceTree = "<group>"; };
+		FBA51C3B25DFB7C10094EAA3 /* IngredientsFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IngredientsFilter.h; sourceTree = "<group>"; };
+		FBA51C3C25DFB7C10094EAA3 /* IngredientsFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IngredientsFilter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,7 +327,8 @@
 		F460CF972358867500240946 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				F460CF992358868A00240946 /* GetCoctails */,
+				F460CF992358868A00240946 /* Coctails */,
+				FB68CB8D25DFCA7E007840D2 /* Ingredients */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -291,13 +344,13 @@
 			path = Operations;
 			sourceTree = "<group>";
 		};
-		F460CF992358868A00240946 /* GetCoctails */ = {
+		F460CF992358868A00240946 /* Coctails */ = {
 			isa = PBXGroup;
 			children = (
 				F460CF9D23588A6400240946 /* Parsers */,
 				F460CF982358867E00240946 /* Operations */,
 			);
-			path = GetCoctails;
+			path = Coctails;
 			sourceTree = "<group>";
 		};
 		F460CF9D23588A6400240946 /* Parsers */ = {
@@ -475,6 +528,7 @@
 			isa = PBXGroup;
 			children = (
 				F46AD84A231E5FB4008DEC0B /* Common */,
+				FB8EE73D25DFA234008E0DED /* Ingredients */,
 				F46AD80B231D505E008DEC0B /* HomeDashboard */,
 				F46AD844231E5786008DEC0B /* Coctail */,
 			);
@@ -540,6 +594,7 @@
 			isa = PBXGroup;
 			children = (
 				F432238F23224ACB00D5745F /* CoctailsService */,
+				FB8EE79225DFA9E0008E0DED /* IngredientsService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -610,6 +665,7 @@
 		F46AD84A231E5FB4008DEC0B /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				FB98E3C025E10FB700AE723E /* UI */,
 				FB2F34F325CBE77C006AE798 /* Assembly */,
 				FB2F34F225CBE765006AE798 /* Module */,
 			);
@@ -677,7 +733,6 @@
 			isa = PBXGroup;
 			children = (
 				F4F222832358296900AB457B /* IPlainObject.h */,
-				F4F2228523583F4A00AB457B /* DataSourcePoint.h */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -778,6 +833,143 @@
 				FB630B3F25CD3D4600EB5793 /* UIColor+Application.m */,
 			);
 			path = UIColor;
+			sourceTree = "<group>";
+		};
+		FB68CB8D25DFCA7E007840D2 /* Ingredients */ = {
+			isa = PBXGroup;
+			children = (
+				FB68CB8E25DFCA89007840D2 /* Parsers */,
+				FB68CB8F25DFCA8F007840D2 /* Operations */,
+			);
+			path = Ingredients;
+			sourceTree = "<group>";
+		};
+		FB68CB8E25DFCA89007840D2 /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				FB68CB9025DFCAA5007840D2 /* GetIngredientsParser.h */,
+				FB68CB9125DFCAA5007840D2 /* GetIngredientsParser.m */,
+				FB98E39D25E0F98E00AE723E /* GetIngredientDetailsParser.h */,
+				FB98E39E25E0F98E00AE723E /* GetIngredientDetailsParser.m */,
+			);
+			path = Parsers;
+			sourceTree = "<group>";
+		};
+		FB68CB8F25DFCA8F007840D2 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				FB68CB9925DFCAB8007840D2 /* GetIngredientsNetworkOperation.h */,
+				FB68CB9A25DFCAB8007840D2 /* GetIngredientsNetworkOperation.m */,
+				FB98E39725E0F7DF00AE723E /* GetIngredientDetailsNetworkOperation.h */,
+				FB98E39825E0F7DF00AE723E /* GetIngredientDetailsNetworkOperation.m */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		FB8EE73D25DFA234008E0DED /* Ingredients */ = {
+			isa = PBXGroup;
+			children = (
+				FBA51C3A25DFB7630094EAA3 /* Common */,
+				FB8EE74125DFA2BE008E0DED /* Assembly */,
+				FB8EE74225DFA348008E0DED /* Interactor */,
+				FB8EE74C25DFA3AB008E0DED /* DataSource */,
+				FB8EE74025DFA2AE008E0DED /* Presenter */,
+				FB8EE73F25DFA2AB008E0DED /* View */,
+				FB8EE73E25DFA2A6008E0DED /* UI */,
+			);
+			path = Ingredients;
+			sourceTree = "<group>";
+		};
+		FB8EE73E25DFA2A6008E0DED /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				FB8EE76325DFA405008E0DED /* IngredientCell.h */,
+				FB8EE76425DFA405008E0DED /* IngredientCell.m */,
+				FB8EE75E25DFA3ED008E0DED /* IngredientCell.xib */,
+				FB8EE75925DFA3D9008E0DED /* IngredientsViewController.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		FB8EE73F25DFA2AB008E0DED /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FB8EE76925DFA436008E0DED /* IIngredientsViewInput.h */,
+				FB8EE76A25DFA443008E0DED /* IIngredientsViewOutput.h */,
+				FB8EE75325DFA3C8008E0DED /* IngredientsViewController.h */,
+				FB8EE75425DFA3C8008E0DED /* IngredientsViewController.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FB8EE74025DFA2AE008E0DED /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				FBA51C3825DFB5B10094EAA3 /* IIngredientsModuleInput.h */,
+				FBA51C3925DFB5BC0094EAA3 /* IIngredientsModuleOutput.h */,
+				FB8EE76B25DFA459008E0DED /* IngredientsPresenter.h */,
+				FB8EE76C25DFA459008E0DED /* IngredientsPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		FB8EE74125DFA2BE008E0DED /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				FB8EE78525DFA571008E0DED /* IngredientsModuleAssembly.h */,
+				FB8EE78625DFA571008E0DED /* IngredientsModuleAssembly.m */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		FB8EE74225DFA348008E0DED /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				FB8EE78325DFA4BD008E0DED /* IIngredientsInteractorInput.h */,
+				FB8EE78425DFA4C8008E0DED /* IIngredientsInteractorOutput.h */,
+				FB8EE77D25DFA4B4008E0DED /* IngredientsInteractor.h */,
+				FB8EE77E25DFA4B4008E0DED /* IngredientsInteractor.m */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		FB8EE74C25DFA3AB008E0DED /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				FB8EE77425DFA485008E0DED /* IngredientItem.h */,
+				FB8EE77525DFA485008E0DED /* IngredientItem.m */,
+				FB8EE74E25DFA3AB008E0DED /* IngredientsDataSource.h */,
+				FB8EE74D25DFA3AB008E0DED /* IngredientsDataSource.m */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		FB8EE79225DFA9E0008E0DED /* IngredientsService */ = {
+			isa = PBXGroup;
+			children = (
+				FB8EE79925DFA9FE008E0DED /* IIngredientsService.h */,
+				FB8EE79325DFA9F6008E0DED /* IngredientsService.h */,
+				FB8EE79425DFA9F6008E0DED /* IngredientsService.m */,
+			);
+			path = IngredientsService;
+			sourceTree = "<group>";
+		};
+		FB98E3C025E10FB700AE723E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				FB98E3C125E10FCA00AE723E /* TextDetialsPopupViewController.h */,
+				FB98E3C225E10FCA00AE723E /* TextDetialsPopupViewController.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		FBA51C3A25DFB7630094EAA3 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FBA51C3B25DFB7C10094EAA3 /* IngredientsFilter.h */,
+				FBA51C3C25DFB7C10094EAA3 /* IngredientsFilter.m */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -888,7 +1080,9 @@
 				F46AD85A23210F79008DEC0B /* HomeDashboardCell.xib in Resources */,
 				F46AD814231D510D008DEC0B /* HomeDashboardViewController.storyboard in Resources */,
 				F46AD804231D4F7C008DEC0B /* Assets.xcassets in Resources */,
+				FB8EE75F25DFA3ED008E0DED /* IngredientCell.xib in Resources */,
 				F46AD85723210A79008DEC0B /* CoctailViewController.storyboard in Resources */,
+				FB8EE75A25DFA3D9008E0DED /* IngredientsViewController.storyboard in Resources */,
 				F46AD805231D4F7C008DEC0B /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -956,14 +1150,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB8EE79525DFA9F6008E0DED /* IngredientsService.m in Sources */,
+				FB8EE76D25DFA459008E0DED /* IngredientsPresenter.m in Sources */,
 				F460CF94235884A200240946 /* NetworkOperation.m in Sources */,
 				FB2F350C25CBF1F3006AE798 /* GetCoctailDetailsNetworkOperation.m in Sources */,
+				FB68CB9B25DFCAB8007840D2 /* GetIngredientsNetworkOperation.m in Sources */,
 				F46AD828231D58D2008DEC0B /* HomeDashboardDataSource.m in Sources */,
 				F460CF8D2358703200240946 /* CoreNetwork.m in Sources */,
 				F460CFFD23602BD700240946 /* ImageDownloader.m in Sources */,
 				F46AD812231D5103008DEC0B /* HomeDashboardViewController.m in Sources */,
 				FB2F34FA25CBEA77006AE798 /* UtilitiesAssembly.m in Sources */,
 				FB2F350625CBF15D006AE798 /* GetCoctailDetailsParser.m in Sources */,
+				FB8EE77625DFA485008E0DED /* IngredientItem.m in Sources */,
 				F4F222AF2358524B00AB457B /* CoctailCacheModelFiller.m in Sources */,
 				F46AD834231D60C9008DEC0B /* HomeDashboardInteractor.m in Sources */,
 				F46AD83E231E4C01008DEC0B /* HomeDashboardModuleAssembly.m in Sources */,
@@ -972,27 +1170,37 @@
 				F4F222662356E0BC00AB457B /* ManagedCoctail.m in Sources */,
 				FB630B4025CD3D4600EB5793 /* UIColor+Application.m in Sources */,
 				F46AD82B231D5BAB008DEC0B /* HomeDashboardItem.m in Sources */,
+				FB8EE76525DFA405008E0DED /* IngredientCell.m in Sources */,
 				F46AD7CF231D4F00008DEC0B /* main.m in Sources */,
 				FB2F34B925CA8777006AE798 /* CoctailPresenter.m in Sources */,
 				F46AD81F231D521A008DEC0B /* HomeDashboardRouter.m in Sources */,
+				FB8EE74F25DFA3AB008E0DED /* IngredientsDataSource.m in Sources */,
 				F46AD82F231D5CF7008DEC0B /* HomeDashboardCell.m in Sources */,
 				F460D0002360311A00240946 /* ImageDownloadOperation.m in Sources */,
+				FB8EE77F25DFA4B4008E0DED /* IngredientsInteractor.m in Sources */,
 				FB2F34EE25CBE67D006AE798 /* ServicesAssembly.m in Sources */,
 				FB2F34C125CA8A6B006AE798 /* CoctailDetailsItem.m in Sources */,
+				FB98E39925E0F7DF00AE723E /* GetIngredientDetailsNetworkOperation.m in Sources */,
 				F46AD81C231D520B008DEC0B /* HomeDashboardPresenter.m in Sources */,
+				FBA51C3D25DFB7C10094EAA3 /* IngredientsFilter.m in Sources */,
 				FB630B2725CD3A0000EB5793 /* UINavigationController+StatusBarColor.m in Sources */,
 				F46AD85523210A6E008DEC0B /* CoctailViewController.m in Sources */,
 				F46AD849231E5B12008DEC0B /* CoctailModuleAssembly.m in Sources */,
+				FB8EE78725DFA571008E0DED /* IngredientsModuleAssembly.m in Sources */,
 				F46AD807231D4F7C008DEC0B /* Boozter.xcdatamodeld in Sources */,
 				F46AD808231D4F7C008DEC0B /* AppDelegate.m in Sources */,
 				F4F2227723581E0F00AB457B /* NSManagedObject+EntityName.m in Sources */,
 				F460CFA42358921100240946 /* NetworkOperationQueue.m in Sources */,
 				F46AD824231D554D008DEC0B /* Coctail.m in Sources */,
 				F432239323224AF800D5745F /* CoctailsService.m in Sources */,
+				FB98E39F25E0F98E00AE723E /* GetIngredientDetailsParser.m in Sources */,
 				FB2F34E825CBE5BF006AE798 /* CoreAssembly.m in Sources */,
 				F460CFA023588A7E00240946 /* GetCoctailsParser.m in Sources */,
+				FB98E3C325E10FCA00AE723E /* TextDetialsPopupViewController.m in Sources */,
 				F432239723224B3C00D5745F /* CoreDataCache.m in Sources */,
+				FB8EE75525DFA3C8008E0DED /* IngredientsViewController.m in Sources */,
 				F460CF9C235886A300240946 /* GetCoctailsNetworkOperation.m in Sources */,
+				FB68CB9225DFCAA5007840D2 /* GetIngredientsParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1091,7 +1299,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1145,7 +1353,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = NO;
@@ -1162,7 +1370,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2MEXR3KD6;
 				INFOPLIST_FILE = Boozter/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1181,7 +1389,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2MEXR3KD6;
 				INFOPLIST_FILE = Boozter/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

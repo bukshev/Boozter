@@ -39,15 +39,15 @@
 
 - (void)obtainDetailsForCoctail:(NSInteger)coctailIdentifier {
     [self.coctailsService obtainDetailsForCoctail:coctailIdentifier
-                                completionHandler:[self obtainCoctailWithDetailsCompletion]];
+                                completionHandler:[self ObtainCoctailDetailsCompletion]];
 }
 
 #pragma mark - Private helpers
 
-- (ObtainCoctailWithDetailsCompletion)obtainCoctailWithDetailsCompletion {
+- (ObtainCoctailDetailsCompletion)ObtainCoctailDetailsCompletion {
     __weak typeof(self) weakSelf = self;
 
-    ObtainCoctailWithDetailsCompletion handler = ^(Coctail *coctail, NSError *error) {
+    ObtainCoctailDetailsCompletion handler = ^(Coctail *coctail, NSError *error) {
         typeof(self) strongSelf = weakSelf;
         if (nil == strongSelf) {
             return;

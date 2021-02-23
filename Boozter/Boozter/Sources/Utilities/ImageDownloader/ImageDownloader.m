@@ -115,6 +115,10 @@
     [self.downloadQueue cancelAllOperations];
 }
 
+- (void)invalidateCache {
+    [self.cache removeAllObjects];
+}
+
 #pragma mark - Getters & Setters
 
 - (NSOperationQueue *)downloadQueue {

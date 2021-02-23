@@ -6,7 +6,7 @@
 //  Copyright © 2019 Team Absurdum. All rights reserved.
 //
 
-#import <Typhoon/Typhoon.h>
+#import <Typhoon/TyphoonAssembly.h>
 
 @protocol IModuleFactory;
 

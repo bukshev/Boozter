@@ -18,7 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak, nullable, readonly) id<IModuleTransitionHandler> transitionHandler;
 
 -  (instancetype)init NS_UNAVAILABLE;
--  (instancetype)initWithCoctailModuleFactory:(id<IModuleFactory>)coctailModuleFactory NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithCoctailModuleFactory:(id<IModuleFactory>)coctailModuleFactory
+                    ingredientsModuleFactory:(id<IModuleFactory>)ingredientsModuleFactory NS_DESIGNATED_INITIALIZER;
 
 - (void)injectTransitionHandler:(id<IModuleTransitionHandler>)transitionHandler;
 
