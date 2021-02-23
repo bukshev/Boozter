@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)didObtainIngredients:(NSArray<NSString *> *)ingredients;
 - (void)didFailObtainIngredientsWithError:(NSError *)error;
 
+- (void)didObtainIngredientDetails:(NSString *)ingredientDetails;
+- (void)didFailObtainIngredientDetailsWithError:(NSError *)error;
+
 @end
 
 NS_ASSUME_NONNULL_END

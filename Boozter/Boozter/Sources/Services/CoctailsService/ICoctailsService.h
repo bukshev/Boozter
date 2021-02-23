@@ -14,7 +14,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void (^ObtainCoctailsCompletion)(NSArray<Coctail *> * _Nullable, NSError * _Nullable);
-typedef void (^ObtainCoctailWithDetailsCompletion)(Coctail * _Nullable, NSError * _Nullable);
+typedef void (^ObtainCoctailDetailsCompletion)(Coctail * _Nullable, NSError * _Nullable);
 
 @protocol ICoctailsService <NSObject>
 
@@ -25,7 +25,7 @@ typedef void (^ObtainCoctailWithDetailsCompletion)(Coctail * _Nullable, NSError 
                              completionHandler:(ObtainCoctailsCompletion)completionHandler;
 
 - (void)obtainDetailsForCoctail:(NSInteger)coctailIdentifier
-              completionHandler:(ObtainCoctailWithDetailsCompletion)completionHandler;
+              completionHandler:(ObtainCoctailDetailsCompletion)completionHandler;
 
 @end
 

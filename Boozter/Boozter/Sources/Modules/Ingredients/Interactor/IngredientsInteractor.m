@@ -40,6 +40,11 @@
     [self.ingredientsService obtainAvailableIngredients:[self obtainIngredientsCompletion]];
 }
 
+- (void)obtailDetailsForIngredient:(NSString *)ingredientName {
+    [self.ingredientsService obtainDetailsForIngredient:ingredientName
+                                      completionHamdler:[self obtainIngredientDetailsCompletion]];
+}
+
 #pragma mark - Private helpers
 
 - (ObtainIngredientsCompletion)obtainIngredientsCompletion {
@@ -57,6 +62,27 @@
             [strongSelf.output didObtainIngredients:ingredients];
         } else {
             NSAssert(false, @"Unexpected behaviour in %s. 'ingredients' and 'error' are nil.", __PRETTY_FUNCTION__);
+        }
+    };
+
+    return [handler copy];
+}
+
+- (ObtainIngredientDetailsCompletion)obtainIngredientDetailsCompletion {
+    __weak typeof(self) weakSelf = self;
+
+    ObtainIngredientDetailsCompletion handler = ^(NSString *ingredientDetails, NSError *error) {
+        typeof(self) strongSelf = weakSelf;
+        if (nil == strongSelf) {
+            return;
+        }
+
+        if (nil != error) {
+            [strongSelf.output didFailObtainIngredientDetailsWithError:error];
+        } else if (nil != ingredientDetails) {
+            [strongSelf.output didObtainIngredientDetails:ingredientDetails];
+        } else {
+            NSAssert(false, @"Unexpected behaviour in %s. 'ingredientDetails' and 'error' are nil.", __PRETTY_FUNCTION__);
         }
     };
 

@@ -65,12 +65,20 @@ static NSUInteger const kNumberOfSections = 1;
 - (void)updateSelectedStatus:(BOOL)selected forItemAt:(NSIndexPath *)indexPath {
     assert(nil != indexPath);
 
+    if (indexPath.row >= self.items.count) {
+        return;
+    }
+
     IngredientItem *item = self.items[indexPath.row];
     [item setSelected:selected];
 }
 
 - (void)triggerSelectedStatusForIndexPath:(NSIndexPath *)indexPath {
     assert(nil != indexPath);
+
+    if (indexPath.row >= self.ingredients.count) {
+        return;
+    }
 
     NSMutableArray *indexPathsForReload = [NSMutableArray arrayWithCapacity:self.ingredients.count];
 
@@ -94,10 +102,6 @@ static NSUInteger const kNumberOfSections = 1;
 - (void)tableView:(UITableView *)tableView
   willDisplayCell:(UITableViewCell *)dequeuedCell
 forRowAtIndexPath:(NSIndexPath *)indexPath {
-
-//    if (!tableView.isDragging) {
-//        [self animateCell:dequeuedCell];
-//    }
 
     BOOL const isIngredientCell = [dequeuedCell isKindOfClass:[IngredientCell class]];
     if (!isIngredientCell) {

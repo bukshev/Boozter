@@ -61,27 +61,27 @@
     assert(nil != ingredientName);
     assert(NULL != completionHandler);
 
-    void (^handler)(NSArray<Coctail *> *) = ^(NSArray<Coctail *> *coctails) {
+    void (^completion)(NSArray<Coctail *> *) = ^(NSArray<Coctail *> *coctails) {
         completionHandler(coctails, nil);
     };
 
     NSURL *url = [self urlForIngredient:ingredientName];
-    GetCoctailsNetworkOperation *operation = [[GetCoctailsNetworkOperation alloc] initWithURL:url completion:handler];
+    GetCoctailsNetworkOperation *operation = [[GetCoctailsNetworkOperation alloc] initWithURL:url completion:completion];
     [self.coreNetwork executeOperation:operation];
 }
 
 - (void)obtainDetailsForCoctail:(NSInteger)coctailIdentifier
-              completionHandler:(ObtainCoctailWithDetailsCompletion)completionHandler {
+              completionHandler:(ObtainCoctailDetailsCompletion)completionHandler {
 
     assert(0 < coctailIdentifier);
     assert(NULL != completionHandler);
 
-    void (^handler)(Coctail *) = ^(Coctail *coctail) {
+    void (^completion)(Coctail *) = ^(Coctail *coctail) {
         completionHandler(coctail, nil);
     };
 
     NSURL *url = [self urlForCoctailDetails:coctailIdentifier];
-    GetCoctailDetailsNetworkOperation *operation = [[GetCoctailDetailsNetworkOperation alloc] initWithURL:url completion:handler];
+    GetCoctailDetailsNetworkOperation *operation = [[GetCoctailDetailsNetworkOperation alloc] initWithURL:url completion:completion];
     [self.coreNetwork executeOperation:operation];
 }
 

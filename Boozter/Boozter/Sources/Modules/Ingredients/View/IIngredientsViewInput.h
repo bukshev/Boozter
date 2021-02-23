@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setupInitialState;
 - (void)reloadData;
 
+- (void)showTextDetails:(NSString *)textDetails;
+
 - (void)showBlurEffect;
 - (void)hideBlurEffect;
 

@@ -83,6 +83,13 @@ static CGFloat const kSecondsDelayBeforeShowingView = 0.55f;
     [self.moduleOutput didSetFilter:filter];
 }
 
+- (void)onShowDetailsEventForIndexPath:(NSIndexPath *)indexPath {
+    assert(nil != indexPath);
+
+    NSString *ingredientName = [self.dataSource ingredientForIndexPath:indexPath];
+    [self.interactor obtailDetailsForIngredient:ingredientName];
+}
+
 - (void)didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self.dataSource triggerSelectedStatusForIndexPath:indexPath];
 }
@@ -105,6 +112,18 @@ static CGFloat const kSecondsDelayBeforeShowingView = 0.55f;
 }
 
 - (void)didFailObtainIngredientsWithError:(NSError *)error {
+    assert(nil != error);
+}
+
+- (void)didObtainIngredientDetails:(NSString *)ingredientDetails {
+    assert(nil != ingredientDetails);
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.view showTextDetails:ingredientDetails];
+    });
+}
+
+- (void)didFailObtainIngredientDetailsWithError:(NSError *)error {
     assert(nil != error);
 }
 

@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol IIngredientsInteractorInput <NSObject>
 
 - (void)obtainAvailableIngredients;
+- (void)obtailDetailsForIngredient:(NSString *)ingredientName;
 
 @end
 

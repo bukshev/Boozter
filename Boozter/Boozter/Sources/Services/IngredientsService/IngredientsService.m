@@ -12,6 +12,7 @@
 #import "ICoreNetwork.h"
 
 #import "GetIngredientsNetworkOperation.h"
+#import "GetIngredientDetailsNetworkOperation.h"
 
 @interface IngredientsService ()
 @property (nonatomic, strong) id<ICoreCache> coreCache;
@@ -48,6 +49,20 @@
     };
 
     GetIngredientsNetworkOperation *operation = [[GetIngredientsNetworkOperation alloc] initWithCompletion:completion];
+    [self.coreNetwork executeOperation:operation];
+}
+
+- (void)obtainDetailsForIngredient:(NSString *)ingredientName completionHamdler:(ObtainIngredientDetailsCompletion)completionHandler {
+    assert(nil != ingredientName);
+    assert(NULL != completionHandler);
+
+    void (^completion)(NSString *) = ^(NSString *ingredientDetails) {
+        completionHandler(ingredientDetails, nil);
+    };
+
+    GetIngredientDetailsNetworkOperation *operation = [[GetIngredientDetailsNetworkOperation alloc] initWithIngredientName:ingredientName
+                                                                                                                completion:completion];
+
     [self.coreNetwork executeOperation:operation];
 }
 

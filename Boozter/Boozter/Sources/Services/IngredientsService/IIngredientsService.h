@@ -11,11 +11,15 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void (^ObtainIngredientsCompletion)(NSArray<NSString *> * _Nullable, NSError * _Nullable);
+typedef void (^ObtainIngredientDetailsCompletion)(NSString * _Nullable, NSError * _Nullable);
 
 @protocol IIngredientsService <NSObject>
 
 @required
 - (void)obtainAvailableIngredients:(ObtainIngredientsCompletion)completionHandler;
+
+- (void)obtainDetailsForIngredient:(NSString *)ingredientName
+                 completionHamdler:(ObtainIngredientDetailsCompletion)completionHandler;
 
 @end
 

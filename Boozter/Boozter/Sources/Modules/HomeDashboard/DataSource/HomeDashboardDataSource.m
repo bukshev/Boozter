@@ -54,12 +54,24 @@ static NSUInteger const kNumberOfSections = 1;
 }
 
 - (void)updateImageData:(NSData *)imageData itemIndexPath:(NSIndexPath *)indexPath {
+    assert(nil != imageData);
+    assert(nil != indexPath);
+
+    if (indexPath.row >= self.items.count) {
+        return;
+    }
+
     HomeDashboardItem *item = self.items[indexPath.row];
     item.coctailImageData = imageData;
 }
 
 - (Coctail *)coctailForIndexPath:(NSIndexPath *)indexPath {
     assert(nil != indexPath);
+
+    if (indexPath.row >= self.items.count) {
+        return nil;
+    }
+
     return self.coctails[indexPath.row];
 }
 
@@ -122,6 +134,9 @@ static NSUInteger const kNumberOfSections = 1;
 - (void)collectionView:(UICollectionView *)collectionView prefetchItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths {
     [self executeAsynchronously:^{
         [indexPaths enumerateObjectsUsingBlock:^(NSIndexPath * indexPath, NSUInteger idx, BOOL *stop) {
+            if (indexPath.row >= self.items.count) {
+                return;
+            }
             HomeDashboardItem *item = self.items[indexPath.row];
             if (nil == item.coctailImageData) {
                 Coctail *coctail = self.coctails[indexPath.row];
@@ -134,6 +149,9 @@ static NSUInteger const kNumberOfSections = 1;
 - (void)collectionView:(UICollectionView *)collectionView cancelPrefetchingForItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths {
     [self executeAsynchronously:^{
         [indexPaths enumerateObjectsUsingBlock:^(NSIndexPath *indexPath, NSUInteger idx, BOOL *stop) {
+            if (indexPath.row >= self.items.count) {
+                return;
+            }
             HomeDashboardItem *item = self.items[indexPath.row];
             if (nil == item.coctailImageData) {
                 Coctail *coctail = self.coctails[indexPath.row];
@@ -148,7 +166,7 @@ static NSUInteger const kNumberOfSections = 1;
 - (void)animateCell:(UICollectionViewCell *)cell {
     cell.alpha = 0.0f;
 
-    [UIView animateWithDuration:0.35f animations:^{
+    [UIView animateWithDuration:0.55f animations:^{
         cell.alpha = 1.0f;
     }];
 }

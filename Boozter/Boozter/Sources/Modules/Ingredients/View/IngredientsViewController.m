@@ -14,6 +14,8 @@
 #import "UIColor+Application.h"
 #import "UINavigationController+StatusBarColor.h"
 
+#import "TextDetialsPopupViewController.h"
+
 @interface IngredientsViewController () <UITableViewDelegate>
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) IngredientsDataSource *dataSource;
@@ -74,6 +76,13 @@
     [self.tableView reloadData];
 }
 
+- (void)showTextDetails:(NSString *)textDetails {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"IngredientsViewController" bundle:nil];
+    TextDetialsPopupViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"TextDetialsPopupViewController"];
+    [viewController setText:textDetails];
+    [self presentViewController:viewController animated:true completion:nil];
+}
+
 - (void)showBlurEffect {
     assert(NSThread.isMainThread);
 
@@ -126,6 +135,25 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [self.output heightForRowAtIndexPath:indexPath];
+}
+
+- (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
+    void (^handler)(UIContextualAction *, UIView *, void (^)(BOOL)) = ^(UIContextualAction *action, UIView *sourceView, void (^ _Nonnull completion)(BOOL)) {
+        [self.output onShowDetailsEventForIndexPath:indexPath];
+        completion(YES);
+    };
+
+    UIContextualAction *action = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleNormal
+                                                                         title:@"Show Details"
+                                                                       handler:[handler copy]];
+
+    action.backgroundColor = [UIColor systemBlueColor];
+
+
+    UISwipeActionsConfiguration *configuration = [UISwipeActionsConfiguration configurationWithActions:@[action]];
+    configuration.performsFirstActionWithFullSwipe = YES;
+
+    return configuration;
 }
 
 @end

@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)onViewReadyEvent:(CGSize)screenSize;
 - (void)onViewDismissEvent;
+- (void)onShowDetailsEventForIndexPath:(NSIndexPath *)indexPath;
 
 - (void)didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
 - (CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath;
