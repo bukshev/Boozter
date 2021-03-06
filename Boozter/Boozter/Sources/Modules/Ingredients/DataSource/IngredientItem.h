@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class Ingredient;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface IngredientItem : NSObject
@@ -15,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign, readonly, getter=isSelected) BOOL selected;
 @property (nonatomic, copy, readonly) NSString *ingredientName;
 
-- (instancetype)initWithIngredient:(NSString *)ingredientName
+- (instancetype)initWithIngredient:(Ingredient *)ingredient
                           selected:(BOOL)selected NS_DESIGNATED_INITIALIZER;
 
 - (instancetype)init NS_UNAVAILABLE;

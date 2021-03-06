@@ -14,6 +14,7 @@
 #import "IProgressIndication.h"
 #import "IImageDownloader.h"
 #import "IngredientsDataSource.h"
+#import "Ingredient.h"
 
 static CGFloat const kSecondsDelayBeforeShowingView = 0.55f;
 
@@ -78,7 +79,7 @@ static CGFloat const kSecondsDelayBeforeShowingView = 0.55f;
 }
 
 - (void)onViewDismissEvent {
-    NSSet *ingredientsSet = [NSSet setWithArray:[self.dataSource selectedIngredients]];
+    NSSet<Ingredient *> *ingredientsSet = [NSSet setWithArray:[self.dataSource selectedIngredients]];
     IngredientsFilter *filter = [[IngredientsFilter alloc] initWithIngredientsSet:ingredientsSet];
     [self.moduleOutput didSetFilter:filter];
 }
@@ -86,8 +87,8 @@ static CGFloat const kSecondsDelayBeforeShowingView = 0.55f;
 - (void)onShowDetailsEventForIndexPath:(NSIndexPath *)indexPath {
     assert(nil != indexPath);
 
-    NSString *ingredientName = [self.dataSource ingredientForIndexPath:indexPath];
-    [self.interactor obtailDetailsForIngredient:ingredientName];
+    Ingredient *ingredient = [self.dataSource ingredientForIndexPath:indexPath];
+    [self.interactor obtailDetailsForIngredient:ingredient];
 }
 
 - (void)didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -100,7 +101,7 @@ static CGFloat const kSecondsDelayBeforeShowingView = 0.55f;
 
 #pragma mark - IIngredientsInteractorOutput
 
-- (void)didObtainIngredients:(NSArray<NSString *> *)ingredients {
+- (void)didObtainIngredients:(NSArray<Ingredient *> *)ingredients {
     assert(nil != ingredients);
 
     [self.dataSource updateWithIngredients:ingredients];

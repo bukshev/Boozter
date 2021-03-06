@@ -7,19 +7,20 @@
 //
 
 #import "IngredientItem.h"
+#import "Ingredient.h"
 
 @implementation IngredientItem
 
 #pragma mark - Initialization
 
-- (instancetype)initWithIngredient:(NSString *)ingredientName selected:(BOOL)selected {
-    assert(nil != ingredientName);
+- (instancetype)initWithIngredient:(Ingredient *)ingredient selected:(BOOL)selected {
+    assert(nil != ingredient);
 
     self = [super init];
 
     if (nil != self) {
         _selected = selected;
-        _ingredientName = [ingredientName copy];
+        _ingredientName = [ingredient.name copy];
     }
 
     return self;

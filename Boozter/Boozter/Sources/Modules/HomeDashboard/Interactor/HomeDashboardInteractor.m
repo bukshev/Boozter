@@ -11,6 +11,7 @@
 #import "ICoctailsService.h"
 
 #import "Coctail.h"
+#import "Ingredient.h"
 
 @interface HomeDashboardInteractor ()
 @property (nonatomic, strong) id<ICoctailsService> coctailsService;
@@ -40,8 +41,8 @@
 
 #pragma mark - IHomeDashboardInteractorInput
 
-- (void)obtainRemoteCoctailsWithIngredientName:(NSString *)name {
-    [self.coctailsService obtainRemoteCoctailsWithIngredientName:name completionHandler:[self obtainCoctailsCompletion]];
+- (void)obtainRemoteCoctailsWithIngredient:(Ingredient *)ingredient {
+    [self.coctailsService obtainRemoteCoctailsWithIngredient:ingredient completionHandler:[self obtainCoctailsCompletion]];
 }
 
 #pragma mark - Private helpers

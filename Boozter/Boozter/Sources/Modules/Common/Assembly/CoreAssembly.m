@@ -18,7 +18,7 @@
 - (id<ICoreCache>)coreCache {
     return [TyphoonDefinition withClass:[CoreDataCache class] configuration:^(TyphoonDefinition *definition) {
         [definition useInitializer:@selector(initWithIdentifier:) parameters:^(TyphoonMethod *initializer) {
-            [initializer injectParameterWith:@"Boozter.xcdatamodeld"];
+            [initializer injectParameterWith:@"Boozter"];
         }];
     }];
 }

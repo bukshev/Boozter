@@ -8,6 +8,7 @@
 
 #import "Coctail.h"
 #import "ManagedCoctail.h"
+#import "Ingredient.h"
 
 @implementation Coctail
 
@@ -32,44 +33,71 @@
 - (BOOL)hasDetails {
     return (nil != self.glassName)
         && (nil != self.instructions)
-        && (nil != self.measuredIngredients);
+        && (nil != self.ingredients);
 }
 
 - (void)updateImageData:(nullable NSData *)imageData {
-    _imageData = imageData;
+    if (nil != imageData) {
+        _imageData = imageData;
+    }
 }
 
 - (void)updateAlcoholic:(nullable NSString *)alcoholic {
-    _alcoholic = [alcoholic copy];
+    if (nil != alcoholic) {
+        _alcoholic = [alcoholic copy];
+    }
 }
 
 - (void)updateCategory:(nullable NSString *)category {
-    _category = [category copy];
+    if (nil != category) {
+        _category = [category copy];
+    }
 }
 
 - (void)updateGlassName:(nullable NSString *)glassName {
-    _glassName = [glassName copy];
+    if (nil != glassName) {
+        _glassName = [glassName copy];
+    }
 }
 
 - (void)updateInstructions:(nullable NSString *)instructions {
-    _instructions = [instructions copy];
+    if (nil != instructions) {
+        _instructions = [instructions copy];
+    }
 }
 
-- (void)updateMeasuredIngredients:(nullable NSArray<NSString *> *)measuredIngredients {
-    _measuredIngredients = [measuredIngredients copy];
+- (void)updateIngredients:(nullable NSArray<NSString *> *)ingredients {
+    if (nil != ingredients) {
+        _ingredients = [ingredients copy];
+    }
 }
 
 #pragma mark - IPlainObject
 
-- (instancetype)initWithManagedObject:(ManagedCoctail *)managedObject {
+- (instancetype)initWithManagedObject:(NSManagedObject *)managedObject {
     assert(nil != managedObject);
+    assert([managedObject isKindOfClass:[ManagedCoctail class]]);
 
-    NSURL *url = [NSURL URLWithString:managedObject.imageURLString];
+    ManagedCoctail *managedCoctail = (ManagedCoctail *)managedObject;
 
-    Coctail *coctail = [self initWithIdentifier:managedObject.identifier name:managedObject.name imageURL:url];
-    [coctail updateGlassName:managedObject.glassName];
-    [coctail updateInstructions:managedObject.instructions];
-    [coctail updateMeasuredIngredients:managedObject.measuredIngredients];
+    assert(nil != managedCoctail.imageURLString);
+    assert(-1 < managedCoctail.identifier);
+    assert(nil != managedCoctail.name);
+
+    NSURL *url = [NSURL URLWithString:managedCoctail.imageURLString];
+
+    Coctail *coctail = [self initWithIdentifier:managedCoctail.identifier name:managedCoctail.name imageURL:url];
+    [coctail updateGlassName:managedCoctail.glassName];
+    [coctail updateInstructions:managedCoctail.instructions];
+
+    if (nil != managedCoctail.ingredients && managedCoctail.ingredients.count > 0) {
+        NSMutableArray *plainIngredients = [NSMutableArray arrayWithCapacity:managedCoctail.ingredients.count];
+        [managedCoctail.ingredients enumerateObjectsUsingBlock:^(ManagedIngredient *managedIngredient, NSUInteger idx, BOOL *stop) {
+            Ingredient *plainIngredient = [[Ingredient alloc] initWithManagedObject:managedIngredient];
+            [plainIngredients addObject:plainIngredient];
+        }];
+        [coctail updateIngredients:plainIngredients];
+    }
 
     return coctail;
 }

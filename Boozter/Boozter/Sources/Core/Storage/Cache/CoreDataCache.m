@@ -12,7 +12,6 @@
 #import "ICoreCacheModelFiller.h"
 
 @interface CoreDataCache ()
-@property (nonatomic, copy) NSString *identifier;
 @property (atomic, strong) NSPersistentContainer *persistentContainer;
 @end
 
@@ -24,23 +23,22 @@
     assert(nil != identifier);
 
     self = [super init];
+    if (nil == self) {
+        return nil;
+    }
 
-    if (nil != self) {
-        _identifier = [identifier copy];
-
-        @synchronized (self) {
-            if (nil != _persistentContainer) {
-                return self;
-            }
-
-            _persistentContainer = [[NSPersistentContainer alloc] initWithName:@"Boozter"];
-            [_persistentContainer loadPersistentStoresWithCompletionHandler:^(NSPersistentStoreDescription *description, NSError *error) {
-                if (error != nil) {
-                    NSLog(@"Unresolved error %@, %@", error, error.userInfo);
-                    abort();
-                }
-            }];
+    @synchronized (self) {
+        if (nil != _persistentContainer) {
+            return self;
         }
+
+        _persistentContainer = [[NSPersistentContainer alloc] initWithName:[identifier copy]];
+        [_persistentContainer loadPersistentStoresWithCompletionHandler:^(NSPersistentStoreDescription *_, NSError *error) {
+            if (error != nil) {
+                NSLog(@"Unresolved error %@, %@", error, error.userInfo);
+                abort();
+            }
+        }];
     }
 
     return self;
@@ -76,8 +74,8 @@
 
     NSManagedObjectContext *backgroundContext = [self.persistentContainer newBackgroundContext];
 
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:entityName];
-    fetchRequest.predicate = predicate;
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
+    request.predicate = predicate;
 
     void (^handler)(NSAsynchronousFetchResult *) = ^(NSAsynchronousFetchResult *result) {
         if (nil != result.operationError) {
@@ -94,26 +92,15 @@
         completionHandler(managedObjects, nil);
     };
 
-    NSAsynchronousFetchRequest *asyncFetchRequest = [[NSAsynchronousFetchRequest alloc] initWithFetchRequest:fetchRequest completionBlock:handler];
+    NSAsynchronousFetchRequest *asyncRequest = [[NSAsynchronousFetchRequest alloc] initWithFetchRequest:request
+                                                                                        completionBlock:handler];
 
     __autoreleasing NSError *error = nil;
-    [backgroundContext executeRequest:asyncFetchRequest error:&error];
+    [backgroundContext executeRequest:asyncRequest error:&error];
 
     if (nil != error) {
         NSLog(@"Unresolved error %@, %@", error, error.userInfo);
     }
-}
-
-- (NSArray<NSManagedObject *> *)objectsForEntityName:(NSString *)entityName
-                                           predicate:(nullable NSPredicate *)predicate {
-    assert(nil != entityName);
-
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:entityName];
-    fetchRequest.predicate = predicate;
-
-    NSManagedObjectContext *context = self.persistentContainer.viewContext;
-    NSArray *objects = [context executeFetchRequest:fetchRequest error:nil];
-    return objects;
 }
 
 #pragma mark - Core Data Saving support

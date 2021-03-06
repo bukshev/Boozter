@@ -14,6 +14,8 @@
 #import "GetIngredientsNetworkOperation.h"
 #import "GetIngredientDetailsNetworkOperation.h"
 
+#import "Ingredient.h"
+
 @interface IngredientsService ()
 @property (nonatomic, strong) id<ICoreCache> coreCache;
 @property (nonatomic, strong) id<ICoreNetwork> coreNetwork;
@@ -44,7 +46,7 @@
 - (void)obtainAvailableIngredients:(ObtainIngredientsCompletion)completionHandler {
     assert(NULL != completionHandler);
 
-    void (^completion)(NSArray<NSString *> *) = ^(NSArray<NSString *> *ingredients) {
+    void (^completion)(NSArray<NSString *> *) = ^(NSArray<Ingredient *> *ingredients) {
         completionHandler(ingredients, nil);
     };
 
@@ -52,15 +54,15 @@
     [self.coreNetwork executeOperation:operation];
 }
 
-- (void)obtainDetailsForIngredient:(NSString *)ingredientName completionHamdler:(ObtainIngredientDetailsCompletion)completionHandler {
-    assert(nil != ingredientName);
+- (void)obtainDetailsForIngredient:(Ingredient *)ingredient completionHamdler:(ObtainIngredientDetailsCompletion)completionHandler {
+    assert(nil != ingredient);
     assert(NULL != completionHandler);
 
     void (^completion)(NSString *) = ^(NSString *ingredientDetails) {
         completionHandler(ingredientDetails, nil);
     };
 
-    GetIngredientDetailsNetworkOperation *operation = [[GetIngredientDetailsNetworkOperation alloc] initWithIngredientName:ingredientName
+    GetIngredientDetailsNetworkOperation *operation = [[GetIngredientDetailsNetworkOperation alloc] initWithIngredientName:ingredient.name
                                                                                                                 completion:completion];
 
     [self.coreNetwork executeOperation:operation];

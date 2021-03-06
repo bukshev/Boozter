@@ -8,6 +8,7 @@
 
 #import "CoctailDetailsItem.h"
 #import "Coctail.h"
+#import "Ingredient.h"
 
 @implementation CoctailDetailsItem
 
@@ -25,17 +26,26 @@
         _category = [coctail.category copy];
         _glassName = [coctail.glassName copy];
         _instructions = [coctail.instructions copy];
-        _measuredIngredientsText = [self measuredIngredientsTextForArray:coctail.measuredIngredients];
+        _measuredIngredientsText = [self measuredIngredientsTextForArray:coctail.ingredients];
     }
 
     return self;
 }
 
-- (NSString *)measuredIngredientsTextForArray:(NSArray<NSString *> *)array {
+- (NSString *)measuredIngredientsTextForArray:(NSArray<Ingredient *> *)array {
     NSMutableString *resultString = [NSMutableString string];
 
-    for (NSString *measuredIngredient in array) {
-        [resultString appendString:measuredIngredient];
+    for (NSInteger index = 0; index < array.count; index++) {
+        Ingredient *ingredient = array[index];
+
+        if (nil != ingredient.measure) {
+            NSString *line = [NSString stringWithFormat:@"%ld. %@ (%@).", index + 1, ingredient.name, ingredient.measure];
+            [resultString appendString:line];
+        } else {
+            NSString *line = [NSString stringWithFormat:@"%ld. %@.", index + 1, ingredient.name];
+            [resultString appendString:line];
+        }
+
         [resultString appendString:@"\n"];
     }
 

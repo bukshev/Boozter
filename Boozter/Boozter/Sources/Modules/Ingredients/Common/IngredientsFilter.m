@@ -7,10 +7,11 @@
 //
 
 #import "IngredientsFilter.h"
+#import "Ingredient.h"
 
 @implementation IngredientsFilter
 
-- (instancetype)initWithIngredientsSet:(NSSet<NSString *> *)ingredients {
+- (instancetype)initWithIngredientsSet:(NSSet<Ingredient *> *)ingredients {
     self = [super init];
 
     if (nil != self) {

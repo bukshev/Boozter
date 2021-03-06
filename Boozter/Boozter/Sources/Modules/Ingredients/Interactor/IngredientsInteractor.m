@@ -9,6 +9,7 @@
 #import "IngredientsInteractor.h"
 #import "IIngredientsInteractorOutput.h"
 #import "IIngredientsService.h"
+#import "Ingredient.h"
 
 @interface IngredientsInteractor ()
 @property (nonatomic, strong) id<IIngredientsService> ingredientsService;
@@ -40,8 +41,8 @@
     [self.ingredientsService obtainAvailableIngredients:[self obtainIngredientsCompletion]];
 }
 
-- (void)obtailDetailsForIngredient:(NSString *)ingredientName {
-    [self.ingredientsService obtainDetailsForIngredient:ingredientName
+- (void)obtailDetailsForIngredient:(Ingredient *)ingredient {
+    [self.ingredientsService obtainDetailsForIngredient:ingredient
                                       completionHamdler:[self obtainIngredientDetailsCompletion]];
 }
 
@@ -50,7 +51,7 @@
 - (ObtainIngredientsCompletion)obtainIngredientsCompletion {
     __weak typeof(self) weakSelf = self;
 
-    ObtainIngredientsCompletion handler = ^(NSArray<NSString *> *ingredients, NSError *error) {
+    ObtainIngredientsCompletion handler = ^(NSArray<Ingredient *> *ingredients, NSError *error) {
         typeof(self) strongSelf = weakSelf;
         if (nil == strongSelf) {
             return;

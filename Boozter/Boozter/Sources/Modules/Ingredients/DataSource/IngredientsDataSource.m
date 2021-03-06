@@ -9,11 +9,12 @@
 #import "IngredientsDataSource.h"
 #import "IngredientItem.h"
 #import "IngredientCell.h"
+#import "Ingredient.h"
 
 static NSUInteger const kNumberOfSections = 1;
 
 @interface IngredientsDataSource ()
-@property (nonatomic, copy) NSMutableArray<NSString *> *ingredients;
+@property (nonatomic, copy) NSMutableArray<Ingredient *> *ingredients;
 @property (nonatomic, copy) NSMutableArray<IngredientItem *> *items;
 @end
 
@@ -33,8 +34,8 @@ static NSUInteger const kNumberOfSections = 1;
 
 #pragma mark - Public Interface
 
-- (NSArray<NSString *> *)selectedIngredients {
-    NSMutableArray *selectedIngredients = [NSMutableArray arrayWithCapacity:self.ingredients.count];
+- (NSArray<Ingredient *> *)selectedIngredients {
+    NSMutableArray<Ingredient *> *selectedIngredients = [NSMutableArray arrayWithCapacity:self.ingredients.count];
 
     [self.items enumerateObjectsUsingBlock:^(IngredientItem *obj, NSUInteger idx, BOOL * stop) {
         if (obj.isSelected) {
@@ -45,21 +46,21 @@ static NSUInteger const kNumberOfSections = 1;
     return [selectedIngredients copy];
 }
 
-- (void)updateWithIngredients:(NSArray<NSString *> *)ingredients {
+- (void)updateWithIngredients:(NSArray<Ingredient *> *)ingredients {
     assert(nil != ingredients);
 
     _ingredients = [ingredients mutableCopy];
     _items = [NSMutableArray arrayWithCapacity:ingredients.count];
-    [ingredients enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL *stop) {
+    [ingredients enumerateObjectsUsingBlock:^(Ingredient *obj, NSUInteger idx, BOOL *stop) {
         IngredientItem *item = [[IngredientItem alloc] initWithIngredient:obj selected:NO];
         [self.items addObject:item];
     }];
 }
 
-- (NSString *)ingredientForIndexPath:(NSIndexPath *)indexPath {
+- (nullable Ingredient *)ingredientForIndexPath:(NSIndexPath *)indexPath {
     assert(nil != indexPath);
 
-    return self.ingredients[indexPath.row];
+    return (indexPath.row < self.ingredients.count) ? self.ingredients[indexPath.row] : nil;
 }
 
 - (void)updateSelectedStatus:(BOOL)selected forItemAt:(NSIndexPath *)indexPath {

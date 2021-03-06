@@ -7,12 +7,13 @@
 //
 
 #import "GetIngredientsParser.h"
+#import "Ingredient.h"
 
 @implementation GetIngredientsParser
 
 #pragma mark - Public interface
 
-- (NSArray<NSString *> *)ingredientsFromNetworkResponseData:(NSData *)data {
+- (NSArray<Ingredient *> *)ingredientsFromNetworkResponseData:(NSData *)data {
     if (nil == data) {
         return [[NSArray array] copy];
     }
@@ -20,9 +21,9 @@
     NSDictionary *json = [self jsonFromData:data];
     NSArray *ingredientsList = json[@"drinks"];
 
-    NSMutableArray<NSString *> *ingredients = [NSMutableArray arrayWithCapacity:ingredientsList.count];
+    NSMutableArray<Ingredient *> *ingredients = [NSMutableArray arrayWithCapacity:ingredientsList.count];
     for (NSDictionary *dictionary in ingredientsList) {
-        NSString *ingredient = [self ingredientFromDictionary:dictionary];
+        Ingredient *ingredient = [self ingredientFromDictionary:dictionary];
         [ingredients addObject:ingredient];
     }
 
@@ -35,9 +36,10 @@
     return [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];;
 }
 
-- (NSString *)ingredientFromDictionary:(NSDictionary *)dictionary {
+- (Ingredient *)ingredientFromDictionary:(NSDictionary *)dictionary {
     NSString *name = dictionary[@"strIngredient1"] ?: @"[unknown]";
-    return name;
+    Ingredient *ingredient = [[Ingredient alloc] initWithUUID:[NSUUID UUID] name:name measure:nil];
+    return ingredient;
 }
 
 @end
