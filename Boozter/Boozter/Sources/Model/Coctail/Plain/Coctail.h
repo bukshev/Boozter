@@ -8,9 +8,11 @@
 
 #import "IPlainObject.h"
 
+@class Ingredient;
+
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Coctail : NSObject<IPlainObject>
+@interface Coctail : NSObject <IPlainObject>
 
 @property (nonatomic, assign, readonly) NSInteger identifier;
 @property (nonatomic, copy, readonly) NSString *name;
@@ -23,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy, nullable, readonly) NSString *category;
 @property (nonatomic, copy, nullable, readonly) NSString *glassName;
 @property (nonatomic, copy, nullable, readonly) NSString *instructions;
-@property (nonatomic, copy, nullable, readonly) NSArray<NSString *> *measuredIngredients;
+@property (nonatomic, copy, nullable, readonly) NSArray<Ingredient *> *ingredients;
 
 - (instancetype)initWithIdentifier:(NSInteger)identifier
                               name:(NSString *)name
@@ -36,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)updateCategory:(nullable NSString *)category;
 - (void)updateGlassName:(nullable NSString *)glassName;
 - (void)updateInstructions:(nullable NSString *)instructions;
-- (void)updateMeasuredIngredients:(nullable NSArray<NSString *> *)measuredIngredients;
+- (void)updateIngredients:(nullable NSArray<Ingredient *> *)ingredients;
 
 @end
 

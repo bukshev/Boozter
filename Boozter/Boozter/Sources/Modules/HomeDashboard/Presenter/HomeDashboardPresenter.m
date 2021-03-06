@@ -15,6 +15,7 @@
 #import "IHomeDashboardRouterInput.h"
 
 #import "Coctail.h"
+#import "Ingredient.h"
 #import "IngredientsFilter.h"
 #import "HomeDashboardDataSource.h"
 #import "IImageDownloader.h"
@@ -75,7 +76,8 @@ static CGFloat const kSecondsDelayBeforeShowingView = 1.6f;
     [self.view showBlurEffect];
     [self.view showProgressHUD:@"Подгружаем данные"];
 
-    [self.interactor obtainRemoteCoctailsWithIngredientName:@"Vodka"];
+    Ingredient *defaultIngredient = [Ingredient defaultIngredient];
+    [self.interactor obtainRemoteCoctailsWithIngredient:defaultIngredient];
 }
 
 - (void)onSelectFilter {
@@ -138,11 +140,15 @@ static CGFloat const kSecondsDelayBeforeShowingView = 1.6f;
 
     self.ingredientsFilter = filter;
 
-    NSString *ingredientName = [filter.ingredients anyObject];
-    if (nil != ingredientName) {
+    Ingredient *ingredient = [filter.ingredients anyObject];
+    if (nil != ingredient) {
         [self.view showBlurEffect];
         [self.view showProgressHUD:@"Подгружаем данные"];
-        [self.interactor obtainRemoteCoctailsWithIngredientName:ingredientName];
+        [self.interactor obtainRemoteCoctailsWithIngredient:ingredient];
+    } else {
+        // TODO: Process error.
+        // Note: Always occurred when we return from 'Ingredients' screen without selected ingredient.
+        NSLog(@"Case without implementation in: %s", __PRETTY_FUNCTION__);
     }
 }
 

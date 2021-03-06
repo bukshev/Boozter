@@ -16,20 +16,23 @@
 
 #pragma mark - ICoreCacheModelFiller
 
-- (void)fillWithPlainObject:(Coctail *)object inContext:(NSManagedObjectContext *)context {
+- (void)fillWithPlainObject:(NSObject<IPlainObject> *)object inContext:(NSManagedObjectContext *)context {
     assert(nil != object);
     assert(nil != context);
     NSAssert([object isKindOfClass:[Coctail class]], @"Plain Object is not Coctail entity.");
+
+    Coctail *coctail = (Coctail *)object;
 
     NSString *entityName = [ManagedCoctail entityName];
     NSManagedObject *managedObject = [NSEntityDescription insertNewObjectForEntityForName:entityName
                                                                    inManagedObjectContext:context];
 
+    assert([managedObject isKindOfClass:[ManagedCoctail class]]);
     ManagedCoctail *managedCoctail = (ManagedCoctail *)managedObject;
 
-    managedCoctail.identifier = object.identifier;
-    managedCoctail.name = object.name;
-    managedCoctail.imageURLString = object.imageURL.absoluteString;
+    managedCoctail.identifier = coctail.identifier;
+    managedCoctail.name = [coctail.name copy];
+    managedCoctail.imageURLString = [coctail.imageURL.absoluteString copy];
 }
 
 @end

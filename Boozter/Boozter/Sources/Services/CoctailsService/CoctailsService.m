@@ -12,13 +12,12 @@
 #import "CoctailCacheModelFiller.h"
 
 #import "Coctail.h"
+#import "Ingredient.h"
 #import "ManagedCoctail.h"
 #import "NSManagedObject+EntityName.h"
 
 #import "GetCoctailsNetworkOperation.h"
 #import "GetCoctailDetailsNetworkOperation.h"
-
-#import <UIKit/UIApplication.h>
 
 @interface CoctailsService ()
 @property (nonatomic, strong) id<ICoreCache> coreCache;
@@ -55,17 +54,17 @@
     [self.coreCache cacheObjects:(NSArray<IPlainObject> *)coctails withModelFiller:modelFiller];
 }
 
-- (void)obtainRemoteCoctailsWithIngredientName:(NSString *)ingredientName
-                             completionHandler:(ObtainCoctailsCompletion)completionHandler {
+- (void)obtainRemoteCoctailsWithIngredient:(Ingredient *)ingredient
+                         completionHandler:(ObtainCoctailsCompletion)completionHandler {
 
-    assert(nil != ingredientName);
+    assert(nil != ingredient);
     assert(NULL != completionHandler);
 
     void (^completion)(NSArray<Coctail *> *) = ^(NSArray<Coctail *> *coctails) {
         completionHandler(coctails, nil);
     };
 
-    NSURL *url = [self urlForIngredient:ingredientName];
+    NSURL *url = [self urlForIngredient:ingredient];
     GetCoctailsNetworkOperation *operation = [[GetCoctailsNetworkOperation alloc] initWithURL:url completion:completion];
     [self.coreNetwork executeOperation:operation];
 }
@@ -118,9 +117,9 @@
 }
 
 // TODO: Make it more flexible...
-- (NSURL *)urlForIngredient:(NSString *)ingredientName {
+- (NSURL *)urlForIngredient:(Ingredient *)ingredient {
     // TODO: Move it to Operation?
-    NSString *formattedIngredientName = [ingredientName stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+    NSString *formattedIngredientName = [ingredient.name stringByReplacingOccurrencesOfString:@" " withString:@"_"];
     NSString *urlString = [NSString stringWithFormat:@"https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=%@", formattedIngredientName];
     NSURL *url = [NSURL URLWithString:urlString];
     return url;

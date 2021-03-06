@@ -68,6 +68,9 @@
 		FB98E39F25E0F98E00AE723E /* GetIngredientDetailsParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FB98E39E25E0F98E00AE723E /* GetIngredientDetailsParser.m */; };
 		FB98E3C325E10FCA00AE723E /* TextDetialsPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB98E3C225E10FCA00AE723E /* TextDetialsPopupViewController.m */; };
 		FBA51C3D25DFB7C10094EAA3 /* IngredientsFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = FBA51C3C25DFB7C10094EAA3 /* IngredientsFilter.m */; };
+		FBD3AE3825F3A2C40002246E /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD3AE3725F3A2C40002246E /* Ingredient.m */; };
+		FBD3AE3E25F3A2DA0002246E /* ManagedIngredient.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD3AE3D25F3A2DA0002246E /* ManagedIngredient.m */; };
+		FBD3AE4425F3A3040002246E /* IngredientCacheModelFiller.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD3AE4325F3A3040002246E /* IngredientCacheModelFiller.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,7 +170,6 @@
 		F493A022236AE77B00BA0643 /* IHomeDashboardCellImageDownloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IHomeDashboardCellImageDownloader.h; sourceTree = "<group>"; };
 		F4F222642356E0BC00AB457B /* ManagedCoctail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManagedCoctail.h; sourceTree = "<group>"; };
 		F4F222652356E0BC00AB457B /* ManagedCoctail.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ManagedCoctail.m; sourceTree = "<group>"; };
-		F4F2226F2357085600AB457B /* CoctailsFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoctailsFilter.h; sourceTree = "<group>"; };
 		F4F2227523581E0F00AB457B /* NSManagedObject+EntityName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+EntityName.h"; sourceTree = "<group>"; };
 		F4F2227623581E0F00AB457B /* NSManagedObject+EntityName.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+EntityName.m"; sourceTree = "<group>"; };
 		F4F222832358296900AB457B /* IPlainObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IPlainObject.h; sourceTree = "<group>"; };
@@ -237,6 +239,12 @@
 		FBA51C3925DFB5BC0094EAA3 /* IIngredientsModuleOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IIngredientsModuleOutput.h; sourceTree = "<group>"; };
 		FBA51C3B25DFB7C10094EAA3 /* IngredientsFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IngredientsFilter.h; sourceTree = "<group>"; };
 		FBA51C3C25DFB7C10094EAA3 /* IngredientsFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IngredientsFilter.m; sourceTree = "<group>"; };
+		FBD3AE3625F3A2C40002246E /* Ingredient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ingredient.h; sourceTree = "<group>"; };
+		FBD3AE3725F3A2C40002246E /* Ingredient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ingredient.m; sourceTree = "<group>"; };
+		FBD3AE3C25F3A2DA0002246E /* ManagedIngredient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManagedIngredient.h; sourceTree = "<group>"; };
+		FBD3AE3D25F3A2DA0002246E /* ManagedIngredient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ManagedIngredient.m; sourceTree = "<group>"; };
+		FBD3AE4225F3A3040002246E /* IngredientCacheModelFiller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IngredientCacheModelFiller.h; sourceTree = "<group>"; };
+		FBD3AE4325F3A3040002246E /* IngredientCacheModelFiller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IngredientCacheModelFiller.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -540,7 +548,7 @@
 			children = (
 				F4F222822358295600AB457B /* Common */,
 				F46AD821231D553D008DEC0B /* Coctail */,
-				F4F2226E2357083200AB457B /* CoctailFilter */,
+				FBD3AE3225F3A27C0002246E /* Ingredient */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -699,14 +707,6 @@
 				F4F222652356E0BC00AB457B /* ManagedCoctail.m */,
 			);
 			path = Managed;
-			sourceTree = "<group>";
-		};
-		F4F2226E2357083200AB457B /* CoctailFilter */ = {
-			isa = PBXGroup;
-			children = (
-				F4F2226F2357085600AB457B /* CoctailsFilter.h */,
-			);
-			path = CoctailFilter;
 			sourceTree = "<group>";
 		};
 		F4F2227323581DEA00AB457B /* Extensions */ = {
@@ -972,6 +972,43 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		FBD3AE3225F3A27C0002246E /* Ingredient */ = {
+			isa = PBXGroup;
+			children = (
+				FBD3AE3325F3A29C0002246E /* Plain */,
+				FBD3AE3425F3A2A00002246E /* Managed */,
+				FBD3AE3525F3A2A70002246E /* CacheModelFiller */,
+			);
+			path = Ingredient;
+			sourceTree = "<group>";
+		};
+		FBD3AE3325F3A29C0002246E /* Plain */ = {
+			isa = PBXGroup;
+			children = (
+				FBD3AE3625F3A2C40002246E /* Ingredient.h */,
+				FBD3AE3725F3A2C40002246E /* Ingredient.m */,
+			);
+			path = Plain;
+			sourceTree = "<group>";
+		};
+		FBD3AE3425F3A2A00002246E /* Managed */ = {
+			isa = PBXGroup;
+			children = (
+				FBD3AE3C25F3A2DA0002246E /* ManagedIngredient.h */,
+				FBD3AE3D25F3A2DA0002246E /* ManagedIngredient.m */,
+			);
+			path = Managed;
+			sourceTree = "<group>";
+		};
+		FBD3AE3525F3A2A70002246E /* CacheModelFiller */ = {
+			isa = PBXGroup;
+			children = (
+				FBD3AE4225F3A3040002246E /* IngredientCacheModelFiller.h */,
+				FBD3AE4325F3A3040002246E /* IngredientCacheModelFiller.m */,
+			);
+			path = CacheModelFiller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1158,6 +1195,7 @@
 				F46AD828231D58D2008DEC0B /* HomeDashboardDataSource.m in Sources */,
 				F460CF8D2358703200240946 /* CoreNetwork.m in Sources */,
 				F460CFFD23602BD700240946 /* ImageDownloader.m in Sources */,
+				FBD3AE3825F3A2C40002246E /* Ingredient.m in Sources */,
 				F46AD812231D5103008DEC0B /* HomeDashboardViewController.m in Sources */,
 				FB2F34FA25CBEA77006AE798 /* UtilitiesAssembly.m in Sources */,
 				FB2F350625CBF15D006AE798 /* GetCoctailDetailsParser.m in Sources */,
@@ -1168,11 +1206,13 @@
 				FB2F34DA25CAE3C0006AE798 /* CoctailInteractor.m in Sources */,
 				F460CFF723601F5C00240946 /* UIViewController+ProgressHUD.m in Sources */,
 				F4F222662356E0BC00AB457B /* ManagedCoctail.m in Sources */,
+				FBD3AE3E25F3A2DA0002246E /* ManagedIngredient.m in Sources */,
 				FB630B4025CD3D4600EB5793 /* UIColor+Application.m in Sources */,
 				F46AD82B231D5BAB008DEC0B /* HomeDashboardItem.m in Sources */,
 				FB8EE76525DFA405008E0DED /* IngredientCell.m in Sources */,
 				F46AD7CF231D4F00008DEC0B /* main.m in Sources */,
 				FB2F34B925CA8777006AE798 /* CoctailPresenter.m in Sources */,
+				FBD3AE4425F3A3040002246E /* IngredientCacheModelFiller.m in Sources */,
 				F46AD81F231D521A008DEC0B /* HomeDashboardRouter.m in Sources */,
 				FB8EE74F25DFA3AB008E0DED /* IngredientsDataSource.m in Sources */,
 				F46AD82F231D5CF7008DEC0B /* HomeDashboardCell.m in Sources */,

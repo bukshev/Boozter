@@ -10,6 +10,7 @@
 #import "ImageDownloadCompletion.h"
 
 @class Coctail;
+@class Ingredient;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -21,8 +22,8 @@ typedef void (^ObtainCoctailDetailsCompletion)(Coctail * _Nullable, NSError * _N
 @required
 - (void)cacheCoctails:(NSArray<Coctail *> *)coctails;
 
-- (void)obtainRemoteCoctailsWithIngredientName:(NSString *)ingredientName
-                             completionHandler:(ObtainCoctailsCompletion)completionHandler;
+- (void)obtainRemoteCoctailsWithIngredient:(Ingredient *)ingredient
+                         completionHandler:(ObtainCoctailsCompletion)completionHandler;
 
 - (void)obtainDetailsForCoctail:(NSInteger)coctailIdentifier
               completionHandler:(ObtainCoctailDetailsCompletion)completionHandler;

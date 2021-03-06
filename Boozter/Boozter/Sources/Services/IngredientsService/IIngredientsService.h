@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+@class Ingredient;
+
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void (^ObtainIngredientsCompletion)(NSArray<NSString *> * _Nullable, NSError * _Nullable);
+typedef void (^ObtainIngredientsCompletion)(NSArray<Ingredient *> * _Nullable, NSError * _Nullable);
 typedef void (^ObtainIngredientDetailsCompletion)(NSString * _Nullable, NSError * _Nullable);
 
 @protocol IIngredientsService <NSObject>
@@ -18,7 +20,7 @@ typedef void (^ObtainIngredientDetailsCompletion)(NSString * _Nullable, NSError 
 @required
 - (void)obtainAvailableIngredients:(ObtainIngredientsCompletion)completionHandler;
 
-- (void)obtainDetailsForIngredient:(NSString *)ingredientName
+- (void)obtainDetailsForIngredient:(Ingredient *)ingredient
                  completionHamdler:(ObtainIngredientDetailsCompletion)completionHandler;
 
 @end

@@ -17,6 +17,6 @@
 @dynamic category;
 @dynamic glassName;
 @dynamic instructions;
-@dynamic measuredIngredients;
+@dynamic ingredients;
 
 @end

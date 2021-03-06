@@ -8,6 +8,8 @@
 
 #import <UIKit/UITableView.h>
 
+@class Ingredient;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface IngredientsDataSource : NSObject <UITableViewDataSource>
@@ -16,10 +18,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)injectTableView:(UITableView *)tableView;
 
-- (NSArray<NSString *> *)selectedIngredients;
-- (void)updateWithIngredients:(NSArray<NSString *> *)ingredients;
+- (NSArray<Ingredient *> *)selectedIngredients;
+- (void)updateWithIngredients:(NSArray<Ingredient *> *)ingredients;
 
-- (nullable NSString *)ingredientForIndexPath:(NSIndexPath *)indexPath;
+- (nullable Ingredient *)ingredientForIndexPath:(NSIndexPath *)indexPath;
 - (void)triggerSelectedStatusForIndexPath:(NSIndexPath *)indexPath;
 
 - (void)tableView:(UITableView *)tableView

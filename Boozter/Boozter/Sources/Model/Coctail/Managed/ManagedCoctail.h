@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/NSManagedObject.h>
+#import "ManagedIngredient.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, retain) NSString *category;
 @property (nonatomic, retain) NSString *glassName;
 @property (nonatomic, retain) NSString *instructions;
-@property (nonatomic, retain) NSArray<NSString *> *measuredIngredients;
+@property (nonatomic, retain) NSArray<ManagedIngredient *> *ingredients;
 
 - (instancetype)init NS_UNAVAILABLE;
 

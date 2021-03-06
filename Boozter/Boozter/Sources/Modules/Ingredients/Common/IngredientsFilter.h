@@ -8,13 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+@class Ingredient;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface IngredientsFilter : NSObject
 
-@property (nonatomic, copy, readonly) NSSet<NSString *> *ingredients;
+@property (nonatomic, copy, readonly) NSSet<Ingredient *> *ingredients;
 
-- (instancetype)initWithIngredientsSet:(NSSet<NSString *> *)ingredients NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithIngredientsSet:(NSSet<Ingredient *> *)ingredients NS_DESIGNATED_INITIALIZER;
 
 - (instancetype)init NS_UNAVAILABLE;
 

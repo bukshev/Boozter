@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+@class Ingredient;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GetIngredientsParser : NSObject
 
-- (NSArray<NSString *> *)ingredientsFromNetworkResponseData:(NSData *)data;
+- (NSArray<Ingredient *> *)ingredientsFromNetworkResponseData:(NSData *)data;
 
 @end
 

@@ -8,11 +8,13 @@
 
 #import "NetworkOperation.h"
 
+@class Ingredient;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GetIngredientsNetworkOperation : NetworkOperation
 
-- (instancetype)initWithCompletion:(void (^)(NSArray<NSString *> *))completion NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithCompletion:(void (^)(NSArray<Ingredient *> *))completion NS_DESIGNATED_INITIALIZER;
 
 - (instancetype)init NS_UNAVAILABLE;
 

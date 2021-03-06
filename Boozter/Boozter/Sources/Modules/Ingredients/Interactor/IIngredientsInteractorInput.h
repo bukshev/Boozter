@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+@class Ingredient;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol IIngredientsInteractorInput <NSObject>
 
 - (void)obtainAvailableIngredients;
-- (void)obtailDetailsForIngredient:(NSString *)ingredientName;
+- (void)obtailDetailsForIngredient:(Ingredient *)ingredient;
 
 @end
 

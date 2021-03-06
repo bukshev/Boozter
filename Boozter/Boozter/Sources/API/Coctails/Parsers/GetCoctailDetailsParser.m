@@ -8,6 +8,7 @@
 
 #import "GetCoctailDetailsParser.h"
 #import "Coctail.h"
+#import "Ingredient.h"
 
 static int const MAX_INGREDIENTS_NUMBER = 15;
 
@@ -50,34 +51,27 @@ static int const MAX_INGREDIENTS_NUMBER = 15;
     [coctail updateGlassName:glassName];
     [coctail updateInstructions:instructions];
 
-    NSArray<NSString *> *measuredIngredients = [self measuredIngredientsFromDictionary:dictionary];
-    [coctail updateMeasuredIngredients:measuredIngredients];
+    NSArray<Ingredient *> *ingredients = [self ingredientsFromDictionary:dictionary];
+    [coctail updateIngredients:ingredients];
 
     return coctail;
 }
 
-- (NSArray<NSString *> *)measuredIngredientsFromDictionary:(NSDictionary *)dictionary {
-    NSMutableArray<NSString *> *measuredIngredients = [NSMutableArray arrayWithCapacity:MAX_INGREDIENTS_NUMBER];
+- (NSArray<Ingredient *> *)ingredientsFromDictionary:(NSDictionary *)dictionary {
+    NSMutableArray<Ingredient *> *ingredients = [NSMutableArray arrayWithCapacity:MAX_INGREDIENTS_NUMBER];
 
-    NSArray<NSString *> *ingredients = [self allIngredientsFromDictionary:dictionary];
+    NSArray<NSString *> *names = [self allIngredientsFromDictionary:dictionary];
     NSArray<NSString *> *measures = [self allMeasuresFromDictionary:dictionary];
 
-    for (NSInteger index = 1; index < ingredients.count; index++) {
-        NSString *ingredient = ingredients[index];
+    for (NSInteger index = 1; index < names.count; index++) {
+        NSString *name = names[index];
+        NSString *_Nullable measure = (index < measures.count) ? measures[index] : nil;
 
-        NSString *measure = (index < measures.count) ? measures[index] : nil;
-
-        NSString *measuredIngredient;
-        if (nil != measure) {
-            measuredIngredient = [NSString stringWithFormat:@"%ld. %@ (%@)", index, ingredient, measure];
-        } else {
-            measuredIngredient = [NSString stringWithFormat:@"%ld. %@", index, ingredient];
-        }
-
-        [measuredIngredients addObject:measuredIngredient];
+        Ingredient *ingredient = [[Ingredient alloc] initWithUUID:[NSUUID UUID] name:name measure:measure];
+        [ingredients addObject:ingredient];
     }
 
-    return [measuredIngredients copy];
+    return [ingredients copy];
 }
 
 - (NSArray<NSString *> *)allIngredientsFromDictionary:(NSDictionary *)dictionary {

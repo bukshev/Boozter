@@ -8,10 +8,11 @@
 
 #import "GetIngredientsNetworkOperation.h"
 #import "GetIngredientsParser.h"
+#import "Ingredient.h"
 
 @interface GetIngredientsNetworkOperation ()
 @property (nonatomic, strong) GetIngredientsParser *parser;
-@property (nonatomic, copy) void (^completion)(NSArray<NSString *> *ingredients);
+@property (nonatomic, copy) void (^completion)(NSArray<Ingredient *> *ingredients);
 @end
 
 @implementation GetIngredientsNetworkOperation
@@ -20,7 +21,7 @@
 
 #pragma mark - Initialization
 
-- (instancetype)initWithCompletion:(void (^)(NSArray<NSString *> * _Nonnull))completion {
+- (instancetype)initWithCompletion:(void (^)(NSArray<Ingredient *> * _Nonnull))completion {
     assert(NULL != completion);
 
     NSURL *url = [NSURL URLWithString:@"https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"];
@@ -49,7 +50,7 @@
             return;
         }
 
-        NSArray<NSString *> *ingredients = [self.parser ingredientsFromNetworkResponseData:data];
+        NSArray<Ingredient *> *ingredients = [self.parser ingredientsFromNetworkResponseData:data];
         if (self.completion) {
             self.completion(ingredients);
         }

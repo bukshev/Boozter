@@ -7,14 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CoctailsFilter.h"
+
+@class Ingredient;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol IHomeDashboardInteractorInput <NSObject>
 
 @required
-- (void)obtainRemoteCoctailsWithIngredientName:(NSString *)ingredientName;
+- (void)obtainRemoteCoctailsWithIngredient:(Ingredient *)ingredient;
 
 @end
 
