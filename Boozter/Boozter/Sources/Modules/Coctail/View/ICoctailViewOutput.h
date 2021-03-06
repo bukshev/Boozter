@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol ICoctailViewOutput <NSObject>
 
 - (void)onViewReadyEvent;
+- (void)onFavorEvent;
 
 @end
 

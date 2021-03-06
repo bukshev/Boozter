@@ -10,7 +10,6 @@
 #import "ICoctailViewInput.h"
 #import "ICoctailInteractorInput.h"
 #import "IImageDownloader.h"
-#import "IProgressIndication.h"
 #import "Coctail.h"
 #import "CoctailDetailsItem.h"
 
@@ -40,7 +39,7 @@
     return self;
 }
 
-- (void)injectView:(id<ICoctailViewInput,IProgressIndication>)view {
+- (void)injectView:(id<ICoctailViewInput>)view {
     assert(nil != view);
     _view = view;
 }
@@ -57,9 +56,8 @@
 - (void)onViewReadyEvent {
     assert(nil != self.coctail.imageURL);
 
-    [self.view setupInitialState];
-    [self.view configureWithItem:[self itemForCoctail:self.coctail]];
-    [self.view showProgressHUD:@"Подгружаем данные"];
+    [self actualizeFavorState];
+    [self.view setupInitialStateWithTitle:self.coctail.name];
 
     [self.imageDownloader downloadImageFromURL:self.coctail.imageURL
                              completionHandler:[self imageDownloadCompletion]];
@@ -67,6 +65,11 @@
     if (!self.coctail.hasDetails) {
         [self.interactor obtainDetailsForCoctail:self.coctail.identifier];
     }
+}
+
+- (void)onFavorEvent {
+    [self.coctail updateFavoritedStatus:!self.coctail.isFavorited];
+    [self actualizeFavorState];
 }
 
 #pragma mark - ICoctailInteractorOutput
@@ -78,19 +81,22 @@
 
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.view configureWithItem:[self itemForCoctail:self.coctail]];
-        [self.view hideProgressHUD];
     });
 }
 
 - (void)didFailObtainCoctailWithError:(NSError *)error {
     assert(nil != error);
-
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.view hideProgressHUD];
-    });
 }
 
 #pragma mark - Private helpers
+
+- (void)actualizeFavorState {
+    if (self.coctail.isFavorited) {
+        [self.view setFavoritedState];
+    } else {
+        [self.view discardFavoritedState];
+    }
+}
 
 - (CoctailDetailsItem *)itemForCoctail:(Coctail *)coctail {
     assert(nil != coctail);
@@ -123,16 +129,11 @@
 
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.view updateImageWithData:imageData];
-        [self.view hideProgressHUD];
     });
 }
 
 - (void)didFailDownloadImageDataWithError:(NSError *)error {
     assert(nil != error);
-
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.view hideProgressHUD];
-    });
 
     // TODO: Set placeholder image.
 }

@@ -17,13 +17,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak, nullable, readonly) UICollectionView *collectionView;
 
+#pragma mark - Initialization
+
 - (void)injectCollectionView:(UICollectionView *)collectionView;
 - (void)injectHomeDashboardCellImageDownloader:(id<IHomeDashboardCellImageDownloader>)imageDownloader;
+
+#pragma mark - Updating state
 
 - (void)updateWithCoctails:(NSArray<Coctail *> *)coctails;
 - (void)updateImageData:(nullable NSData *)imageData itemIndexPath:(NSIndexPath *)indexPath;
 
+- (void)installAllCoctails;
+- (void)installOnlyFavoritedCoctails;
+
+#pragma mark - Obtaining
+
 - (nullable Coctail *)coctailForIndexPath:(NSIndexPath *)indexPath;
+
+#pragma mark - UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView
        willDisplayCell:(UICollectionViewCell *)cell

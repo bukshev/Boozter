@@ -4,20 +4,21 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Coctail View Controller-->
+        <!--Title-->
         <scene sceneID="Emo-MK-NqL">
             <objects>
-                <viewController storyboardIdentifier="CoctailViewController" extendedLayoutIncludesOpaqueBars="YES" id="5Hm-6L-3XB" customClass="CoctailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CoctailViewController" id="5Hm-6L-3XB" customClass="CoctailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="S7x-wE-b2z">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ByB-3D-fNv">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ep2-Oa-rR7">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -69,6 +70,16 @@
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RRW-Wg-iHm">
+                                                <rect key="frame" x="69" y="582.5" width="276" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="3i2-UZ-gVg"/>
+                                                </constraints>
+                                                <state key="normal" title="Add to Favorited"/>
+                                                <connections>
+                                                    <action selector="onFavorButtonTap:" destination="5Hm-6L-3XB" eventType="touchUpInside" id="Vqp-2Q-TSm"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.96862745098039216" green="0.92941176470588238" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -85,8 +96,11 @@
                                             <constraint firstAttribute="trailing" secondItem="55A-RY-FXk" secondAttribute="trailing" constant="16" id="Wh0-pF-E7v"/>
                                             <constraint firstItem="yCj-QX-dKe" firstAttribute="centerY" secondItem="zy8-il-3yD" secondAttribute="centerY" id="avh-dm-CXD"/>
                                             <constraint firstItem="KbL-Qd-7TM" firstAttribute="width" secondItem="Ep2-Oa-rR7" secondAttribute="width" multiplier="8:11" id="dsB-sT-Yxl"/>
+                                            <constraint firstItem="RRW-Wg-iHm" firstAttribute="centerX" secondItem="Ep2-Oa-rR7" secondAttribute="centerX" id="f1L-hs-zPk"/>
                                             <constraint firstItem="mPa-aM-DHg" firstAttribute="top" secondItem="KbL-Qd-7TM" secondAttribute="bottom" constant="8" id="fmE-Qg-7vL"/>
+                                            <constraint firstItem="RRW-Wg-iHm" firstAttribute="width" secondItem="Ep2-Oa-rR7" secondAttribute="width" multiplier="2:3" id="jgr-7j-RCZ"/>
                                             <constraint firstItem="KbL-Qd-7TM" firstAttribute="top" secondItem="Ep2-Oa-rR7" secondAttribute="top" constant="16" id="kd4-yk-cPy"/>
+                                            <constraint firstItem="RRW-Wg-iHm" firstAttribute="top" secondItem="5zk-Xx-ajB" secondAttribute="bottom" constant="16" id="l7o-w8-mhu"/>
                                             <constraint firstAttribute="trailing" secondItem="yCj-QX-dKe" secondAttribute="trailing" constant="16" id="ocF-ds-83z"/>
                                             <constraint firstItem="l45-rP-eOP" firstAttribute="top" secondItem="55A-RY-FXk" secondAttribute="bottom" constant="24" id="sLu-Rb-wux"/>
                                             <constraint firstItem="yCj-QX-dKe" firstAttribute="leading" secondItem="zy8-il-3yD" secondAttribute="trailing" constant="16" id="u3M-3r-A7N"/>
@@ -100,7 +114,7 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Ep2-Oa-rR7" secondAttribute="trailing" id="0fk-BP-we8"/>
                                     <constraint firstItem="Ep2-Oa-rR7" firstAttribute="top" secondItem="ByB-3D-fNv" secondAttribute="top" id="YDS-cZ-yEk"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ep2-Oa-rR7" secondAttribute="bottom" id="aIo-v0-a1x"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ep2-Oa-rR7" secondAttribute="bottom" constant="24" id="aIo-v0-a1x"/>
                                     <constraint firstItem="Ep2-Oa-rR7" firstAttribute="leading" secondItem="ByB-3D-fNv" secondAttribute="leading" id="new-BJ-6jj"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="sUz-sR-tdh"/>
@@ -118,9 +132,21 @@
                             <constraint firstItem="Ep2-Oa-rR7" firstAttribute="width" secondItem="S7x-wE-b2z" secondAttribute="width" id="k5O-wM-iJ2"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <navigationItem key="navigationItem" title="Title" id="BAR-ki-m2r">
+                        <barButtonItem key="rightBarButtonItem" id="huf-Bw-HpK">
+                            <imageReference key="image" image="star" catalog="system" renderingMode="original"/>
+                            <connections>
+                                <action selector="onFavorBarButtonItemTap:" destination="5Hm-6L-3XB" id="bCp-G6-AEz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="alcoholicLabel" destination="yCj-QX-dKe" id="wBO-ze-ptw"/>
                         <outlet property="categoryLabel" destination="zy8-il-3yD" id="pCH-7n-TqS"/>
+                        <outlet property="favorBarButtonItem" destination="huf-Bw-HpK" id="h3I-aq-Pv0"/>
+                        <outlet property="favorButton" destination="RRW-Wg-iHm" id="cjK-Tf-tHr"/>
                         <outlet property="glassNameLabel" destination="55A-RY-FXk" id="Kbd-C6-k3s"/>
                         <outlet property="imageView" destination="KbL-Qd-7TM" id="PrO-zE-8Lo"/>
                         <outlet property="instructionsLabel" destination="5zk-Xx-ajB" id="WGP-H6-BUJ"/>
@@ -134,4 +160,7 @@
             <point key="canvasLocation" x="-26.086956521739133" y="105.80357142857143"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="star" catalog="system" width="128" height="116"/>
+    </resources>
 </document>

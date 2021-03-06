@@ -14,7 +14,18 @@
 
 #pragma mark - Initialization
 
-- (instancetype)initWithIdentifier:(NSInteger)identifier name:(NSString *)name imageURL:(NSURL *)imageURL {
+- (instancetype)initWithIdentifier:(NSInteger)identifier
+                              name:(NSString *)name
+                          imageURL:(nullable NSURL *)imageURL {
+
+    return [self initWithIdentifier:identifier name:name imageURL:imageURL isFavorited:NO];
+}
+
+- (instancetype)initWithIdentifier:(NSInteger)identifier
+                              name:(NSString *)name
+                          imageURL:(nullable NSURL *)imageURL
+                       isFavorited:(BOOL)favorited {
+
     assert(nil != name);
 
     self = [super init];
@@ -23,6 +34,7 @@
         _identifier = identifier;
         _name = [name copy];
         _imageURL = [imageURL copy];
+        _favorited = favorited;
     }
 
     return self;
@@ -34,6 +46,10 @@
     return (nil != self.glassName)
         && (nil != self.instructions)
         && (nil != self.ingredients);
+}
+
+- (void)updateFavoritedStatus:(BOOL)favorited {
+    _favorited = favorited;
 }
 
 - (void)updateImageData:(nullable NSData *)imageData {

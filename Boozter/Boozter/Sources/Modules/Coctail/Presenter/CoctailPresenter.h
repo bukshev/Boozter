@@ -13,20 +13,19 @@
 @protocol ICoctailViewInput;
 @protocol ICoctailInteractorInput;
 @protocol IImageDownloader;
-@protocol IProgressIndication;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CoctailPresenter : NSObject <ICoctailModuleInput, ICoctailViewOutput, ICoctailInteractorOutput>
 
-@property (nonatomic, weak, nullable, readonly) id<ICoctailViewInput, IProgressIndication> view;
+@property (nonatomic, weak, nullable, readonly) id<ICoctailViewInput> view;
 @property (nonatomic, strong, nullable, readonly) id<ICoctailInteractorInput> interactor;
 
 - (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initWithInteractor:(id<ICoctailInteractorInput>)interactor
                    imageDownloader:(id<IImageDownloader>)imageDownloader NS_DESIGNATED_INITIALIZER;
 
-- (void)injectView:(id<ICoctailViewInput, IProgressIndication>)view;
+- (void)injectView:(id<ICoctailViewInput>)view;
 
 @end
 

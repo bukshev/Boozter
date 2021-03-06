@@ -114,7 +114,7 @@
         return;
     }
 
-    [UIView animateWithDuration:0.55 animations:^{
+    [UIView animateWithDuration:0.25 animations:^{
         self.blurEffectView.alpha = 0.0f;
         self.blurEffectView.transform = CGAffineTransformMakeScale(0.25f, 0.25f);
     } completion:^(BOOL finished) {

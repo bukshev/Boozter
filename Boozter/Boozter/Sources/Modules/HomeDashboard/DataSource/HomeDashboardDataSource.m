@@ -16,14 +16,27 @@
 static NSUInteger const kNumberOfSections = 1;
 
 @interface HomeDashboardDataSource ()
-@property (nonatomic, copy) NSMutableArray<Coctail *> *coctails;
-@property (nonatomic, copy) NSMutableArray<HomeDashboardItem *> *items;
+@property (nonatomic, copy) NSArray<Coctail *> *allCoctails;
+@property (nonatomic, copy) NSMutableArray<Coctail *> *displayedCoctails;
+@property (nonatomic, copy) NSMutableArray<HomeDashboardItem *> *displayedItems;
 @property (nonatomic, weak, nullable) id<IHomeDashboardCellImageDownloader> imageDownloader;
 @end
 
 @implementation HomeDashboardDataSource
 
 #pragma mark - Initialization
+
+- (instancetype)init {
+    self = [super init];
+
+    if (nil != self) {
+        _allCoctails = [NSArray array];
+        _displayedCoctails = [NSMutableArray<Coctail *> arrayWithCapacity:0];
+        _displayedItems = [NSMutableArray<HomeDashboardItem *> arrayWithCapacity:0];
+    }
+
+    return self;
+}
 
 - (void)injectCollectionView:(UICollectionView *)collectionView {
     assert(nil != collectionView);
@@ -45,34 +58,58 @@ static NSUInteger const kNumberOfSections = 1;
 - (void)updateWithCoctails:(NSArray<Coctail *> *)coctails {
     assert(nil != coctails);
 
-    _coctails = [coctails mutableCopy];
-    _items = [NSMutableArray arrayWithCapacity:coctails.count];
-    [coctails enumerateObjectsUsingBlock:^(Coctail *obj, NSUInteger idx, BOOL *stop) {
-        HomeDashboardItem *item = [[HomeDashboardItem alloc] initWithCoctail:obj];
-        [self.items addObject:item];
-    }];
+    _allCoctails = [coctails copy];
+    [self updatePrivateModelsWithCoctails:self.allCoctails];
 }
 
 - (void)updateImageData:(NSData *)imageData itemIndexPath:(NSIndexPath *)indexPath {
     assert(nil != imageData);
     assert(nil != indexPath);
 
-    if (indexPath.row >= self.items.count) {
+    if (indexPath.row >= self.displayedItems.count) {
         return;
     }
 
-    HomeDashboardItem *item = self.items[indexPath.row];
+    HomeDashboardItem *item = self.displayedItems[indexPath.row];
     item.coctailImageData = imageData;
 }
 
-- (Coctail *)coctailForIndexPath:(NSIndexPath *)indexPath {
+- (void)installAllCoctails {
+    if (self.allCoctails.count > 0) {
+        [self updatePrivateModelsWithCoctails:self.allCoctails];
+    }
+}
+
+- (void)installOnlyFavoritedCoctails {
+    NSMutableArray *favoritedCoctails = [NSMutableArray arrayWithCapacity:self.displayedCoctails.count];
+
+    for (Coctail *coctail in self.displayedCoctails) {
+        if (coctail.isFavorited) {
+            [favoritedCoctails addObject:coctail];
+        }
+    }
+
+    [self updatePrivateModelsWithCoctails:[favoritedCoctails copy]];
+}
+
+- (void)updatePrivateModelsWithCoctails:(NSArray<Coctail *> *)coctails {
+    _displayedCoctails = [coctails mutableCopy];
+    _displayedItems = [NSMutableArray arrayWithCapacity:coctails.count];
+
+    for (Coctail *coctail in self.displayedCoctails) {
+        HomeDashboardItem *item = [[HomeDashboardItem alloc] initWithCoctail:coctail];
+        [self.displayedItems addObject:item];
+    }
+}
+
+- (nullable Coctail *)coctailForIndexPath:(NSIndexPath *)indexPath {
     assert(nil != indexPath);
 
-    if (indexPath.row >= self.items.count) {
+    if (indexPath.row >= self.displayedItems.count) {
         return nil;
     }
 
-    return self.coctails[indexPath.row];
+    return self.displayedCoctails[indexPath.row];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView
@@ -89,11 +126,11 @@ static NSUInteger const kNumberOfSections = 1;
     }
 
     HomeDashboardCell *cell = (HomeDashboardCell *)dequeuedCell;
-    HomeDashboardItem *item = self.items[indexPath.row];
+    HomeDashboardItem *item = self.displayedItems[indexPath.row];
 
     [cell configureWithItem:item];
 
-    Coctail *coctail = self.coctails[indexPath.row];
+    Coctail *coctail = self.displayedCoctails[indexPath.row];
     if (nil == item.coctailImageData) {
         [self.imageDownloader downloadImageFromURL:coctail.imageURL indexPath:indexPath];
     }
@@ -103,13 +140,13 @@ static NSUInteger const kNumberOfSections = 1;
   didEndDisplayingCell:(UICollectionViewCell *)cell
     forItemAtIndexPath:(NSIndexPath *)indexPath {
 
-    if (indexPath.row >= self.items.count) {
+    if (indexPath.row >= self.displayedItems.count) {
         return;
     }
 
-    HomeDashboardItem *item = self.items[indexPath.row];
+    HomeDashboardItem *item = self.displayedItems[indexPath.row];
     if (nil == item.coctailImageData) {
-        Coctail *coctail = self.coctails[indexPath.row];
+        Coctail *coctail = self.displayedCoctails[indexPath.row];
         [self.imageDownloader slowDownImageDownloadingFromURL:coctail.imageURL];
     }
 }
@@ -121,7 +158,7 @@ static NSUInteger const kNumberOfSections = 1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.items.count;
+    return self.displayedItems.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -133,31 +170,31 @@ static NSUInteger const kNumberOfSections = 1;
 
 - (void)collectionView:(UICollectionView *)collectionView prefetchItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths {
     [self executeAsynchronously:^{
-        [indexPaths enumerateObjectsUsingBlock:^(NSIndexPath * indexPath, NSUInteger idx, BOOL *stop) {
-            if (indexPath.row >= self.items.count) {
+        for (NSIndexPath *indexPath in indexPaths) {
+            if (indexPath.row >= self.displayedItems.count) {
                 return;
             }
-            HomeDashboardItem *item = self.items[indexPath.row];
+            HomeDashboardItem *item = self.displayedItems[indexPath.row];
             if (nil == item.coctailImageData) {
-                Coctail *coctail = self.coctails[indexPath.row];
+                Coctail *coctail = self.displayedCoctails[indexPath.row];
                 [self.imageDownloader downloadImageFromURL:coctail.imageURL indexPath:indexPath];
             }
-        }];
+        }
     }];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView cancelPrefetchingForItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths {
     [self executeAsynchronously:^{
-        [indexPaths enumerateObjectsUsingBlock:^(NSIndexPath *indexPath, NSUInteger idx, BOOL *stop) {
-            if (indexPath.row >= self.items.count) {
+        for (NSIndexPath *indexPath in indexPaths) {
+            if (indexPath.row >= self.displayedItems.count) {
                 return;
             }
-            HomeDashboardItem *item = self.items[indexPath.row];
+            HomeDashboardItem *item = self.displayedItems[indexPath.row];
             if (nil == item.coctailImageData) {
-                Coctail *coctail = self.coctails[indexPath.row];
+                Coctail *coctail = self.displayedCoctails[indexPath.row];
                 [self.imageDownloader slowDownImageDownloadingFromURL:coctail.imageURL];
             }
-        }];
+        }
     }];
 }
 

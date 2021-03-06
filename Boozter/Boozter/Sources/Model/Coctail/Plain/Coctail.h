@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy, readonly) NSString *name;
 @property (nonatomic, strong, nullable, readonly) NSURL *imageURL;
 @property (nonatomic, strong, nullable, readonly) NSData *imageData;
+@property (nonatomic, assign, readonly, getter=isFavorited) BOOL favorited;
 
 @property (nonatomic, assign, readonly) BOOL hasDetails;
 
@@ -29,10 +30,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithIdentifier:(NSInteger)identifier
                               name:(NSString *)name
-                          imageURL:(nullable NSURL *)imageURL NS_DESIGNATED_INITIALIZER;
+                          imageURL:(nullable NSURL *)imageURL;
+
+- (instancetype)initWithIdentifier:(NSInteger)identifier
+                              name:(NSString *)name
+                          imageURL:(nullable NSURL *)imageURL
+                       isFavorited:(BOOL)favorited NS_DESIGNATED_INITIALIZER;
 
 - (instancetype)init NS_UNAVAILABLE;
 
+- (void)updateFavoritedStatus:(BOOL)favorited;
 - (void)updateImageData:(nullable NSData *)imageData;
 - (void)updateAlcoholic:(nullable NSString *)alcoholic;
 - (void)updateCategory:(nullable NSString *)category;

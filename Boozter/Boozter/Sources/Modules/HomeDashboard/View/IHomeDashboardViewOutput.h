@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)onViewReadyEvent:(CGSize)screenSize;
 - (void)onSelectFilter;
+- (void)onSelectFavoritesSegmentIndex:(NSInteger)selectedSegmentIndex;
 
 - (void)didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
 - (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
