@@ -1,4 +1,11 @@
+before_install:
+  - gem install cocoapods
+install:
+  - pod install
 language: objective-c
-xcode_project: Boozter/Boozter.xcworkspace
+osx_image: xcode12.4
+xcode_workspace: Boozter/Boozter.xcworkspace
 xcode_scheme: Boozter
-xcode_destination: platform=iOS Simulator,OS=14.0,name=iPhone 11
+xcode_destination: platform=iOS Simulator,OS=13.6,name=iPhone 8
+script: 
+ - xcodebuild test -workspace 'Boozter.xcworkspace' -scheme 'Boozter' -destination 'platform=iOS Simulator,OS=13.6,name=iPhone 8'
