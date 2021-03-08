@@ -3,7 +3,7 @@ before_install:
 install:
   - pod install
 language: objective-c
-osx_image: xcode12.4
+osx_image: xcode12.2
 xcode_workspace: Boozter/Boozter.xcworkspace
 xcode_scheme: Boozter
 xcode_destination: platform=iOS Simulator,OS=13.6,name=iPhone 8
