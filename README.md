@@ -1,7 +1,8 @@
 # Boozter
 ## Search for cocktails and their recipes through the open [TheCocktailDB](https://www.thecocktaildb.com) API
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+[![Build Status](https://travis-ci.com/bukshev/Boozter.svg?branch=master)](https://travis-ci.com/bukshev/Boozter)
+![N|Solid](https://img.shields.io/tokei/lines/github/bukshev/boozter)
 
 Boozter — приложение для поиска коктейлей и их рецептов через открытый API ([TheCocktailDB](https://www.thecocktaildb.com)).
 
