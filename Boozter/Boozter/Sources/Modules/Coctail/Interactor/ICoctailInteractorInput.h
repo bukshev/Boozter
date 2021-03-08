@@ -8,12 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+@class Coctail;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol ICoctailInteractorInput <NSObject>
 
 @required
 - (void)obtainDetailsForCoctail:(NSInteger)coctailIdentifier;
+- (void)addToFavoritedCoctail:(Coctail *)coctail;
+- (void)removeFromFavoritedCoctail:(Coctail *)coctail;
 
 @end
 

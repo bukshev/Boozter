@@ -20,7 +20,13 @@
 #import "HomeDashboardDataSource.h"
 #import "IImageDownloader.h"
 
-static CGFloat const kSecondsDelayBeforeShowingView = 1.6f;
+typedef NS_ENUM(NSUInteger, FilterSegmentIndex) {
+    FilterSegmentIndexAll,
+    FilterSegmentIndexFavorited
+};
+
+static CGFloat const kSecondsDelayBeforeShowingView = 1.35f;
+static CGFloat const kSecondsDelayAfterSwitchingSegmentedControl = 0.15f;
 
 @interface HomeDashboardPresenter () <IHomeDashboardCellImageDownloader>
 @property (nonatomic, strong) id<IImageDownloader> imageDownloader;
@@ -71,17 +77,40 @@ static CGFloat const kSecondsDelayBeforeShowingView = 1.6f;
 - (void)onViewReadyEvent:(CGSize)screenSize {
     _coctailCellSize = [self coctailCellSizeForScreenSize:screenSize];
 
+    Ingredient *defaultIngredient = [Ingredient defaultIngredient];
+
     [self.view setupInitialState];
+    [self.view setTitle:[NSString stringWithFormat:@"Coctails with %@", defaultIngredient.name]];
 
     [self.view showBlurEffect];
-    [self.view showProgressHUD:@"Подгружаем данные"];
+    [self.view showProgressHUD:@"Loading cocktails data..."];
 
-    Ingredient *defaultIngredient = [Ingredient defaultIngredient];
+
     [self.interactor obtainRemoteCoctailsWithIngredient:defaultIngredient];
 }
 
 - (void)onSelectFilter {
     [self.router openIngredientsScreenWithModuleOutput:self];
+}
+
+- (void)onSelectFavoritesSegmentIndex:(NSInteger)selectedSegmentIndex {
+    [self.view showBlurEffect];
+
+    switch (selectedSegmentIndex) {
+        case FilterSegmentIndexAll:
+            [self.dataSource installAllCoctails];
+            break;
+        case FilterSegmentIndexFavorited:
+            [self.dataSource installOnlyFavoritedCoctails];
+            break;
+        default:
+            NSAssert(NO, @"Unsupported segment index: %ld", selectedSegmentIndex);
+    }
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.view reloadData];
+        [self hideBlurViewAfterLoadingAfterDelay:kSecondsDelayAfterSwitchingSegmentedControl];
+    });
 }
 
 - (void)didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -108,7 +137,7 @@ static CGFloat const kSecondsDelayBeforeShowingView = 1.6f;
 
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.view reloadData];
-        [self hideBlurViewAfterLoading];
+        [self hideBlurViewAfterLoadingAfterDelay:kSecondsDelayBeforeShowingView];
     });
 }
 
@@ -116,7 +145,7 @@ static CGFloat const kSecondsDelayBeforeShowingView = 1.6f;
     assert(nil != error);
 
     // TODO: Hide progress HUD in main thread and show alert with failure reason.
-    [self hideBlurViewAfterLoading];
+    [self hideBlurViewAfterLoadingAfterDelay:kSecondsDelayBeforeShowingView];
 }
 
 #pragma mark - IHomeDashboardCellImageDownloader
@@ -143,7 +172,8 @@ static CGFloat const kSecondsDelayBeforeShowingView = 1.6f;
     Ingredient *ingredient = [filter.ingredients anyObject];
     if (nil != ingredient) {
         [self.view showBlurEffect];
-        [self.view showProgressHUD:@"Подгружаем данные"];
+        [self.view showProgressHUD:@"Loading cocktails data..."];
+        [self.view setTitle:[NSString stringWithFormat:@"Coctails with %@", ingredient.name]];
         [self.interactor obtainRemoteCoctailsWithIngredient:ingredient];
     } else {
         // TODO: Process error.
@@ -154,8 +184,8 @@ static CGFloat const kSecondsDelayBeforeShowingView = 1.6f;
 
 #pragma mark - Private helpers
 
-- (void)hideBlurViewAfterLoading {
-    dispatch_time_t deadline = dispatch_time(DISPATCH_TIME_NOW, kSecondsDelayBeforeShowingView * NSEC_PER_SEC);
+- (void)hideBlurViewAfterLoadingAfterDelay:(CGFloat)delay {
+    dispatch_time_t deadline = dispatch_time(DISPATCH_TIME_NOW, delay * NSEC_PER_SEC);
     dispatch_after(deadline, dispatch_get_main_queue(), ^{
         [self.view hideProgressHUD];
         [self.view hideBlurEffect];

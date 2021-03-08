@@ -14,7 +14,18 @@
 
 #pragma mark - Initialization
 
-- (instancetype)initWithIdentifier:(NSInteger)identifier name:(NSString *)name imageURL:(NSURL *)imageURL {
+- (instancetype)initWithIdentifier:(NSInteger)identifier
+                              name:(NSString *)name
+                          imageURL:(nullable NSURL *)imageURL {
+
+    return [self initWithIdentifier:identifier name:name imageURL:imageURL isFavorited:NO];
+}
+
+- (instancetype)initWithIdentifier:(NSInteger)identifier
+                              name:(NSString *)name
+                          imageURL:(nullable NSURL *)imageURL
+                       isFavorited:(BOOL)favorited {
+
     assert(nil != name);
 
     self = [super init];
@@ -23,6 +34,7 @@
         _identifier = identifier;
         _name = [name copy];
         _imageURL = [imageURL copy];
+        _favorited = favorited;
     }
 
     return self;
@@ -34,6 +46,10 @@
     return (nil != self.glassName)
         && (nil != self.instructions)
         && (nil != self.ingredients);
+}
+
+- (void)updateFavoritedState:(BOOL)favorited {
+    _favorited = favorited;
 }
 
 - (void)updateImageData:(nullable NSData *)imageData {
@@ -74,6 +90,10 @@
 
 #pragma mark - IPlainObject
 
+- (NSString *)entityName {
+    return NSStringFromClass([self class]);
+}
+
 - (instancetype)initWithManagedObject:(NSManagedObject *)managedObject {
     assert(nil != managedObject);
     assert([managedObject isKindOfClass:[ManagedCoctail class]]);
@@ -87,17 +107,17 @@
     NSURL *url = [NSURL URLWithString:managedCoctail.imageURLString];
 
     Coctail *coctail = [self initWithIdentifier:managedCoctail.identifier name:managedCoctail.name imageURL:url];
-    [coctail updateGlassName:managedCoctail.glassName];
-    [coctail updateInstructions:managedCoctail.instructions];
+//    [coctail updateGlassName:managedCoctail.glassName];
+//    [coctail updateInstructions:managedCoctail.instructions];
 
-    if (nil != managedCoctail.ingredients && managedCoctail.ingredients.count > 0) {
-        NSMutableArray *plainIngredients = [NSMutableArray arrayWithCapacity:managedCoctail.ingredients.count];
-        [managedCoctail.ingredients enumerateObjectsUsingBlock:^(ManagedIngredient *managedIngredient, NSUInteger idx, BOOL *stop) {
-            Ingredient *plainIngredient = [[Ingredient alloc] initWithManagedObject:managedIngredient];
-            [plainIngredients addObject:plainIngredient];
-        }];
-        [coctail updateIngredients:plainIngredients];
-    }
+//    if (nil != managedCoctail.ingredients && managedCoctail.ingredients.count > 0) {
+//        NSMutableArray *plainIngredients = [NSMutableArray arrayWithCapacity:managedCoctail.ingredients.count];
+//        [managedCoctail.ingredients enumerateObjectsUsingBlock:^(ManagedIngredient *managedIngredient, NSUInteger idx, BOOL *stop) {
+//            Ingredient *plainIngredient = [[Ingredient alloc] initWithManagedObject:managedIngredient];
+//            [plainIngredients addObject:plainIngredient];
+//        }];
+//        [coctail updateIngredients:plainIngredients];
+//    }
 
     return coctail;
 }

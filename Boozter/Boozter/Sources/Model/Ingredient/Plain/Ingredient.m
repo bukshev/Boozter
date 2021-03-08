@@ -34,6 +34,10 @@
 
 #pragma mark - IPlainObject
 
+- (NSString *)entityName {
+    return NSStringFromClass([self class]);
+}
+
 - (instancetype)initWithManagedObject:(NSManagedObject *)managedObject {
     assert(nil != managedObject);
     assert([managedObject isKindOfClass:[ManagedIngredient class]]);

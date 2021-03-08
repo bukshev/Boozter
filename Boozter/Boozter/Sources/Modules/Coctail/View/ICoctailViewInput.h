@@ -14,9 +14,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol ICoctailViewInput <NSObject>
 
-- (void)setupInitialState;
+- (void)setupInitialStateWithTitle:(NSString *)title;
 - (void)configureWithItem:(CoctailDetailsItem *)item;
 - (void)updateImageWithData:(NSData *)imageData;
+
+- (void)setFavoritedState;
+- (void)discardFavoritedState;
 
 @end
 

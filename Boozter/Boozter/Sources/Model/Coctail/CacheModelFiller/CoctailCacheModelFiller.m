@@ -23,14 +23,20 @@
 
     Coctail *coctail = (Coctail *)object;
 
-    NSString *entityName = [ManagedCoctail entityName];
-    NSManagedObject *managedObject = [NSEntityDescription insertNewObjectForEntityForName:entityName
-                                                                   inManagedObjectContext:context];
+//    NSManagedObject *managedObject = [NSEntityDescription insertNewObjectForEntityForName:object.entityName
+//                                                                   inManagedObjectContext:context];
 
-    assert([managedObject isKindOfClass:[ManagedCoctail class]]);
-    ManagedCoctail *managedCoctail = (ManagedCoctail *)managedObject;
+//    assert([managedObject isKindOfClass:[ManagedCoctail class]]);
+
+//    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:object.entityName inManagedObjectContext:context];
+
+//    ManagedCoctail *managedCoctail = [[ManagedCoctail alloc] initWithEntity:entityDescription
+//                                             insertIntoManagedObjectContext:context];
+
+    ManagedCoctail *managedCoctail = [[ManagedCoctail alloc] initWithContext:context];
 
     managedCoctail.identifier = coctail.identifier;
+    managedCoctail.favorited = coctail.favorited;
     managedCoctail.name = [coctail.name copy];
     managedCoctail.imageURLString = [coctail.imageURL.absoluteString copy];
 }

@@ -50,6 +50,30 @@
     [self saveContext:self.persistentContainer.viewContext];
 }
 
+- (void)countCachedEntitiesWithName:(NSString *)entityName
+                          predicate:(nullable NSPredicate *)predicate
+                  completionHandler:(CountObjectsCompletion)completionHandler {
+
+    assert(nil != entityName);
+    assert(NULL != completionHandler);
+
+    [self.persistentContainer performBackgroundTask:^(NSManagedObjectContext *context) {
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
+        request.predicate = predicate;
+
+        __autoreleasing NSError *error = nil;
+        NSInteger count = [context countForFetchRequest:request error:&error];
+
+
+        if (count == NSNotFound) {
+            NSLog(@"Error: %@", error);
+            completionHandler(0, error);
+        }
+
+        completionHandler(count, nil);
+    }];
+}
+
 - (void)cacheObjects:(NSArray<IPlainObject> *)objects withModelFiller:(id<ICoreCacheModelFiller>)filler {
     assert(nil != objects);
     assert(nil != filler);
@@ -65,9 +89,9 @@
     }];
 }
 
-- (void)obtainObjectsWithEntityName:(NSString *)entityName
-                          predicate:(nullable NSPredicate *)predicate
-                  completionHandler:(ObtainCachedObjectsCompletion)completionHandler {
+- (void)obtainEntitiesWithName:(NSString *)entityName
+                     predicate:(nullable NSPredicate *)predicate
+             completionHandler:(ObtainCachedObjectsCompletion)completionHandler {
 
     assert(nil != entityName);
     assert(NULL != completionHandler);
@@ -101,6 +125,49 @@
     if (nil != error) {
         NSLog(@"Unresolved error %@, %@", error, error.userInfo);
     }
+}
+
+- (void)updateEntitiesWithName:(NSString *)entityName
+                     predicate:(NSPredicate *)predicate
+            propertiesToUpdate:(NSDictionary *)propertiesToUpdate
+             completionHandler:(UpdateObjectCompletion)completionHandler {
+
+    assert(nil != entityName);
+    assert(NULL != completionHandler);
+
+    [self.persistentContainer performBackgroundTask:^(NSManagedObjectContext *context) {
+        NSBatchUpdateRequest *updateRequest = [NSBatchUpdateRequest batchUpdateRequestWithEntityName:entityName];
+
+        updateRequest.predicate = predicate;
+        updateRequest.propertiesToUpdate = propertiesToUpdate;
+        updateRequest.resultType = NSManagedObjectIDResultType;
+
+        @try {
+            __autoreleasing NSError *error = nil;
+            NSBatchUpdateResult *result = [context executeRequest:updateRequest error:&error];
+
+            if (nil != error) {
+                // TODO: Process an error
+                return;
+            }
+
+            if (![result.result isKindOfClass:[NSArray<NSManagedObjectID *> class]]) {
+                // TODO: Process an error
+                return;
+            }
+
+            NSArray<NSManagedObjectID *> *managedObjectIDs = (NSArray<NSManagedObjectID *> *)result.result;
+
+            NSDictionary *changes = @{
+                NSUpdatedObjectIDsKey: managedObjectIDs
+            };
+
+            [NSManagedObjectContext mergeChangesFromRemoteContextSave:changes
+                                                         intoContexts:@[self.persistentContainer.viewContext]];
+        } @catch (NSException *exception) {
+            NSLog(@"%@", exception);
+        }
+    }];
 }
 
 #pragma mark - Core Data Saving support

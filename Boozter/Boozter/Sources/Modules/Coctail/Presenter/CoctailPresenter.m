@@ -10,7 +10,6 @@
 #import "ICoctailViewInput.h"
 #import "ICoctailInteractorInput.h"
 #import "IImageDownloader.h"
-#import "IProgressIndication.h"
 #import "Coctail.h"
 #import "CoctailDetailsItem.h"
 
@@ -40,7 +39,7 @@
     return self;
 }
 
-- (void)injectView:(id<ICoctailViewInput,IProgressIndication>)view {
+- (void)injectView:(id<ICoctailViewInput>)view {
     assert(nil != view);
     _view = view;
 }
@@ -57,9 +56,8 @@
 - (void)onViewReadyEvent {
     assert(nil != self.coctail.imageURL);
 
-    [self.view setupInitialState];
-    [self.view configureWithItem:[self itemForCoctail:self.coctail]];
-    [self.view showProgressHUD:@"Подгружаем данные"];
+    [self actualizeFavorStateOnView];
+    [self.view setupInitialStateWithTitle:self.coctail.name];
 
     [self.imageDownloader downloadImageFromURL:self.coctail.imageURL
                              completionHandler:[self imageDownloadCompletion]];
@@ -67,6 +65,19 @@
     if (!self.coctail.hasDetails) {
         [self.interactor obtainDetailsForCoctail:self.coctail.identifier];
     }
+}
+
+- (void)onFavorEvent {
+    // TODO: Think about this boolean shit...
+    [self.coctail updateFavoritedState:!self.coctail.isFavorited];
+
+    if (self.coctail.isFavorited) {
+        [self.interactor addToFavoritedCoctail:self.coctail];
+    } else {
+        [self.interactor removeFromFavoritedCoctail:self.coctail];
+    }
+
+    [self actualizeFavorStateOnView];
 }
 
 #pragma mark - ICoctailInteractorOutput
@@ -78,19 +89,31 @@
 
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.view configureWithItem:[self itemForCoctail:self.coctail]];
-        [self.view hideProgressHUD];
     });
 }
 
 - (void)didFailObtainCoctailWithError:(NSError *)error {
     assert(nil != error);
+}
 
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.view hideProgressHUD];
-    });
+- (void)didChangeFavoritedStateForCoctail:(Coctail *)coctail {
+    assert(nil != coctail);
+}
+
+- (void)didFailChangeFavoritedStateForCoctail:(Coctail *)coctail error:(NSError *)error {
+    assert(nil != error);
+    assert(nil != coctail);
 }
 
 #pragma mark - Private helpers
+
+- (void)actualizeFavorStateOnView {
+    if (self.coctail.isFavorited) {
+        [self.view setFavoritedState];
+    } else {
+        [self.view discardFavoritedState];
+    }
+}
 
 - (CoctailDetailsItem *)itemForCoctail:(Coctail *)coctail {
     assert(nil != coctail);
@@ -123,16 +146,11 @@
 
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.view updateImageWithData:imageData];
-        [self.view hideProgressHUD];
     });
 }
 
 - (void)didFailDownloadImageDataWithError:(NSError *)error {
     assert(nil != error);
-
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.view hideProgressHUD];
-    });
 
     // TODO: Set placeholder image.
 }

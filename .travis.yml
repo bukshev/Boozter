@@ -1,0 +1,4 @@
+language: objective-c
+xcode_project: Boozter/Boozter.xcworkspace
+xcode_scheme: Boozter
+xcode_destination: platform=iOS Simulator,OS=14.0,name=iPhone 11

@@ -16,7 +16,7 @@
 #import "IngredientsDataSource.h"
 #import "Ingredient.h"
 
-static CGFloat const kSecondsDelayBeforeShowingView = 0.55f;
+static CGFloat const kSecondsDelayBeforeShowingView = 0.35f;
 
 @interface IngredientsPresenter ()
 @property (nonatomic, strong) id<IImageDownloader> imageDownloader;

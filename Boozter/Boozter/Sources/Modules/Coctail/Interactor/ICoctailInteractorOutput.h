@@ -18,6 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)didObtainCoctailWithDetails:(Coctail *)coctail;
 - (void)didFailObtainCoctailWithError:(NSError *)error;
 
+- (void)didChangeFavoritedStateForCoctail:(Coctail *)coctail;
+- (void)didFailChangeFavoritedStateForCoctail:(Coctail *)coctail error:(NSError *)error;
+
 @end
 
 NS_ASSUME_NONNULL_END

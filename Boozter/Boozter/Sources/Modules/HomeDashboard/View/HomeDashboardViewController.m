@@ -14,6 +14,8 @@
 #import "UINavigationController+StatusBarColor.h"
 
 @interface HomeDashboardViewController () <UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@property (nonatomic, weak) IBOutlet UIView *favoritesContainerView;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *favoritesContainerHeight;
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) HomeDashboardDataSource *dataSource;
 @property (nonatomic, strong) UIVisualEffectView *blurEffectView;
@@ -48,8 +50,20 @@
 
 #pragma mark - User Actions
 
+- (IBAction)onSelectFavoritesBarButtonItemTap:(UIBarButtonItem *)sender {
+    if (0.0f == self.favoritesContainerHeight.constant) {
+        [self showFavoritesContainer];
+    } else {
+        [self hideFavoritesContainer];
+    }
+}
+
 - (IBAction)onSelectFilterBarButtonItemTap:(UIBarButtonItem *)sender {
     [self.output onSelectFilter];
+}
+
+- (IBAction)onFavoritesSegmentedControlValueChanged:(UISegmentedControl *)sender {
+    [self.output onSelectFavoritesSegmentIndex:sender.selectedSegmentIndex];
 }
 
 #pragma mark - IHomeDashboardViewInput
@@ -57,6 +71,9 @@
 - (void)setupInitialState {
     assert(nil != self.collectionView);
     assert(nil != self.dataSource);
+    assert(NSThread.isMainThread);
+
+    [self hideFavoritesContainer];
 
     [self.dataSource injectCollectionView:self.collectionView];
 
@@ -73,10 +90,21 @@
     }
 }
 
+- (void)setTitle:(NSString *)title {
+    assert(nil != title);
+    assert(NSThread.isMainThread);
+
+    self.navigationItem.title = [title copy];
+}
+
 - (void)reloadData {
     assert(NSThread.isMainThread);
 
-    [self.collectionView reloadData];
+    [self.collectionView performBatchUpdates:^{
+        [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
+    } completion:^(BOOL finished) {
+
+    }];
 }
 
 - (void)reloadItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths {
@@ -117,7 +145,7 @@
         return;
     }
 
-    [UIView animateWithDuration:0.55 animations:^{
+    [UIView animateWithDuration:0.25 animations:^{
         self.blurEffectView.alpha = 0.0f;
         self.blurEffectView.transform = CGAffineTransformMakeScale(0.25f, 0.25f);
     } completion:^(BOOL finished) {
@@ -153,6 +181,28 @@
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
 
     return [self.output sizeForItemAtIndexPath:indexPath];
+}
+
+#pragma mark - Private animations
+
+- (void)showFavoritesContainer {
+    [self.view layoutIfNeeded];
+
+    [UIView animateWithDuration:0.35f animations:^{
+        self.favoritesContainerHeight.constant = 64.0f;
+        self.favoritesContainerView.alpha = 1.0;
+        [self.view layoutIfNeeded];
+    }];
+}
+
+- (void)hideFavoritesContainer {
+    [self.view layoutIfNeeded];
+
+    [UIView animateWithDuration:0.35f animations:^{
+        self.favoritesContainerHeight.constant = 0.0f;
+        self.favoritesContainerView.alpha = 0.0;
+        [self.view layoutIfNeeded];
+    }];
 }
 
 @end

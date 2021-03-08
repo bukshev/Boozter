@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YAD-Vb-X8F">
-                                <rect key="frame" x="41" y="255" width="331" height="397"/>
+                                <rect key="frame" x="41.5" y="254.5" width="331" height="397"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="YAD-Vb-X8F" secondAttribute="height" multiplier="5:6" id="bvG-CV-Gr2"/>
                                 </constraints>
@@ -26,30 +26,43 @@
                                     <segue destination="YNX-8h-pqj" kind="embed" identifier="ShowIngredientDetailsSegue" id="TGj-z0-dIQ"/>
                                 </connections>
                             </containerView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AYM-GT-dkS">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Idg-5k-kOI">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AYM-GT-dkS">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
+                                <constraints>
+                                    <constraint firstItem="AYM-GT-dkS" firstAttribute="leading" secondItem="Idg-5k-kOI" secondAttribute="leading" id="VJ9-eu-4Ze"/>
+                                    <constraint firstItem="AYM-GT-dkS" firstAttribute="top" secondItem="Idg-5k-kOI" secondAttribute="top" id="mes-Ih-ZXv"/>
+                                    <constraint firstAttribute="trailing" secondItem="AYM-GT-dkS" secondAttribute="trailing" id="vpX-gR-OHp"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gBR-Lt-vsa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="YAD-Vb-X8F" firstAttribute="centerX" secondItem="gBR-Lt-vsa" secondAttribute="centerX" id="19J-aa-ZtA"/>
-                            <constraint firstItem="AYM-GT-dkS" firstAttribute="leading" secondItem="gBR-Lt-vsa" secondAttribute="leading" id="Cie-uQ-d47"/>
-                            <constraint firstItem="gBR-Lt-vsa" firstAttribute="bottom" secondItem="AYM-GT-dkS" secondAttribute="bottom" id="Fae-WN-Faw"/>
-                            <constraint firstItem="gBR-Lt-vsa" firstAttribute="trailing" secondItem="AYM-GT-dkS" secondAttribute="trailing" id="HzJ-nu-S4O"/>
+                            <constraint firstAttribute="bottom" secondItem="Idg-5k-kOI" secondAttribute="bottom" id="4VQ-fr-IVK"/>
+                            <constraint firstAttribute="trailing" secondItem="Idg-5k-kOI" secondAttribute="trailing" id="9Cb-s9-Ert"/>
+                            <constraint firstItem="Idg-5k-kOI" firstAttribute="top" secondItem="okx-Ul-rsp" secondAttribute="top" id="cY5-0q-JZo"/>
                             <constraint firstItem="YAD-Vb-X8F" firstAttribute="width" secondItem="okx-Ul-rsp" secondAttribute="width" multiplier="4:5" id="coy-5a-sBq"/>
-                            <constraint firstItem="AYM-GT-dkS" firstAttribute="top" secondItem="gBR-Lt-vsa" secondAttribute="top" id="eHn-Hg-Miu"/>
+                            <constraint firstItem="Idg-5k-kOI" firstAttribute="leading" secondItem="okx-Ul-rsp" secondAttribute="leading" id="hL6-wb-rcX"/>
+                            <constraint firstItem="gBR-Lt-vsa" firstAttribute="bottom" secondItem="AYM-GT-dkS" secondAttribute="bottom" id="oJA-r1-vrL"/>
                             <constraint firstItem="YAD-Vb-X8F" firstAttribute="centerY" secondItem="gBR-Lt-vsa" secondAttribute="centerY" id="u8G-uC-amF"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <connections>
                         <outlet property="tableView" destination="AYM-GT-dkS" id="oSg-0R-aWi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hS8-Ti-Gy0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-351" y="106"/>
+            <point key="canvasLocation" x="-352.17391304347831" y="105.80357142857143"/>
         </scene>
         <!--Text Detials Popup View Controller-->
         <scene sceneID="HdV-lq-WoV">
@@ -77,6 +90,7 @@
                                             <constraint firstItem="A8d-kF-CvS" firstAttribute="top" secondItem="goH-zJ-hoc" secondAttribute="top" constant="16" id="DZ1-S2-k9Z"/>
                                             <constraint firstAttribute="trailing" secondItem="A8d-kF-CvS" secondAttribute="trailing" constant="16" id="gLL-VH-aQf"/>
                                             <constraint firstItem="A8d-kF-CvS" firstAttribute="leading" secondItem="goH-zJ-hoc" secondAttribute="leading" constant="16" id="tr2-QH-6Ox"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="A8d-kF-CvS" secondAttribute="bottom" constant="16" id="uge-PP-g3D"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -90,6 +104,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="ykd-2l-CXW"/>
                             </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="BRm-CB-UTp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="GLm-xF-uHA" firstAttribute="leading" secondItem="sXs-dD-e6F" secondAttribute="leading" id="FPY-ZL-9te"/>
