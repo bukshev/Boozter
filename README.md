@@ -34,10 +34,10 @@ Boozter — приложение для поиска коктейлей и их 
 
 В приложении две сторонних библиотеки. Остальной код написан с использованием нативных средств.
 
-| Dependency | Source Code |
-| ------ | ------ |
-| **Typhoon** | https://github.com/appsquickly/typhoon |
-| **VIPER McFlurry** | https://github.com/rambler-digital-solutions/ViperMcFlurry |
+| Dependency | Source Code | For what? |
+| ------ | ------ | ------ |
+| **Typhoon** | https://github.com/appsquickly/typhoon | DI-контейнер для всего приложения. Assembly-layer построен именно на нём. |
+| **VIPER McFlurry** | https://github.com/rambler-digital-solutions/ViperMcFlurry | Передача данных с модуля на модуль и обратно в VIPER'е — интересная задача. Чтобы не создавать собственные костыли, была заиспользована библиотека от Rambler с moduleInput и moduleOutput. |
 
 ## Tech Brief
 
