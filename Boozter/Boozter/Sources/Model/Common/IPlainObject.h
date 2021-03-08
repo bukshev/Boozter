@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol IPlainObject <NSObject>
 
+@property (nonatomic, copy, readonly) NSString *entityName;
+
 - (instancetype)initWithManagedObject:(NSManagedObject *)managedObject;
 
 @end

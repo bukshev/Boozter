@@ -15,6 +15,7 @@
 
 @interface CoctailViewController ()
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
+@property (nonatomic, weak) IBOutlet UIView *contentView;
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
 @property (nonatomic, weak) IBOutlet UILabel *nameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *categoryLabel;
@@ -90,7 +91,7 @@
     self.alcoholicLabel.text = item.alcoholic;
     self.glassNameLabel.text = [NSString stringWithFormat:@"Glass: %@", item.glassName];
     self.measuredIngredientsLabel.text = item.measuredIngredientsText;
-    self.instructionsLabel.text = item.instructions;
+    self.instructionsLabel.text = [item.instructions stringByAppendingString:@"\n\n\n\n\n\n\n\naaaa\n\n\n\nend"];
 
     [UIView animateWithDuration:0.55f animations:^{
         self.imageView.alpha = 1.0f;

@@ -11,12 +11,13 @@
 @implementation ManagedCoctail
 
 @dynamic identifier;
+@dynamic favorited;
 @dynamic name;
 @dynamic imageURLString;
-@dynamic alcoholic;
-@dynamic category;
-@dynamic glassName;
-@dynamic instructions;
-@dynamic ingredients;
+//@dynamic alcoholic;
+//@dynamic category;
+//@dynamic glassName;
+//@dynamic instructions;
+//@dynamic ingredients;
 
 @end

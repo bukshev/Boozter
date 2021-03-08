@@ -42,7 +42,10 @@
 #pragma mark - IHomeDashboardInteractorInput
 
 - (void)obtainRemoteCoctailsWithIngredient:(Ingredient *)ingredient {
-    [self.coctailsService obtainRemoteCoctailsWithIngredient:ingredient completionHandler:[self obtainCoctailsCompletion]];
+
+    [self.coctailsService obtainCachedCoctailsWithPredicate:nil completionHandler:[self obtainCoctailsCompletion]];
+
+//    [self.coctailsService obtainRemoteCoctailsWithIngredient:ingredient completionHandler:[self obtainCoctailsCompletion]];
 }
 
 #pragma mark - Private helpers

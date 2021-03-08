@@ -54,9 +54,7 @@
     [self.coreCache cacheObjects:(NSArray<IPlainObject> *)coctails withModelFiller:modelFiller];
 }
 
-- (void)obtainRemoteCoctailsWithIngredient:(Ingredient *)ingredient
-                         completionHandler:(ObtainCoctailsCompletion)completionHandler {
-
+- (void)obtainRemoteCoctailsWithIngredient:(Ingredient *)ingredient completionHandler:(ObtainCoctailsCompletion)completionHandler {
     assert(nil != ingredient);
     assert(NULL != completionHandler);
 
@@ -69,9 +67,20 @@
     [self.coreNetwork executeOperation:operation];
 }
 
-- (void)obtainDetailsForCoctail:(NSInteger)coctailIdentifier
-              completionHandler:(ObtainCoctailDetailsCompletion)completionHandler {
+- (void)obtainCachedCoctailsWithPredicate:(nullable NSPredicate *)predicate completionHandler:(ObtainCoctailsCompletion)completionHandler {
+    assert(NULL != completionHandler);
 
+    NSString *entityName = [ManagedCoctail entityName];
+
+    ObtainCachedObjectsCompletion completion = ^(NSArray<NSManagedObject *> *managedObjects, NSError *error) {
+        NSArray<Coctail *> *coctails = [self plainObjectsFromManagedObjects:managedObjects];
+        completionHandler(coctails, nil);
+    };
+
+    [self.coreCache obtainEntitiesWithName:entityName predicate:predicate completionHandler:[completion copy]];
+}
+
+- (void)obtainDetailsForCoctail:(NSInteger)coctailIdentifier completionHandler:(ObtainCoctailDetailsCompletion)completionHandler {
     assert(0 < coctailIdentifier);
     assert(NULL != completionHandler);
 
@@ -84,22 +93,41 @@
     [self.coreNetwork executeOperation:operation];
 }
 
-#pragma mark - Private helpers
-
-- (void)obtainCachedCoctailsWithPredicate:(nullable NSPredicate *)predicate
-                        completionHandler:(ObtainCoctailsCompletion)completionHandler {
-
+- (void)setFavoritedState:(BOOL)favorited forCoctail:(Coctail *)coctail completionHandler:(ChangeCoctailFavoritedStateCompletion)completionHandler {
+    assert(nil != coctail);
     assert(NULL != completionHandler);
 
-    NSString *entityName = [ManagedCoctail entityName];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"identifier == %@" argumentArray:@[@(coctail.identifier)]];
 
-    ObtainCachedObjectsCompletion completion = ^(NSArray<NSManagedObject *> *managedObjects, NSError *error) {
-        NSArray<Coctail *> *coctails = [self plainObjectsFromManagedObjects:managedObjects];
-        completionHandler(coctails, nil);
+    CountObjectsCompletion completion = ^(NSInteger cachedObjectsCount, NSError * _Nullable error) {
+        if (cachedObjectsCount < 1) {
+            [self cacheCoctails:@[coctail]];
+        } else {
+            NSDictionary *propertiesToUpdate = @{
+                @"favorited": @YES
+            };
+
+            [self.coreCache updateEntitiesWithName:coctail.entityName
+                                         predicate:predicate
+                                propertiesToUpdate:propertiesToUpdate
+                                 completionHandler:^(NSManagedObject * _Nullable managedCoctail, NSError * _Nullable error) {
+
+                if (nil != error) {
+                    completionHandler(coctail, error);
+                } else if (nil != managedCoctail) {
+                    Coctail *updatedCoctail = [[Coctail alloc] initWithManagedObject:managedCoctail];
+                    completionHandler(updatedCoctail, nil);
+                } else {
+                    NSAssert(false, @"Unexpected behaviour in %s. 'coctail' and 'error' are nil.", __PRETTY_FUNCTION__);
+                }
+            }];
+        }
     };
 
-    [self.coreCache obtainObjectsWithEntityName:entityName predicate:predicate completionHandler:[completion copy]];
+    [self.coreCache countCachedEntitiesWithName:coctail.entityName predicate:predicate completionHandler:[completion copy]];
 }
+
+#pragma mark - Private helpers
 
 // TODO: Move this to CacheModelFiller
 - (NSArray<Coctail *> *)plainObjectsFromManagedObjects:(NSArray<NSManagedObject *> *)managedObjects {

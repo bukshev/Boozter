@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)init NS_UNAVAILABLE;
 
-- (void)updateFavoritedStatus:(BOOL)favorited;
+- (void)updateFavoritedState:(BOOL)favorited;
 - (void)updateImageData:(nullable NSData *)imageData;
 - (void)updateAlcoholic:(nullable NSString *)alcoholic;
 - (void)updateCategory:(nullable NSString *)category;

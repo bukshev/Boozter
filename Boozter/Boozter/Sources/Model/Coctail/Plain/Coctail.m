@@ -48,7 +48,7 @@
         && (nil != self.ingredients);
 }
 
-- (void)updateFavoritedStatus:(BOOL)favorited {
+- (void)updateFavoritedState:(BOOL)favorited {
     _favorited = favorited;
 }
 
@@ -90,6 +90,10 @@
 
 #pragma mark - IPlainObject
 
+- (NSString *)entityName {
+    return NSStringFromClass([self class]);
+}
+
 - (instancetype)initWithManagedObject:(NSManagedObject *)managedObject {
     assert(nil != managedObject);
     assert([managedObject isKindOfClass:[ManagedCoctail class]]);
@@ -103,17 +107,17 @@
     NSURL *url = [NSURL URLWithString:managedCoctail.imageURLString];
 
     Coctail *coctail = [self initWithIdentifier:managedCoctail.identifier name:managedCoctail.name imageURL:url];
-    [coctail updateGlassName:managedCoctail.glassName];
-    [coctail updateInstructions:managedCoctail.instructions];
+//    [coctail updateGlassName:managedCoctail.glassName];
+//    [coctail updateInstructions:managedCoctail.instructions];
 
-    if (nil != managedCoctail.ingredients && managedCoctail.ingredients.count > 0) {
-        NSMutableArray *plainIngredients = [NSMutableArray arrayWithCapacity:managedCoctail.ingredients.count];
-        [managedCoctail.ingredients enumerateObjectsUsingBlock:^(ManagedIngredient *managedIngredient, NSUInteger idx, BOOL *stop) {
-            Ingredient *plainIngredient = [[Ingredient alloc] initWithManagedObject:managedIngredient];
-            [plainIngredients addObject:plainIngredient];
-        }];
-        [coctail updateIngredients:plainIngredients];
-    }
+//    if (nil != managedCoctail.ingredients && managedCoctail.ingredients.count > 0) {
+//        NSMutableArray *plainIngredients = [NSMutableArray arrayWithCapacity:managedCoctail.ingredients.count];
+//        [managedCoctail.ingredients enumerateObjectsUsingBlock:^(ManagedIngredient *managedIngredient, NSUInteger idx, BOOL *stop) {
+//            Ingredient *plainIngredient = [[Ingredient alloc] initWithManagedObject:managedIngredient];
+//            [plainIngredients addObject:plainIngredient];
+//        }];
+//        [coctail updateIngredients:plainIngredients];
+//    }
 
     return coctail;
 }

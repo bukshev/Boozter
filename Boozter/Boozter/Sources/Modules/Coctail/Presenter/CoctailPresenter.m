@@ -56,7 +56,7 @@
 - (void)onViewReadyEvent {
     assert(nil != self.coctail.imageURL);
 
-    [self actualizeFavorState];
+    [self actualizeFavorStateOnView];
     [self.view setupInitialStateWithTitle:self.coctail.name];
 
     [self.imageDownloader downloadImageFromURL:self.coctail.imageURL
@@ -68,8 +68,16 @@
 }
 
 - (void)onFavorEvent {
-    [self.coctail updateFavoritedStatus:!self.coctail.isFavorited];
-    [self actualizeFavorState];
+    // TODO: Think about this boolean shit...
+    [self.coctail updateFavoritedState:!self.coctail.isFavorited];
+
+    if (self.coctail.isFavorited) {
+        [self.interactor addToFavoritedCoctail:self.coctail];
+    } else {
+        [self.interactor removeFromFavoritedCoctail:self.coctail];
+    }
+
+    [self actualizeFavorStateOnView];
 }
 
 #pragma mark - ICoctailInteractorOutput
@@ -88,9 +96,18 @@
     assert(nil != error);
 }
 
+- (void)didChangeFavoritedStateForCoctail:(Coctail *)coctail {
+    assert(nil != coctail);
+}
+
+- (void)didFailChangeFavoritedStateForCoctail:(Coctail *)coctail error:(NSError *)error {
+    assert(nil != error);
+    assert(nil != coctail);
+}
+
 #pragma mark - Private helpers
 
-- (void)actualizeFavorState {
+- (void)actualizeFavorStateOnView {
     if (self.coctail.isFavorited) {
         [self.view setFavoritedState];
     } else {
